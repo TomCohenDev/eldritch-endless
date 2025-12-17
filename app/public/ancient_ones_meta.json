@@ -1,0 +1,163 @@
+[
+  {
+    "titles": ["Abhoth"],
+    "difficulty": "Low",
+    "startingDoom": 14,
+    "mythosDeckSize": 16,
+    "mysteries": "3/6",
+    "notes": "",
+    "set": "Under the Pyramids",
+    "requiresSideBoard": null
+  },
+  {
+    "titles": ["Antediluvium"],
+    "difficulty": "Medium",
+    "startingDoom": 13,
+    "mythosDeckSize": 16,
+    "mysteries": "3/6",
+    "notes": "Utilizes Mystic Ruins Encounter deck.",
+    "set": "Masks of Nyarlathotep",
+    "requiresSideBoard": null
+  },
+  {
+    "titles": ["Atlach-Nacha"],
+    "difficulty": "Medium",
+    "startingDoom": 9,
+    "mythosDeckSize": 16,
+    "mysteries": "3/6",
+    "notes": "",
+    "set": "The Dreamlands",
+    "requiresSideBoard": null
+  },
+  {
+    "titles": ["Azathoth"],
+    "difficulty": "Medium",
+    "startingDoom": 15,
+    "mythosDeckSize": 16,
+    "mysteries": "3/6",
+    "notes": "",
+    "set": "Core",
+    "requiresSideBoard": null
+  },
+  {
+    "titles": ["Cthulhu"],
+    "difficulty": "High",
+    "startingDoom": 12,
+    "mythosDeckSize": 15,
+    "mysteries": "3/6",
+    "notes": "",
+    "set": "Core",
+    "requiresSideBoard": null
+  },
+  {
+    "titles": ["Elder Things", "Rise of the Elder Things"],
+    "difficulty": "Low",
+    "startingDoom": 16,
+    "mythosDeckSize": 20,
+    "mysteries": "4/8",
+    "notes": "Utilizes Antarctica side board.",
+    "set": "Mountains of Madness",
+    "requiresSideBoard": "Antarctica"
+  },
+  {
+    "titles": ["Hastur"],
+    "difficulty": "High",
+    "startingDoom": 11,
+    "mythosDeckSize": 17,
+    "mysteries": "2/8",
+    "notes": "",
+    "set": "Signs of Carcosa",
+    "requiresSideBoard": null
+  },
+  {
+    "titles": ["Hypnos"],
+    "difficulty": "Low",
+    "startingDoom": 12,
+    "mythosDeckSize": 16,
+    "mysteries": "3/6",
+    "notes": "Utilizes Dreamlands side board.",
+    "set": "The Dreamlands",
+    "requiresSideBoard": "Dreamlands"
+  },
+  {
+    "titles": ["Ithaqua"],
+    "difficulty": "Medium",
+    "startingDoom": 13,
+    "mythosDeckSize": 16,
+    "mysteries": "3/6",
+    "notes": "",
+    "set": "Mountains of Madness",
+    "requiresSideBoard": null
+  },
+  {
+    "titles": ["Nephren-Ka"],
+    "difficulty": "Medium",
+    "startingDoom": 12,
+    "mythosDeckSize": 15,
+    "mysteries": "3/6",
+    "notes": "Utilizes Egypt side board.",
+    "set": "Under the Pyramids",
+    "requiresSideBoard": "Egypt"
+  },
+  {
+    "titles": ["Nyarlathotep"],
+    "difficulty": "Medium",
+    "startingDoom": 12,
+    "mythosDeckSize": 16,
+    "mysteries": "2/4",
+    "notes": "",
+    "set": "Masks of Nyarlathotep",
+    "requiresSideBoard": null
+  },
+  {
+    "titles": ["Shub-Niggurath"],
+    "difficulty": "Medium",
+    "startingDoom": 13,
+    "mythosDeckSize": 16,
+    "mysteries": "3/6",
+    "notes": "",
+    "set": "Core",
+    "requiresSideBoard": null
+  },
+  {
+    "titles": ["Shudde M'ell"],
+    "difficulty": "High",
+    "startingDoom": 15,
+    "mythosDeckSize": 16,
+    "mysteries": "3/6",
+    "notes": "Utilizes Disaster deck.",
+    "set": "Cities in Ruin",
+    "requiresSideBoard": null
+  },
+  {
+    "titles": ["Syzygy"],
+    "difficulty": "High",
+    "startingDoom": 13,
+    "mythosDeckSize": 18,
+    "mysteries": "?/6",
+    "notes": "Utilizes Mystic Ruins Encounter deck.",
+    "set": "Strange Remnants",
+    "requiresSideBoard": null
+  },
+  {
+    "titles": ["Yig"],
+    "difficulty": "High",
+    "startingDoom": 10,
+    "mythosDeckSize": 16,
+    "mysteries": "3/6",
+    "notes": "",
+    "set": "Forsaken Lore",
+    "requiresSideBoard": null
+  },
+  {
+    "titles": ["Yog-Sothoth"],
+    "difficulty": "Low",
+    "startingDoom": 14,
+    "mythosDeckSize": 16,
+    "mysteries": "3/6",
+    "notes": "",
+    "set": "Core",
+    "requiresSideBoard": null
+  }
+]
+

@@ -1,4 +1,5 @@
 // Wiki data types (from eldritch_horror_data.json)
+// Renamed interface to force cache bust
 export interface WikiPage {
   title: string;
   pageId: number;
@@ -12,7 +13,7 @@ export interface WikiPage {
   rawWikitext: string;
 }
 
-export interface WikiData {
+export interface GameData {
   metadata: {
     source: string;
     scrapedAt: string;
@@ -56,6 +57,21 @@ export interface WikiData {
   allPages: Record<string, WikiPage>;
 }
 
+export type AncientOneDifficulty = 'Low' | 'Medium' | 'High';
+
+export interface AncientOneSetupMeta {
+  difficulty: AncientOneDifficulty;
+  startingDoom: number;
+  mythosDeckSize: number;
+  mysteries: string;
+  notes: string;
+  set: string;
+  requiresSideBoard: 'Antarctica' | 'Dreamlands' | 'Egypt' | null;
+}
+
+// Some screens will attach setup info onto the WikiPage at runtime.
+export type AncientOnePage = WikiPage & { setup?: AncientOneSetupMeta };
+
 // Game state types
 export type GamePhase = 
   | 'setup'
@@ -63,6 +79,44 @@ export type GamePhase =
   | 'encounter'
   | 'mythos'
   | 'resolution';
+
+// Location on the world map (named cities or numbered spaces)
+export interface MapLocation {
+  id: string;           // e.g. "London", "Space 13"
+  name: string;         // Display name: "London", "Arctic Ocean (Space 13)"
+  type: 'City' | 'Sea' | 'Wilderness';
+  realWorld?: string;   // e.g. "Franz Josef Land, Russia"
+}
+
+// Action types available during Action Phase
+export type ActionType = 
+  | 'travel'           // Move to an adjacent space
+  | 'rest'             // Recover 1 Health and 1 Sanity
+  | 'trade'            // Exchange assets/clues with investigator on same space
+  | 'prepare_travel'   // Acquire a Ship or Train ticket
+  | 'acquire_assets'   // Roll Influence to gain assets from reserve
+  | 'component'        // Use a component action (focus, special ability, etc.)
+  | 'local_action';    // Location-specific action (city action)
+
+// Record of a single action taken by an investigator
+export interface ActionRecord {
+  id: string;
+  playerId: string;
+  actionType: ActionType;
+  timestamp: number;
+  round: number;
+  details: {
+    fromLocation?: string;
+    toLocation?: string;
+    healthChange?: number;
+    sanityChange?: number;
+    itemsTraded?: string[];
+    ticketAcquired?: 'ship' | 'train';
+    assetsAcquired?: string[];
+    componentUsed?: string;
+    description?: string;  // Free-form for context
+  };
+}
 
 export interface Player {
   id: string;
@@ -75,6 +129,11 @@ export interface Player {
   conditions: string[];
   assets: string[];
   location: string;
+  
+  // Action phase tracking
+  actionsRemaining: number;   // Starts at 2 each Action Phase
+  shipTickets: number;
+  trainTickets: number;
 }
 
 export interface NarrativeEvent {
@@ -110,6 +169,10 @@ export interface GameState {
   round: number;
   doom: number;
   maxDoom: number;
+  
+  // Action phase tracking
+  activePlayerIndex: number;      // Which player is currently taking actions
+  actionHistory: ActionRecord[];  // Full history of all actions taken (for AI context)
   
   // Narrative tracking
   narrativeLog: NarrativeEvent[];
@@ -152,6 +215,8 @@ export function createInitialGameState(): GameState {
     round: 1,
     doom: 0,
     maxDoom: 15,
+    activePlayerIndex: 0,
+    actionHistory: [],
     narrativeLog: [],
     currentEncounter: null,
     storyContext: {
@@ -161,3 +226,4 @@ export function createInitialGameState(): GameState {
     },
   };
 }
+
