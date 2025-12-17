@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+/* Custom theme using Tailwind v4 CSS variables */
+@theme {
+  /* Cosmic Horror Color Palette */
+  --color-void: #0a0a0f;
+  --color-abyss: #12121a;
+  --color-shadow: #1a1a24;
+  --color-obsidian: #252530;
+  
+  --color-eldritch: #4a1a6b;
+  --color-eldritch-dark: #2d1041;
+  --color-eldritch-light: #6b2d8a;
+  
+  --color-cosmic: #1a3a4a;
+  --color-cosmic-light: #2a5a6a;
+  
+  --color-sickly: #3a4a2a;
+  --color-sickly-light: #5a6a3a;
+  
+  --color-parchment: #d4c4a8;
+  --color-parchment-dark: #a89878;
+  --color-parchment-light: #e8dcc8;
+  
+  --color-blood: #6b1a1a;
+  --color-blood-light: #8a2a2a;
+  
+  --color-gold: #8a7a3a;
+  --color-gold-light: #b8a848;
+  
+  /* Font Families */
+  --font-display: 'Cinzel', serif;
+  --font-body: 'Lora', serif;
+  --font-accent: 'Cormorant SC', serif;
+}
+
+/* Base Styles */
+html {
+  background-color: var(--color-void);
+  color: var(--color-parchment);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  /* Use dynamic viewport height if supported */
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-parchment-light);
+}
+
+/* Font utilities */
+.font-display { font-family: var(--font-display); }
+.font-body { font-family: var(--font-body); }
+.font-accent { 
+  font-family: var(--font-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Helper classes for manual styling if Tailwind classes fail */
+.text-parchment-light { color: var(--color-parchment-light); }
+.text-parchment-dark { color: var(--color-parchment-dark); }
+.text-eldritch-light { color: var(--color-eldritch-light); }
+
+.bg-eldritch { background-color: var(--color-eldritch); }
+.bg-void { background-color: var(--color-void); }
+
+/* Force full height on mobile */
+.min-h-dvh {
+  min-height: 100vh;
+  min-height: 100dvh;
+}

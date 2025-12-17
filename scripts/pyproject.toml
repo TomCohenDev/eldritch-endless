@@ -1,0 +1,12 @@
+[project]
+name = "necronomicon-compiler"
+version = "1.0.0"
+description = "Scrape the entire Eldritch Horror Wiki into structured JSON"
+requires-python = ">=3.10"
+dependencies = [
+    "httpx>=0.27.0",
+]
+
+[project.scripts]
+scrape = "scrape_eldritch:main"
+
