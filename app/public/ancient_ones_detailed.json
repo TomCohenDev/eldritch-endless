@@ -20,6 +20,7 @@
     "awakeningTitle": "Reign of Filth",
     "awakeningFlavor": "For the first time in millennia, Abhoth has ventured forth from its subterranean lair. Its children swarm through the streets of every major city and civilization is on the verge of collapse. Humanity is on its last legs. Soon, Abhoth will reign above all.",
     "awakeningEffects": "space that does not contain a Cultist Monster.\n\nFinal Mystery\nThe Abhoth Epic Monster cannot lose unless 3 Mysteries have been solved.\nWhen the Abhoth Epic Monster is defeated, the Final Mystery is solved and investigators win the game.\n\nThe Source of Uncleanliness\n*Each time would advance, spawn 1 Cultist Monster on a space instead; spawn the Monster on a space that does not contain a Cultist Monster if able. Then, if there are no Cultist Monsters on this sheet, investigators lose the game.\n* : Spawn 1 Cultist Monster on a space that does not contain a Cultist Monster. Then each Cultist Monster recovers all .\n\nNote: The original Doom replacement effect was \"Each time would advance, spawn 1 Cultist Monster on a space that does not contain a Cultist Monster. Then, if there are no Cultist Monsters on this sheet, investigators lose the game.\" The word instead was added to denote this effect as a Doom replacement effect, and the spawn effect was updated to allow Cultist Monsters to be spaw",
+    "finalMystery": "The Abhoth Epic Monster cannot lose unless 3 Mysteries have been solved.\nWhen the Abhoth Epic Monster is defeated, the Final Mystery is solved and",
     "cultistInfo": {
       "raw": ""
     },
@@ -524,6 +525,7 @@
     "awakeningTitle": "Wake the Sleeper of R'lyeh!",
     "awakeningFlavor": "The energy of the civilizations of the past have been harnessed by the Order of Rising Stars, and with it they have dredged up lost R'lyeh from the ocean floor. Within the citadel as its shinging emerald heart, the Sleeper of R'lyeh——the eldritch horror Cthulhu——lives again.",
     "awakeningEffects": ". Place Sanity equal to on this sheet.\n\nFinal Mystery\nThe Cthulhu Epic Monster cannot lose unless 3 Mysteries have been solved.\nWhen the Cthulhu Epic Monster is defeated, the Final Mystery is solved and investigators win the game.\n\nThe Order of Rising Stars\n* Each time would advance, place on this sheet instead.\n* When the Omen advances to the space of the Omen track, Investigators as a group lose equal to the amount of Sanity on this sheet. Then, if all investigators have been eliminated, investigators lose the game.\n\n-1\n}}\n}}",
+    "finalMystery": "The Cthulhu Epic Monster cannot lose unless 3 Mysteries have been solved.\nWhen the Cthulhu Epic Monster is defeated, the Final Mystery is solved and",
     "cultistInfo": {
       "raw": "}}"
     },
@@ -1028,6 +1030,7 @@
     "awakeningTitle": "Cosmic Entanglement",
     "awakeningFlavor": "The final threads of Atlach-Nacha's cosmic web have been stitched into place. In the skies above, the alien stars of the Dreamlands can be seen blinking into existence. The mother of spiders herself has arrived to witness the downfall of all mankind.",
     "awakeningEffects": "unless 3 Mysteries have been solved.\nWhen the Atlach-Nacha Epic Monster is defeated, the Final Mystery is solved and investigators win the game.\n\nThe Dreamweaver\n* Each Gate on a space containing an cannot be closed or discarded.\n* Each time would advance, spawn 1 Gate instead; then place on a space containing a Gate that does not contain an Edlritch token. Then, if there are 5 or more Eldritch tokens on the game board, investigators lose the game.\n* : Spawn 1 Gate unless each investigator spends or discards 1 Spell.\n\n}}\n}}",
+    "finalMystery": "",
     "cultistInfo": {
       "raw": "}}"
     },
@@ -1532,6 +1535,7 @@
     "awakeningTitle": "The World is Devoured!",
     "awakeningFlavor": "Earthquakes and volcanic eruptions tear the Earth's crust apart at a rate faster than the devastation can be recorded or comprehended. As the planet's atmosphere grows increasingly toxic, the insects of Shaggai return to their ships and teleport away, anxious to doom a different world. Eventually, when every living thing on the planet has been reduced to a cinder, a new Outer God emerges from the ruins and joins Azathoth's court at the center of all things.",
     "awakeningEffects": "",
+    "finalMystery": "",
     "cultistInfo": {
       "raw": "}}"
     },
@@ -2036,6 +2040,7 @@
     "awakeningTitle": "Risen From the Sea",
     "awakeningFlavor": "At last the time has come, the deep ones have broken the elder sign that kept their master asleep. Cthulhu rises again, and madness fills the dreams of every living thing.",
     "awakeningEffects": ", he becomes Delayed, loses , and places 1 Sanity token on this sheet.\n* Each time would advance, place token on this sheet instead.\n* : Each investigator loses for each Sanity token on this sheet. Then, if all investigators have been eliminated, investigators lose the game.\n\n}}\n}}",
+    "finalMystery": "",
     "cultistInfo": {
       "raw": "}}"
     },
@@ -2541,6 +2546,7 @@
     "awakeningTitle": "A Dark God",
     "awakeningFlavor": "It wasn't an invasion. The elder things were fleeing the wrath of a Dark God they had once controlled.",
     "awakeningEffects": "token on City of the Elder Things and place on this sheet.\n\nFinal Mystery\nAs an encounter, if 4 Mysteries have been solved, an investigator on City of the Elder Things may confront the Dark God beyond the mountains; he draws and resolves A Dark God Special Encounter.\nWhen there are on this sheet equal to half , the Final Mystery is solved and investigators win the game.\n\nThe Once-Dominant Species\n* After an investigator resolves an Other World Encounter, he may move to Plateau of Leng.\n* Each time would advance, discard from the sheet instead. Then, if there are no Eldritch tokens on this sheet, investigators lose the game.\n\n-2\n}}\n\ntext-bottom\n}}",
+    "finalMystery": "As an encounter, if 4 Mysteries have been solved, an investigator on City of the Elder Things may confront the Dark God beyond the mountains; he draws and resolves A Dark God Special Encounter.\nWhen there are on this sheet equal to half , the Final Mystery is solved and",
     "cultistInfo": {
       "raw": "-1\n}}"
     },
@@ -3086,6 +3092,7 @@
     "awakeningTitle": "The Third Act",
     "awakeningFlavor": "Insanity spreads like wildfire as the agents of Hastur prepare the cities of earth to be swallowed by Lost Carcosa.",
     "awakeningEffects": "; this loss of Sanity cannot be prevented.\n\nFinal Mystery\nAs an encounter, if 2 Mysteries have been solved, an investigator on a space containing a Gate may confront Hastur; he draws and resolves an Unspeakable One Special Encounter.\nWhen there are on this sheet equal to half , the Final Mystery is solved and investigators win the game.\n\nThe Unspeakable One\n* Effects cannot prevent the loss of . \n* Each time would advance, each investigator loses that much instead. Then, if all investigators have been eliminated, investigators lose the game.\n* : Investigators as a group lose equal to the number of Gates on the game board unless the Lead Investigator gains a Blight Condition. \n\n-1\n}}\n\ntext-bottom\n}}",
+    "finalMystery": "As an encounter, if 2 Mysteries have been solved, an investigator on a space containing a Gate may confront Hastur; he draws and resolves an Unspeakable One Special Encounter.\nWhen there are on this sheet equal to half , the Final Mystery is solved and",
     "cultistInfo": {
       "raw": "}}"
     },
@@ -3618,6 +3625,7 @@
     "awakeningTitle": "Corona Borealis",
     "awakeningFlavor": "The Lord of Sleep has conquered the waking world, and those who walk to the land of dream tread on the boundaries of his starry home.",
     "awakeningEffects": "on this sheet equal to half , the Final Mystery is solved and investigators win the game.\n\nThe Lord of Sleep\n* When an investigator performs a Rest action, he cannot recover both and .\n* Each time would advance, place 1 Dream Portal from the game board on this sheet; Dream Portals on this sheet cannot be spawned. Then, if there are no Dream Portals on the game board, investigators lose the game.\n* : Each investigator moves 1 space towards the nearest space on the Dreamlands side board.\n\n}}\n\ntext-bottom\n}}",
+    "finalMystery": "",
     "cultistInfo": {
       "raw": "-1\n}}"
     },
@@ -4122,6 +4130,7 @@
     "awakeningTitle": "Endless Winter",
     "awakeningFlavor": "Ithaqua has escaped his bonds, released by the wizard Eibon who hoped to control him. Ithaqua has grown too strong for Eibon's magic to contain and the Wind-Walker no roams free, covering the world in an endless Winter.",
     "awakeningEffects": "unless 3 Mysteries have been solved.\nWhen the Ithaqua Epic Monster is defeated, the Final Mystery is solved and investigators win the game.\n\nThe Wind-Walker\n*Each time would advance, move the Ithaqua Epic Monster 1 space toward instead. Then, if the Ithaqua Epic Monster is on The Heart of Africa, investigators lose the game.\n* : Each investigator gains a Hypothermia Condition.\n\n+1\n}}\n}}",
+    "finalMystery": "",
     "cultistInfo": {
       "raw": "}}"
     },
@@ -4626,6 +4635,7 @@
     "awakeningTitle": "Tomb of Nephren-Ka",
     "awakeningFlavor": "The lightless temple beneath The Bent Pyramid has risen above the sands, and the insidious Nephren-Ka has returned, though he has yet to realize the full extent of his power.",
     "awakeningEffects": "token on The Bent Pyramid and place on this sheet.\n\nFinal Mystery\nAs an encounter, if 3 Mysteries have been solved, an investigator on The Bent Pyramid may confront Nephren-Ka; he draws and resolves a Dark Pharaoh Special Encounter.\nWhen there are on this sheet equal to half , the Final Mystery is solved and investigators win the game.\n\nThe Dark Pharaoh\n* Investigators on The Pyramids or the Egypt side board cannot recover as part of a Rest action.\n* Each time would advance, discard from this sheet instead. Then, if there are no Eldritch tokens on this sheet, investigators lose the game.\n* : Each investigator may move 1 space toward The Bent Pyramid. Then each investigator that did not move loses .\n\n-1\n}}\n\ntext-bottom\n}}",
+    "finalMystery": "As an encounter, if 3 Mysteries have been solved, an investigator on The Bent Pyramid may confront Nephren-Ka; he draws and resolves a Dark Pharaoh Special Encounter.\nWhen there are on this sheet equal to half , the Final Mystery is solved and",
     "cultistInfo": {
       "raw": "}}"
     },
@@ -5131,6 +5141,7 @@
     "awakeningTitle": "Sealing the Great Gate",
     "awakeningFlavor": "Nyarlathotep awakens...",
     "awakeningEffects": "on the space of the Omen track. Then move the omen to that space withoud advancing Doom.\n\nFinal Mystery\nAfter you resolve an Expedition Encounter or a Mystic Ruins Encounter, you may gain the Eye of Light Unique Asset or the Eye of Darkness Unique Asset.\nAt the beginning of the Mythos Phase, if 2 Mysteries have been solved, and all investigators are on the same space, and they possess both the Eye of Light and the Eye of Darkness, each investigator may spend a total of 6 and/or to complete the Final Mystery; investigators win the game.\n\nThe Crawling Chaos\n* When you have equal to or greater than your maximum , you are devoured.\n* Each time would advance, each investigator gains instead. Then, if all investigators have been eliminated, investigators lose the game.\n* When the Omen advances to the space of the Omen track, investigators lose the game.\n\n-1\n}}\n}}",
+    "finalMystery": "After you resolve an Expedition Encounter or a Mystic Ruins Encounter, you may gain the Eye of Light Unique Asset or the Eye of Darkness Unique Asset.\nAt the beginning of the Mythos Phase, if 2 Mysteries have been solved, and all investigators are on the same space, and they possess both the Eye of Light and the Eye of Darkness, each investigator may spend a total of 6 and/or to complete the Final Mystery;",
     "cultistInfo": {
       "raw": "-1\n}}"
     },
@@ -5607,6 +5618,7 @@
     "awakeningTitle": "Battle in the Woods",
     "awakeningFlavor": "The feral mother of all monstrosities has manifested! She is an enormous cloud from which dozens of tentacles extend and retract. Wherever she goes, she leaves behind large hoof prints. To behold her true, terrifying form is to come face to face with true, primal horror.",
     "awakeningEffects": "would advance, spawn 1 Monster on the space containing the Shub-Niggurath Epic Monster. Then, is there are 6 or more Monsters on that space (including the Shub-Niggurath Epic Monster), investigators lose the game.\n* : Each investigator on the space containing the Shub-Niggurath Epic Monster immediately encounters it.\n\n-2\n}}\n\nNote: The original text of \"Shub-Niggurath Awakens!\" was \"Spawn the Shub-Niggurath Epic Monster on The Heart of Africa. Then move all Ghoul, Goat Spawn, and Dark Young Monsters on the map to that space.\" With the addition of side boards, map has been changed to game board to include both the original map and all side boards in play.\n}}",
+    "finalMystery": "",
     "cultistInfo": {
       "raw": "-1\n}}"
     },
@@ -6111,6 +6123,7 @@
     "awakeningTitle": "The World Trembles",
     "awakeningFlavor": "Shudde M'ell bursts forth from his subterranean abode, cracking the earth asunder and visiting unparalleled devastation upon the cities of earth.",
     "awakeningEffects": ".\n* Each time would advance, draw and resolve a Disaster instead.\n* After resolving a Disaster, set that card aside. Then, if there are 6 or more Disasters set aside, investigators lose the game.\n* : An Ancient Cthonian Epic Monster ambushes the Lead Investigator.\n\n-1\n}}\n}}",
+    "finalMystery": "",
     "cultistInfo": {
       "raw": "-1\n}}"
     },
@@ -6615,6 +6628,7 @@
     "awakeningTitle": "Sealing the Portal",
     "awakeningFlavor": "The solar eclipse has begun, shrouding the Earth in darkness. Azathoth's gaze falls upon humanity. Only the power left behind by those who once fought the outer gods can close the portal.",
     "awakeningEffects": "on this sheet for each solved Mystery.\nThen shuffle the Mystic Ruins Encounter deck.\n\nFinal Mystery\nAs an encounter, an investigator on the Mystic Ruins space may draw and resolve a Sealing the Portal Special Encounter.\nAt the end of the Mythos Phase, if there are on this sheet equal to half + 2, the Final Mystery has been solved and investigators win the game.\n\nThe Cosmic Alignment\n* When an investigator is defeated or devoured, that player is not eliminated.\n* When the Omen advances to the space of the Omen track, shuffle the Mystic Ruins Encounter deck.\n* When advances to zero, investigators lose the game.\n* : If there are no Gates on the game board that correspond to the current Omen, advance the Omen by 1.\n\n}}\n\ntext-bottom",
+    "finalMystery": "As an encounter, an investigator on the Mystic Ruins space may draw and resolve a Sealing the Portal Special Encounter.\nAt the end of the Mythos Phase, if there are on this sheet equal to half + 2, the Final Mystery has been solved and",
     "cultistInfo": {
       "raw": "+1\n}}"
     },
@@ -7119,6 +7133,7 @@
     "awakeningTitle": "Serpent's Nest",
     "awakeningFlavor": "The serpent people have regained the favor of Yig and now call upon him to rid their kingdom of the wretched humans that infest it.",
     "awakeningEffects": "on this sheet.\n\nFinal Mystery\nWhen 3 Mysteries have been solved, you have discovered Yig's hiding place in Central America; move each Cultist Monster on the game board to Space 7 and spawn the Yig Epic Monster on that space.\nWhen the Yig Epic Monster is defeated, the Final Mystery is solved and investigators win the game.\n\nThe Father of Serpents\n* When an investigator is defeated or devoured, that player is not eliminated.\n* Each time would advance, discard from this sheet instead. Then, if there are no Eldritch tokens on this sheet, investigators lose the game.\n* Each time would retreat, 1 investigator may discard a Cursed Condition instead.\n* : Spawn 1 Cultist Monster on a space containing a token, , or Epic Monster.\n\n}}\n}}",
+    "finalMystery": "",
     "cultistInfo": {
       "raw": "}}"
     },
@@ -7623,6 +7638,7 @@
     "awakeningTitle": "The Key and the Gate",
     "awakeningFlavor": "The ancient horror tears apart the walls between worlds, pouring itself through the cracks in reality.",
     "awakeningEffects": "on this sheet equal to half , the Final Mystery is solved and investigators win the game.\n\nLurker at the Threshold\n*Each time a Gate would cause to advance, place that Gate on this sheet instead. Each time any other effect would cause Doom to advance, place 1 Gate from the Gate stack on this sheet instead. Then, if there are 3 or more Gates on this sheet, investigators lose the game.\n* : Each investigator on a space containing a Gate places that Gate on this sheet unless he discards 1 Spell.\n\n-1\n}}\n\ntext-bottom\n}}",
+    "finalMystery": "",
     "cultistInfo": {
       "raw": "}}"
     },
