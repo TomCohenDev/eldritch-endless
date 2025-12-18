@@ -180,7 +180,7 @@ export function useGameData() {
         if (!res.ok) throw new Error("Failed to load ancient one table");
         return res.json();
       }),
-      fetch("/ancient_ones_detailed.json?v=3").then((res) => {
+      fetch("/ancient_ones_detailed.json?v=4").then((res) => {
         if (!res.ok) throw new Error("Failed to load ancient one details");
         return res.json();
       }),
