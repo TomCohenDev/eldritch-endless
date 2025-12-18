@@ -116,21 +116,33 @@ def get_title_section(sections: dict, title: str) -> str:
 
 def extract_final_mystery(sections: dict) -> str:
     """Extract Final Mystery text from Awakening or Gameplay sections."""
-    # Try awakening first
+    # Try awakening first for explicit "Final Mystery" section
     awakening_text = sections.get('Awakening', '')
     gameplay_text = sections.get('Gameplay', '')
     
     # Combine both to search
     combined = awakening_text + '\n' + gameplay_text
     
-    # Look for Final Mystery section
+    # Look for explicit "Final Mystery" section (Epic Monster awakening)
     # Pattern: '''Final Mystery''' followed by content until the next section header
-    # Section headers are '''Section Name''' at the start of a line or after newlines
     match = re.search(r"'''Final Mystery'''(.+?)(?:\n'''[A-Z]|$)", combined, re.DOTALL | re.IGNORECASE)
     
     if match:
         final_mystery = match.group(1).strip()
         return strip_wiki_markup(final_mystery)[:1200]
+    
+    # Fallback: Extract victory condition from Gameplay section
+    # Pattern: sentence containing "3 Mysteries" or "X Mysteries" and "win the game"
+    victory_match = re.search(r"([^.]*?\d+\s+Mysteries[^.]*?win the game[^.]*\.)", gameplay_text, re.IGNORECASE)
+    
+    if victory_match:
+        return strip_wiki_markup(victory_match.group(1).strip())[:1200]
+    
+    # Another pattern: "When X Mysteries have been solved, investigators win the game"
+    simple_victory = re.search(r"When\s+\d+\s+Mysteries\s+have\s+been\s+solved[^.]*?win[^.]*\.", gameplay_text, re.IGNORECASE)
+    
+    if simple_victory:
+        return strip_wiki_markup(simple_victory.group(0).strip())[:1200]
     
     return ""
 

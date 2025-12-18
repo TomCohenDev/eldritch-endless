@@ -1,7 +1,9 @@
 [
   {
     "name": "Abhoth",
-    "titles": ["Abhoth"],
+    "titles": [
+      "Abhoth"
+    ],
     "pageId": 149,
     "difficulty": "Low",
     "startingDoom": 14,
@@ -504,7 +506,9 @@
   },
   {
     "name": "Antediluvium",
-    "titles": ["Antediluvium"],
+    "titles": [
+      "Antediluvium"
+    ],
     "pageId": 1600,
     "difficulty": "Medium",
     "startingDoom": 13,
@@ -1007,7 +1011,9 @@
   },
   {
     "name": "Atlach-Nacha",
-    "titles": ["Atlach-Nacha"],
+    "titles": [
+      "Atlach-Nacha"
+    ],
     "pageId": 1052,
     "difficulty": "Medium",
     "startingDoom": 9,
@@ -1024,7 +1030,7 @@
     "awakeningTitle": "Cosmic Entanglement",
     "awakeningFlavor": "The final threads of Atlach-Nacha's cosmic web have been stitched into place. In the skies above, the alien stars of the Dreamlands can be seen blinking into existence. The mother of spiders herself has arrived to witness the downfall of all mankind.",
     "awakeningEffects": "unless 3 Mysteries have been solved.\nWhen the Atlach-Nacha Epic Monster is defeated, the Final Mystery is solved and investigators win the game.\n\nThe Dreamweaver\n* Each Gate on a space containing an cannot be closed or discarded.\n* Each time would advance, spawn 1 Gate instead; then place on a space containing a Gate that does not contain an Edlritch token. Then, if there are 5 or more Eldritch tokens on the game board, investigators lose the game.\n* : Spawn 1 Gate unless each investigator spends or discards 1 Spell.\n\n}}\n}}",
-    "finalMystery": "",
+    "finalMystery": "* When 3 Mysteries have been solved, investigators win the game.",
     "cultistInfo": {
       "raw": "}}"
     },
@@ -1510,7 +1516,9 @@
   },
   {
     "name": "Azathoth",
-    "titles": ["Azathoth"],
+    "titles": [
+      "Azathoth"
+    ],
     "pageId": 142,
     "difficulty": "Medium",
     "startingDoom": 15,
@@ -1527,7 +1535,7 @@
     "awakeningTitle": "The World is Devoured!",
     "awakeningFlavor": "Earthquakes and volcanic eruptions tear the Earth's crust apart at a rate faster than the devastation can be recorded or comprehended. As the planet's atmosphere grows increasingly toxic, the insects of Shaggai return to their ships and teleport away, anxious to doom a different world. Eventually, when every living thing on the planet has been reduced to a cinder, a new Outer God emerges from the ruins and joins Azathoth's court at the center of all things.",
     "awakeningEffects": "",
-    "finalMystery": "",
+    "finalMystery": "* When 3 Mysteries have been solved, investigators win the game.",
     "cultistInfo": {
       "raw": "}}"
     },
@@ -2013,7 +2021,9 @@
   },
   {
     "name": "Cthulhu",
-    "titles": ["Cthulhu"],
+    "titles": [
+      "Cthulhu"
+    ],
     "pageId": 103,
     "difficulty": "High",
     "startingDoom": 12,
@@ -2030,7 +2040,7 @@
     "awakeningTitle": "Risen From the Sea",
     "awakeningFlavor": "At last the time has come, the deep ones have broken the elder sign that kept their master asleep. Cthulhu rises again, and madness fills the dreams of every living thing.",
     "awakeningEffects": ", he becomes Delayed, loses , and places 1 Sanity token on this sheet.\n* Each time would advance, place token on this sheet instead.\n* : Each investigator loses for each Sanity token on this sheet. Then, if all investigators have been eliminated, investigators lose the game.\n\n}}\n}}",
-    "finalMystery": "",
+    "finalMystery": "* When 3 Mysteries have been solved, investigators win the game.",
     "cultistInfo": {
       "raw": "}}"
     },
@@ -2516,7 +2526,10 @@
   },
   {
     "name": "Elder Things",
-    "titles": ["Elder Things", "Rise of the Elder Things"],
+    "titles": [
+      "Elder Things",
+      "Rise of the Elder Things"
+    ],
     "pageId": 146,
     "difficulty": "Low",
     "startingDoom": 16,
@@ -3060,7 +3073,9 @@
   },
   {
     "name": "Hastur",
-    "titles": ["Hastur"],
+    "titles": [
+      "Hastur"
+    ],
     "pageId": 305,
     "difficulty": "High",
     "startingDoom": 11,
@@ -3591,7 +3606,9 @@
   },
   {
     "name": "Hypnos",
-    "titles": ["Hypnos"],
+    "titles": [
+      "Hypnos"
+    ],
     "pageId": 1051,
     "difficulty": "Low",
     "startingDoom": 12,
@@ -3608,7 +3625,7 @@
     "awakeningTitle": "Corona Borealis",
     "awakeningFlavor": "The Lord of Sleep has conquered the waking world, and those who walk to the land of dream tread on the boundaries of his starry home.",
     "awakeningEffects": "on this sheet equal to half , the Final Mystery is solved and investigators win the game.\n\nThe Lord of Sleep\n* When an investigator performs a Rest action, he cannot recover both and .\n* Each time would advance, place 1 Dream Portal from the game board on this sheet; Dream Portals on this sheet cannot be spawned. Then, if there are no Dream Portals on the game board, investigators lose the game.\n* : Each investigator moves 1 space towards the nearest space on the Dreamlands side board.\n\n}}\n\ntext-bottom\n}}",
-    "finalMystery": "",
+    "finalMystery": "* When 3 Mysteries have been solved, investigators win the game.",
     "cultistInfo": {
       "raw": "-1\n}}"
     },
@@ -4094,7 +4111,9 @@
   },
   {
     "name": "Ithaqua",
-    "titles": ["Ithaqua"],
+    "titles": [
+      "Ithaqua"
+    ],
     "pageId": 145,
     "difficulty": "Medium",
     "startingDoom": 13,
@@ -4111,7 +4130,7 @@
     "awakeningTitle": "Endless Winter",
     "awakeningFlavor": "Ithaqua has escaped his bonds, released by the wizard Eibon who hoped to control him. Ithaqua has grown too strong for Eibon's magic to contain and the Wind-Walker no roams free, covering the world in an endless Winter.",
     "awakeningEffects": "unless 3 Mysteries have been solved.\nWhen the Ithaqua Epic Monster is defeated, the Final Mystery is solved and investigators win the game.\n\nThe Wind-Walker\n*Each time would advance, move the Ithaqua Epic Monster 1 space toward instead. Then, if the Ithaqua Epic Monster is on The Heart of Africa, investigators lose the game.\n* : Each investigator gains a Hypothermia Condition.\n\n+1\n}}\n}}",
-    "finalMystery": "",
+    "finalMystery": "* When 3 Mysteries have been solved, investigators win the game.",
     "cultistInfo": {
       "raw": "}}"
     },
@@ -4597,7 +4616,9 @@
   },
   {
     "name": "Nephren-Ka",
-    "titles": ["Nephren-Ka"],
+    "titles": [
+      "Nephren-Ka"
+    ],
     "pageId": 148,
     "difficulty": "Medium",
     "startingDoom": 12,
@@ -5101,7 +5122,9 @@
   },
   {
     "name": "Nyarlathotep",
-    "titles": ["Nyarlathotep"],
+    "titles": [
+      "Nyarlathotep"
+    ],
     "pageId": 1594,
     "difficulty": "Medium",
     "startingDoom": 12,
@@ -5576,7 +5599,9 @@
   },
   {
     "name": "Shub-Niggurath",
-    "titles": ["Shub-Niggurath"],
+    "titles": [
+      "Shub-Niggurath"
+    ],
     "pageId": 140,
     "difficulty": "Medium",
     "startingDoom": 13,
@@ -5593,7 +5618,7 @@
     "awakeningTitle": "Battle in the Woods",
     "awakeningFlavor": "The feral mother of all monstrosities has manifested! She is an enormous cloud from which dozens of tentacles extend and retract. Wherever she goes, she leaves behind large hoof prints. To behold her true, terrifying form is to come face to face with true, primal horror.",
     "awakeningEffects": "would advance, spawn 1 Monster on the space containing the Shub-Niggurath Epic Monster. Then, is there are 6 or more Monsters on that space (including the Shub-Niggurath Epic Monster), investigators lose the game.\n* : Each investigator on the space containing the Shub-Niggurath Epic Monster immediately encounters it.\n\n-2\n}}\n\nNote: The original text of \"Shub-Niggurath Awakens!\" was \"Spawn the Shub-Niggurath Epic Monster on The Heart of Africa. Then move all Ghoul, Goat Spawn, and Dark Young Monsters on the map to that space.\" With the addition of side boards, map has been changed to game board to include both the original map and all side boards in play.\n}}",
-    "finalMystery": "",
+    "finalMystery": "* When 3 Mysteries have been solved, investigators win the game.",
     "cultistInfo": {
       "raw": "-1\n}}"
     },
@@ -6079,7 +6104,9 @@
   },
   {
     "name": "Shudde M'ell",
-    "titles": ["Shudde M'ell"],
+    "titles": [
+      "Shudde M'ell"
+    ],
     "pageId": 1255,
     "difficulty": "High",
     "startingDoom": 15,
@@ -6096,7 +6123,7 @@
     "awakeningTitle": "The World Trembles",
     "awakeningFlavor": "Shudde M'ell bursts forth from his subterranean abode, cracking the earth asunder and visiting unparalleled devastation upon the cities of earth.",
     "awakeningEffects": ".\n* Each time would advance, draw and resolve a Disaster instead.\n* After resolving a Disaster, set that card aside. Then, if there are 6 or more Disasters set aside, investigators lose the game.\n* : An Ancient Cthonian Epic Monster ambushes the Lead Investigator.\n\n-1\n}}\n}}",
-    "finalMystery": "",
+    "finalMystery": "* When 3 Mysteries have been solved, investigators win the game.",
     "cultistInfo": {
       "raw": "-1\n}}"
     },
@@ -6582,7 +6609,9 @@
   },
   {
     "name": "Syzygy",
-    "titles": ["Syzygy"],
+    "titles": [
+      "Syzygy"
+    ],
     "pageId": 147,
     "difficulty": "High",
     "startingDoom": 13,
@@ -7085,7 +7114,9 @@
   },
   {
     "name": "Yig",
-    "titles": ["Yig"],
+    "titles": [
+      "Yig"
+    ],
     "pageId": 144,
     "difficulty": "High",
     "startingDoom": 10,
@@ -7588,7 +7619,9 @@
   },
   {
     "name": "Yog-Sothoth",
-    "titles": ["Yog-Sothoth"],
+    "titles": [
+      "Yog-Sothoth"
+    ],
     "pageId": 143,
     "difficulty": "Low",
     "startingDoom": 14,
@@ -7605,7 +7638,7 @@
     "awakeningTitle": "The Key and the Gate",
     "awakeningFlavor": "The ancient horror tears apart the walls between worlds, pouring itself through the cracks in reality.",
     "awakeningEffects": "on this sheet equal to half , the Final Mystery is solved and investigators win the game.\n\nLurker at the Threshold\n*Each time a Gate would cause to advance, place that Gate on this sheet instead. Each time any other effect would cause Doom to advance, place 1 Gate from the Gate stack on this sheet instead. Then, if there are 3 or more Gates on this sheet, investigators lose the game.\n* : Each investigator on a space containing a Gate places that Gate on this sheet unless he discards 1 Spell.\n\n-1\n}}\n\ntext-bottom\n}}",
-    "finalMystery": "",
+    "finalMystery": "* When 3 Mysteries have been solved, investigators win the game.",
     "cultistInfo": {
       "raw": "}}"
     },
