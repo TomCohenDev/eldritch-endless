@@ -1,22 +1,40 @@
 import { createContext, useContext, useEffect, useState, useCallback, type ReactNode } from 'react';
 import { createInitialGameState } from '../types';
-import type { AncientOnePage, WikiPage, GameState, GamePhase, Player, NarrativeEvent, ActionType, ActionRecord } from '../types';
+import type { 
+  AncientOnePage, 
+  WikiPage, 
+  GameState, 
+  GamePhase, 
+  Player, 
+  NarrativeEvent, 
+  ActionType, 
+  ActionRecord,
+  PlotContext,
+  GeneratePlotRequest,
+} from '../types';
 import { useGameData } from '../hooks/useGameData';
+import { generatePlot } from '../api';
 
 const STORAGE_KEY = 'eldritch-endless-state';
 
 interface GameContextValue {
   state: GameState;
   hasSavedGame: boolean;
+  isGeneratingPlot: boolean;
   
   // Game lifecycle
   startNewGame: (playerCount: number) => void;
-  confirmSetup: () => void;
+  confirmSetupAndGeneratePlot: () => Promise<boolean>;  // Async - generates plot, returns true on success
   clearGame: () => void;
   
   // Setup flow
   setAncientOne: (ancientOne: AncientOnePage) => void;
   setPlayerInvestigator: (playerIndex: number, investigator: WikiPage) => void;
+  
+  // Plot management
+  setPlotContext: (plotContext: PlotContext) => void;
+  updatePlotTension: (tension: number) => void;
+  addPlotPoint: (plotPoint: string) => void;
   
   // Player management
   addPlayer: (name: string) => void;
@@ -95,6 +113,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<GameState>(() => {
     return loadSavedState() || createInitialGameState();
   });
+  const [isGeneratingPlot, setIsGeneratingPlot] = useState(false);
 
   const { helpers } = useGameData();
 
@@ -190,14 +209,49 @@ export function GameProvider({ children }: { children: ReactNode }) {
     });
   }, [helpers]);
 
-  const confirmSetup = useCallback(() => {
-    setState(prev => {
-      // Validate that setup is complete (all players have investigators, AO selected)
-      // For now just proceed
-      
-      return {
+  /**
+   * Confirm setup and generate the plot context via AI
+   * This is called when "Summon the Darkness" is clicked
+   * Returns true if plot generation succeeded, false otherwise
+   */
+  const confirmSetupAndGeneratePlot = useCallback(async (): Promise<boolean> => {
+    // Validate setup is complete
+    if (!state.ancientOne || state.players.some(p => !p.investigator)) {
+      console.error('Cannot start game: setup incomplete');
+      return false;
+    }
+
+    setIsGeneratingPlot(true);
+
+    try {
+      // Build the plot generation request
+      const request: GeneratePlotRequest = {
+        sessionId: state.sessionId,
+        ancientOne: helpers.extractAncientOneContext(state.ancientOne),
+        investigators: state.players
+          .filter(p => p.investigator)
+          .map(p => helpers.extractInvestigatorContext(p.investigator!)),
+        playerCount: state.playerCount,
+        startingDoom: state.doom,
+      };
+
+      // Call the n8n webhook to generate the plot
+      // This will wait for the API response or timeout
+      const plotContext = await generatePlot(request);
+
+      // Update investigator threads with actual player IDs
+      const threadsWithIds = plotContext.investigatorThreads.map((thread, idx) => ({
+        ...thread,
+        playerId: state.players[idx]?.id || thread.playerId,
+      }));
+
+      setState(prev => ({
         ...prev,
         phase: 'action', // Begin game
+        plotContext: {
+          ...plotContext,
+          investigatorThreads: threadsWithIds,
+        },
         narrativeLog: [
           ...prev.narrativeLog,
           {
@@ -205,9 +259,60 @@ export function GameProvider({ children }: { children: ReactNode }) {
             timestamp: Date.now(),
             type: 'story',
             title: 'The Ritual Begins',
-            content: `The Investigators have gathered. ${prev.ancientOne?.title || 'An Ancient Horror'} stirs in the void. The doom track stands at ${prev.doom}.`,
+            content: plotContext.premise || 
+              `The Investigators have gathered. ${prev.ancientOne?.title || 'An Ancient Horror'} stirs in the void. The doom track stands at ${prev.doom}.`,
           }
         ]
+      }));
+
+      setIsGeneratingPlot(false);
+      return true; // Success
+    } catch (error) {
+      console.error('Failed to generate plot:', error);
+      setIsGeneratingPlot(false);
+      // Don't update state or navigate - stay on setup screen
+      return false; // Failure - app should not continue
+    }
+  }, [state.ancientOne, state.players, state.sessionId, state.playerCount, state.doom, helpers]);
+
+  /**
+   * Set the plot context directly (for testing or manual override)
+   */
+  const setPlotContext = useCallback((plotContext: PlotContext) => {
+    setState(prev => ({
+      ...prev,
+      plotContext,
+    }));
+  }, []);
+
+  /**
+   * Update the current tension level in the plot
+   */
+  const updatePlotTension = useCallback((tension: number) => {
+    setState(prev => {
+      if (!prev.plotContext) return prev;
+      return {
+        ...prev,
+        plotContext: {
+          ...prev.plotContext,
+          currentTension: Math.max(0, Math.min(10, tension)),
+        },
+      };
+    });
+  }, []);
+
+  /**
+   * Add a major plot point to the story context
+   */
+  const addPlotPoint = useCallback((plotPoint: string) => {
+    setState(prev => {
+      if (!prev.plotContext) return prev;
+      return {
+        ...prev,
+        plotContext: {
+          ...prev.plotContext,
+          majorPlotPoints: [...prev.plotContext.majorPlotPoints, plotPoint],
+        },
       };
     });
   }, []);
@@ -529,11 +634,15 @@ export function GameProvider({ children }: { children: ReactNode }) {
   const value: GameContextValue = {
     state,
     hasSavedGame,
+    isGeneratingPlot,
     startNewGame,
-    confirmSetup,
+    confirmSetupAndGeneratePlot,
     clearGame,
     setAncientOne,
     setPlayerInvestigator,
+    setPlotContext,
+    updatePlotTension,
+    addPlotPoint,
     addPlayer,
     updatePlayer,
     advancePhase,

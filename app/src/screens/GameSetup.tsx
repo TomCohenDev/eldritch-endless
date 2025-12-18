@@ -9,7 +9,9 @@ import {
   Search,
   Check,
   User,
-  ArrowLeft
+  ArrowLeft,
+  Loader2,
+  Star
 } from 'lucide-react';
 import { useGame } from '../context/GameContext';
 import { useGameData } from '../hooks/useGameData';
@@ -24,7 +26,8 @@ export function GameSetup() {
     startNewGame, 
     setAncientOne, 
     setPlayerInvestigator, 
-    confirmSetup 
+    confirmSetupAndGeneratePlot,
+    isGeneratingPlot
   } = useGame();
   
   const { ancientOnes, investigators, helpers, loading } = useGameData();
@@ -73,12 +76,60 @@ export function GameSetup() {
     return state.players.filter(p => !p.investigator).length;
   };
 
-  const handleFinishSetup = () => {
-    confirmSetup();
-    navigate('/game');
+  const handleFinishSetup = async () => {
+    const success = await confirmSetupAndGeneratePlot();
+    // Only navigate if plot generation succeeded
+    if (success) {
+      navigate('/game');
+    } else {
+      // Show error message to user
+      alert('Failed to generate plot. Please try again.');
+    }
   };
 
   // --- Render Functions ---
+
+  // Show ritual loading screen while generating plot
+  if (isGeneratingPlot) {
+    return (
+      <div className="fixed inset-0 flex items-center justify-center bg-void p-6 z-50">
+        <div className="flex flex-col items-center justify-center max-w-md w-full">
+          {/* Animated eldritch symbol */}
+          <div className="relative w-32 h-32 mb-8">
+            <div className="absolute inset-0 rounded-full border-2 border-eldritch-dark animate-ping opacity-20" />
+            <div className="absolute inset-2 rounded-full border border-eldritch animate-pulse" />
+            <div className="absolute inset-4 rounded-full border border-cosmic-light opacity-60 animate-spin" style={{ animationDuration: '3s' }} />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <Star className="w-12 h-12 text-eldritch-light animate-pulse" />
+            </div>
+          </div>
+          
+          {/* Loading text */}
+          <div className="text-center w-full">
+            <h2 className="font-display text-2xl text-parchment-light mb-3">
+              The Stars Align...
+            </h2>
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <Loader2 className="w-4 h-4 text-eldritch-light animate-spin" />
+              <p className="font-accent text-sm text-parchment-dark">
+                Weaving the threads of fate
+              </p>
+            </div>
+            <p className="font-body text-xs text-parchment-dark/70 max-w-xs mx-auto">
+              {state.ancientOne?.title} stirs in the darkness as the investigators' destinies intertwine...
+            </p>
+          </div>
+        </div>
+        
+        {/* Atmospheric background elements */}
+        <div className="fixed inset-0 pointer-events-none overflow-hidden -z-10">
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-eldritch/5 blur-3xl animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/4 w-48 h-48 rounded-full bg-cosmic/5 blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute top-1/2 right-1/3 w-32 h-32 rounded-full bg-blood/5 blur-2xl animate-pulse" style={{ animationDelay: '0.5s' }} />
+        </div>
+      </div>
+    );
+  }
 
   if (loading) {
     return (
@@ -316,15 +367,26 @@ export function GameSetup() {
 
       <button
         onClick={handleFinishSetup}
-        className="touch-target w-full flex items-center justify-center gap-3 px-8 py-4 bg-blood hover:bg-blood-light text-parchment-light font-display text-lg tracking-wide rounded shadow-lg shadow-blood/20 transition-all"
+        disabled={isGeneratingPlot}
+        className="touch-target w-full flex items-center justify-center gap-3 px-8 py-4 bg-blood hover:bg-blood-light text-parchment-light font-display text-lg tracking-wide rounded shadow-lg shadow-blood/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        <Skull className="w-5 h-5" />
-        Summon the Darkness
+        {isGeneratingPlot ? (
+          <>
+            <Loader2 className="w-5 h-5 animate-spin" />
+            Summoning...
+          </>
+        ) : (
+          <>
+            <Skull className="w-5 h-5" />
+            Summon the Darkness
+          </>
+        )}
       </button>
 
       <button
         onClick={() => setStep('investigators')}
-        className="mt-4 text-parchment-dark hover:text-parchment text-sm text-center"
+        disabled={isGeneratingPlot}
+        className="mt-4 text-parchment-dark hover:text-parchment text-sm text-center disabled:opacity-50"
       >
         Go Back
       </button>
