@@ -7,10 +7,28 @@ export function useGameData() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  // Initialize meta map from window cache if available
+  useEffect(() => {
+    // @ts-ignore
+    if (window.__ELDRITCH_META__) {
+      // @ts-ignore
+      const metaJson = window.__ELDRITCH_META__;
+      const metaMap = new Map<string, AncientOneSetupMeta>();
+      for (const entry of metaJson as Array<{ titles: string[] } & AncientOneSetupMeta>) {
+        for (const t of entry.titles) {
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          const { titles, ...rest } = entry;
+          metaMap.set(t, rest);
+        }
+      }
+      setAncientOneMeta(metaMap);
+    }
+  }, []);
+
   useEffect(() => {
     // Check if data is already loaded in window object (simple cache)
     // @ts-ignore
-    if (window.__ELDRITCH_DATA__) {
+    if (window.__ELDRITCH_DATA__ && window.__ELDRITCH_META__) {
       // @ts-ignore
       setData(window.__ELDRITCH_DATA__);
       setLoading(false);
@@ -30,6 +48,9 @@ export function useGameData() {
       .then(([json, metaJson]) => {
         // @ts-ignore
         window.__ELDRITCH_DATA__ = json;
+        // @ts-ignore
+        window.__ELDRITCH_META__ = metaJson;
+        
         setData(json as GameData);
 
         const metaMap = new Map<string, AncientOneSetupMeta>();
@@ -260,10 +281,13 @@ export function useGameData() {
       { title: 'Ancient Ones', pageId: -3, categories: [], infobox: {}, cardData: {}, sections: {}, links: [], templates: [], fullText: `${ancientOnes.length} ancient ones`, rawWikitext: '' },
     ];
 
+    // Single placeholder card for general encounters
+    const generalCard: WikiPage[] = [
+      { title: 'General Encounter', pageId: -10, categories: [], infobox: {}, cardData: {}, sections: {}, links: [], templates: [], fullText: 'City, Sea, or Wilderness encounter based on location', rawWikitext: '' },
+    ];
+
     const result: { category: string; label: string; cards: WikiPage[]; subCategories?: { [key: string]: WikiPage[] } }[] = [
-      { category: 'city', label: 'City Encounters', cards: cityCard },
-      { category: 'sea', label: 'Sea Encounters', cards: seaCard },
-      { category: 'wilderness', label: 'Wilderness Encounters', cards: wildernessCard },
+      { category: 'general', label: 'General Encounter', cards: generalCard },
       { category: 'locationRegion', label: 'Location Encounters', cards: locationCards },
       { 
         category: 'combat', 
@@ -276,10 +300,19 @@ export function useGameData() {
         }
       },
       { category: 'research', label: 'Research Encounters', cards: enc.research },
-      { category: 'otherWorld', label: 'Other World Encounters', cards: enc.otherWorld },
+      { 
+        category: 'otherWorld', 
+        label: 'Other World Encounters', 
+        cards: enc.otherWorld.map(ow => ({
+          ...ow,
+          title: ow.title,
+          fullText: `${ow.title} - Select to generate encounter`,
+        })),
+        subCategories: Object.fromEntries(
+          enc.otherWorld.map(ow => [ow.title, [ow]])
+        )
+      },
       { category: 'expedition', label: 'Expedition Encounters', cards: enc.expedition },
-      { category: 'mysticRuins', label: 'Mystic Ruins Encounters', cards: enc.mysticRuins },
-      { category: 'dreamQuest', label: 'Dream Quest Encounters', cards: enc.dreamQuest },
       { category: 'devastation', label: 'Devastation Encounters', cards: enc.devastation },
       { category: 'special', label: 'Special Encounters', cards: enc.special },
     ];

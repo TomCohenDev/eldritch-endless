@@ -1,5 +1,24 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+
+// Encounter card images
+import africaCard from '../assets/encounter-cards/Africa_Encounter.webp';
+import americasCard from '../assets/encounter-cards/Americas_Encounter.webp';
+import asiaAustraliaCard from '../assets/encounter-cards/Asia-Australia_Encounter.webp';
+import azathothCard from '../assets/encounter-cards/Azathoth_Research_Encounter.webp';
+import devastationCard from '../assets/encounter-cards/Devastation_Encounter.webp';
+import dreamlandsCard from '../assets/encounter-cards/Dreamlands_Encounter.webp';
+import egyptCard from '../assets/encounter-cards/Egypt_Encounter.webp';
+import europeCard from '../assets/encounter-cards/Europe_Encounter.webp';
+import generalCard from '../assets/encounter-cards/General_Encounter.webp';
+import moaiCard from '../assets/encounter-cards/Moai_Statues_Encounter.webp';
+import mountainCard from '../assets/encounter-cards/Mountain_Encounter.webp';
+import otherWorldCard from '../assets/encounter-cards/Other_World_Encounter.webp';
+import outpostCard from '../assets/encounter-cards/Outpost_Encounter.webp';
+import keyGateCard from '../assets/encounter-cards/The_Key_and_the_Gate_Encounter.webp';
+import moonCard from '../assets/encounter-cards/The_Moon_Encounter.webp';
+import pyramidsCard from '../assets/encounter-cards/The_Pyramids_Encounter.webp';
+
 import { 
   Users, 
   Scroll, 
@@ -22,7 +41,8 @@ import {
   X,
   Undo2,
   FileText,
-  Search
+  Search,
+  Check
 } from 'lucide-react';
 import { useGame } from '../context/GameContext';
 import { useGameData } from '../hooks/useGameData';
@@ -61,10 +81,38 @@ export function GameSession() {
   const [showEncounterPicker, setShowEncounterPicker] = useState(false);
   const [selectedEncounterCategory, setSelectedEncounterCategory] = useState<string | null>(null);
   const [selectedCombatSubCategory, setSelectedCombatSubCategory] = useState<string | null>(null);
+  const [selectedOtherWorldSubCategory, setSelectedOtherWorldSubCategory] = useState<string | null>(null);
   const [encounterSearch, setEncounterSearch] = useState('');
   const [selectedEncounter, setSelectedEncounter] = useState<{ title: string; content: string } | null>(null);
+  const [isCardFlipped, setIsCardFlipped] = useState(false);
+  const [encounterResult, setEncounterResult] = useState<string | null>(null);
 
   const activePlayer = state.players[state.activePlayerIndex];
+
+  // Get encounter card image based on encounter title
+  const getEncounterCardImage = (title: string): string => {
+    const titleLower = title.toLowerCase();
+    
+    if (titleLower.includes('africa')) return africaCard;
+    if (titleLower.includes('america')) return americasCard;
+    if (titleLower.includes('asia') || titleLower.includes('australia')) return asiaAustraliaCard;
+    if (titleLower.includes('europe')) return europeCard;
+    if (titleLower.includes('egypt')) return egyptCard;
+    if (titleLower.includes('dreamland') || titleLower.includes('dream quest')) return dreamlandsCard;
+    if (titleLower.includes('devastation')) return devastationCard;
+    if (titleLower.includes('mountain')) return mountainCard;
+    if (titleLower.includes('outpost')) return outpostCard;
+    if (titleLower.includes('other world')) return otherWorldCard;
+    if (titleLower.includes('moai') || titleLower.includes('statue')) return moaiCard;
+    if (titleLower.includes('pyramid')) return pyramidsCard;
+    if (titleLower.includes('moon')) return moonCard;
+    if (titleLower.includes('key') && titleLower.includes('gate')) return keyGateCard;
+    if (titleLower.includes('azathoth')) return azathothCard;
+    if (titleLower.includes('city') || titleLower.includes('sea') || titleLower.includes('wilderness')) return generalCard;
+    
+    // Default to general card
+    return generalCard;
+  };
 
   const phaseLabels: Record<string, string> = {
     setup: 'Preparation',
@@ -386,21 +434,6 @@ export function GameSession() {
               <FileText className="w-5 h-5" />
               Draw Encounter Card
             </button>
-            
-            {/* Currently Selected Encounter Display */}
-            {selectedEncounter && (
-              <div className="mt-4 bg-shadow/30 rounded-lg p-3 border border-obsidian flex items-center justify-between">
-                <h3 className="font-display text-base text-parchment-light">
-                  {selectedEncounter.title}
-                </h3>
-                <button
-                  onClick={() => setSelectedEncounter(null)}
-                  className="text-parchment-dark hover:text-parchment p-1"
-                >
-                  <X className="w-4 h-4" />
-                </button>
-              </div>
-            )}
           </section>
         )}
 
@@ -635,7 +668,11 @@ export function GameSession() {
               <div>
                 <h2 className="font-display text-xl text-parchment-light">Select Encounter</h2>
                 <p className="font-accent text-xs text-parchment-dark">
-                  {selectedEncounterCategory ? 'Choose a card' : 'Choose a category'}
+                  {selectedCombatSubCategory || selectedOtherWorldSubCategory 
+                    ? 'Choose a card' 
+                    : selectedEncounterCategory 
+                    ? 'Choose a sub-category' 
+                    : 'Choose a category'}
                 </p>
               </div>
               <button
@@ -643,7 +680,8 @@ export function GameSession() {
                   setShowEncounterPicker(false); 
                   setSelectedEncounterCategory(null);
                   setSelectedCombatSubCategory(null);
-                  setEncounterSearch(''); 
+                  setSelectedOtherWorldSubCategory(null);
+                  setEncounterSearch('');
                 }}
                 className="touch-target p-2 -m-2"
               >
@@ -657,10 +695,12 @@ export function GameSession() {
                   onClick={() => { 
                     if (selectedCombatSubCategory) {
                       setSelectedCombatSubCategory(null);
+                    } else if (selectedOtherWorldSubCategory) {
+                      setSelectedOtherWorldSubCategory(null);
                     } else {
                       setSelectedEncounterCategory(null); 
                     }
-                    setEncounterSearch(''); 
+                    setEncounterSearch('');
                   }}
                   className="px-3 py-1 bg-shadow border border-obsidian rounded text-parchment-dark text-sm flex items-center gap-1"
                 >
@@ -688,6 +728,61 @@ export function GameSession() {
                 <button
                   key={cat.category}
                   onClick={() => {
+                    // General encounters - direct select with player location
+                    if (cat.category === 'general') {
+                      setSelectedEncounter({
+                        title: `General Encounter`,
+                        content: `General encounter at ${activePlayer?.location || 'unknown location'}.`,
+                      });
+                      setShowEncounterPicker(false);
+                      setSelectedEncounterCategory(null);
+                      setEncounterSearch('');
+                      return;
+                    }
+                    // Research encounters - direct select with Ancient One name
+                    if (cat.category === 'research') {
+                      setSelectedEncounter({
+                        title: `${state.ancientOne?.title || 'Ancient One'} Research Encounter`,
+                        content: 'Research encounter for the current threat.',
+                      });
+                      setShowEncounterPicker(false);
+                      setSelectedEncounterCategory(null);
+                      setEncounterSearch('');
+                      return;
+                    }
+                    // Other World encounters - direct select
+                    if (cat.category === 'otherWorld') {
+                      setSelectedEncounter({
+                        title: 'Other World Encounter',
+                        content: 'An encounter from beyond the veil of reality.',
+                      });
+                      setShowEncounterPicker(false);
+                      setSelectedEncounterCategory(null);
+                      setEncounterSearch('');
+                      return;
+                    }
+                    // Expedition encounters - direct select with player location
+                    if (cat.category === 'expedition') {
+                      setSelectedEncounter({
+                        title: `Expedition Encounter`,
+                        content: `Expedition at ${activePlayer?.location || 'unknown location'}.`,
+                      });
+                      setShowEncounterPicker(false);
+                      setSelectedEncounterCategory(null);
+                      setEncounterSearch('');
+                      return;
+                    }
+                    // Location encounters - direct select with player location
+                    if (cat.category === 'locationRegion') {
+                      setSelectedEncounter({
+                        title: `Location Encounter`,
+                        content: `Location encounter at ${activePlayer?.location || 'unknown location'}.`,
+                      });
+                      setShowEncounterPicker(false);
+                      setSelectedEncounterCategory(null);
+                      setEncounterSearch('');
+                      return;
+                    }
                     // If only 1 card and not combat (which has sub-categories), select it directly
                     if (cat.cards.length === 1 && cat.category !== 'combat') {
                       const card = cat.cards[0];
@@ -707,13 +802,15 @@ export function GameSession() {
                     <h3 className="font-display text-lg text-parchment-light">
                       {cat.label}
                     </h3>
-                    {cat.cards.length > 1 && (
+                    {/* Hide card count for direct select categories */}
+                    {cat.cards.length > 1 && !['general', 'research', 'otherWorld', 'expedition', 'locationRegion'].includes(cat.category) && (
                       <p className="font-accent text-xs text-parchment-dark">
                         {cat.cards.length} cards
                       </p>
                     )}
                   </div>
-                  {cat.cards.length > 1 && <ChevronRight className="w-5 h-5 text-parchment-dark" />}
+                  {/* Hide chevron for direct select categories */}
+                  {cat.cards.length > 1 && !['general', 'research', 'otherWorld', 'expedition', 'locationRegion'].includes(cat.category) && <ChevronRight className="w-5 h-5 text-parchment-dark" />}
                 </button>
               ))
             ) : (
@@ -744,12 +841,36 @@ export function GameSession() {
                   ));
                 }
                 
+                // Handle other world sub-categories (location selection)
+                if (selectedEncounterCategory === 'otherWorld' && !selectedOtherWorldSubCategory) {
+                  // Show other world location selection
+                  return category.cards.map((location) => (
+                    <button
+                      key={location.pageId}
+                      onClick={() => setSelectedOtherWorldSubCategory(location.title)}
+                      className="w-full text-left bg-shadow/30 hover:bg-shadow border border-obsidian hover:border-cosmic rounded-lg p-4 transition-all flex items-center justify-between"
+                    >
+                      <div>
+                        <h3 className="font-display text-lg text-parchment-light">
+                          {location.title}
+                        </h3>
+                      </div>
+                      <ChevronRight className="w-5 h-5 text-parchment-dark" />
+                    </button>
+                  ));
+                }
+                
                 // Get the actual cards to display
                 let cardsToShow = category.cards;
                 
                 // If combat with sub-category selected, get monsters from subCategories
                 if (selectedEncounterCategory === 'combat' && selectedCombatSubCategory && category.subCategories) {
                   cardsToShow = category.subCategories[selectedCombatSubCategory] || [];
+                }
+                
+                // If other world with sub-category selected, get location encounters from subCategories
+                if (selectedEncounterCategory === 'otherWorld' && selectedOtherWorldSubCategory && category.subCategories) {
+                  cardsToShow = category.subCategories[selectedOtherWorldSubCategory] || [];
                 }
                 
                 const filteredCards = encounterSearch
@@ -772,6 +893,7 @@ export function GameSession() {
                       setShowEncounterPicker(false);
                       setSelectedEncounterCategory(null);
                       setSelectedCombatSubCategory(null);
+                      setSelectedOtherWorldSubCategory(null);
                       setEncounterSearch('');
                     }}
                     className="w-full text-left bg-shadow/30 hover:bg-shadow border border-obsidian hover:border-cosmic rounded-lg p-3 transition-all"
@@ -782,6 +904,138 @@ export function GameSession() {
                   </button>
                 ));
               })()
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Encounter Resolution Screen */}
+      {selectedEncounter && !showEncounterPicker && (
+        <div className="fixed inset-0 z-50 bg-void flex flex-col">
+          {/* Header */}
+          <div className="p-4 border-b border-obsidian/50 flex items-center justify-between">
+            <button
+              onClick={() => {
+                if (isCardFlipped) {
+                  setIsCardFlipped(false);
+                  setEncounterResult(null);
+                } else {
+                  setSelectedEncounter(null);
+                }
+              }}
+              className="flex items-center gap-2 text-parchment-dark hover:text-parchment transition-colors"
+            >
+              <ChevronLeft className="w-5 h-5" />
+              <span className="font-display text-sm">
+                {isCardFlipped ? 'Back' : 'Change Encounter'}
+              </span>
+            </button>
+            <button
+              onClick={() => {
+                setSelectedEncounter(null);
+                setIsCardFlipped(false);
+                setEncounterResult(null);
+              }}
+              className="text-parchment-dark hover:text-parchment p-1"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Card Area */}
+          <div className="flex-1 flex flex-col items-center justify-center p-4 overflow-hidden">
+            {/* Active Investigator */}
+            {activePlayer && (
+              <p className="font-accent text-xs text-parchment-dark mb-2">
+                {activePlayer.investigator?.title || activePlayer.name} • {activePlayer.location}
+              </p>
+            )}
+
+            {/* Flip Card Container */}
+            <div 
+              className="relative w-[90vw] max-w-md mb-4"
+              style={{ perspective: '1000px', aspectRatio: '2.5/3.5' }}
+            >
+              <div 
+                className={`relative w-full h-full transition-transform duration-700 ease-in-out`}
+                style={{ 
+                  transformStyle: 'preserve-3d',
+                  transform: isCardFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)'
+                }}
+              >
+                {/* Card Front (Face Down) - Shows encounter card art */}
+                <div 
+                  className="absolute inset-0 rounded-xl border-2 border-eldritch overflow-hidden"
+                  style={{ backfaceVisibility: 'hidden' }}
+                >
+                  {/* Card Art Background */}
+                  <img 
+                    src={getEncounterCardImage(selectedEncounter.title)}
+                    alt={selectedEncounter.title}
+                    className="absolute inset-0 w-full h-full object-contain"
+                  />
+                  
+                  {/* Dark overlay at bottom for text */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-void via-void/60 to-transparent" />
+                  
+                  {/* Content overlay */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-end p-6">
+                    {/* Encounter Type */}
+                    <h3 className="font-display text-xl text-parchment-light text-center mb-1 drop-shadow-lg">
+                      {selectedEncounter.title}
+                    </h3>
+                    <p className="font-accent text-xs text-parchment text-center uppercase tracking-widest drop-shadow-lg">
+                      Encounter
+                    </p>
+                  </div>
+                </div>
+
+                {/* Card Back (Result) */}
+                <div 
+                  className="absolute inset-0 rounded-xl border-2 border-cosmic bg-gradient-to-br from-abyss via-shadow to-cosmic-light/20 flex flex-col p-6"
+                  style={{ 
+                    backfaceVisibility: 'hidden',
+                    transform: 'rotateY(180deg)'
+                  }}
+                >
+                  <h3 className="font-display text-lg text-parchment-light text-center mb-4">
+                    {selectedEncounter.title}
+                  </h3>
+                  
+                  <div className="flex-1 overflow-y-auto">
+                    <p className="font-body text-sm text-parchment-dark leading-relaxed">
+                      {encounterResult || 'The AI Game Master will generate your encounter narrative here. This will be connected to the n8n backend for dynamic story generation...'}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Action Button */}
+            {!isCardFlipped ? (
+              <button
+                onClick={() => {
+                  setIsCardFlipped(true);
+                  // Placeholder - in the future this will call the AI backend
+                  setEncounterResult('The mists part to reveal an ancient stone archway, covered in symbols that seem to writhe in the flickering torchlight. You feel a presence watching from beyond the threshold...\n\n[Placeholder: AI-generated narrative will appear here]');
+                }}
+                className="w-full max-w-xs py-4 bg-eldritch hover:bg-eldritch-light text-parchment-light font-display text-lg tracking-wide rounded-lg flex items-center justify-center gap-3 transition-colors shadow-lg shadow-eldritch/30"
+              >
+                <Sparkles className="w-5 h-5" />
+                Resolve Encounter
+              </button>
+            ) : (
+              <button
+                onClick={() => {
+                  setSelectedEncounter(null);
+                  setIsCardFlipped(false);
+                  setEncounterResult(null);
+                }}
+                className="w-full max-w-xs py-4 bg-cosmic hover:bg-cosmic-light text-parchment-light font-display text-lg tracking-wide rounded-lg flex items-center justify-center gap-3 transition-colors"
+              >
+                <Check className="w-5 h-5" />
+                Complete Encounter
+              </button>
             )}
           </div>
         </div>

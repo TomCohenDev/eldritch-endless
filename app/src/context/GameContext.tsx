@@ -98,7 +98,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
   const { helpers } = useGameData();
 
-  const hasSavedGame = state.players.length > 0 && state.phase !== 'setup';
+  const hasSavedGame = state.players && state.players.length > 0 && state.phase !== 'setup';
 
   // Auto-save on state changes
   useEffect(() => {
@@ -257,13 +257,13 @@ export function GameProvider({ children }: { children: ReactNode }) {
       const nextPhase = phaseOrder[(currentIndex + 1) % (phaseOrder.length - 1)];
       
       let newRound = prev.round;
-      let newPlayers = prev.players;
+      let newPlayers = prev.players || [];
       let newActivePlayerIndex = prev.activePlayerIndex;
       
       // When entering Action phase (either from resolution or at start), reset actions
       if (nextPhase === 'action') {
         newActivePlayerIndex = 0;
-        newPlayers = prev.players.map(p => ({
+        newPlayers = newPlayers.map(p => ({
           ...p,
           actionsRemaining: 2,
         }));
@@ -349,10 +349,16 @@ export function GameProvider({ children }: { children: ReactNode }) {
   // --- Action Phase Functions ---
   
   const setActivePlayer = useCallback((playerIndex: number) => {
-    setState((prev) => ({
-      ...prev,
-      activePlayerIndex: Math.max(0, Math.min(prev.players.length - 1, playerIndex)),
-    }));
+    setState((prev) => {
+      // Safety check for empty players array
+      if (!prev.players || prev.players.length === 0) {
+        return { ...prev, activePlayerIndex: 0 };
+      }
+      return {
+        ...prev,
+        activePlayerIndex: Math.max(0, Math.min(prev.players.length - 1, playerIndex)),
+      };
+    });
   }, []);
 
   const performAction = useCallback((playerId: string, actionType: ActionType, details: ActionRecord['details']) => {
@@ -428,7 +434,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
   const movePlayer = useCallback((playerId: string, toLocation: string) => {
     performAction(playerId, 'travel', { 
-      fromLocation: state.players.find(p => p.id === playerId)?.location,
+      fromLocation: state.players?.find(p => p.id === playerId)?.location,
       toLocation 
     });
   }, [performAction, state.players]);
@@ -437,7 +443,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
   const setPlayerLocation = useCallback((playerId: string, location: string) => {
     setState((prev) => ({
       ...prev,
-      players: prev.players.map((p) =>
+      players: (prev.players || []).map((p) =>
         p.id === playerId ? { ...p, location } : p
       ),
     }));
@@ -447,7 +453,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
     setState((prev) => ({
       ...prev,
       activePlayerIndex: 0,
-      players: prev.players.map(p => ({
+      players: (prev.players || []).map(p => ({
         ...p,
         actionsRemaining: 2, // Each investigator gets 2 actions per round
       })),
@@ -455,12 +461,12 @@ export function GameProvider({ children }: { children: ReactNode }) {
   }, []);
 
   // Check if there are actions to undo in the current round
-  const canUndo = state.actionHistory.length > 0 && 
+  const canUndo = state.actionHistory?.length > 0 && 
     state.actionHistory[state.actionHistory.length - 1]?.round === state.round;
 
   const undoLastAction = useCallback(() => {
     setState((prev) => {
-      if (prev.actionHistory.length === 0) return prev;
+      if (!prev.actionHistory || prev.actionHistory.length === 0) return prev;
       
       const lastAction = prev.actionHistory[prev.actionHistory.length - 1];
       

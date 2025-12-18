@@ -1,17 +1,22 @@
 import { Link } from 'react-router-dom';
 import { Skull, BookOpen } from 'lucide-react';
 import { useGame } from '../context/GameContext';
+import bgImage from '../assets/eldritch-horror-board-game-artwork.webp';
 
 export function Home() {
   const { state, hasSavedGame } = useGame();
 
   return (
     <div className="min-h-dvh w-full flex flex-col items-center justify-center p-6 relative overflow-hidden bg-void text-parchment">
-      {/* Fallback Background for mobile compatibility */}
-      <div className="absolute inset-0 bg-void z-0" />
-      
-      {/* Background atmosphere */}
-      <div className="absolute inset-0 bg-gradient-to-b from-void via-abyss to-eldritch-dark opacity-90 z-0" />
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src={bgImage} 
+          alt="" 
+          className="w-full h-full object-cover opacity-40 grayscale brightness-75"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-void/70 via-eldritch-dark/40 to-void/80 mix-blend-multiply" />
+      </div>
       
       {/* Content - explicitly z-10 to sit above backgrounds */}
       <div className="relative z-10 flex flex-col items-center text-center max-w-md mx-auto w-full">
