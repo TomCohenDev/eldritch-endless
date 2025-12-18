@@ -1,0 +1,2044 @@
+[
+  {
+    "name": "\"Ashcan\" Pete",
+    "pageId": 1251,
+    "profession": "The Drifter",
+    "role": "All-Rounder",
+    "set": "Cities in Ruin",
+    "skills": {
+      "lore": 3,
+      "influence": 1,
+      "observation": 3,
+      "strength": 3,
+      "will": 3
+    },
+    "health": 7,
+    "sanity": 5,
+    "startingLocation": "Scandinavia (Space 14)}}",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Clue"
+      }
+    ],
+    "personalStory": "Powerful Nightmares",
+    "quote": "There may be dangers out there, but some souls just have to roam.",
+    "biography": "Ever since the onset of his prophetic dreams, Pete has been riding the rails with his old hound Duke. He has seen the best and worst of the world and he takes both in stride. Lately, it seems like every city he rolls into is suffering. Sometimes a flood; other times a fire. When he closes his eyes, he can hear every heartbroken soul cry for help. But when he set foot here in Oulu, he saw a city that rebuilt after their fire. Pete reckons if he can figure out the source of all this carnage, he can help those who need it most.",
+    "abilities": "Abilities\n*Action: Move 1 space along a . Then perform 1 additional action.\n*After you perform an Acquire Assets action, you may gain 1 Item or Trinket Asset with value less than your from the discard pile.",
+    "teamRole": "Travelling Around the World\n\"Ashcan\" Pete is an all-rounder, with his well balanced skills he can take on any role in the team, filling the gaps of whatever is missing. He is obviously not as good that any specialist, but his loyal Duke Unique Asset allows him to be more versatile. Due to his ability to move fast and this versatility, Pete stands out more when playing with a small investigator group (4 or less) than bigger groups (6 or more).\n\nthumb|right|110px|Until the last drop\nHis passive ability allows him to compensate his lack of influence and give him access to much combos. A well known combination is with ; after she uses her Holy Water to bless herself or any other investigator, Pete can pick it from the discard pile, using it and having the ability to keep an endless blessing, gaining in a loop the Item he discarded. This combination is usually worth the usage of the 2 actions needed, and can be applied to nearby investigators. This also works for any discardable item, like Dynamite, Kerosene, and so on. Despite this ability, an influence-oriented support investigator should be an excellent teammate.\n\nHis active ability allowing him to move fast through train paths, combined with with his starting position in Europe, makes him ideal to deal with all types of Encounters located in the Eurasian continent. However, it should be slower when needing to go out of these locations, notably to complete his personal story as he needs to go to random locations. Thus it is recommended to acquire a whenever it is possible to fully benefit from his active ability if he has to go over the sea.",
+    "rulings": "",
+    "origin": "\"Ashcan\" Pete made his first appearance in 2005 in Arkham Horror: Second Edition. His full name is Pete Washburne.",
+    "defeatedEncounters": {
+      "lossOfHealth": "The local authorities tell you about a badly injured drifter who has been seen around town. You find all of Pete's belongings in a old warehouse, but no sign of the man himself. Gain all of his possessions. You scour the city for any sign of him . If you pass, you discover him near death in a junkyard and he tells you the occult secrets he has learned as you take him to the hospital; retreat by 1. If you fail, the police let you know when they find his body. Whether you pass or not, discard his Investigator token.",
+      "lossOfSanity": "You find Pete wearing Duke's collar and digging frantically at the ground with his bare hands. His faithful hound is nowhere to be seen. Discard all of his possessions. He seems wary of you, but you try to lure him closer with food (+1). If you pass, he happily leads you to some drool-covered objects; gain any number of Item or Trinket Assets from the discard pile with total value of 8 or less. If you fail, he whimpers and escapes into the night. Whether you pass or not, discard his Investigator token."
+    }
+  },
+  {
+    "name": "\"Skids\" O'Toole",
+    "pageId": 125,
+    "profession": "The Ex-Convict",
+    "role": "Combat",
+    "set": "Strange Remnants",
+    "skills": {
+      "lore": 2,
+      "influence": 1,
+      "observation": 3,
+      "strength": 4,
+      "will": 3
+    },
+    "health": 6,
+    "sanity": 6,
+    "startingLocation": "Buenos Aires, Argentina",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Axe Asset"
+      }
+    ],
+    "personalStory": "Leave it to Chance",
+    "quote": "I didn't get out of the joint just to watch the world end.",
+    "biography": "Skids got put away on two counts of bank robbery, but he never hurt anybody. His cellmate, Brad Hollins, killed nine people. Hollins said that an alien creature made him do it. Over the years, Hollins said a lot of strange things about the \"Ancient Ones.\" He said that he needed to get to Argentina to stop them. Skids didn't give it much thought until the night Hollins burst into flames. When Skids got paroled, he couldn't shake the thought of these \"Ancient Ones.\"",
+    "abilities": "Abilities \n* Action: You may discard 1 Item or Trinket Asset to gain 1 Item or Trinket Asset of your choice from the reserve with value equal to or less than 1 + the value of the discarded Asset.\n* Whenever you roll a 1 during a test, you may reroll that die.",
+    "teamRole": "Skids excels at combat due to his strong starting weapon and active ability, letting him trade-up his weapon for a better one from the reserve without the help of an Influence character. He is also a decent all-rounder due to his passive ability giving him slightly improved odds on every test, and can be sent to deal with Mysteries, Rumors, or gates as the team requires.",
+    "rulings": "* If Skids wants to trade a Unique Asset using his active ability, he will be able to gain an Item or Trinket Asset from the reserve with value equal to one plus no value (effectively value zero), a total of value one.\n* Effects that require Skids to roll a die not as part of a test are not affected by his passive ability. Example: The roll on a Dark Pact Condition.\n* Skids may reroll each 1 he rolls during a test, even if it was the result of a reroll. The result of a reroll is treated as if that is what that die had originally rolled. In effect, Skids will almost never roll a 1 during a test. If an effect causes all die rolls to be treated as 1's, such as the Tied to a Dark Purpose Mythos card, Skids will continue to roll 1's. He can reroll these dice if he wishes, but he will continue to roll only 1's. For this reason, rerolling these dice will have no effect.",
+    "origin": "\"Skids\" O'Toole made his first appearance in 2009 in Innsmouth Horror, the 6th expansion for Arkham Horror: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "Skids' lawyer turns over all of his belongings to you. Gain all of his possessions. He tells you that Skids is hurt very badly, and he's being tried for murder. You do what you can to convince the court of his innocence . If you pass, Skids is declared not guilty, and he shares everything he knows before retiring in a quiet life; retreat by 1. If you fail, Skids get a life sentence with no hope for parole; you later hear that Skids was killed in a prison fight. Whether you pass or not, discard his Investigator token.",
+      "lossOfSanity": "After a long crime spree, Skids has agreed to surrender himself to you. As a show of good faith, he gives you everything he has. Gain all of his possessions. When you see him, you can tell the Skids you once knew is gone and this was a trap. He attacks, hoping to get your valuables . If you pass, you overpower him and find the treasure Skids has stolen; improve and gain 1 Relic Unique Asset. If you fail, the police intervene and Skids is killed trying to escape. Whether you pass or not, discard his Investigator token."
+    }
+  },
+  {
+    "name": "Agatha Crane",
+    "pageId": 1587,
+    "profession": "The Parapsychologist",
+    "role": "Magic, Research",
+    "set": "Masks of Nyarlathotep",
+    "skills": {
+      "lore": 4,
+      "influence": 3,
+      "observation": 3,
+      "strength": 1,
+      "will": 2
+    },
+    "health": 5,
+    "sanity": 7,
+    "startingLocation": "Tokyo, Japan",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Call the Storm Spell"
+      },
+      {
+        "count": 1,
+        "item": "Instill Bravery Spell"
+      }
+    ],
+    "personalStory": "The Scientific Method",
+    "quote": "The proof, as they say, is in the pudding.",
+    "biography": "If you had asked Agatha during her youth whether she held any stock in the idea of paranormal experience, she would have laughed you out of town. But Agatha has never been one to turn a blind eye to hard evidence, and these days, the evidence for a world outside of our perception has been piling up. Her husband, Wilbur, knows better than to obstruct his determined wife, and thus has bid Agatha a tearful farewell as she prepares for a lengthy trip to Tokyo, where she suspects she will find the answers she seeks.",
+    "abilities": "Abilities \n* Action: You may perform 1 action on a Ritual or Tome possession you have and gain +2 during that action.\n* Once per round, when you pass a test as part of a Spell effect, gain .",
+    "teamRole": "Agatha is great at obtaining Clues. Despite her low Strength, her action and starting spells make her one of the most effective fighters in the game, assuming there is only one monster on her space. Instill Bravery also makes her a strong support character.\nObtaining the Storm of Spirits spell or Security Squad ally will make her a powerful fighter.\n\nIn the late game, passing Agatha's personal story gives her a powerful re-roll ability which runs on clues, allowing her to effectively handle almost any challenge.",
+    "rulings": "",
+    "origin": "Agatha made her first appearance in 2016 in Mansions of Madness: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "You learn that Agatha has passed away, but has left you some things in her will. Gain all of her possessions. As you touch the objects that she once owned, you experience supernatural disturbances and suspect that Agatha may be trying to reach you from beyond . If you pass, you establish contact with her and she tells you about her and she tells you about the realm beyond death; retreat by 1. If you fail, her spirit grows frustrated with your lack of understanding and ceases activity. Whether you pass or not, discard her Investigator token.",
+      "lossOfSanity": "You find a bedridden Agatha, her husband Wilbur dutifully by her side. Gain all of her possessions. She appears to have wrapped her head in tin foil, and upon seeing you, launches into a lengthy diatribe about the government. You do your best to feign interest and follow along . If you pass, there may actually be something to her ramblings; retreat by 1. If you fail, your indifference only serves to rile her up further. Whether you pass or not, discard her Investigator token."
+    }
+  },
+  {
+    "name": "Agnes Baker",
+    "pageId": 127,
+    "profession": "The Waitress",
+    "role": "Magic",
+    "set": "Mountains of Madness",
+    "skills": {
+      "lore": 4,
+      "influence": 3,
+      "observation": 2,
+      "strength": 2,
+      "will": 2
+    },
+    "health": 7,
+    "sanity": 5,
+    "startingLocation": "London, United Kingdom",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Profane Tome Asset"
+      },
+      {
+        "count": 1,
+        "item": "Storm of Spirits Spell"
+      }
+    ],
+    "personalStory": "In a Past Life",
+    "quote": "I remember another life, one of sorcery and conquest.",
+    "biography": "Once, Agnes lived quietly, taking orders and serving up food at a diner in Arkham, but one night, she fell from a ladder, striking her head. After that, she could recall a past life as a sorceress in the ancient world of Hyperborea. Her mind flooded with memories of arcane lore. Amazed by this new magical knowledge, Agnes has traveled to London, to learn more about Hyperborea, but is she driven by her own curiosity or compelled by the will of her former self?",
+    "abilities": "Abilities \n* Action: Test -1. If you pass, gain 1 Spell.\n* You may spend to roll 2 additional dice when resolving a test as part of a Spell effect.",
+    "teamRole": "Combat or Support? \nAgnes Baker is a combat-oriented spellcaster who should be considered like a \"glass cannon\". Her starting Spell and her passive ability makes her as one of the best investigators for one-shot fights, as she can roll up to 6 dice on the test during a Combat Encounter immediately after starting. She however tends to spend a lot of ; an investigator like could help her. Despite the Profane Tome, her lack of combined with a somewhat low could also be a problem for the multiple Combat Encounters she can do, so it should be better to improve Will or acquire an Asset to boost it a bit. Her passive ability, like any other triggered effect, is limited to one resolution per condition; in this case it means for a test, she can only spend 1 Health to gain 2 additional dice, not 2 Health for 4 additional dice for example.\n\nthumb|right|110px|It can help\nHer active ability allows her to easily gain Spells, but with her starting possessions, she doesn’t really need any combat-oriented Spell. A few Spells can help her in combat: some Glamour like Markings of Isis or Mind's Eye to boost her skills, or some Incantation, like Flesh Ward, Instill Bravery and Healing Words to recover or prevent a loss of Health or Sanity. Note that Flesh Ward cannot help to avoid the loss of Health from her ability as it is not lost but spent (see Health and Sanity); however it works to avoid some unpleasant surprises during the Mythos phase, thus she can spend Health without being on the razor's edge. Most of the other Spells she can gain are only great if wanting to be a more support-oriented investigator. \n\nOne of the best action she can do (if not focused on a more important goal) is Rest because of her passive ability that siphons her , and tests during Combat Encounters which tend to make her lose . She is therefore limited in using her active ability, unless she chooses the support path, gaining more Spells and having more room for other actions like casting Rituals.\n\nIf wanting to go to a more support way, Agnes will merely have less Combat Encounters, thus she uses less her passive ability and more her active ability instead of resting. The result is a caster with a bunch of Spells some of which will really help a lot. Because it is so easy for Agnes to gain Spells, she is very powerful when playing against an Ancient One with Mysteries which requires discarding Spells, like or .",
+    "rulings": "",
+    "origin": "Agnes Baker made her first appearance in 2009 in Innsmouth Horror, the 6th expansion for Arkham Horror: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "After weeks of fruitless searching, Agnes suddenly finds you. She's carrying everything she owns in bags. Gain all of her possessions. Her head is badly wounded, and she fades in and out of coherence. You try to persuade her to go to a doctor . If you pass, she understands how badly she's been hurt, and with what little focus she can manage, she shares the wisdom of two lifetimes; retreat by 1. If you fail, she leaves, never to be seen again. Whether you pass or not, discard her Investigator token.",
+      "lossOfSanity": "You find Agnes in a dark alley, surrounded by the remains of her belongings. Gain all of her possessions. She speaks to you in a long-dead language . If you pass, you realize she's trying to share her arcane knowledge; gain 2 Spells. If you fail, she sees you don't understand and speak one final enchantment before disappearing from the face of the Earth. Whether you pass or not, discard her Investigator token."
+    }
+  },
+  {
+    "name": "Akachi Onyele",
+    "pageId": 106,
+    "profession": "The Shaman",
+    "role": "Gate Closer",
+    "set": "Core Game",
+    "skills": {
+      "lore": 3,
+      "influence": 2,
+      "observation": 2,
+      "strength": 2,
+      "will": 4
+    },
+    "health": 5,
+    "sanity": 7,
+    "startingLocation": "South Africa (Space 15)",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Mists of Releh Spell"
+      },
+      {
+        "count": 1,
+        "item": "Clue"
+      }
+    ],
+    "personalStory": "Guardian of the Veil",
+    "quote": "I will journey to the lands beyond.  I do not fear them.",
+    "biography": "As a young girl in Nigeria, Akachi stayed apart from other children, preferring the company of imaginary friends. Her elders feared madness, but the village dibia believed that she had been chosen by the gods. The wise old man taught her how to travel between worlds and how to marshal spirits. Now, she has become a wise leader herself, traveling across Africa and teaching others to protect themselves. She's recently arrived in Cape Town and from here, she will track down the dark forces that threaten humanity.",
+    "abilities": "Abilities \n* Action: Look at the top 2 Gates in the Gate stack. Put 1 Gate on the top of the Gate stack, and the other on the bottom.\n* When you close a Gate during an Other World Encounter, you may move to any space containing a or a Gate.",
+    "teamRole": "Akachi centers around the closing of Gates. Since her passive ability allows her to move instantly from one Gate to the next, she has some freedom early game to train stats or gain Spells. A good first move is to send her to Shanghai to improve Lore, so her casts of Mists of Releh succeed more often. \n\nHer high will can help her against Monsters with high horror checks, so she can very easily be built for combat encounters. Note that she is vulnerable to taking health damage from monsters, so make sure you have a backup plan if Mists fails to cast.",
+    "rulings": "* If there is one or fewer Gates remaining in the Gate stack, she randomizes the Gates in the discard pile and places them on the bottom of the Gate stack before resolving her ability. If there is only one Gate remaining in the Gate stack and discard pile, Akachi’s action ability allows her to look at that Gate.\n* If an effect prevents Akachi from moving, she cannot use her passive ability. When Akachi moves using this ability, she moves directly onto the chosen space and does not move onto or through any other spaces.",
+    "origin": "Akachi Onyele made her first appearance in 2009 in Innsmouth Horror, the 6th expansion for Arkham Horror: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "By the time you find Akachi, she's slipped into a coma. Doctors aren't certain if she will recover. Gain all of her possessions. The hospital staff has grown very fond of her, and you try to convince them to tell you what she said to them while she was conscious . If you pass, you hear many stories; retreat by 1. If you fail, you can't get anyone to share Akachi's story with you. Whether you pass or not, discard her investigator token.",
+      "lossOfSanity": "Akachi's mind has left this world and she no longer has interest in material goods. Gain all of her possessions. An Odinani man gives you a bitter drink to help you reach her. After you drink it, you are assaulted by nightmarish visions, but you force yourself to keep searching for her . If you pass, you hear Akachi's voice sharing all she's learned; retreat by 1. If you fail, you curl up in a corner until the drink wears off. Whether you pass or not, discard her investigator token."
+    }
+  },
+  {
+    "name": "Amanda Sharpe",
+    "pageId": 827,
+    "profession": "The Student",
+    "role": "Research",
+    "set": "The Dreamlands",
+    "skills": {
+      "lore": 2,
+      "influence": 3,
+      "observation": 4,
+      "strength": 1,
+      "will": 3
+    },
+    "health": 6,
+    "sanity": 6,
+    "startingLocation": "Istanbul, Turkey",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Unspeakable Research Unique Asset"
+      },
+      {
+        "count": 1,
+        "item": "Quick Study Condition"
+      }
+    ],
+    "personalStory": "Dreaming of R'lyeh",
+    "quote": "The truth of reason tempers even the wildest delusions. I will not fall prey to such madness.",
+    "biography": "Ever since she laid eyes upon that painting, Amanda Sharpe has been hearing voices in her head and seeing emerald cities deep beneath the ocean in her dreams. Once a student at Arkham's Miskatonic University, Amanda Sharpe opted to take some time away from school, hoping that the strange voices and visions would subside. Unfortunately, they have been getting worse, not better, and hardly a day goes by that she does not suffer from her unusual visions. Something terrible is coming, she is sure of it. The sea wakes.",
+    "abilities": "Abilities \n* Action: You may discard any number of Talent Conditions to improve 1 skill of your choice for each Talent Condition discarded.\n* If you would improve a skill, you may gain 1 Talent Condition instead.",
+    "teamRole": "Amanda has a high Observation, and her starting Task allows her to gain very quickly. As such, she's useful for dealing with powerful Rumors, or Mysteries that require the spending of Clues.\n\nIt is very easy for Amanda to gain Talents. She may, if she chooses, discard these Talents for straight improvements to skills, which can help her fill any gaps the rest of the team may be missing.",
+    "rulings": "If Amanda’s action ability is used to discard multiple Talent Conditions, she may improve the same skill more than once. However, she cannot improve a skill to more than two above its printed value.",
+    "origin": "Amanda Sharpe made her first appearance in 2005 in Arkham Horror: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "Amanda limps along with you as you walk down the crowded street. She tells you where she left her old things now that she plans to return to school in Arkham. Gain all of her possessions. Despite her injuries, you plead with her to pass on her knowledge before she leaves . If you pass, she teaches you many things in the weeks before she returns home; gain 2 Talent conditions. If you fail, she apologizes but wants to put this part of her life behind her. Whether you pass or not, discard her Investigator token.",
+      "lossOfSanity": "You learn of Amanda's death from the front page of a local paper. The article describes how bystanders saw her walk into the ocean and get carried away by the tide. After some digging around, you find all her things at a nearby hotel. Gain all of her possessions. You search her room for anything that might explain her disappearance . If you pass, you find detailed accounts of her final days; retreat by 1. If you fail, your questions may never be answered. Whether you pass or not, discard her Investigator token."
+    }
+  },
+  {
+    "name": "Bob Jenkins",
+    "pageId": 1252,
+    "profession": "The Salesman",
+    "role": "Support",
+    "set": "Cities in Ruin",
+    "skills": {
+      "lore": 2,
+      "influence": 4,
+      "observation": 2,
+      "strength": 3,
+      "will": 2
+    },
+    "health": 7,
+    "sanity": 5,
+    "startingLocation": "London, United Kingdom",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Winchester Rifle Asset"
+      },
+      {
+        "count": 1,
+        "item": "Clue"
+      }
+    ],
+    "personalStory": "Doing Business",
+    "quote": "Reality is just a matter of negotiation.",
+    "biography": "According to Bob, the secret to success as a salesman is persistence. People just need to be told what it is that they want. Repeatedly. Recently, Bob came into possession of a handful of unusual golden coins, and Bob hopes that the same persistence he so famous advocates will help him to uncover their origin and purpose. His subsequent research taught him that the coins are rare and valuable, but also that some sort of curse is attached to them. Collectors refuse to touch them—but Bob is sold. He wants to know more.",
+    "abilities": "Abilities \n*Action: You may trade any number of Item or Trinket possessions with another investigator on any space.\n*When you perform an Acquire Assets action, reduce the value of each card in the reserve by 1 to a minimum of 1.",
+    "teamRole": "With his unique talents, Bob is someone who can gain assets quickly, and funnel them to those who need them. He starts with a rifle that makes him decent in battle, and can quickly adapt into any role the player might need.",
+    "rulings": "* The reduction in Asset value during the Acquire Assets Action only applies to Bob Jenkins and is not cumulative.\n* None of the exchanged possessions are considered \"gained\" or \"discarded\" as part of Bob's active ability.",
+    "origin": "Bob Jenkins made his first appearance in 2005 in Arkham Horror: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "Broken and bitter, Bob spends his evenings drinking away his pain. He no longer cares about his wares. Gain all of his possessions. One night, he flies into a drunken rage. You try to subdue him without making his considerable injuries worse . If you pass, he apologizes and confesses the occult secrets that terrify him most; retreat by 1. If you fail, the fight gets out of hand and put him back to the hospital, after which he never speaks to you again. Whether you pass or not, discard his Investigator token.",
+      "lossOfSanity": "You hear that Bob joined some sort of \"society\", and the group inundates you with \"special offers\". Set aside all of his possessions and each non-service Asset in the reserve. For the remainder of this game, as a part of an Acquire Assets action, an investigator may acquire possession that were set aside this way as if they are in the reserve and each have a value of 1. Though you never speak to Bob again, you begrudgingly admire his tenacity. Discard his Investigator token. Then perform an Acquire Assets action."
+    }
+  },
+  {
+    "name": "Calvin Wright",
+    "pageId": 1593,
+    "profession": "The Haunted",
+    "role": "All-Rounder",
+    "set": "Masks of Nyarlathotep",
+    "skills": {
+      "lore": 3,
+      "influence": 3,
+      "observation": 3,
+      "strength": 3,
+      "will": 1
+    },
+    "health": 7,
+    "sanity": 7,
+    "startingLocation": "Buenos Aires, Argentina",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Spirit Dagger Asset"
+      },
+      {
+        "count": 1,
+        "item": "Corruption Condition"
+      },
+      {
+        "count": 1,
+        "item": "Clue"
+      },
+      {
+        "count": 1,
+        "item": "Resource"
+      }
+    ],
+    "personalStory": "A Friend Indeed",
+    "quote": "''I can contain this darkness within me. I know I can.",
+    "biography": "Sometimes, life gives you a choice — accept the lot which is given to you, or stand up for who you are and what you believe in. Calvin chose the latter. On the edge of death, bleeding out on the side of a dirt road, a vision came to him. A terrifying vision of the Earth sundered and João, the love of his life, turning to ash in the vortex of a blazing inferno. Then Calvin made another choice. He reached out to the darkness and pulled it within him. He would not die, not today. The world needed him — João needed him.",
+    "abilities": "Abilities \n* Action: You may trade any amount of and/or with another investigator on any space. Then perform 1 additional action.\n* If you would impair a skill or discard an Improvement token, you may recover and instead.",
+    "teamRole": "Calvin's stats, except for his Will, are well-balanced so he can adapt to many different situations. His Corruption can cause a problem, so partnering with can be helpful, since he can easily remove it by transferring a Boon. Being able to trade health with anyone can help heal fighters like or , or he can serve as a fighter, siphoning health and sanity as needed from investigators who are rooted in place and can rest each turn (e.g., an Influence character parked in a useful city).",
+    "rulings": "* Calvin's active ability can be used to trade away his or another investigator's Health or Sanity even if it kills one of them. Since this isn't considered \"spending,\" it is allowed.\n* None of the exchanged Health and/or Sanity is considered \"gained\" or \"discarded\" as part of Calvin's active ability.\n* Calvin may discard an incoming Impairment token from a Trade action or a trade-like effect and recovers 1 Health and 1 Sanity with his passive ability. His passive ability will not affect traded Improvement tokens in either direction.",
+    "origin": "Calvin Wright was a special investigator introduced in a scenario for Arkham Horror: Second Edition. Notably, he does not have a story in the Investigators of Arkham Horror companion book.",
+    "defeatedEncounters": {
+      "lossOfHealth": "You find Calvin's things, but of Calvin himself, if what is truly what you are looking at, little remains. Gain all of his possessions. As you back away from the grisly scene, you hear whispers in your mind claiming to be Calvin, and that you need only allow him inside to help you. You may gain a Corruption Condition. If you gain the Condition, you do indeed feel coursing power flow through you — but it is not Calvin; retreat by 2. Whether you gain the Condition or not, discard his Investigator token.",
+      "lossOfSanity": "You meet with Calvin, as he claims to have things for you, but he maintains his distance, standing within the shadows, face shrouded by darkness. Gain all of his possessions. You question his motives, but he seems reluctant to speak . If you pass, he tells you that he can no longer be trusted and to stay away from him at all costs; retreat by 1. If you fail, he remains silent, but steps forth, and you can see his eyes are ablaze with a sickly green light. Whether you pass or not, discard his Investigator token."
+    }
+  },
+  {
+    "name": "Carolyn Fern",
+    "pageId": 1047,
+    "profession": "The Psychologist",
+    "role": "Support",
+    "set": "The Dreamlands",
+    "skills": {
+      "lore": 2,
+      "influence": 3,
+      "observation": 2,
+      "strength": 2,
+      "will": 4
+    },
+    "health": 5,
+    "sanity": 7,
+    "startingLocation": "Rome, Italy",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Dream Diary Asset"
+      },
+      {
+        "count": 1,
+        "item": "Death XIII Unique Asset"
+      }
+    ],
+    "personalStory": "Final Analysis",
+    "quote": "The mad deserve peace of mind, not death of the spirit.",
+    "biography": "When Carolyn Fern's latest patient, Malachi, told her of his troubled nightmares, she never expected that he would turn up dead the very next day, murdered by the very weapon of which he dreamed. A gifted psychologist and skilled in the art of hypnosis, Carolyn has been following clues Malachi left in his diary across two continents. Convinced that Malachi's death is in some way connected to the growing unrest in the world, she is determined to uncover the truth that lies behind the murder of her former patient.",
+    "abilities": "Abilities \n* Action: You or another investigator on your space may discard 1 Madness Condition and/or perform a Rest action.\n* When you or another investigator on your space performs a Rest action, that investigator may recover 1 additional .",
+    "teamRole": "Carolyn has a great Will and a decent Influence, making her well suited for most encounters she'll undertake. Her Dream Diary allows her to succeed on Other World Encounters, and it spawn Clues whenever she rests, so she can populate the board with Clues.\nHer other starting asset allows her to retreat Doom when a Mystery is solved, making her helpful when dealing with an Ancient One that has a low Doom, like Atlach-Nacha or Yig.\nCarolyn can help recover additional Sanity to investigators on her space, so Ancient Ones who deal Sanity damage, like Hastur, Hypnos, or Nephren-Ka are much easier with her in play.",
+    "rulings": "",
+    "origin": "One of the Investigators in the original Arkham Horror board game published by Chaosium in 1987, in which she was the blue pawn.",
+    "defeatedEncounters": {
+      "lossOfHealth": "Carolyn contacts you after her sudden hospitalization to let you know that she is sending you some of her things. Gain all of her possessions. You pry, trying to find out what happened, but she is reluctant to share anything with you . If you pass, she finally relents and you learn of a few promising leads that she was pursuing when she was injured; retreat by 1. If you fail, she shuts you out, unwilling to discuss the circumstances that nearly ended her life. Whether you pass or not, discard her Investigator token.",
+      "lossOfSanity": "When you arrive at the asylum, the head psychiatrist hands you a bag with all of Carolyn's personal effects. Gain all of her possessions. He asks if you would like to observe the session, but you are not sure if you can bear to see what Carolyn has become . If you pass, you watch as Carolyn is hypnotized and, amidst all of the nonsensical gibberish, you learn a little about what broke her mind; retreat by 1. If you fail, you leave the asylum for good. Whether you pass or not, discard her Investigator token."
+    }
+  },
+  {
+    "name": "Carson Sinclair",
+    "pageId": 1588,
+    "profession": "The Butler",
+    "role": "All-Rounder, Support",
+    "set": "Masks of Nyarlathotep",
+    "skills": {
+      "lore": 2,
+      "influence": 3,
+      "observation": 3,
+      "strength": 2,
+      "will": 3
+    },
+    "health": 6,
+    "sanity": 6,
+    "startingLocation": "London, United Kingdom",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Lucky Cigarette Case"
+      },
+      {
+        "count": 1,
+        "item": "Clue"
+      }
+    ],
+    "personalStory": "Seeking Answers",
+    "quote": "''Think of the children.",
+    "biography": "Carson still often thinks back to that fateful night when his friend and employer, one Mr. Hercule Webb, was swallowed up by a dimensional tear, never to be seen again. With Mr. Webb's disappearance, the Webb estate fell into the hands of the Webb's duplicitous business manager, a man by the name of Dupuis. As the sole provider for the Webb children, Carson has devoted himself to proving Dupuis's involvement in the events of Hercule's disappearance and to restoring the children as the rightful heirs to the Webb fortune.",
+    "abilities": "Abilities \n* Action: Perform a Trade action. Then perform 1 additional action.\n* Whenever you or another investigator on your space performs a Prepare for Travel action, that investigator gains 1 additional travel ticket of his choice.",
+    "teamRole": "Carson can facilitate travel quickly with his actions, making him useful to support another investigator. He's also got very balanced stats that will help him in most situations, especially since he can get assets by trading as a free action. He is good partners with or .",
+    "rulings": "",
+    "origin": "Carson Sinclair made his first appearance in 2016 in Mansions of Madness: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "A combination of Carson's age and injuries have conspired to render him fully paralyzed and unable to see his responsibilities. Gain all of his possessions. You try to arrange for the Webb children to be taken care of in his stead . If you pass, Carson is grateful, and provides you with a detailed account of his investigations; retreat by 1. If you fail, the Webb children become homeless and Carson refuses to speak you for the remainder of his life. Whether you pass or not, discard his Investigator token.",
+      "lossOfSanity": "You find Carson at the Webb estate, his things forgotten in a dusty corner. Gain all of his possessions. The Webb children are nowhere to be seen. Dupuis stands at Carson's side and together, they seem to be preparing for some kind of occult experiment . If you pass, you recognize the ritual as the one from Carson's stories and plead with him to end the madness; retreat by 1. If you fail, you never hear from Carson after that day. Whether you pass or not, discard his Investigator token."
+    }
+  },
+  {
+    "name": "Charlie Kane",
+    "pageId": 105,
+    "profession": "The Politician",
+    "role": "Support",
+    "set": "Core Game",
+    "skills": {
+      "lore": 2,
+      "influence": 4,
+      "observation": 3,
+      "strength": 2,
+      "will": 2
+    },
+    "health": 4,
+    "sanity": 8,
+    "startingLocation": "San Francisco, United States",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Personal Assistant Asset"
+      }
+    ],
+    "personalStory": "Citizen Kane",
+    "quote": "",
+    "biography": "When the press asks if Charlie is planning a run for national office, he smiles and says that he's focused on the important issues. The truth is that he would love to launch his campaign, but right now the most important issue is preventing the end of the world without causing a panic. To do this, he's been calling in favors across the country. Most recently, Charlie's stopped in San Francisco to visit Hearst Castle. With the help of his friends and his finances, Charlies believes he can fix this problem without sacrificing a single vote.",
+    "abilities": "Abilities \n* Action: Another investigator of your choice may immediately perform 1 additional action.\n* When you perform an Acquire Assets action, you may allow other investigators to gain any cards you purchase.",
+    "teamRole": "Charlie Kane's abilities make him a very strong addition to any team. Although his abilities are both support oriented, making the other investigators better, they are extremely powerful, especially given his high influence score (making obtaining assets easier) and worth saving a spot on the team for him.",
+    "rulings": "* Charlie can't give an additional action to a Delayed investigator.\n* Gaining an additional action doesn't allow the investigator to perform an action he has already performed in that round.\n* Charlie's passive ability should be understood as \"when Charlie Kane performs the Acquire Assets action, he is able to have other investigators gain the Assets he acquires as a part of that action.\"\n** This means he could allow another investigator to gain an Asset he is able to purchase, but he could not allow another investigator to trigger the Bank Loan effect. Because the \"Bank Loan\" is not an Asset, but merely an effect that triggers when an investigator performs the Acquire Assets action, he would need to resolve that effect himself.\n** Similarly, while the Supplying the North Mystery is in play, Charlie can't purchase a Provisions Unique Asset for another investigator. The effect that allows an investigator to gain a Provisions Unique Asset triggers when the investigator performs the Acquire Assets action, but it is not a part of that action.\n** For the same reason, Charlie cannot spend two successes during an Acquire Assets action to move another investigator to .",
+    "origin": "Charlie Kane made his first appearance in 2008 in Kingsport Horror, the 4th expansion for Arkham Horror: Second Edition. Likely a reference to fictional newspaper magnate and (failed) gubernatorial candidate [https://en.wikipedia.org/wiki/Charles_Foster_Kane Charles Foster Kane], who was himself based on William Randolph Hearst.",
+    "defeatedEncounters": {
+      "lossOfHealth": "The nurse at the front desk hands you a parcel. Gain all of his possessions. \"Mr. Kane said to give you this package, but the doctor insists that no visitors be admitted.\" You try to convince her to make an exception for you . If you pass, you find that Charlie's health is beyond recovery, but he's still in good spirits and you have a long talk; retreat by 1. If you fail, Charlie spends the rest of his days cut off from all human contact. Whether you pass or not, discard his Investigator token.",
+      "lossOfSanity": "The first thing Charlie does when you enter the restaurant is hand you all of his belongings. Gain all of his possessions. He offers you deals, promising to sell you Atlantis and introduce you to Caesar. You negotiate carefully with him . If you pass, he tells you all he knows in exchange for your napkin ring and a salt shaker; retreat by 1. If you fail, Charlie gets angry and insists that you'll be sorry when he's President of the world. Whether you pass or not, discard his Investigator token."
+    }
+  },
+  {
+    "name": "Daisy Walker",
+    "pageId": 128,
+    "profession": "The Librarian",
+    "role": "Magic",
+    "set": "Mountains of Madness",
+    "skills": {
+      "lore": 4,
+      "influence": 3,
+      "observation": 2,
+      "strength": 1,
+      "will": 3
+    },
+    "health": 5,
+    "sanity": 7,
+    "startingLocation": "Istanbul, Turkey",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Old Journal Unique Asset"
+      },
+      {
+        "count": 1,
+        "item": "Arcane Insight Spell"
+      }
+    ],
+    "personalStory": "Unknown Secrets",
+    "quote": "I know of books so powerful, they can rewrite reality",
+    "biography": "Daisy worked in the library of Miskatonic University, overseen by the noted scholar Henry Armitage. She quickly became an expert on the school's collection of strange and occult texts, mastering the obscure subject matter and archaic languages. Through her studies, she came to believe that humanity was facing an impending threat. Armitage believes in her conclusions and has sent her to Istanbul to continue her investigation. It is their hope to discover some means of rescuing humanity from this inevitable doom.",
+    "abilities": "Abilities \n* Action: If you are on a space, test . If you pass, gain 1 Tome Asset from the reserve or 1 random Tome Asset from the deck.\n* When you perform a Rest action, you may perform 1 additional action on a Ritual or Tome possession you have.",
+    "teamRole": "With her starting spells and high Lore skill, Daisy is a great character to gain Clues, which can make her useful in dealing with rumors. Because her Observation is low, it is wise to train that up if you plan on using her skill to gain unique Tomes. \n\nNaturally, Daisy is a great character to use Tomes with, as she gets a third action every round, provided she is using a Ritual or Tome. Daisy can also use spells to great effect once she gets some.",
+    "rulings": "",
+    "origin": "Daisy Walker made her first appearance in 2008 in Kingsport Horror, the 4th expansion for Arkham Horror: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "Daisy is pleased when you come to visit. She tells you to help yourself to her book collection and other gear. Gain all of her possessions. She says there was one book brought to her after she lost her sight, but she'll need your help to explain its content . If you pass, the text and its usage are clear to you; gain 1 Tome Artifact. If you fail, it's hard to read her expression under the bandages, but you think she's giving in to despair. Whether you pass or not, discard her Investigator token.",
+      "lossOfSanity": "When you find Daisy, it takes a while to sift through the clutter and shredded books to find her belongings. Gain all of her possessions. She's pinned torn pages from newspapers, pulp magazines, and menus all across her walls, and you think you can persuade her to talk about her researches . If you pass, she tells you of the forbidden tomes she's read; retreat by 1. If you fail, she looks at you suspiciously and makes notes in her books. Whether you pass or not, discard her Investigator token."
+    }
+  },
+  {
+    "name": "Daniela Reyes",
+    "pageId": 1591,
+    "profession": "The Mechanic",
+    "role": "All-Rounder",
+    "set": "Masks of Nyarlathotep",
+    "skills": {
+      "lore": 3,
+      "influence": 3,
+      "observation": 1,
+      "strength": 3,
+      "will": 3
+    },
+    "health": 7,
+    "sanity": 5,
+    "startingLocation": "San Francisco, United States",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Headstrong Talent"
+      },
+      {
+        "count": 1,
+        "item": "Clue"
+      },
+      {
+        "count": 1,
+        "item": "Resource"
+      }
+    ],
+    "personalStory": "The Shape of Things",
+    "quote": "Relax, tough guy. I'll handle this. You stand over there and look pretty.",
+    "biography": "Daniela has never been one to sweat the small stuff. Everything seems big today will be small tomorrow, and it's the little things in life - fast cars, pretty girls, and home-cooked meals - that make it worth living anyway. But that was before. One night, a strange noise prompted her to leave a glass of water behind the door to catch evil spirits like her mama always said - a glass of water that, in the morning, she found shattered into a thousand pieces. Something is going on, and she is going to find out what.",
+    "abilities": "Abilities \n* Action: You may spend any number of to gain an equal amount of . \n* Once per round, after you perform an Acquire Assets action or a Rest action, you may gain .",
+    "teamRole": "Daniela's high Strength and Will make her well suited for Combat Encounters. Her abilities to let her get Resources allow her to gain useful assets. She can change Resources to clues in a way similar to , making her useful to accumulating Clues for Rumors or Mysteries that requires a lot of Clues at once.",
+    "rulings": "",
+    "origin": "Daniela Reyes was a new investigator created in 2018 for expansion, available shortly after on the other FFG games.",
+    "defeatedEncounters": {
+      "lossOfHealth": "Daniela nervously agrees to meet with you, and you can tell she is a different person now. She jumps at the slightest of noises, and wants nothing to do with you or her previous life. Gain all of her possessions. You try to get her to tell you what happened . If you pass, she manages to relay the story to you before asking you to never contact her again; retreat by 1. If you fail, she breaks down into wordless sobs and refuses to speak with you. Whether you pass or not, discard her Investigator token.",
+      "lossOfSanity": "Daniela has covered her apartment with a myriad of superstitious trinkets. She hardly seems to care about her previous life. Gain all of her possessions. Your placating words set her into a frenzy, and she attacks . If you pass, you block her punches long enough for her to return to a lucid state and she tells you about what happened to her; retreat by 1. If you fail, you flee into the street and she slams the door behind you, sliding the lock shut. Whether you pass or not, discard her Investigator token."
+    }
+  },
+  {
+    "name": "Darrell Simmons",
+    "pageId": 1048,
+    "profession": "The Photographer",
+    "role": "Research",
+    "set": "The Dreamlands",
+    "skills": {
+      "lore": 1,
+      "influence": 3,
+      "observation": 4,
+      "strength": 2,
+      "will": 3
+    },
+    "health": 7,
+    "sanity": 5,
+    "startingLocation": "Jakarta, Indonesia (Space 20)",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Camera Asset"
+      },
+      {
+        "count": 1,
+        "item": "Seek the Truth Asset"
+      }
+    ],
+    "personalStory": "A Thousand Words",
+    "quote": "The truth is darker than any of us know.",
+    "biography": "Darrell Simmons will never forget the night he saw an indescribable horror emerge from the shadows in his hometown of Arkham. Since that fateful night, the horror of what he saw permeates his every dream. Resolved to capture photographic evidence to prove what he saw, he has dedicated his life to pursuing rumors of supernatural sightings, the latest of which has brought him to an ancient burial ground in Indonesia. One good shot is all he needs, and there is no way he will let it slip through his fingers.",
+    "abilities": "Abilities \n* Action: Look at the top five cards of the Asset deck and put them back in any order. Then discard any number of cards from the reserve.\n* Roll 1 additional die when resolving a test during a location encounter or a Research Encounter if you are on a space.",
+    "teamRole": "With his starting assets and high Observation, Darrell is a great character for Research Encounters and gaining Clues, making him invaluable for Mysteries or Rumors that require them.\n\nDarrell is good at recycling the assets deck for more useful items, so he'll partner well on a team with or \n\nBecause he rolls an extra die in a space, he can do very well if the Ancient One is Hastur, as many of his spaces involve cities.",
+    "rulings": "",
+    "origin": "Darrell Simmons\tmade his first appearance in 2005 in Arkham Horror: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "Darrell tells you how he captured the perfect shot, how for a brief instant he had proof that he was not a madman. Sadly, both he and his camera were shattered to pieces. Discard all of his possessions. You vow that you will continue his work. Gain a Seek the Truth Asset. You listen to him speak about his quest . If you pass, you make a connection that Darrell never did; retreat by 1. If you fail, you learn nothing. Whether you pass or not, Darrell will never leave his bed again. Discard his Investigator token.",
+      "lossOfSanity": "Darrell smiles vacantly when he sees you. The doctors tell you he has not said a word about what happened to him, that he seems to be living in a make-believe world within his own mind. They give you what remains of his things. Gain all of his possessions. You talk to Darrell and encourage him to speak with you about what happened . If you pass, he reveals the truth to you in a moment of clarity; retreat by 1. If you fail, he giggles and passes out. Whether you pass or not, discard his Investigator token."
+    }
+  },
+  {
+    "name": "Dexter Drake",
+    "pageId": 304,
+    "profession": "The Magician",
+    "role": "Magic",
+    "set": "Signs of Carcosa",
+    "skills": {
+      "lore": 4,
+      "influence": 2,
+      "observation": 2,
+      "strength": 2,
+      "will": 3
+    },
+    "health": 5,
+    "sanity": 7,
+    "startingLocation": "Tokyo, Japan",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Binding Spell"
+      },
+      {
+        "count": 1,
+        "item": "Arcane Assistant Asset"
+      }
+    ],
+    "personalStory": "The Great Drake",
+    "quote": "Do not be afraid. I have spent my entire life doing the impossible.",
+    "biography": "When the Great War ended, Dexter went from being a soldier to a stage magician. His charm and unparalleled skills quickly drew praise from around the world. As he toured the exotic corners of the world, he amassed a collection of genuine occult knowledge. Soon Drake became as much a master of real magic as he is of staged illusions. Eventually, his arcane studies revealed a dark power that is growing in strength. Now in Tokyo, Drake spends his nights performing and his days stopping the end of the world.",
+    "abilities": "Abilities \n* Action: Move 1 Monster from your space to another space containing a Gate.\n* Once per round, when you gain a Spell, you may gain 1 additional Spell.",
+    "teamRole": "Dexter's stats and action make him a strong Gate closer, but he can also act as a support character gaining spells. Buenos Aires is often preferable to Arkham as a spell-farming destination, as ritual spells will give him things to do during the action phase to benefit the team.",
+    "rulings": "",
+    "origin": "Dexter Drake made his first appearance in 2005 in Arkham Horror: Second Edition. Likely a reference to pulp comic book character [https://en.wikipedia.org/wiki/Mandrake_the_Magician Mandrake the Magician].",
+    "defeatedEncounters": {
+      "lossOfHealth": "The lawyers have arranged to have Dexter's belongings be delivered to your hotel. Gain all of his possessions.  The funeral is a somber gathering of Dexter's fans from around the world, including many rich and powerful individuals. You speak to some of these elites to get their help in your struggles . If you pass, they provide you with vital information; retreat by 1. If you fail, they no longer believe in accomplishing the impossible. Whether you pass or not, discard his Investigator token.",
+      "lossOfSanity": "Dexter is nowhere to be found, but his belongings begin to show up into your luggage and pockets. Gain all of his possessions. Cryptic messages appear on mirrors and windows. You try to discover any hidden meaning . If you pass, they trigger post-hypnotic suggestions Drake placed in your mind; gain , 1 Spell, 1 Talent Condition, and improve 1 skill of your choice. If you fail, Dexter's illusions fade into obscurity. Whether you pass or not, discard his Investigator token."
+    }
+  },
+  {
+    "name": "Diana Stanley",
+    "pageId": 107,
+    "profession": "The Redeemed Cultist",
+    "role": "Magic, Combat",
+    "set": "Core Game",
+    "skills": {
+      "lore": 4,
+      "influence": 2,
+      "observation": 3,
+      "strength": 3,
+      "will": 1
+    },
+    "health": 7,
+    "sanity": 5,
+    "startingLocation": "Central America (Space 7)",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Arcane Manuscripts Asset"
+      },
+      {
+        "count": 1,
+        "item": "Wither Spell"
+      }
+    ],
+    "personalStory": "Bound by the Past",
+    "quote": "The Lodge is not as innocent as they pretend.  I have learned that nothing is ever as it seems, myself included.",
+    "biography": "When Diana was initiated into the Order of the Silver Twilight, she believed it to be nothing more than a community organization. But as she has learned more of its true nature, she has become convinced that a growing evil threatens the world, and that the Silver Twilight will play a role in that threat. She believes her best chance to prevent this is to use her position to sabotage the organization from within. Carl Sanford, the head of the Order, has recognized her skills and recently sent her to Panama for additional training",
+    "abilities": "Abilities \n* Action: If there is a Cultist Monster on your space, discard all Monsters on your space or move the Cultist Monster to any other space.\n* Reduce the horror of Monsters you encounter to 1.",
+    "teamRole": "Her high lore, along with her starting asset, makes her a very good spellcaster. Given her starting position, starting very close to both Arkham and Buenos Aires, she can often be used to gather many spells.\n\nWith her starting Wither spell and her passive ability, she can also be played as a combat investigator. If you choose this, it is recommended that you find some way to improve her will or give her some assets in order to help with horror checks in combat.",
+    "rulings": "Diana's passive ability only applies to her own Combat Encounter; it is not a permanent effect on the Monster.",
+    "origin": "Diana Stanley made her first appearance in 2006 in Dunwich Horror, the 2nd expansion for Arkham Horror: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "In her hospital, Diana tells you to pick up your things and bids you farewell. Gain all of her possessions. You infer that she is being watched. Using your knowledge of the Silver Twilight, you try to determine which doctors can be trusted . If you pass, you move Diana to a new hospital and she shares her secrets with you; retreat by 1. If you fail, Diana remains under the Lodge's watchful eye. Whether you pass or not, discard her Investigator token.",
+      "lossOfSanity": "It's obviously Diana, but she claims to be a woman named Iris who has lived in this city her whole life. In her trash, you find Diana's things. Gain all of her possessions. It's clear that she has disassociated from her former life. You share all of your memories of Diana to restore her identity . If you pass, she tells you of the horrors that brought her to this state; retreat by 1. If you fail, Diana sternly asks you to leave her alone. Whether you pass or not, discard her Investigator token."
+    }
+  },
+  {
+    "name": "Father Mateo",
+    "pageId": 1589,
+    "profession": "The Priest",
+    "role": "Gate Closer, Support",
+    "set": "Masks of Nyarlathotep",
+    "skills": {
+      "lore": 3,
+      "influence": 3,
+      "observation": 1,
+      "strength": 2,
+      "will": 4
+    },
+    "health": 5,
+    "sanity": 7,
+    "startingLocation": "Rome, Italy",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "King James Bible Asset"
+      }
+    ],
+    "personalStory": "In Nomine Patris",
+    "quote": "You need only look in your heart to find proof of the divine.",
+    "biography": "For all his life, Mateo has been a devout believer in a power greater than himself. Even as the political situation in Mexico reached a boiling point and violence erupted across the country, he maintained his faith in a just and benevolent creator. But when the bodies began to show up in his hometown, limbs mutilated and skin torn to shreds by some unnatural beast, Mateo started to wonder if there was any goodness left in the world at all. Now, Mateo is in Rome, seeking guidance and answers from the Vatican itself.",
+    "abilities": "Abilities \n* Action: Give 1 of your Boon Conditions to another investigator on any space.\n* When you close a Gate during an Other World Encounter, if you do not have a Boon Condition, gain 1 Boon Condition.",
+    "teamRole": "With his high Will and Lore, Mateo is good for Other World Encounters or combat-oriented magic. His passive ability can have great powerful effects, giving Boons to other investigators who are about to undertake difficult tasks or to possibly get rid of Corruption or Cursed conditions.",
+    "rulings": "Mateo's active ability is similar to a Trade action in which the trade is in one direction and the content of the trade is a Boon. This means the investigator receiving the Boon must be able to accept it. Mateo can't give a Blessed to an investigator already having a Blessed for example. If the Boon can't be given, Mateo will keep the Boon. If Mateo gives a Blessed to another investigator who has a Cursed, Haunted or Corruption, the transfer will be successful and then both Conditions will be discarded.",
+    "origin": "Father Mateo made his first appearance in 2016 in Mansions of Madness: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "You find a limping Mateo packing most of things into a suitcase, though he has abandoned some of his things on the floor, notably his personal rosary. Gain 1 Boon Condition. You ask him for his blessing, but he claims that no one can help you but yourself . If you pass, his skepticism strengthens your resolve and you tighten your grip on the rosary; gain a Blessed Condition. If you fail, you bid him farewell and part ways. Whether you pass or not, discard all of his possessions and his Investigator token.",
+      "lossOfSanity": "You find Mateo in an abandoned church, boisterously preaching to empty pews. His things are strewn all through the aisles, and he seems to hardly notice them. Gain all of his possessions. You try to speak with him, but he averts his eyes and increases the volume of his sermon . If you pass, he breaks down in tears and tells you of the horrors that brought him to the brink; retreat by 1. If you fail, the sermon takes a dark turn toward fire and brimstone. Whether you pass or not, discard his Investigator token."
+    }
+  },
+  {
+    "name": "Finn Edwards",
+    "pageId": 129,
+    "profession": "The Bootlegger",
+    "role": "All-Rounder",
+    "set": "Mountains of Madness",
+    "skills": {
+      "lore": 2,
+      "influence": 3,
+      "observation": 3,
+      "strength": 2,
+      "will": 3
+    },
+    "health": 6,
+    "sanity": 6,
+    "startingLocation": "American Metropolis (Space 5)",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Cat Burglar Asset"
+      },
+      {
+        "count": 1,
+        "item": "Whiskey Asset"
+      },
+      {
+        "count": 1,
+        "item": "Courier Run Unique Asset"
+      }
+    ],
+    "personalStory": "Don't Get Caught",
+    "quote": "Never lose track of the exit or the merchandise.",
+    "biography": "Finn was making a good living, running liquor from Canada to cities all along the East Coast. He never got caught and never lost a delivery. Now he has taken a job in Chicago and gave his word that he could get it done. This time it won't be alcohol he's delivering, and it won't be the local sheriff trying to catch him. Finn's caught up in some supernatural conspiracy, but in the end, he adheres to the same principles. Deliver the goods. Don't get caught.",
+    "abilities": "Abilities \n* Action: You and/or another investigator on your space may move 1 space along a or .\n* Effects cannot cause you to discard your Item, Trinket, or Ally possessions unless you choose to.",
+    "teamRole": "Finn Edwards has well rounded stats, and a fantastic supporting ability that lets him move himself or other investigators down most paths, making him excellent in a supporting role. Since he can never lose Assets by choice, it is very easy to bulk him up into whatever role the team needs.",
+    "rulings": "When Finn Edwards uses his active ability, he chooses himself, another investigator on his space, or both himself and another investigator on his space.\n* If Finn chooses only himself, he moves to an adjacent space connected by a Ship or Train path.\n* If Finn chooses only another investigator on his space, that investigator may move to an adjacent space connected by a Ship or Train path.\n* If Finn chooses both himself and another investigator on his space, Finn moves to an adjacent space connected by a Ship or Train path, and the chosen investigator may choose to move to that space as well. Finn and the chosen investigator cannot move to separate spaces.\nIf Finn Edwards uses his passive ability to not discard a flipped Unique Asset when instructed, the Unique Asset will be shuffled into the Unique Asset deck anyway.",
+    "origin": "Finn Edwards made his first appearance in 2009 in Innsmouth Horror, the 6th expansion for Arkham Horror: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "Out of the blue, Finn sends you everything he owns. Gain all of his possessions. You've never known him to give anything away. Something must be wrong. When you search for him, most people tell you he died in a fire. Learning more requires some persuasion . If you pass, you find him alive but burned beyond recovery, and he tells you he can not complete the job he was hired for; gain 1 Task Unique Asset. If you fail, you never find him. Whether you pass or not, discard his Investigator token.",
+      "lossOfSanity": "You don't know how, but Finn managed to sneak his belongings into your room. Gain all of his possessions. Finn's intense paranoia keeps him apart from all human contact, but occasionally, you catch a glimpse of something that reminds you of him . If you pass, you find a final message from him, telling you all he's learned from the shadows; retreat by 1. If you fail, no trace of Finn is ever seen again. Whether you pass or not, discard his Investigator token."
+    }
+  },
+  {
+    "name": "George Barnaby",
+    "pageId": 134,
+    "profession": "The Lawyer",
+    "role": "Support",
+    "set": "Mountains of Madness",
+    "skills": {
+      "lore": 3,
+      "influence": 4,
+      "observation": 2,
+      "strength": 1,
+      "will": 3
+    },
+    "health": 4,
+    "sanity": 8,
+    "startingLocation": "Urban India (Space 17)",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Investment Asset"
+      },
+      {
+        "count": 1,
+        "item": "Pocket Watch Asset"
+      }
+    ],
+    "personalStory": "My Sweet Maria",
+    "quote": "I believe in a higher law. I believe in true justice.",
+    "biography": "As a lawyer, George had a long career holding those who deal in human suffering accountable to the law. Recently, George retired and bought a boat to travel the world with his beloved wife Maria, but everything changed one morning in Bombay. George left the boat to get breakfast. On his way back, he passed Westerners dressed in black suits, all wearing silver rings that bore the image of a skull. Inside the boat, he found Maria's body surrounded by occult symbols. His sole reason for living now is the pursuit of justice for Maria.",
+    "abilities": "Abilities \n* Action: Test . For each success, another investigator of your choice on any space may discard a Debt or Detained Condition.\n* Once per round, you may spend to add 1 to the result of 1 die when resolving a test.",
+    "teamRole": "George's high Influence and special skill allows players to get useful Assets from the reserve quickly: Debts for extra successes are almost a non-issue, since other players on any space may discard them when George succeeds. \n\nHis decent Lore and Will make him good at handling Other World Encounters, as well as casting Spells.",
+    "rulings": "",
+    "origin": "George Barnaby made his first appearance in 2009 in Innsmouth Horror, the 6th expansion for Arkham Horror: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "You find George in the hospital, broken and battered. The injuries to his hands and jaw makes communication a slow process. He gives you what he can. Gain all of his possessions. George tries to guide you through the necessary steps to secure his accumulated wealth . If you pass, you get the money and learn who was trying to take it; gain 1 Investment Asset and . If you fail, all of his accounts have been emptied. Whether you pass or not, discard his Investigator token.",
+      "lossOfSanity": "When you find George in prison, he accuses you of murder; finds you guilty, and sentenced you to death. The guards tell you he does that to everyone. They say he hasn't spoken coherently since he was convicted. You try to bribe a clerk to see the transcript of his trial . If you pass, you see George's description of what he'd learned; retreat by 1. If you fail, George never communicates again, except to pass judgement. Whether you pass or not, gain all of his possessions and discard his Investigator token."
+    }
+  },
+  {
+    "name": "Gloria Goldberg",
+    "pageId": 1049,
+    "profession": "The Author",
+    "role": "Support, Research",
+    "set": "The Dreamlands",
+    "skills": {
+      "lore": 3,
+      "influence": 3,
+      "observation": 3,
+      "strength": 1,
+      "will": 3
+    },
+    "health": 4,
+    "sanity": 8,
+    "startingLocation": "Arkham, United States",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Mythos Codex Unique Asset"
+      },
+      {
+        "count": 1,
+        "item": "Find Gate Spell"
+      }
+    ],
+    "personalStory": "Based on a True Story",
+    "quote": "Never underestimate the power of the written word.",
+    "biography": "For most of her life, Gloria has experienced vivid, lifelike dreams of horrifying abominations emerging from the dark places of the universe to destroy humanity. As she became older, she learned to channel these horrible visions into her writing and is widely lauded for the imaginative and detailed descriptions of the terrors she encounters in her nightmares. Her most recent nightmare ended with the destruction of not only Arkham but the entire world. If nothing else, it is going to make one hell of a book.",
+    "abilities": "Abilities \n* Action: If you are on a space, gain 1 Tome Asset of your choice from the reserve or discard pile.\n* You and other investigators on your space roll 1 additional die when resolving a test during an Other World Encounter.",
+    "teamRole": "",
+    "rulings": "",
+    "origin": "One of the Investigators in the original Arkham Horror board game published by Chaosium in 1987, in which she was the gray pawn.",
+    "defeatedEncounters": {
+      "lossOfHealth": "You look over the doctor's reports and see that both of Gloria's hands were crushed in the accident that brought her here. She offers her old things to you now that she can no longer make use if them. Gain all of her possessions. She tells you of an old book in her library that might be of use to you, if you can translate it from its original Latin . If you pass, you discover latent power in its dusty pages; retreat by 1. If you fail, its secrets remains hidden. Whether you pass or not, discard her Investigator token.",
+      "lossOfSanity": "Gloria is convinced that her stories are the reason that so many terrible things have been happening as of late and refuses to even pick up a pen. She claims that she is preparing to become a nun and have no further use for her things. Gain all of her possessions. You try to convince her that it is all in her head . If you pass, she remains unconvinced but gives you one of her old book; gain 1 Tome Artifact. If you fail, she becomes belligerent and escorts you out the door. Whether you pass or not, discard her Investigator token."
+    }
+  },
+  {
+    "name": "Hank Samson",
+    "pageId": 136,
+    "profession": "The Farmhand",
+    "role": "Combat",
+    "set": "Under the Pyramids",
+    "skills": {
+      "lore": 1,
+      "influence": 2,
+      "observation": 3,
+      "strength": 4,
+      "will": 3
+    },
+    "health": 8,
+    "sanity": 4,
+    "startingLocation": "Dallas, United States (Space 6)",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Sledgehammer Asset"
+      }
+    ],
+    "personalStory": "Where's Pa?",
+    "quote": "",
+    "biography": "Since he was a kid, Hank has crossed the country working on farms and ranches. In Texas, he saw a giant bird-like creature tear cattle to pieces. Everyone else ran, but Hank cracked that creature's skull open with his maul. Thinking nothing of it, he included the story in a letter to his father. Now his pa is missing and folks in Dallas say someone's looking for Hank. If they thought they were going to scare him, they were wrong. Hank Samson ain't afraid of anything, and he aims to find his pa.",
+    "abilities": "Abilities \n* Action: Test . If you pass, discard 1 Monster on your space with toughness less than or equal to your test result.\n* You do not resolve the test during a Combat Encounter unless you lose from the test.",
+    "teamRole": "Hank is a strong hybrid of a fighter and clue gatherer, and also has one of the best stat pools for expeditions of any investigator. He can take on any of these roles based on the needs of the team. Consider having him travel with your gate closer if there are several monsters on the board with dangerous side effects to failing their will tests.",
+    "rulings": "* When Hank Samson encounters a Monster, if that Monster has both a test and a test, he resolves the test first. Then he resolves the test only if he lost one or more from the test. If the Monster has a or other test in place of the test, Hank resolves that test first, and then he resolves the test only if he lost one or more Health. If the Monster has an or other test in place of the test, Hank's passive ability has no effect on the encounter.\n* When a Monster is defeated during a Combat Encounter, that encounter immediately ends. Hank Samson will not resolve the test. (Note: This ruling takes precedence over any other ruling it contradicts.)",
+    "origin": "Hank Samson made his first appearance in 2009 in Innsmouth Horror, the 6th expansion for Arkham Horror: Second Edition. Samson is likely a reference to the biblical strongman.",
+    "defeatedEncounters": {
+      "lossOfHealth": "Hank greets you at the hotel with a smile, but you can see something is wrong. He is frail thin and can barely carry his own bags. He offers them to you. Gain all of his possessions. You implore Hank to see a doctor . If you pass, he receives care for a blood infection that was caused by countless untreated wounds, and he confesses that he hopes to start a family of his own; retreat by 1. If you fail, Hank falls dead the day after you last saw him. Whether you pass or not, discard his Investigator token.",
+      "lossOfSanity": "The police guides you to the field where Hank has tied himself to a pole like a scarecrow. Everything he owns rests on the ground beneath his feet. Gain all of his possessions. He insists that he is keeping away monsters. You try to force him down, but he resists . If you pass, he knows that he is going mad but promises to do one last good thing; 1 Monster of your choice on any space loses . If you fail, he stays up there until he dies of dehydration. Whether you pass or not, discard his Investigator token."
+    }
+  },
+  {
+    "name": "Harvey Walters",
+    "pageId": 196,
+    "profession": "The Professor",
+    "role": "Support",
+    "set": "Under the Pyramids",
+    "skills": {
+      "lore": 3,
+      "influence": 2,
+      "observation": 3,
+      "strength": 2,
+      "will": 3
+    },
+    "health": 4,
+    "sanity": 8,
+    "startingLocation": "Arkham, United States",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Ancient Tome Asset"
+      }
+    ],
+    "personalStory": "Higher Education",
+    "quote": "I have experience dealing with these sorts of horrors.",
+    "biography": "In the time since Harvey Walters earned his master's degree in journalism from Miskatonic University, a lot has happened to him. His journalistic career took him into the roles of mystic and psychic investigator, which in turn led him to earn doctorates in History and Archaeology. There is perhaps no sane man alive who knows more about the occult than Harvey. Now his ongoing struggle against the darkness has brought him back to his alma mater here in Arkham.",
+    "abilities": "Abilities \n* Action: Another investigator on your space improves 1 skill of his choice if your value for that skill is equal to or higher than his.\n* After resolving a Research Encounter, you may spend you gained from that encounter to improve 1 skill of your choice.",
+    "teamRole": "On his own, Harvey is best suited to research encounters, or to close gates if he has an item or another investigator to help defeat monsters. However, he works best as a support character in large games, where he can frequently make use of his action. He teams well with combat-oriented investigators, like , able to round out their stats so they can deal with a greater variety of encounters.",
+    "rulings": "When he uses his active ability, as an action, Harvey Walters chooses another investigator on his space. That investigator improves one skill of his choice if Harvey’s value for that skill is equal to or higher than his own. This comparison is made using the skill’s modified value, including Improvement tokens and Impairment tokens. Bonuses to skills, such as from Assets, do not affect a skill’s modified value.",
+    "origin": "One of the Investigators in the original Arkham Horror board game published by Chaosium in 1987, in which he was the yellow pawn.\nAlso, Harvey Walters is the sample character in the Call of Cthulhu roleplaying game from Chaosium, used to illustrate character creation and how various game mechanics work. He first appeared in the 1st edition in 1981, and has served the same function in every edition since, up to the 7th edition in 2015. This probably makes him the original, and certainly oldest, game-related investigator.\n\nWhile the name is not referential, the character of Harvey Walters resembles that of Henry Armitage.",
+    "defeatedEncounters": {
+      "lossOfHealth": "Harvey left a message indicating that his wounds were severe and he was going into hiding, never to emerge or reveal his location. He left you everything he owned and a collection of arcane documents. Gain all of his possessions. His notes indicate a correlation between ancient texts that you struggle to interpret . If you pass, you find Harvey had made a significant discovery; retreat by 1. If you fail, the documents' meaning remains a mystery. Whether you pass or not, discard his Investigator token.",
+      "lossOfSanity": "You find Harvey's belongings in a neat pile in the ruined house. Gain all of his possessions. Whatever the cult had been doing here, Harvey had mopped it all up and taken their dark relics. After that, he disappeared. The police refuse to share their information without some convincing . If you pass, you learn that Harvey has taken over the cult and prepare for the worst; retreat by 1. If you fail, you are unprepared for Harvey's keen mind. Whether you pass or not, discard his Investigator token."
+    }
+  },
+  {
+    "name": "Jacqueline Fine",
+    "pageId": 108,
+    "profession": "The Psychic",
+    "role": "Support, Research",
+    "set": "Core Game",
+    "skills": {
+      "lore": 4,
+      "influence": 2,
+      "observation": 3,
+      "strength": 1,
+      "will": 3
+    },
+    "health": 4,
+    "sanity": 8,
+    "startingLocation": "American Heartland (Space 5)",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Flesh Ward Spell"
+      },
+      {
+        "count": 1,
+        "item": "Clue"
+      }
+    ],
+    "personalStory": "Arbiter of Fate",
+    "quote": "The visions are a warning.  The future can be rewritten.",
+    "biography": "At first, Jacqueline's dreams of fire and destruction seemed like a curse. Monsters ran rampant through city streets and some greater darkness loomed on the horizon. However, she has recently learned to control her visions and observe events in detail. Yesterday, she traveled from Boston to Minneapolis to explore an abandoned warehouse she'd seen in her dreams. Inside, she found evidence of a terrible cult that had practiced unspeakable rituals there. Jacqueline hopes to use what she's learned to prevent the terrible future that haunts her sleep.",
+    "abilities": "Abilities \n* Action: You may trade any number of with an investigator on any space.\n* Once per round, when another investigator gains a non-Common Condition, you may look at the back of that card and gain .",
+    "teamRole": "With her high starting Lore and decent Will, Jacqueline is great for casting spells of all kinds. She has a lower strength, so a lesser base for Strength to be boosted for Combat Encounters, so a player who wants to use her to fight might want to increase that first.\n\nHer high observation and special ability allow her to funnel clues to investigators, or to retrieve them from an investigator if she's better suited for the Mystery, so an investigator like or might make a good partner for her. \n\nSince Jacqueline may look at the back of Condition cards that are not Debt Conditions, the players can work around what might be some debilitating or deadly conditions.",
+    "rulings": "None of the exchanged Clues are considered \"gained\" or \"discarded\" as part of Jacqueline's active ability.",
+    "origin": "Jacqueline Fine made her first appearance in 2006 in Dunwich Horror, the 2nd expansion for Arkham Horror: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "Somehow, Jacqueline knew you would be at this café to receive the parcel. Gain all of her possessions. Strangely, everyone here encountered her sometime after she was injured. You try to convince everyone to share their story . If you pass, you get the whole message Jacqueline hoped to convey; retreat by 1. If you fail, the story is incomplete and makes no sense. Whether you pass or not, discard her Investigator token.",
+      "lossOfSanity": "You visit Jacqueline in the asylum and claim her belongings. Gain all of her possessions. She seems lost in her own world, talking to visions only she sees. You do your best to interpret what she's seeing based on what she says . If you pass, you have a clear idea of what she's experiencing; retreat by 1. If you fail, Jacqueline remains trapped in a world only she can see. Whether you pass or not, discard her Investigator token."
+    }
+  },
+  {
+    "name": "Jenny Barnes",
+    "pageId": 303,
+    "profession": "The Dilettante",
+    "role": "Support",
+    "set": "Signs of Carcosa",
+    "skills": {
+      "lore": 1,
+      "influence": 4,
+      "observation": 2,
+      "strength": 3,
+      "will": 3
+    },
+    "health": 7,
+    "sanity": 5,
+    "startingLocation": "The Caribbean (Space 8)",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": ".25 Automatic Asset"
+      },
+      {
+        "count": 1,
+        "item": "Fine Jewelry Asset"
+      },
+      {
+        "count": 1,
+        "item": "Ship Ticket"
+      }
+    ],
+    "personalStory": "Search for Isabelle",
+    "quote": "My sister was taken. I will pay any amount to save her.",
+    "biography": "Born to wealth and privilege, Jenny has spent most of her young life in the most fashionable nightclubs around the world. But her life of decadence came to an abrupt halt when she received an ominous letter from her sister Isabelle. In the letter, Isabelle reported being followed by mysterious men wearing hoods and robes. When Jenny investigated, she learned that her sister had been kidnapped to an island in the Caribbean. Jenny will use her wealth and international connections to find Isabelle and punish the men who took her.",
+    "abilities": "Abilities \n* Action: You or another investigator on a space may perform an Acquire Assets action and gain +2 during that action.\n* Once per round, when you or another investigator gains a Debt Condition, that investigator may discard that Condition.",
+    "teamRole": "",
+    "rulings": "The Acquire Assets action granted by Jenny's action ability still has the same restriction as normal, meaning it can only be performed on a space with no Monsters.",
+    "origin": "Jenny Barnes is one of the investigators in the original Arkham Horror board game published by Chaosium in 1987, in which she was the purple pawn.",
+    "defeatedEncounters": {
+      "lossOfHealth": "Walter and Caroline Barnes have not left their daughter's bedside since she was hospitalized. They pass along her things to you. Gain all of her possessions. You try to convince the heartbroken parents to help you finish Jenny's work . If you pass, they offer you what they can to find Isabelle; gain any number of Assets of your choice from the reserve. If you fail, they believe Isabelle to be lost forever and want to focus their resources on taking care of Jenny. Whether you pass or not, discard her Investigator token.",
+      "lossOfSanity": "As near as you can tell, Jenny has been in this nightclub for days. She no longer cares about any belongings other than the Yellow Sign she wears around her neck. Gain all of her possessions. The music and atmosphere of the club erodes your senses . If you pass, you escape with Jenny and learn what she knows before committing her to an institution; retreat by 1. If you fail, you wake up in an alley, unable to find Jenny or the club. Whether you pass or not, discard her Investigator token."
+    }
+  },
+  {
+    "name": "Jim Culver",
+    "pageId": 109,
+    "profession": "The Musician",
+    "role": "Magic, Support",
+    "set": "Core Game",
+    "skills": {
+      "lore": 3,
+      "influence": 3,
+      "observation": 2,
+      "strength": 2,
+      "will": 3
+    },
+    "health": 7,
+    "sanity": 5,
+    "startingLocation": "Deep South (Space 6)",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Shriveling Spell"
+      },
+      {
+        "count": 1,
+        "item": "Clue"
+      }
+    ],
+    "personalStory": "Dead Rising",
+    "quote": "",
+    "biography": "Old Jim Culver's music gives sweet comfort to the soul, and it doesn't matter if that soul belongs to the living or the dead. Folks in their graves, they love their little chats with Jim. It used to bother him, but now he's happy for the company. Lately, some departed souls in San Antonio have been all riled up about something. They're downright terrified. And anything that scares the dead deserves old Jim's undivided attention.",
+    "abilities": "Abilities \n* Action: Each investigator on your space recovers .\n* Investigators on your space roll 1 additional die when resolving tests during Combat Encounters.",
+    "teamRole": "With Jim's passive ability and starting equipment, he's good for taking on Monsters, and dealing with the Other World Encounters from the Gates left after the Monsters are gone. He starts close to Arkham and Buenos Aires, so he can get more Spells quickly if he needs too.",
+    "rulings": "Jim’s passive ability \"during Combat Encounters\" refers specifically to the effects of the Combat Encounter directly. That is, the tests that are printed on the Monster token. Any effects not printed on the Monster token being encountered are not part of the Combat Encounter. For example, Jim won't add 1 additional die to the Lore tests printed on Wither or Wrack spells.",
+    "origin": "Jim Culver made his first appearance in 2006 in Dunwich Horror, the 2nd expansion for Arkham Horror: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "Seeing Jim in this hospital bed is heartbreaking. He hands you a key to a safety deposit box. Gain all of his possessions. The severity of the injuries means that he'll never speak or play music again. You gently try to coax him into writing down everything he's learned . If you pass, Jim fills a dozen sheets of paper with arcane illustrations; retreat by 1. If you fail, all Jim wants is to listen to a record of his own music played over and over. Whether you pass or not, discard his Investigator token.",
+      "lossOfSanity": "At the cemetery's gate, you find Jim's old suitcase and hear wild and erratic music ahead. Gain all of his possessions. Summoning all your nerve, you walk toward the crowd of dancing cadavers that surround Jim . If you pass, you spend the night learning the secrets of the dead; retreat by 1. If you fail, you run, and Jim is never seen by a living soul again. Whether you pass or not, discard his Investigator token."
+    }
+  },
+  {
+    "name": "Joe Diamond",
+    "pageId": 194,
+    "profession": "The Private Eye",
+    "role": "Research",
+    "set": "Under the Pyramids",
+    "skills": {
+      "lore": 2,
+      "influence": 3,
+      "observation": 4,
+      "strength": 2,
+      "will": 2
+    },
+    "health": 7,
+    "sanity": 5,
+    "startingLocation": "San Francisco, United States",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": ".32 Colt Pocket Asset"
+      }
+    ],
+    "personalStory": "Finish the Job",
+    "quote": "I was hired for a job. Evil gods or no, I aim to finish it",
+    "biography": "The dame who hired Joe was square, and the job seemed easy on the surface. She paid in advance to have Joe find some codger and deliver a crate, but Joe does not walk into situations without knowing the score. This codger was a member of the Silver Twilight Lodge, and that crate had been stolen from a museum in Istanbul. Like a sucker, Joe went to the cops. For his trouble, he got a broken nose and a dead client, and somebody stole his cargo. Now Joe is ready for a little payback.",
+    "abilities": "Abilities \n* Action: Choose Ally, Service, or Weapon. Then discard 1 Asset from the reserve and replace it with 1 random Asset from the deck that has the chosen trait.\n* Once per round, when you improve a skill, also improve 1 other skill of your choice.",
+    "teamRole": "With his high Observation, Joe is quite good at getting Clues, as well as using Talents like Skulduggery in order to gain more powerful items. Research encounters are something Joe does well, so he can solve many mysteries that require the spending of Clues.\n\nSince he starts with a gun, he is decent with fighting, although a player who plans on using him to close gates might want to improve his Will, to deal with the monsters spawned from them.",
+    "rulings": "",
+    "origin": "One of the Investigators in the original Arkham Horror board game published by Chaosium in 1987, in which he was the red pawn.\n\nJoe Diamond's name is a reference to the mystery novel detective Sam Spade.",
+    "defeatedEncounters": {
+      "lossOfHealth": "When you reach the phone booth Joe called you from, he is not there anymore. You find his belongings and a lot of his blood. Gain all of his possessions. Your search for the man proves fruitless, and the police will not take the case without a bribe . If you pass, Joe will not be leaving a hospital any time soon, but he has picked up a lot of useful information; gain . If you fail, the cultists who have kidnapped Joe are never caught. Whether you pass or not, discard his Investigator token.",
+      "lossOfSanity": "After visiting several pawnshops, you eventually recover everything Joe owned. Gain all of his possessions. These days, he drinks until he passes out. Hoping to learn what he knew before he fell into this despair, you patiently listen to his incoherent ramblings . If you pass, you understand what he has been struggling to say about the impending threat of humanity; retreat by 1. If you fail, he cries and beg you to buy him a drink. Whether you pass or not, discard his Investigator token."
+    }
+  },
+  {
+    "name": "Kate Winthrop",
+    "pageId": 828,
+    "profession": "The Scientist",
+    "role": "Research, Gate Closer",
+    "set": "The Dreamlands",
+    "skills": {
+      "lore": 3,
+      "influence": 2,
+      "observation": 4,
+      "strength": 2,
+      "will": 2
+    },
+    "health": 5,
+    "sanity": 7,
+    "startingLocation": "Buenos Aires, Argentina",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Dimensional Study Unique Asset"
+      },
+      {
+        "count": 1,
+        "item": "Clue"
+      }
+    ],
+    "personalStory": "Resonance",
+    "quote": "Professor Young taught me that everything is simpler than it seems. The connection is there if you look for it.",
+    "biography": "Quiet and resourceful, Kate Winthrop has been obsessed with studying dimensional instability ever since her friend and mentor Professor Young was devoured by a beast from another world. Following a peculiar dream and a string of mysterious disappearances, Kate has come to the University of Buenos Aires to continue her research. Now that preliminary testing has been completed on her flux stabilizer, Kate is no longer content to sit idly by. She is determined to seek revenge for the death of her colleague.",
+    "abilities": "Abilities\n* Action: If you are on a space containing a Gate, discard 1 Monster on your space with toughness less than your .\n* If a Gate would spawn on your space, discard that Gate and gain instead.",
+    "teamRole": "Kate is well suited for research encounters. However, her abilities are oriented around preventing gates from opening and removing Monsters on Gate spaces, making her useful in dealing with gates.",
+    "rulings": "If Kate is on a space containing a Dream Portal and a Gate would spawn on that space, the active investigator decides which effect takes priority.",
+    "origin": "Kate Winthrop made her first appearance in 2005 in Arkham Horror: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "You receive an invitation from Kate to meet her at her hotel room. When you arrive, you find her things but she is nowhere to be found. Gain all of her possessions. You search for any sign of her . If you pass, you find a note with your name on it along with her more experimental projects; gain the Flux Stabilizer Unique Asset and improve 1 skill of your choice. If you fail, you find no further news of Kate's whereabouts. Whether you pass or not, discard her Investigator token.",
+      "lossOfSanity": "You find Kate tinkering tirelessly in a filthy laboratory, an air of madness above her. She waves you to a pile of old things in the corner, all the while fiddling with a monstrous machine. Gain all of her possessions. She does not seem to know who you are, but you try to act as if you were her assistant . If you pass, she directs you to pull a lever attached to the massive machine; retreat by 1. If you fail, she accuses you of being a ghoul and chases you away. Whether you pass or not, discard her Investigator token."
+    }
+  },
+  {
+    "name": "Leo Anderson",
+    "pageId": 117,
+    "profession": "The Expedition Leader",
+    "role": "Expedition",
+    "set": "Core Game",
+    "skills": {
+      "lore": 2,
+      "influence": 2,
+      "observation": 3,
+      "strength": 3,
+      "will": 3
+    },
+    "health": 6,
+    "sanity": 6,
+    "startingLocation": "Buenos Aires, Argentina",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Hired Muscle Asset"
+      }
+    ],
+    "personalStory": "The Expedition",
+    "quote": "Keep moving. You can die on your own time.",
+    "biography": "Leo Anderson has spent his whole life getting into the deadliest and most obscure corners of the globe. Along the way, he's lost good people. Fever takes some; others are claimed by wild beasts. After a recent, disastrous venture in the Yucatan, Leo barely made it back to Buenos Aires alive. He's sick of burying the people who trusted him. But the job's not done yet. The world is in danger, and crying in his drink won't fix that. He's picked up a little hired help here, and in the morning, he'll head back out into the wild.",
+    "abilities": "Abilities \n* Action: Test . If you pass, gain 1 Ally Asset of your choice from the reserve or the discard pile.\n* If you are on a space, investigators on your space roll 1 additional die when resolving tests.",
+    "teamRole": "Leo's well-rounded stats, starting asset and ability to easily gain allies makes him a strong investigator and an excellent choice for first time players.",
+    "rulings": "",
+    "origin": "Leo Anderson made his first appearance in 2006 in Dunwich Horror, the 2nd expansion for Arkham Horror: Second Edition. His character is possibly inspired by H. Rider Haggard characters Allan Quatermain (\"King Solomon's Mines\") and Leo Vincey (\"She\").",
+    "defeatedEncounters": {
+      "lossOfHealth": "\"It's all in the drawer,\" Leo tells you \"Take it and leave me here to die. I deserve it.\". Gain all of his possessions. Leo's injuries have left him bedridden and in agony in this hotel. Worse, he's lost his will to live. You try to convince him that he hasn't failed his friends . If you pass, he draws you several maps and promises to let you check him into a hospital; retreat by 1. If you fail, he never speaks to you again. Whether you pass or not, discard his Investigator token.",
+      "lossOfSanity": "You find Leo's canvas bag in his hotel room. Gain all of his possessions. While you are distracted, Leo attacks you. His face covered with tribal markings, and he speaks à hodgepodge of tribal dialects. You try to subdue him . If you pass, you get Leo to an asylum, and the doctors learn some of what happened to him; retreat by 1. If you fail, Leo is gone when you regain consciousness. Whether you pass or not, discard his Investigator token."
+    }
+  },
+  {
+    "name": "Lily Chen",
+    "pageId": 118,
+    "profession": "The Martial Artist",
+    "role": "Combat",
+    "set": "Core Game",
+    "skills": {
+      "lore": 2,
+      "influence": 2,
+      "observation": 2,
+      "strength": 4,
+      "will": 3
+    },
+    "health": 6,
+    "sanity": 6,
+    "startingLocation": "Shanghai, China",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Protective Amulet Asset"
+      },
+      {
+        "count": 1,
+        "item": "Lucky Rabbit's Foot Asset"
+      }
+    ],
+    "personalStory": "All That Stands",
+    "quote": "I have been preparing to confront this evil for my entire life. My focus must be absolute.",
+    "biography": "Lily speaks rarely and when she does, her words are measured and wise. After a lifetime of disciplined training, every gesture is graceful, uncluttered by hesitation. When she was an infant, an obscure sect of monks believed that she was born for a special purpose, to face a great evil. Now, the monks believe that the great evil is at hand, and they have brought Lily to Shanghai to begin fulfilling her destiny.",
+    "abilities": "Abilities \n* Action: Spend any number of or , then recover an equal number of Health or Sanity.\n* When you improve a skill, you may immediately improve that skill again.",
+    "teamRole": "Lily's starting items and ability to get any stat to at least 4 the first time she improves it make her one of the most versatile investigators in the game. She is most often used as a fighter (best paired with an Influence character to help her obtain a weapon), but she can serve any other role the team is missing; e.g., improve Lore in Shanghai to become a strong gate closer, or Observation in San Francisco to help obtain clues.",
+    "rulings": "* If Lily gets to improve a skill before the first round of the game starts, her passive ability does apply.\n* If Lily uses her action ability, she must spend only Health or only Sanity. She cannot spend both. She cannot spend Health to recover Health or spend Sanity to recover Sanity (so you can't use her action along with Tattered Cloak's effect to gain 1 Sanity for example.)\n* Lily cannot use her passive ability to improve a skill more than twice. If she improves a skill and already has an Improvement token for that skill, she cannot use her passive ability.",
+    "origin": "Lily Chen made her first appearance in 2008 in Kingsport Horror, the 4th expansion for Arkham Horror: Second Edition. Possibly inspired by the Street Fighter character Chun Li.",
+    "defeatedEncounters": {
+      "lossOfHealth": "When you reach the hospital, you find Lily's things, but she is not in her bed. Gain all of her possessions. You quickly find that she's been kidnapped by cultists! You fight to free her . If you pass, you interrogate the cultists, and Lily is safely returned to the hospital to begin the slow healing process; retreat by 1. If you fail, Lily disappears into the darkness. Whether you pass or not, discard her Investigator token.",
+      "lossOfSanity": "You barely recognize the small woman huddled in the alleyway, her few belongings scattered next to her. Gain all of her possessions. \"It wasn't true,\" Lily sobs. \"I have no destiny. I cannot fight the darkness.\" You reassure her that she has already done her part and that others will finish the task . If you pass, she chants over you, passing her destiny on to you; retreat by 1. If you fail, Lily eventually falls into a catatonic state. Whether you pass or not, discard her Investigator token."
+    }
+  },
+  {
+    "name": "Lola Hayes",
+    "pageId": 119,
+    "profession": "The Actress",
+    "role": "All-Rounder",
+    "set": "Core Game",
+    "skills": {
+      "lore": 2,
+      "influence": 4,
+      "observation": 2,
+      "strength": 2,
+      "will": 3
+    },
+    "health": 5,
+    "sanity": 7,
+    "startingLocation": "Tokyo, Japan",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": ".18 Derringer Asset"
+      }
+    ],
+    "personalStory": "In the Limelight",
+    "quote": "I've played so many roles.  Madness is to be expected.",
+    "biography": "Around the world, Lola has performed dramatic roles for sold-out houses. However, after being cast in the controversial play, The King in Yellow, Lola needed to \"take some time\" to recover for her \"exhaustion.\" Now that she has checked herself out of the asylum, she's ready for her big comeback. But this time she'll play a different role in the fight against the horrors that threaten this world. She's started by traveling to Tokyo to track down the other surviving cast member of her previous theatrical endeavor.",
+    "abilities": "Abilities\n* Action: Spend any number of Improvement tokens, then improve 1 skill of your choice for each token spent (a \"+2\" token counts as 2 tokens).\n* Once per round, an investigator on your space may roll 1 additional die when resolving a test.",
+    "teamRole": "Lola's ability to use an action to change her skills (and improve one right off the bat) enables her to adapt to whatever task the group might be lacking in. With her high Influence, she does well with acquiring assets. Since an investigator can roll an extra die if she is with them, she's a great support-type character.",
+    "rulings": "",
+    "origin": "Lola Hayes made her first appearance in 2008 in Kingsport Horror, the 4th expansion for Arkham Horror: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "\"I'm fine darling. Help yourself, by the way.\" Lola nods at the equipment strewn across the hotel room. Gain all of her possessions. As convincing as she is, you know she's in pain. You try to persuade her to visit a hospital . If you pass, she sighs a breath of relief and tells you of all the horrors she's encountered; retreat by 1. If you fail, the day after Lola leaves the city, she succumbs to her wounds. Whether you pass or not, discard her Investigator token.",
+      "lossOfSanity": "The trail of Lola's belongings leads you into a derelict theater. Gain all of her possessions. She's on the stage, wringing her blood-soaked hands and reciting, \"Will these hands ne'er be clean?\" You try to direct her performance, hoping to better reveal her character . If you pass, she tells you of the Tattered King, indicating a goat she killed; retreat by 1. If you fail, Lola's dialogue degenerates into gibberish. Whether you pass or not, discard her Investigator token."
+    }
+  },
+  {
+    "name": "Luke Robinson",
+    "pageId": 829,
+    "profession": "The Dreamer",
+    "role": "Gate Closer",
+    "set": "The Dreamlands",
+    "skills": {
+      "lore": 4,
+      "influence": 2,
+      "observation": 1,
+      "strength": 2,
+      "will": 4
+    },
+    "health": 4,
+    "sanity": 8,
+    "startingLocation": "A space containing a Gate",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Dream Box Asset"
+      },
+      {
+        "count": 1,
+        "item": "Clue"
+      }
+    ],
+    "personalStory": "Shadow of Doubt",
+    "quote": "The key to the Dreamlands lies within us all.",
+    "biography": "Luke Robinson, through the gift of an unusual puzzle box from his uncle, discovered the entrance to the Dreamlands many years ago, and has since then spent the majority of his days wandering the land of dreams in search of adventure. From the streets of Celephaïs to the endless mysteries of the Enchanted Wood he wanders, unraveling the secrets of both the land and the myriad dreamers who reside there. Now an ancient chaos threatens to annihilate not only the waking world but the world of his dreams as well.",
+    "abilities": "Abilities \n* Action: Move to a space containing a Gate that corresponds to the current Omen.\n* During the Encounter Phase, you may spend or to encounter a Gate on your space as if there are no Monsters on your space.",
+    "teamRole": "Luke Robinson's abilities clearly are suited towards closing gates. His ability to avoid fighting monsters to close gates is especially useful in the late game.",
+    "rulings": "* The player controlling Luke chooses to start Luke on any space containing an open Gate. If, for any reason, there are no gates on the board (using the Beginning of the End Prelude for example), the player may choose any space to place Luke.\n* Resolving any encounter that requires Luke to occupy a space containing a Gate counts as encountering a Gate for Luke's passive ability. For example, the Caught in the Web Mystery grants a different option for encountering a Gate.",
+    "origin": "Luke Robinson made his first appearance in 2008 in Kingsport Horror, the 4th expansion for Arkham Horror: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "You find Luke in good spirits, despite his paralyzed body. He spends most of his days in the Dreamlands, exploring the glittering avenues of Celephaïs, and he has no use of his old adventuring gear. Gain all of his possessions. You try to convince him that there is still good that he could do . If you pass, he rallies the dreamers of Celephaïs against the forces of chaos that lurk in the Dreamlands; retreat by 1. If you fail, he asks you to leave him to his dreams. Whether you pass or not, discard his Investigator token.",
+      "lossOfSanity": "When you finally track down Luke, he is delirious, and his things are stewn about the floor. Gain all of his possessions. He tells you that he can never sleeps again, lest he fall prey to Hypnos. You help perform a ritual to sever him from the lands of dreams . If you pass, he reminisces sadly about his time in the Dreamlands; gain 1 Walking the Ley Lines Unique Asset, then place the top Gate in the Gate stack on that card. If you fail, Luke fall asleep, never to wake. Whether you pass or not, discard his Investigator token."
+    }
+  },
+  {
+    "name": "Mandy Thompson",
+    "pageId": 195,
+    "profession": "The Researcher",
+    "role": "Research",
+    "set": "Under the Pyramids",
+    "skills": {
+      "lore": 3,
+      "influence": 3,
+      "observation": 4,
+      "strength": 1,
+      "will": 2
+    },
+    "health": 5,
+    "sanity": 7,
+    "startingLocation": "Shanghai, China",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Magnifying Glass Asset"
+      },
+      {
+        "count": 1,
+        "item": "Know Thy Enemy Unique Asset"
+      }
+    ],
+    "personalStory": "Connect the Dots",
+    "quote": "I will find a way to end this horror. I will not stop searching.",
+    "biography": "Ever since she was a child, Mandy would read when she could not sleep. Such has been the case on many nights. Her remarkable memory and ability to correlate facts have made her a highly sought-after researcher around the world. Over time, her work has required her to read strange occult texts. These bizarre tomes have slowly caused her to suspect that an ancient being will arise to destroy humanity. Recently, the scrolls she has been reading in Shanghai have made it clear that the world is in immediate danger.",
+    "abilities": "Abilities \n* Action: Draw from the Clue pool. Spawn 1 of them and discard the other.\n* After resolving a Research Encounter, if you gained exactly from that encounter, gain 1 additional Clue.",
+    "teamRole": "Mandy's role revolves around clues. She's great at getting them, and her action provides one of the best ways to get clues on the board early in the game, in convenient locations. Her abilities can help prevent death to Rumors or falling short of clues for the first mystery, when not many will have spawned. Low will and strength make her unable to deal with monsters or gates, so she should pair with investigators suited to this purpose.",
+    "rulings": "After resolving a Research Encounter, Mandy’s passive ability could allow her to gain an additional Clue. However, this Clue is gained from her passive ability, not the Research Encounter.",
+    "origin": "One of the Investigators in the original Arkham Horror board game published by Chaosium in 1987, in which she was the green pawn.",
+    "defeatedEncounters": {
+      "lossOfHealth": "They have left Mandy alive as a grisly warning. She motions to her packed bags with bandaged hands. Gain all of her possessions. Even though her tongue has been removed she tries to use her eyes to direct your attention to something in the room . If you pass, you find a crudely written note under her bed that outlines everything Mandy has come to know; retreat by 1. If you fail, you can do nothing more than arrange a nurse to see to her comfort. Whether you pass or not, discard her Investigator token.",
+      "lossOfSanity": "When you find Mandy, she hands you all she owns and demands to see your money. Gain all of her possessions. She will never speak coherently again, but her notes describe a global conspiracy. The proof, she wrote, can be found in money. You try to gather currencies from around the world . If you pass, she seems comforted as you uncover the truth; advance the active Mystery by 1. If you fail, she spends the rest of her life begging for pocket change. Whether you pass or not, discard her Investigator token."
+    }
+  },
+  {
+    "name": "Marie Lambeau",
+    "pageId": 126,
+    "profession": "The Entertainer",
+    "role": "Magic",
+    "set": "Strange Remnants",
+    "skills": {
+      "lore": 3,
+      "influence": 4,
+      "observation": 2,
+      "strength": 2,
+      "will": 2
+    },
+    "health": 6,
+    "sanity": 6,
+    "startingLocation": "South East Asia (Space 20)",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Ritual Dagger Asset"
+      },
+      {
+        "count": 1,
+        "item": "Voice of Ra Spell"
+      }
+    ],
+    "personalStory": "Grand-mere's Warning",
+    "quote": "",
+    "biography": "Marie has come a long way from the Louisiana marshes of her youth. These days, \"The Smoky Velvet\" sings the blues in elegant nightclubs around the world, but it was grand-mère's dying wish that sent Marie to the Kingdom of Sarawak, where an old evil had returned. Marie doesn't believe she can help, but only a fool didn't listen to grand-mère. Now memories of strange nursery rhymes she used to recite have begun flooding back. People called grand-mère a witch. Maybe Marie's got some witchcraft in her blood, too.",
+    "abilities": "Abilities \n* Action: Perform an action you have already performed this round.\n* If you would spend or lose as part of a Spell effect, you may spend or lose 1 fewer Sanity as part of that effect.",
+    "teamRole": "With her high Influence, Marie is good at Acquiring Assets to assist in her endeavors, such as weapons. Her decent Lore also makes her a great person to get spells to destroy monsters or seal Gates.",
+    "rulings": "Marie Lambeau's passive ability allow her to pay only to activate the Voice of Ra.",
+    "origin": "Marie Lambeau made her first appearance in 2006 in Dunwich Horror, the 2nd expansion for Arkham Horror: Second Edition. Likely a reference to Marie Laveau, a famous New Orleans voodoo mystic.",
+    "defeatedEncounters": {
+      "lossOfHealth": "Marie's belongings are in boxes by her front door. Gain all of her possessions. Since she received the ugly scar across her throat, she hasn't uttered a word. She just listens to recordings of her songs on her Victrola. You ask her to share what she's learned . If you pass, she absently points to a journal she's been keeping and returns to her songs; improve and gain 1 Glamour Spell. If you fail, she never responds and drinks herself to death over the following months. Whether you pass or not, discard her Investigator token.",
+      "lossOfSanity": "The police tell you she bled to death in her hotel room after drawing on the walls with a mixture of powders and her own blood. She left a note naming you as her heir. Gain all of her possessions. Looking at the photos of what she drew, you think you recognize certain voodoo symbols . If you pass, you understand the sigil's protective significance; retreat by 1. If you fail, Marie takes the secrets she learned from her grand-mère to the grave. Whether you pass or not, discard her Investigator token."
+    }
+  },
+  {
+    "name": "Mark Harrigan",
+    "pageId": 120,
+    "profession": "The Soldier",
+    "role": "Combat",
+    "set": "Core Game",
+    "skills": {
+      "lore": 1,
+      "influence": 2,
+      "observation": 2,
+      "strength": 4,
+      "will": 4
+    },
+    "health": 8,
+    "sanity": 4,
+    "startingLocation": "Northern Europe (Space 14)",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": ".38 Revolver Asset"
+      },
+      {
+        "count": 1,
+        "item": "Kerosene Asset"
+      }
+    ],
+    "personalStory": "Shadowed Heart",
+    "quote": "I'm walking out that door, and I'm taking this book. Anyone who wants to stop me is welcome to try.",
+    "biography": "During the war, Mark witnessed horrors he could not explain, and he wrote of what he saw in letters to his beloved wife, Sophie. When Mark returned home, he discovered that Sophie was no longer human. One of the beasts that Mark had seen overseas had taken over her body, killing her in the process. Afterward, Mark's thirst for vengeance lead him to Helsinki, where some of these creatures had posed as German soldiers during the Great War.",
+    "abilities": "Abilities\n* Action: You and 1 Monster on your space each lose .\n* You cannot become Delayed or gain a Detained Condition unless you choose to.",
+    "teamRole": "Mark Harrigan is very good at fighting monsters, but not much else. Perfect for the distracted or disinterested player who just wants the basics, as long as the rest of the team can pick up the slack.\n\nHis lopsided stats mean he may often run into trouble during encounters, but he partners well with gate closers that have no way to handle monsters on their own.",
+    "rulings": "* Mark's passive ability prevents the investigator from becoming Delayed unless he chooses to become Delayed to pay for an effect. If the Lead Investigator or investigators as a group choose Mark to become Delayed, that choice does not pay for an effect, therefore he can negate that effect with his passive ability. This remains true regardless of his role in the decision making process and even if the Lead Investigator is Mark and he chooses himself. For example, his ability would prevent him from being affected by Patrolling the Border.\n* If an effect has a choice between two or more outcomes and Mark chooses to become Delayed or to gain a Detained Condition from that effect, he is Delayed or gains a Detained Condition, respectively. Mark is not affected by effects that say \"become Delayed\" or \"gain a Detained Condition\" without a choice.\n* If an effect says, \"Become Delayed unless,\" or, \"Gain a Detained Condition unless,\" Mark is not affected by that effect, even if he chooses not to resolve the effect following \"unless.\"\n* If an effect says \"…unless you become Delayed\" or \"…or you become Delayed\" and Mark chooses to become Delayed from that effect, he is Delayed.",
+    "origin": "Mark Harrigan made his first appearance in 2006 in Dunwich Horror, the 2nd expansion for Arkham Horror: Second Edition. His character is possibly partially inspired by [https://en.wikipedia.org/wiki/Sailor_Steve_Costigan sailor Steve Costigan].",
+    "defeatedEncounters": {
+      "lossOfHealth": "While you are collecting Mark's things, you smell smoke on the hospital. Gain all of his possessions. The hospital has been set on fire, and you run to Mark's room and try to carry him to safety . If you pass, Mark is able to tell you who set the fire; retreat by 1. If you fail, the smoke overcomes Mark, and he dies outside the hospital. Whether you pass or not, discard his Investigator token.",
+      "lossOfSanity": "You take custody of Mark's belongings and arrange to visit him in the asylum. Gain all of his possessions. To your dismay, Mark is convinced that you are a creature disguising itself as a human. You do your best to convince him that you are telling the truth . If you pass, he shows you sketches he made of the horrible monsters that he's been hunting; retreat by 1. If you fail, Mark screams accusations of murder at you. Whether you pass or not, discard his Investigator token."
+    }
+  },
+  {
+    "name": "Michael McGlen",
+    "pageId": 307,
+    "profession": "The Gangster",
+    "role": "Combat",
+    "set": "Signs of Carcosa",
+    "skills": {
+      "lore": 2,
+      "influence": 3,
+      "observation": 1,
+      "strength": 4,
+      "will": 3
+    },
+    "health": 8,
+    "sanity": 4,
+    "startingLocation": "London, United Kingdom",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Tommy Gun Asset"
+      }
+    ],
+    "personalStory": "Oath of Vengeance",
+    "quote": "Don't care if it's a god. If it crosses me, it's gonna regret it.",
+    "biography": "When the O'Bannion gang needs to send a message, they send the big man, Michael McGlen. Not long ago, his friend Fast Louie Farrell was attacked by a bunch of inhuman things with ugly, fish-like faces. They sliced him up and dragged him under the water. McGlen took it personally. The word has spread: McGlen has loaded up his Thompson and everyone else had best get out of the way. His first stop is London where he intends to find out what those creatures are called and where he has to go to kill every last one of them.",
+    "abilities": "Abilities \n* Action: If you are on a space, you may gain 1 Item or Service Asset of your choice from the reserve. If you do, gain a Wanted Condition.\n* Once per round, you may reroll 1 die when resolving a Deal or Pursuit Condition.",
+    "teamRole": "With his high starting Strength, decent Will, and starting Weapon, Michael is excellent for taking out Monsters, making him a good fit for Ancient Ones like Shub-Niggurath. The ability to gain items or services from the reserve in exchange for a Wanted Condition can be useful in a pinch. Because his effect works for any deal, Dark Pacts may be less of a hindrance for him, because it is unlikely he will roll two 1's in a row.",
+    "rulings": "*Michael McGlen can use his action ability if he has a Wanted Condition. If he does, he resolves all effects of the ability except that he will not gain another Wanted Condition.\n*Michael McGlen’s passive ability allows him to reroll any single die that is rolled as part of a Deal or Pursuit Condition’s effect even if the die is not rolled as part of a test. This includes the one die rolled when resolving the effect of a Dark Pact Condition or a Promise of Power Condition.",
+    "origin": "Michael McGlen made his first appearance in 2005 in Arkham Horror: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "McGlen disapeared from the hospital, leaving his things behind. Gain all of his possessions. Over the years, McGlen hurt a lot of people, and now some local thugs plan to take revenge. You track down one of the kidnappers and try to force him to tell you where they are keeping him . If you pass, you find McGlen wounded, but in good spirits; retreat by 1. If you fail, the police eventually find his body after what looks to have been a very violent death. Whether you pass or not, discard his Investigator token.",
+      "lossOfSanity": "McGlen tells you that Louie came to him in a dream and ask him to steal some jewelry in a museum for his new boss. After this robbery, McGlen says, he is going to join a new gang under the waves, and there is no talking him out of it. But first, he wants to cut you in on the deal, and the new boss is willing to pay big. You may spend 2 and gain a Wanted Condition to gain all of his possessions and a Promise of Power Condition. Whether you accept the offer or not, discard his Investigator token."
+    }
+  },
+  {
+    "name": "Minh Thi Phan",
+    "pageId": 137,
+    "profession": "The Secretary",
+    "role": "Support",
+    "set": "Under the Pyramids",
+    "skills": {
+      "lore": 3,
+      "influence": 3,
+      "observation": 3,
+      "strength": 2,
+      "will": 2
+    },
+    "health": 6,
+    "sanity": 6,
+    "startingLocation": "Tokyo, Japan",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Cryptic Text Unique Asset"
+      },
+      {
+        "count": 1,
+        "item": "Clue"
+      }
+    ],
+    "personalStory": "Alone and Afraid",
+    "quote": "You can depend on me to guide you through the unknown.",
+    "biography": "Phan Thi Minh's father came to Seoul from Cochinchina to use his diplomatic savvy in dealing with foreign business interests. Once grown, Minh proved to be just as adept in business. She reordered her name in the style of Westerners and took a job in Tokyo as a secretary to an importer of strange antiquities. More than just an employer, Mr.Thomas was Minh's friend, but now he has been murdered. Armed with only the strange text Mr. Thomas left for her and her own keen mind, Minh has vowed to find out why.",
+    "abilities": "Abilities \n* Action: You and another investigator on your space each gain 1 travel ticket of your choice.\n* You and other investigators on your space each gain +1 to all skills if there is another investigator on your space or you have one or more Ally assets.",
+    "teamRole": "Minh is very useful as an \"escort\", providing free tickets to an ally and boosting the skills of all investigators at her location. Her skill bonuses as well as well rounded stats makes her fairly capable herself as well.",
+    "rulings": "*Minh’s action ability allows her to gain a travel ticket of her choice, even if her space is not connected to another space by the appropriate path. Furthermore, Minh can use her action ability even if she is not on a space.\n*The travel ticket Minh gains from her active ability can be different from the travel ticket she allows another investigator to gain.",
+    "origin": "Minh Thi Phan made her first appearance in 2009 in Innsmouth Horror, the 6th expansion for Arkham Horror: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "The doctors say Minh is in agony, and can only sit upright for brief period. She has boxed up her things for you. Gain all of her possessions. Some of Mr. Thomas's estate is still held up in a legal battle. You hope to settle the matter . If you pass, you acquire several important documents; gain , improve , and gain 1 Cryptic Text Unique Asset. If you fail, she apologises for being unable to continue to help. Whether you pass or not, discard her Investigator token.",
+      "lossOfSanity": "In the lobby of her hotel, Minh asks you to help yourself to a gift while she waits for Mr. Thomas. Gain all of her possessions. She mutters using a combination of English, Vietnamese, Korean, and other much older languages . If you pass, you discern that she is asking her father to help her and refers to specific ways to stave off the end of the world; retreat by 1. If you fail, she seems sad and continues to wait for the late Mr. Thomas. Whether you pass or not, discard her Investigator token."
+    }
+  },
+  {
+    "name": "Monterey Jack",
+    "pageId": 135,
+    "profession": "The Archaeologist",
+    "role": "Expedition",
+    "set": "Under the Pyramids",
+    "skills": {
+      "lore": 2,
+      "influence": 2,
+      "observation": 3,
+      "strength": 4,
+      "will": 2
+    },
+    "health": 7,
+    "sanity": 5,
+    "startingLocation": "The Pyramids, Egypt",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Bull Whip Asset"
+      },
+      {
+        "count": 1,
+        "item": "Treasure Map Unique Asset"
+      }
+    ],
+    "personalStory": "Searching Ages Past",
+    "quote": "To find a treasure like that, I'll risk a few poison darts.",
+    "biography": "Young Jack traveled the world with his father's archaeological expeditions. He acquired the nickname \"Monterey\" after a bout of quinine-induced jaundice turned his skin yellow. Once grown, Jack became an accomplished archaeologist in his own right. Now he must explore his own past. His father was found murdered with an arcane sigil carved into the old man's forehead. Here in Cairo, he has seen men wearing this sigil on pendants around their neck. It is time for Jack to start digging.",
+    "abilities": "Abilities \n* Action: You may discard 1 Artifact to retreat by 1; or discard the top card of the Expedition Encounter deck and perform 1 additional action.\n* After resolving an Expedition Encounter, gain 1 Relic Unique Asset.",
+    "teamRole": "Monterey is a versatile character best used for support. His stats make him ideal for expeditions, and his action can move the expedition away from an inconvenient space for free once per turn. This allows him to obtain strong artifacts for the team, or to simply push back Doom as often as possible. He can also help resolve research encounters as he moves between expeditions. Because of his high strength and starting weapon, he can become an excellent fighter during combat encounters, if he's able to increase his Will. Because of his stat spread, he should be paired with an Influence investigator and someone who can deal with gates.",
+    "rulings": "",
+    "origin": "One of the Investigators in the original Arkham Horror board game published by Chaosium in 1987, in which he was the orange pawn.\n\nMonterey Jack is the name of a cheese, the name of a rat from a Disney cartoon, and a homologue of Indiana Jones (name of a place + name starting with J).",
+    "defeatedEncounters": {
+      "lossOfHealth": "A lifetime of venom from spiders, scorpions and snakes is taking its final toll on Jack. Even as he struggles to breathe, he shares anecdotes about each of his belongings. Gain all of his possessions. He tells you he buried his best finds in a field, but cannot remember where. You spend hours digging that field . If you pass, you discover Jack was not lying; gain 2 Relic Unique Assets. If you fail, you exhaust yourself with no result. Whether you pass or not, discard his Investigator token.",
+      "lossOfSanity": "Jack has carved an arcane sigil into his flesh dozens of times. The asylum no longer allows him to access to his belongings for fear he will continue. Gain all of his possessions. He says he must keep digging and tears at his skin with his fingernails. You beg him to stop . If you pass, he calms down enough to explain the significance of the symbol and how to use it against the coming darkness; retreat by 1. If you fail, the orderlies are forced to sedate him. Whether you pass or not, discard his Investigator token."
+    }
+  },
+  {
+    "name": "Norman Withers",
+    "pageId": 121,
+    "profession": "The Astronomer",
+    "role": "Magic",
+    "set": "Core Game",
+    "skills": {
+      "lore": 3,
+      "influence": 1,
+      "observation": 3,
+      "strength": 2,
+      "will": 4
+    },
+    "health": 5,
+    "sanity": 7,
+    "startingLocation": "Arkham, United States",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Feed the Mind Spell"
+      }
+    ],
+    "personalStory": "Written in the Stars",
+    "quote": "Let them call me a crackpot! Something is happening to the stars, and I am not imagining it.",
+    "biography": "The scientific community ridiculed Norman for his claim that six stars disappeared from the sky. After exhausting every plausible astronomical explanation for answers, he took a position at Miskatonic University and began exploring more improbable possibilities in the restricted section of their library. While reading an ancient text of dark prophecies, Norman found an exact description of the phenomenon he'd observed. If the tome is to be believed, a terrible incursion into our world is imminent.",
+    "abilities": "Abilities \n* Action: Spend to discard 1 Monster on a space containing a Gate.\n* Once per round, you may spend in place of spending .",
+    "teamRole": "Norman's stats and abilities, which can be used to clear out the monster guarding a gate or get a \"free\" reroll, make him suited to closing gates.",
+    "rulings": "",
+    "origin": "Norman Withers made his first appearance in 2009 in Innsmouth Horror, the 6th expansion for Arkham Horror: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "Norman can barely move in his hospital bed and points to his notes and suitcase. Gain all of his possessions. He begs you to use his telescope to record the current locations of the stars. The work is slow and demanding, but you focus at best you can to give him accurate results . If you pass, Norman's insight into the Ancient One proves accurate; retreat by 1. If you fail, Norman can make no sense of the night sky. Whether you pass or not, discard his Investigator token.",
+      "lossOfSanity": "The doctors would like you to look at Norman l's notes and belongings. Gain all of his possessions. They are trying to gain some insight into his catatonic state. You try to convince them to move Norman to a room with a view of the night sky . If you pass, Norman becomes slightly responsive, and you are able to question him; retreat by 1. If you fail, Norman's condition grows steadily worse. Whether you pass or not, discard his Investigator token."
+    }
+  },
+  {
+    "name": "Patrice Hathaway",
+    "pageId": 130,
+    "profession": "The Violinist",
+    "role": "Gate Closer",
+    "set": "Mountains of Madness",
+    "skills": {
+      "lore": 3,
+      "influence": 2,
+      "observation": 3,
+      "strength": 1,
+      "will": 4
+    },
+    "health": 5,
+    "sanity": 7,
+    "startingLocation": "Sydney, Australia",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Banishment Spell"
+      },
+      {
+        "count": 1,
+        "item": "Clue"
+      }
+    ],
+    "personalStory": "Cadenza",
+    "quote": "When I play the violin, the music echoes in other worlds.",
+    "biography": "Hailed as a musical prodigy from her youth, Patrice has performed for royalty and society's brightest minds all around the world. For years she thought that her consciousness simply drifted as she played, but she's come to believe that an intelligence exists behind her visions. Somehow the notes form a bridge between her own mind and another. The more she grasps what her music exposes her to, the more afraid she becomes. After last night's concert in Sydney, she's finally decided to take action.",
+    "abilities": "Abilities \n* Action: You may spend and to improve 1 skill of your choice.\n* When you close a Gate during an Other World Encounter, gain and .",
+    "teamRole": "With her high starting Willpower and Lore, along with her Banishment spell, Patrice is naturally built for removing threats from and closing gates. She is able to focus and use her investigator action from the starting turn, effectively sacrificing early game momentum to increase one of her skills. Starting close to Shanghai allows her a chance at further increasing her Lore. \n\nWhile primarily she can be used for closing gates and casting spells, her high starting Observation allows her to be a great clue gatherer and mystery solver. Her Cadenza personal story isn't difficult to accomplish, which effectively turns her into a clue generating bank for other investigators. \n\nShe pairs well with support investigators such as; Jacqueline Fine, who is able to funnel her clues, Minh Thi Phan and Finn Edwards, who are able to assist her movement and shuttle her around the board, and any high influence investigators that can buy items from the reserve for her to further increase her stats.",
+    "rulings": "",
+    "origin": "Patrice Hathaway made her first appearance in 2009 in Innsmouth Horror, the 6th expansion for Arkham Horror: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "Tragically, the accident cracked her skull, scarred her face, and left her completely deaf. The doctors place you in charge of her belongings. Gain all of her possessions. She's only awake for short periods of time. You try to keep her attention and learn what she knows . If you pass, she communicates the message being sent to her through her music; retreat by 1. If you fail, she drifts off to sleep again. Whether you pass or not, discard her Investigator token.",
+      "lossOfSanity": "Patrice doesn't speak. She just plays the violin. You can take what you like without objection. Gain all of her possessions. The music she plays is so discordant and unnerving, it's hard to endure . If you pass, the sounds eventually open a part of your mind that you've never experienced before, connecting to dimensional energies; close 1 Gate of your choice on any space. If you fail, the sound devolve into sharp, uneven noises, and then to silence. Whether you pass or not, discard her Investigator token."
+    }
+  },
+  {
+    "name": "Preston Fairmont",
+    "pageId": 1590,
+    "profession": "The Millionaire",
+    "role": "Support",
+    "set": "Masks of Nyarlathotep",
+    "skills": {
+      "lore": 2,
+      "influence": 5,
+      "observation": 2,
+      "strength": 3,
+      "will": 1
+    },
+    "health": 7,
+    "sanity": 5,
+    "startingLocation": "Istanbul, Turkey",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Fine Clothes Asset"
+      }
+    ],
+    "personalStory": "Wealth Without Work",
+    "quote": "''My money, my legacy, my problem. Let me handle it in my own way.",
+    "biography": "Born with a silver spoon in his mouth, Preston was doted upon by his parents, and by all account should have lived a prosperous life free of worry and hardship. When his father died, he inherited an unimaginable fortune, but there are some things money can't buy. Downtrodden and depressed, Preston wasted money on gambling and women, until one night a seance performed by one of his girls brought him into contact with the spirit of his father - and shed a disturbing light on the source of the family income.",
+    "abilities": "Abilities \n* Action: You and another investigator on your space may perform an Acquire Assets action and/or a Gather Resources action.\n* Once per round, when you gain an Asset from the reserve or deck, recover .",
+    "teamRole": "With his unmatched Influence and starting asset, Preston is all about gaining Assets to assist himself and the team. His low Will will be a hindrance in fighting Monsters, but finding a way to compensate for that can also make him decent at combat provided he can obtain a weapon.",
+    "rulings": "The actions granted by Preston’s action ability can be performed in any order, including allowing the other investigator to perform actions before or after Preston.",
+    "origin": "Preston was introduced in 2016 in Mansions of Madness: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "Preston speaks to you in the hospital through his many layers of bandages and slings, and you learn how he came by such an unlucky fate. Retreat by 1. Bitter and unhappy, he complains on his misfortune, but you try to convince him that there is still good to be done in the world . If you pass, he relents, and founds a charity in his family's name; gain all of his possessions. If you fail, he resolves to left the world fix itself; discard all of his possessions. Whether you pass or not, discard his Investigator token.",
+      "lossOfSanity": "You find Preston scrounging for change in the gutters of à filthy alleyway. He embraces you enthusiastically and tells you of his travels. Retreat by 1. You learn that he still has control of his fortune, but believe it to be cursed and refuses to touch it . If you pass, you convince him to lend you a portion of his wealth; gain all of his possessions. If you fail, he seems utterly committed to his impoverished way of life; discard all of his possessions. Whether you pass or not, discard his Investigator token."
+    }
+  },
+  {
+    "name": "Rex Murphy",
+    "pageId": 138,
+    "profession": "The Reporter",
+    "role": "All-Rounder",
+    "set": "Under the Pyramids",
+    "skills": {
+      "lore": 2,
+      "influence": 3,
+      "observation": 2,
+      "strength": 3,
+      "will": 3
+    },
+    "health": 7,
+    "sanity": 7,
+    "startingLocation": "Juneau, Alaska (Space 1)",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Lucky Talisman Asset"
+      },
+      {
+        "count": 1,
+        "item": "Cursed Condition"
+      }
+    ],
+    "personalStory": "Dispelling the Curse",
+    "quote": "My sources tell me that the world is ending. Just my luck.",
+    "biography": "When disaster strikes, Rex Murphy is usually on hand, suffering the consequences. After spending a day with Rex, even the most hardened skeptic will concede that the man is cursed. To survive, Rex has developed an inquisitive mind, trying to keep one step ahead of the next disaster. His terrible fortune has more than once exposed him to the monstrous forces that threaten this world. He hopes he can get some writing done in Alaska, far away from anything that might go too wrong.",
+    "abilities": "Abilities \n* Action: Gain any number of Assets of your choice from the reserve with total value less than your .\n* If you do not have a Cursed Condition, gain , improve 1 skill of your choice, and gain a Cursed Condition.",
+    "teamRole": "His permanent Cursed condition makes him one of the hardest characters to play. He can use his Lucky Talisman to get OK odds on research encounters, but he should avoid combat and multi-stage encounters. Should he acquire an easy way to discard his Curse (Witch Doctor works best), he can quickly boost his skills.\n\nRex works best at gaining assets with his component action, since it doesn't require any test rolls, and with +2 Influence improvement, he can take even the 4 cost assets from the reserve, and later trade them to those that need them most.",
+    "rulings": "",
+    "origin": "Rex Murphy made his first appearance in 2008 in Kingsport Horror, the 4th expansion for Arkham Horror: Second Edition. He is possibly inspired by Canadian journalist Rex Murphy (although this could be a coincidence).",
+    "defeatedEncounters": {
+      "lossOfHealth": "The doctors say Rex is going to make a full recovery, and some good Samaritans found his belongings and returned them to you. Gain all of his possessions. Overjoyed about his good fortune, Rex will not stop talking about his plans after he leaves the hospital. You try to get him to focus on what he has learned . If you pass, he shares what he has uncovered; retreat by 1. If you fail, he is too happy to think about such things. Whether you pass or not, the next day a gas main explodes, leaving Rex burned and broken; discard his Investigator token.",
+      "lossOfSanity": "The priests have given up on their exorcism, leaving Rex tied down and muttering in forgotten languages. Everything he owned has been throwned around the room. Gain all of his possessions. You can see that you are the only one who can take this dark burden from him . If you pass, the shadow passes from him, and Rex passes away peacefully; you may gain a Cursed Condition to retreat by 3. If you fail, his body may still be alive, but Rex no longer inhabits it. Whether you pass or not, discard his Investigator token."
+    }
+  },
+  {
+    "name": "Rita Young",
+    "pageId": 1253,
+    "profession": "The Athlete",
+    "role": "Combat",
+    "set": "Cities in Ruin",
+    "skills": {
+      "lore": 3,
+      "influence": 1,
+      "observation": 2,
+      "strength": 4,
+      "will": 3
+    },
+    "health": 7,
+    "sanity": 5,
+    "startingLocation": "Shanghai, China",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Rugged Condition"
+      },
+      {
+        "count": 1,
+        "item": "Clue"
+      }
+    ],
+    "personalStory": "Through Prejudice",
+    "quote": "You got a bone to pick? Fine by me. I don't need your permission to leave you in the dust.",
+    "biography": "Clocks do not lie. In the past, people said hurtful things to Rita. They threatened her. But since she started running competitively, Rita has only cared about the clock. Most of the time, it says that Rita is faster than the rest. It says she is stronger and has trained harder. Now she competes around the world and has attracted some unwanted attention. The prejudices of certain esoteric cults cannot tolerate her successes. They plan to make an example of her. But they will have to catch her, and the clock says they cannot.",
+    "abilities": "Abilities \n*Action: You may spend or to gain 1 Talent Condition.\n*Add 1 to the result of each die rolled as part of an Illness, Injury, or Madness Condition effect.",
+    "teamRole": "",
+    "rulings": "",
+    "origin": "Rita Young made her first appearance in 2006 in Dunwich Horror, the 2nd expansion for Arkham Horror: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "The police tell you that Rita snuck out of the hospital on her own, despite the fact that all of her belongings were left behind. Gain all of her possessions. You insist that an investigation is required and try to exert political pressure on the authorities to look into the matter . If you pass, the police break up the cult that abducted her and she spends her long recovery writing; retreat by 1. If you fail, you never find out what happened to her. Whether you pass or not, discard her Investigator token.",
+      "lossOfSanity": "When you find Rita, she had shed all remnants of her former life. She seems possessed by a strange, otherworldly persona with vast arcane knowledge. Discard all of her possessions and retreat by 1. Her new identity challenges you to a series of competitions . If you pass, she tutors you in certain arts before she disappears forever; gain 3 Talent Conditions. If you fail, she mocks your weakness and leaves you behind. Whether you pass or not, discard her Investigator token."
+    }
+  },
+  {
+    "name": "Roland Banks",
+    "pageId": 1254,
+    "profession": "The Fed",
+    "role": "Research, Support",
+    "set": "Cities in Ruin",
+    "skills": {
+      "lore": 2,
+      "influence": 2,
+      "observation": 4,
+      "strength": 2,
+      "will": 3
+    },
+    "health": 7,
+    "sanity": 5,
+    "startingLocation": "San Francisco, United States",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Mauser C96 Asset"
+      },
+      {
+        "count": 1,
+        "item": "Agency Secrets Unique Asset"
+      }
+    ],
+    "personalStory": "The Truth is Out There",
+    "quote": "Every 'i' dotted, every 't' crossed.",
+    "biography": "Even those who work closely with Roland would never say they know him well. They know he is a tireless agent for the Bureau of Investigation with a knack for conspiracies and the occult. They know he follows every letter of the law—even to his own detriment—and that his belief in the justice of the law is second to none. But they do not know him. They do not know the things he has seen or the doubts that cloud his thoughts. If ever his faith in the system was shaken, they would never know. He says nothing. He sees everything.",
+    "abilities": "Abilities \n*Action: Set aside any number of Service Assets from the reserve.\n*Once per round, during the Action Phase, you or another investigator may gain 1 Service Asset that you have set aside, discard 1 card from the reserve, or spawn .",
+    "teamRole": "Roland can set aside Service assets to be used later, which is very useful since the main drawback of a service is that it must be used immediately. This has the benefit of easily cycling the reserve for more powerful cards as well. He also has a high Observation skill and the ability to spawn clues, making him great for Research Encounters.",
+    "rulings": "",
+    "origin": "Roland Banks made his first appearance in 2009 in Innsmouth Horror, the 6th expansion for Arkham Horror: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "The doctors tell you that before he slipped into a coma, Roland had left specific instructions for you. Gain all of his possessions and any number of Service Assets he set aside. His condition is deteriorating quickly and you pay to have a specialist flown in from abroad to treat him . If you pass, Roland recovers enough to tell you what he has seen; retreat by 1. If you fail, the specialist arrives too late and Roland quietly passes in the night. Whether you pass or not, discard his Investigator token.",
+      "lossOfSanity": "You spend days searching for Roland without success until one night, he finds you. He throws his belongings at you and begins to babble endlessly about a variety of unrelated subjects. Gain all of his possessions and any number of Service Assets he set aside. You struggle to decipher his confusing monologue . If you pass, you understand the message he means to convey; retreat by 1. If you fail, you hear nothing but meaningless gibberish. Whether you pass or not, discard his Investigator token."
+    }
+  },
+  {
+    "name": "Sefina Rousseau",
+    "pageId": 1592,
+    "profession": "The Painter",
+    "role": "Research",
+    "set": "Masks of Nyarlathotep",
+    "skills": {
+      "lore": 3,
+      "influence": 2,
+      "observation": 4,
+      "strength": 1,
+      "will": 3
+    },
+    "health": 4,
+    "sanity": 8,
+    "startingLocation": "Sydney, Australia",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Treasured Memento Asset"
+      },
+      {
+        "count": 1,
+        "item": "Clue"
+      }
+    ],
+    "personalStory": "Calling",
+    "quote": "''Art is a window into a reality beyond our knowing.",
+    "biography": "Though a gifted painter, Sefina's talents have more often than not been capitalized upon to create forgeries of the works of others. One such commission - that of a surreal alien cityscape titled \"Carcosa\" - tested Sefina's abilities to their limits. Determined to recreate the work exactly, she worked obsessively until its completion, at which time she was suddenly whisked away to the world of the painting. Waking hours later, covered in paint and blood, Sefina has become determined to discover the secret of the painted city.",
+    "abilities": "Abilities \n* Action: You may spend 1 Improvement token to gain , , and . \n* After resolving a test, if you rolled two or more successes, you may spend to improve that skill.",
+    "teamRole": "Sefina has a high Observation, Will, and Lore, so she'll do well on Other World Encounters and Research Encounters. She is also able to increase her skills if she passes successful tests, leading her to adapt to any different role the party may need.",
+    "rulings": "*The two successes required for Sefina’s passive ability to trigger must be rolled on the dice during her test. This is, successes granted by another effect (such as accepting a Bank Loan) do not count toward the requirement. However, Sefina may use any rerolls or other dice manipulation effects to achieve her two successes.\n*Based on the ruling for The Messenger, when resolving the \"improve 3 skills of your choice\" effect, an investigator could choose the same skill multiple times unless doing so would violate the Improvement rules (e.g. choose to improve a skill 2 times when its value is at 1 above its printed value).",
+    "origin": "Sefina Rousseau made her first appearance in 2017 in The Path to Carcosa, the 2nd expansion for Arkham Horror: The Card Game.",
+    "defeatedEncounters": {
+      "lossOfHealth": "A nasty concussion has caused Sefina to go blind, and she barely can control her brush as she applies paint to the canvas. She gestures halfheartedly towards a pile of her things. Gain all of her possessions. You attempt to identify the subject of her painting . If you pass, you realize that it is a self-portrait and the glimmer of a smile passes over her face; retreat by 1. If you fail, you misidentify the art as a horrifying monster and Sefina falls into a deep depression. Whether you pass or not, discard her Investigator token.",
+      "lossOfSanity": "\"Beware the King within the golden star.\" Sefina rocks back and forth as she works at her easel, and you know her words to have a deeper meaning. Retreat by 1. She acknowledges your presence, but appears to be looking straight through you. You attempt to get her focus on your voice . If you pass, she flies into a frenzy, covering you in a flurry of paint; improve 3 skills of your choice. If you fail, she grows deathly silent. Whether you pass or not, discard all of her possessions and her Investigator token."
+    }
+  },
+  {
+    "name": "Silas Marsh",
+    "pageId": 122,
+    "profession": "The Sailor",
+    "role": "All-Rounder",
+    "set": "Core Game",
+    "skills": {
+      "lore": 1,
+      "influence": 3,
+      "observation": 3,
+      "strength": 3,
+      "will": 3
+    },
+    "health": 8,
+    "sanity": 4,
+    "startingLocation": "Sydney, Australia",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Fishing Net Asset"
+      }
+    ],
+    "personalStory": "The Call",
+    "quote": "Leave your fears on the docks, lads.  I'll not carry that cargo.  The wind is up! Full sail!",
+    "biography": "Even as a child in Innsmouth, Silas had a special connection to the sea. He's an able and well-reasoned man on land, but on the ocean he possesses a singular strength and wit. It's earned him a sterling reputation in every port across the globe, particularly in Sydney, where Silas set ashore last night. But this morning, the smell of the briny air carries dread as well as joy. There is something in his past, something in Innsmouth, that he knows will some day catch up to him.",
+    "abilities": "Abilities \n* Action: Move 1 space along a , then perform 1 additional action.\n* If you are on a space, investigators on your space roll 1 additional die when resolving tests.",
+    "teamRole": "Silas's unrivaled movement speed and fairly well-rounded stats make him well-suited to getting to and resolving encounters, meaning he can quickly progress the active Mystery. Ironically, one of his weaknesses is combat, given his low Sanity and lack of an effective starting weapon. He should partner with a gate closer and either a fighter or an Influence character who can help him obtain a weapon.",
+    "rulings": "Silas cannot spend travel tickets to move additional spaces when using his action ability. The additional action granted by this ability does not count against his usual two actions per round. He may use his action ability and the Travel action during the same round.",
+    "origin": "Silas Marsh made his first appearance in 2009 in Innsmouth Horror, the 6th expansion for Arkham Horror: Second Edition.\n\nHe is likely inspired by/intended to be related to Obed Marsh, \"A sea captain and the founder of the Esoteric Order of Dagon in Innsmouth.\" (Note the mention of Innsmouth and the family name Marsh in the bio). However, as Silas is more pro- than ant- agonist, he is also possibly partially inspired by sailor Steve Costigan.",
+    "defeatedEncounters": {
+      "lossOfHealth": "Silas had hidden his belongings in the prearranged cache, but the man itself is nowhere to be found. Gain all of his possessions. You search local hospitals filled with the unidentified dead or dying . If you pass, you find Silas alive but incapacitated, and you arrange a private nurse to watch over him; retreat by 1. If you fail, Silas dies alone and unrecognized. Whether you pass or not, discard his Investigator token.",
+      "lossOfSanity": "You find Silas and gain all of his possessions. He has grown pale, and his breath has become a loud wheeze. He tells you, \"I'm a Marsh. It's in my blood. Not long now, I'll join my family down in the deep.\" You ask a doctor to watch him overnight . If you pass, the sailor shares all he's learned before dying peacefully in his sleep; retreat by 1. If you fail, Silas surrenders his humanity and disappears into the sea. Whether you pass or not, discard his Investigator token."
+    }
+  },
+  {
+    "name": "Sister Mary",
+    "pageId": 139,
+    "profession": "The Nun",
+    "role": "Support",
+    "set": "Under the Pyramids",
+    "skills": {
+      "lore": 2,
+      "influence": 2,
+      "observation": 3,
+      "strength": 2,
+      "will": 4
+    },
+    "health": 5,
+    "sanity": 7,
+    "startingLocation": "South Africa (Space 15)",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Holy Water Asset"
+      },
+      {
+        "count": 1,
+        "item": "Ship Ticket"
+      },
+      {
+        "count": 1,
+        "item": "Clue"
+      }
+    ],
+    "personalStory": "He is My Shepherd",
+    "quote": "The Lord watches over my path. I am armored in faith.",
+    "biography": "Sister Mary speaks very little of her life before taking her vows. Like so many other young girls, she came from a small town and dreamed of something greater than a small life. The Lord provided. Through His path, she has become a lion of compassion and virtue. She has a natural ability and people are often surprised how driven she is to serve God’s will. The church has sent her to South Africa to investigate a possibly demonic presence. Mary plans to approach the question as she always does, with a clear mind and an unshakable faith.",
+    "abilities": "Abilities \n* Action: Test . For each success, you or another investigator on any space may discard 1 Madness Condition.\n* You and other investigators on your space add 1 to the result of each die rolled as part of a Bane or Boon Condition effect.",
+    "teamRole": "Mary is a powerful support character and all-rounder. She can either operate alone as a researcher or gate closer, or travel with another investigator. Whomever she chooses to bless using her Holy Water will benefit from the condition more than normal, as her passive ability means the condition only has a 1 in 6 chance of being lost during a Reckoning effect. She also benefits teams of investigators with low Will, able to remove the Madness conditions they will be susceptible to.",
+    "rulings": "Sister Mary and each other investigator on her space adds 1 to the result of each die rolled as part of an effect printed on a Condition card that has the Bane or Boon trait. This modification applies whether the die is rolled as part of a test or not. For example, while resolving a Blessed Condition's reckoning effect, Sister Mary would discard the Condition only on a roll of 1. On a roll of 2, which she modifies to a 3, the Blessed Condition is not discarded. Any effect not printed on a Condition card that has the Bane or Boon trait is not affected by her passive ability.",
+    "origin": "Sister Mary made her first appearance in 2005 in Arkham Horror: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "The scars do not diminish Mary's beatific face. Despite her devastating wounds, she is glad to see you and offers you items and information that may be of use to you. Gain all of her possessions. She has quickly adapted to a new life here in the hospital, ministering to the other patients. She invites you to speak to them although their stories are heartbreaking . If you pass, you learn much about the resiliency of humanity; retreat by 1. If you fail, Mary wishes you well. Whether you pass or not, discard her Investigator token.",
+      "lossOfSanity": "The priests will not tell you where they are keeping Mary but offer you what she had with her. Gain all of her possessions. All you are told is that she had a crisis of faith and is very unwell. You try to get anyone in the church to help you . If you pass, you are led to Mary's room, and she tells you what she encountered that destroyed her faith; retreat by 1. If you fail, you never hear from her again. Whether you pass or not, she has no further desire to serve God; discard her Investigator token."
+    }
+  },
+  {
+    "name": "Tommy Muldoon",
+    "pageId": 133,
+    "profession": "The Rookie Cop",
+    "role": "Combat",
+    "set": "Mountains of Madness",
+    "skills": {
+      "lore": 2,
+      "influence": 3,
+      "observation": 3,
+      "strength": 3,
+      "will": 2
+    },
+    "health": 7,
+    "sanity": 5,
+    "startingLocation": "Alaskan Coast (Space 1)",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Carbine Rifle Asset"
+      }
+    ],
+    "personalStory": "We Need a Hero!",
+    "quote": "I took an oath to enforce the law. That's what I'm doing.",
+    "biography": "Most members of the Muldoon family are part of the Boston police force in some way or another. Not long ago, the youngest brother Tommy got his badge. Armed with an eye for detail, fierce courage, and his trusty rifle Becky, young Muldoon is dedicated to law enforcement. Now he finds himself in Anchorage at the request of his cousin, the local sheriff. Something has been killing people, and off the record, his cousin says it's a wendigo. Tommy's not sure he believes any of that, but catching killers is in his blood.",
+    "abilities": "Abilities \n* Action: Move 1 Monster of your choice with toughness 3 or less from an adjacent space to your space.\n* During the Encounter Phase, other investigators on your space may choose an encounter as if there are no Monsters on your space.",
+    "teamRole": "Tommy functions very much like a well-rounded semi-support combat class. Having an initial +1 to Willpower, Tommy's extra stat point gives him a stat advantage over most other investigators at the start of the game. His investigator action allows him to draw monsters away from gates or other spaces using an action, which gives him the ability to pull those monsters away from other investigators if he wasn't able to reach that space with his normal movement, or alternatively, his passive allows other investigators ignore them completely if they share a space with him. \n\nHis well-rounded stats allow him to fend for himself in most situations. He is able to furnish his inventory with weapons to supplement Becky, and pad his stats further, so he isn't shoehorned into a combat role. This allows him to easily complete research encounters, rumors, and expeditions.",
+    "rulings": "",
+    "origin": "Tommy Muldoon made his first appearance in 2009 in Innsmouth Horror, the 6th expansion for Arkham Horror: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "Tommy's equipment is in his hotel, but no one has seen him for days. Gain all of his possessions. You try to pick up the threads of his investigation . If you pass, you find Tommy tied up in a warehouse, beaten to within an inch of his life, and you get him back to his family in Boston to care for him; retreat by 1. If you fail, Muldoon never turns up. Whether you pass or not, discard his Investigator token.",
+      "lossOfSanity": "Tommy tells you he's fine, but his tremors tell you a different story. He offers you his investigation notes. Discard all of his possessions and retreat by 1. You try to convince him that he has to give up the investigation . If you pass, he accepts the truth and turns his beloved Becky over to you; gain 1 Carbine Rifle Asset. If you fail, he won't stop investigating, and his body is found a few days later. Whether you pass or not, discard his Investigator token."
+    }
+  },
+  {
+    "name": "Tony Morgan",
+    "pageId": 116,
+    "profession": "The Bounty Hunter",
+    "role": "Research",
+    "set": "Strange Remnants",
+    "skills": {
+      "lore": 2,
+      "influence": 2,
+      "observation": 4,
+      "strength": 3,
+      "will": 2
+    },
+    "health": 7,
+    "sanity": 5,
+    "startingLocation": "Bogotá, Columbia (Space 7)",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Handcuffs Asset"
+      }
+    ],
+    "personalStory": "Thrill of the Hunt",
+    "quote": "When I find the beast, I'll trap it or put it down for good.",
+    "biography": "Tony's tracked down low-life scum in every lousy corner of the world, but nothing was quite as bad as Innsmouth. Some creep in Boston skipped bail and tried to hide with family in the small fishing village. It turned out \"family\" meant vicious fish-like monstrosities that left Tony bloody and half-drowned. Ever since, he's found a new kind of dirtbag to hunt. Ordinary mobster or otherworldly monster, Tony will take it down and find someone willing to pay him for it. Now he's got a lead in Bogotá. Easy money.",
+    "abilities": "Abilities \n* Action: Test . If you pass, you may spend up to to gain for each Focus spent.\n* When you defeat a Monster during a Combat Encounter, gain .",
+    "teamRole": "Between his Handcuffs and his special ability, it is very easy for Tony to gain clues. Coupled with his high Observation, he is very good at dispelling nasty Rumor Mythos cards. \n\nWith his high Strength, he also does a good job at fighting monsters, although a player may wish to invest in some time bulking up his Influence and Will.\n\nA few items and skills, like the Old Journal or Skulduggery, are useful to Tony.",
+    "rulings": "",
+    "origin": "Tony Morgan made his first appearance in 2008 in Kingsport Horror, the 4th expansion for Arkham Horror: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "Whatever hit Tony hit him hard. His doctors aren't sure if he'll ever awaken from his coma. As the closest thing he has to family, you're placed in charge of his belongings. Gain all of his possessions. You pour over his notes and receipts, looking for what he'd been hunting . If you pass, you discern a pattern to the work he'd been doing; retreat by 1. If you fail, you see a series of jobs for money and nothing more. Whether you pass or not, discard his Investigator token.",
+      "lossOfSanity": "You find Tony in an abandoned building, surrounded by bone chips, clumps of hair, and other grisly souvenirs. He doesn't seem to care about any of his belongings anymore. Gain all of his possessions. He's beyond all reason. All he wants to do is sell you some of his \"trophies\" . If you pass, he tells you the story beyond each purchase; retreat by 1. If you fail, he yells at you, warning you never to return or he'll put your hide up for sale. Whether you pass or not, discard his Investigator token."
+    }
+  },
+  {
+    "name": "Trish Scarborough",
+    "pageId": 123,
+    "profession": "The Spy",
+    "role": "Research",
+    "set": "Core Game",
+    "skills": {
+      "lore": 1,
+      "influence": 3,
+      "observation": 4,
+      "strength": 3,
+      "will": 2
+    },
+    "health": 7,
+    "sanity": 5,
+    "startingLocation": "Central Russia (Space 16)",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": ".45 Automatic Asset"
+      }
+    ],
+    "personalStory": "Cracking the Code",
+    "quote": "We lie all the time.  But the truth is in there.  You just have to know how to decode people.",
+    "biography": "Everyone expected great things from Trish when she was young. In school, she excelled in athletics and the sciences, but she surprised everyone after graduation by settling into a humble position at a commercial code company. What almost no one knows is that this particular company is a front for the Bureau's code-breaking agency, the Black Chamber. Now she finds herself in the city of Krasnoyarsk meeting another agent who has important information about an impending threat from a world beyond our own.",
+    "abilities": "Abilities\n* Action: If you do not have any Clues, gain .\n* If an investigator on your space spends a to reroll a die, he may reroll up to 2 dice instead.",
+    "teamRole": "While low will and sanity limit Trish's effectiveness in combat, her stats and abilities make her ideal for gaining clues, or functioning as a support character via asset-buying and expeditions. She should be partnered with a gate closer so she can focus on mysteries and rumors.",
+    "rulings": "",
+    "origin": "Trish Scarborough made her first appearance in 2009 in Innsmouth Horror, the 6th expansion for Arkham Horror: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "Trish falls in and out of consciousness when you visit her in the hospital, but she happily turns over her equipment. Gain all of her possessions. Unfortunately, her journal has been sized by the police. You'll have to convince the local authorities to turn the book over to you . If you pass, you can read through all of Trish's notes; retreat by 1. If you fail, the knowledge is lost. Whether you pass or not, discard her Investigator token.",
+      "lossOfSanity": "The doctor grimly hands you the items Trish had when she was brought in. Gain all of her possessions. \"It's not good,\" he warns. Inside her padded cell, she's written on every surface with a thick black pen. The text is a mix of dozens of codes. You start searching for anything you recognize . If you pass, you spot a hidden message in a familiar code; retreat by 1. If you fail, Trish's message remains locked away. Whether you pass or not, discard her Investigator token."
+    }
+  },
+  {
+    "name": "Ursula Downs",
+    "pageId": 132,
+    "profession": "The Explorer",
+    "role": "Expedition",
+    "set": "Mountains of Madness",
+    "skills": {
+      "lore": 3,
+      "influence": 2,
+      "observation": 3,
+      "strength": 3,
+      "will": 2
+    },
+    "health": 6,
+    "sanity": 6,
+    "startingLocation": "The Heart of Africa",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Mineralogy Research Asset"
+      }
+    ],
+    "personalStory": "Next Big Discovery",
+    "quote": "Discovery isn't easy, but it's the only worthwhile path.",
+    "biography": "As a young girl, Ursula constantly climbed trees, scaled rock walls, and explored caves. When it came to her studies, she excelled in history and the sciences. After getting a degree in Archaeology in Boston, she began traveling the world searching for forgotten civilizations. She's an expert in both ancient and contemporary languages, and is capable of enduring the harsh environments she encounters during her expeditions. Recently, Ursula has traveled to Africa to oversee the excavation of a lost city's ruins.",
+    "abilities": "Abilities \n* Action: Move 1 space along an , then perform 1 additional action.\n* Once per round, you or another investigator on your space may spend 1 less to pay for an effect.",
+    "teamRole": "With the ability to improve a skill of her choice right off the bat, Ursula can adapt based on the other characters in the game. She can quickly turn into a fighter or magic user. Her skills make it very easy for her to reach Expedition Encounter spaces or tricky Clues, and she can become a practically limitless source of Focus due to her other talents since Focus effects tend to only require spending 1 Focus anyway.",
+    "rulings": "Once per round, Ursula may choose to spend one fewer Focus when paying for an effect, including spending a Focus to reroll a die when resolving a test. This can reduce the cost of an effect to zero Focus.",
+    "origin": "Ursula Downs made her first appearance in 2009 in Innsmouth Horror, the 6th expansion for Arkham Horror: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "The doctors finally rule out Ursula's belongings as being the source of her infection. Gain all of her possessions. Something she was exposed to in her world travels has infected her blood, and now her wounds won't heal. You hope to speak to her about her explorations and implore the specialists treating her to allow a visit . If you pass, she tells you what she's learned in her studies; retreat by 1. If you fail, you are never able to speak with her again. Whether you pass or not, discard her Investigator token.",
+      "lossOfSanity": "Ursula neglects everything she owns other than her supply of laudanum. Gain all of her possessions. She tells you she's exploring another world in her dreams, but when she's in there alone, she gets lost. You attempt to guide her through her dreams . If you pass, she's holding something from her dreams when she awakes; gain 1 Artifact. If you fail, she slips into a nightmare and never awakes. Whether you pass or not, discard her Investigator token."
+    }
+  },
+  {
+    "name": "Vincent Lee",
+    "pageId": 1050,
+    "profession": "The Doctor",
+    "role": "Support",
+    "set": "The Dreamlands",
+    "skills": {
+      "lore": 1,
+      "influence": 3,
+      "observation": 3,
+      "strength": 2,
+      "will": 4
+    },
+    "health": 6,
+    "sanity": 6,
+    "startingLocation": "Bombay, India (Space 17)",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Bandages Asset"
+      },
+      {
+        "count": 1,
+        "item": "Composed Condition"
+      }
+    ],
+    "personalStory": "The Doctor is In",
+    "quote": "I will find the answers, even if it kills me.",
+    "biography": "After the third or fourth mutilated body showed up during his time at St. Mary's Hospital in Arkham, Vincent Lee began to suspect that this was no simple case of wild animal attacks. When a young man died screaming in his sleep from a burst heart, Vincent knew for a fact that dark times were ahead. Taking a leave of absence from his position at the hospital, he has set out to ease the suffering of those afflicted by the spreading chaos, hoping that the trail of bodies will lead him to the answers he craves.",
+    "abilities": "Abilities \n* Action: You or another investigator on your space may discard 1 Injury or Illness Condition and/or perform a Rest action.\n* When you or another investigator on your space performs a Rest action, that investigator may recover 1 additional .",
+    "teamRole": "Vincent's stats aren't specialized to any particular role, but his Composed Condition makes him a great all-rounder. Depending on the team's needs, he can start off going to Shanghai, Istanbul, or Sydney to improve his stats. He can provide great support to combat-oriented characters who have more sanity than health.",
+    "rulings": "",
+    "origin": "One of the Investigators in the original Arkham Horror board game published by Chaosium in 1987, in which he was the black pawn.",
+    "defeatedEncounters": {
+      "lossOfHealth": "You are shocked to see Vincent lying in a pool of his own blood, struggling to perform a complicated surgical procedure on himself. He gasps and motions to his things. Gain all of his possessions. Shaking, you try to follow his instructions and help him complete the surgery . If you pass, you manage to save his life and, though he may never fully recover, he will live; retreat by 1. If you fail, Vincent does not survive the botched surgery. Whether you pass or not; discard his Investigator token.",
+      "lossOfSanity": "Inside the asylum, you are escorted to a locker room. The orderly at the door gives you Vincent's things and warns you not to get too close. Gain all of his possessions. Inside, you find Vincent, hands bound with rope, gnashing his teeth and struggling to attack you at every opportunity. You try to calm him . If you pass, you manage to pacify him and he warns you of an impending threat; retreat by 1. If you fail, he must be sedated. Whether you pass or not, discard his Investigator token."
+    }
+  },
+  {
+    "name": "Wendy Adams",
+    "pageId": 306,
+    "profession": "The Urchin",
+    "role": "Research",
+    "set": "Signs of Carcosa",
+    "skills": {
+      "lore": 3,
+      "influence": 1,
+      "observation": 4,
+      "strength": 2,
+      "will": 3
+    },
+    "health": 5,
+    "sanity": 7,
+    "startingLocation": "Eastern Russia (Space 16)",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Elusive Condition"
+      },
+      {
+        "count": 1,
+        "item": "Clue"
+      }
+    ],
+    "personalStory": "Memento",
+    "quote": "The little things are important. Grown-ups don't see that.",
+    "biography": "As far as the state was concerned, Wendy had to be placed in an orphanage. Her father was gone and her mother was insane. But Wendy knew that her mother drew sigils and chanted to hide from the nightmares that took Wendy's father. So long as she was in an orphanage, Wendy knew she was vulnerable. The only way to find her father and keep herself safe was to escape. She has one photo of her father, taken in a factory where the signs are in Russian. On the back is the message, \"Soon the Red Tide rises. Stay safe, my little girl.",
+    "abilities": "Abilities \n* Action: Gain 1 Trinket Asset of your choice from the reserve or discard pile.\n* Once per round, if you would gain a non-Deal Condition or an Impairment token, you may choose to not gain that Condition or Impairment token instead.",
+    "teamRole": "With her high Observation and Will, Wendy is great for gathering Clues. Since she can gain any Trinket from the reserve, she can usually adapt into most situations. Her low Influence might be a problem, so she pairs well with a character that can facilitate assets to her, like , , or .",
+    "rulings": "* Wendy's passive ability can stop her from gaining a Condition she chooses to gain. If an effect allows her to gain a Condition as part of a cost, such as \"you may gain 1 Madness Condition\" or \"unless you gain a Blight Condition,\" she may use her passive ability to not gain that Condition instead. If she does, the cost of gaining the Condition has still been paid.\n* If a skill of Wendy is impaired while it has an Improvement token, she would still be able to choose not to impair that skill instead.",
+    "origin": "Wendy Adams made her first appearance in 2008 in Kingsport Horror, the 4th expansion for Arkham Horror: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "You recognize Wendy's meager belongings for sale in a pawnshop. Gain all of her possessions. The store owner claims an older man brought them in. You scour the city looking for any sign of her or this mysterious man . If you pass, you find her in a hospital being watched over by her father who offers to \"take care\" of certain problems for you before the two of them disappear; each investigator may discard any number of Conditions. If you fail, you never learn her fate. Whether you pass or not, discard her Investigator token.",
+      "lossOfSanity": "The doctors at the asylum tell you that Wendy is too dangerous to be seen, but they grant you custody of her belongings. Gain all of her possessions. You try to convince the staff that it is vital that you speak to her . If you pass, Wendy looks at you with pitch black eyes and threatens you in an inhuman voice, whispering ancient secrets; retreat by 1. If you fail, you come back the next day only to discover that she has killed her doctors and escaped. Whether you pass or not, discard her Investigator token."
+    }
+  },
+  {
+    "name": "William Yorick",
+    "pageId": 826,
+    "profession": "Gravedigger",
+    "role": "Combat",
+    "set": "The Dreamlands",
+    "skills": {
+      "lore": 3,
+      "influence": 2,
+      "observation": 2,
+      "strength": 3,
+      "will": 3
+    },
+    "health": 7,
+    "sanity": 5,
+    "startingLocation": "Sydney, Australia",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Alchemical Concoction Asset"
+      },
+      {
+        "count": 1,
+        "item": "Bury Them Deep Unique Asset"
+      },
+      {
+        "count": 1,
+        "item": "Focus"
+      }
+    ],
+    "personalStory": "To Be Or Not To Be",
+    "quote": "Though this be madness, yet there is method in't",
+    "biography": "William Yorick always dreamed of becoming an actor. But alas, poor Yorick, it was not meant to be. As a gravedigger, Yorick saw corpses every day, so when inhuman, monstrous corpses started turning up in Arkham, he took the bodies to Miskatonic University for study. Unfortunately for Yorick, this drew some unwanted attention, and fearing for his life, he took a grave-digging job in Sydney, far from Arkham and far from trouble—at least until the corpses started clawing their way from the ground.",
+    "abilities": "",
+    "teamRole": "William is well-suited to defeating Monsters and closing gates. His ability to knock 2 Assets out of the reserve for free every turn means he can quickly search out a weapon for himself to boost his combat potential.",
+    "rulings": "Based on the ruling for Patrolling the Streets, if the investigator use Relentless to reduce the Monster's toughness during the Combat Encounter and defeat it, the reduced toughness will be used to calculate whether William's passive ability triggers.",
+    "origin": "William Yorick made his first appearance in 2008 in Kingsport Horror, the 4th expansion for Arkham Horror: Second Edition. The name is a reference to the skull that the Gravedigger unearths in William Shakespeare's play 'Hamlet'. Yorick was the court jester when Hamlet was a boy. It is not the Gravedigger's name (a common misconception). The name itself (and variants Iorek, Jorik, Jorg) are a Danish/Germanic version of the name \"George\".",
+    "defeatedEncounters": {
+      "lossOfHealth": "You find Yorick in a shelter with a bloody bandage wrapped around his head. One of the attendants hands you a bag of the things found on his person. Gain all of his possessions. Speaking with Yorick, you discover that he cannot retain any new memories for longer than five minutes. You attempt to get Yorick to remember what happened . If you pass, he describes a familiar symbol; retreat by 1. If you fail, he becomes even more confused. Whether you pass or not, discard his Investigator token.",
+      "lossOfSanity": "You find Yorick sputtering lines from a play in an abandoned warehouse, his things strewn about the floor around him. Gain all of his possessions. Yorick suddenly accuses you of killing his cousin and challenges you to a duel . If you pass, you manage to subdue him and take him to a hostipal where you extract some useful information from him between dramatic soliloquies; retreat by 1. If you fail, he knocks you unconscious and disappears into the city. Whether you pass or not, discard his Investigator token."
+    }
+  },
+  {
+    "name": "Wilson Richards",
+    "pageId": 131,
+    "profession": "The Handyman",
+    "role": "Combat",
+    "set": "Mountains of Madness",
+    "skills": {
+      "lore": 1,
+      "influence": 3,
+      "observation": 2,
+      "strength": 4,
+      "will": 3
+    },
+    "health": 8,
+    "sanity": 4,
+    "startingLocation": "Arkham, United States",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Blunderbuss Asset"
+      }
+    ],
+    "personalStory": "Heckuva Job",
+    "quote": "It's nothing a good plan and some hard work can't fix.",
+    "biography": "Wilson's a practical man. He goes where there's work. When it's gone, he moves on. Wilson finds that offering an honest deal gets him treated honestly, but since he took a job rebuilding a church in Arkham, he's had a hard time being honest with himself. Things that used to hide in the deepest pits of the earth have crawled to the surface. He cannot unsee all the things he's seen, but he can get to work on fixing the problem.",
+    "abilities": "Abilities \n* Action: Gain 1 Asset of your choice with value 1 from the reserve; or discard 1 card from the reserve and perform 1 additional action.\n* When you or another investigator on your space spend a to reroll a die, that investigator may reroll up to 2 dice instead.",
+    "teamRole": "",
+    "rulings": "*If Wilson or another investigator on Wilson’s space spends a Focus to reroll a die and his dice pool is only one die, that investigator cannot use Wilson’s passive ability.\n*Wilson's active ability allows him to gain Relic Unique Assets from the reserve without spending if Wondrous Curios is in play.",
+    "origin": "Wilson Richards made his first appearance in 2006 in Dunwich Horror, the 2nd expansion for Arkham Horror: Second Edition.\n\nWilson Richards' name is a reference to the two designers of Arkham Horror: Second Edition, Kevin Wilson and Richard Launius.",
+    "defeatedEncounters": {
+      "lossOfHealth": "This abandoned house is where Wilson was supposed to be. You see his belongings, but no sign of the man. Gain all of his possessions. About to give up, you hear a faint scraping coming from the walls. You tear down the plaster and lath as quickly as you can . If you pass, you pull him out, barely alive and he tells you what he's discovered; retreat by 1. If you fail, you don't get it out in time, and he takes the secrets with him to the grave. Whether you pass or not, discard his Investigator token.",
+      "lossOfSanity": "When you find Wilson, he's surrounded by countless shards of glass and loose stones he's arranged in some way that is only meaningful to him. As you watch, he moves the debris around his obscure patterns. You spend a few hours trying to speak with him . If you pass, you understand the message he's struggling to communicate; retreat by 1. If you fail, he never speaks another sane word. Whether you pass or not, gain all of his possessions and discard his Investigator token."
+    }
+  },
+  {
+    "name": "Zoey Samaras",
+    "pageId": 124,
+    "profession": "The Chef",
+    "role": "Combat",
+    "set": "Strange Remnants",
+    "skills": {
+      "lore": 3,
+      "influence": 2,
+      "observation": 1,
+      "strength": 3,
+      "will": 4
+    },
+    "health": 5,
+    "sanity": 7,
+    "startingLocation": "Rome, Italy",
+    "startingEquipment": [
+      {
+        "count": 1,
+        "item": "Holy Cross Asset"
+      }
+    ],
+    "personalStory": "In His Name",
+    "quote": "God has spoken. I will do His work without hesitation.",
+    "biography": "When Zoey was six years old, her parents were killed in a fire. As the flames consumed her home, God spoke to her. He told Zoey that she was special and that He was giving her a special task. As an adult, she now travels from city to city, taking work as a chef to support herself. When she isn't working, she stalks the night, guided by the Lord's voice. Wherever she finds wickedness, she strikes it down without remorse or hesitation. Most recently, God has called her to Rome, to dispense His righteous fury.",
+    "abilities": "Abilities\n* Action: If you have fewer than 2 Task Assets, gain 1 Task Unique Asset.\n* If you have not lost during a Combat Encounter, roll 2 additional dice when resolving the test during that encounter.",
+    "teamRole": "Zoey has an effective 6 will and 7 sanity that give her unrivaled durability in combat. She works best as a fighter and gate closer, using spare turns to get or advance tasks to empower herself. She should team up with an Influence character who can get her a weapon.",
+    "rulings": "Based on the ruling for Handcuffs, Zoey's passive ability cannot be used while encountering a Monster which do not have a test, but can be used while encountering a Monster which has another skill icon in place of the test indicator.",
+    "origin": "Zoey Samaras made her first appearance in 2009 in Innsmouth Horror, the 6th expansion for Arkham Horror: Second Edition.",
+    "defeatedEncounters": {
+      "lossOfHealth": "Zoey's wounds have left her hospitalized and unable to walk. Grudgingly, she's left everything for you in a safety deposit box. Gain all of her possessions. When you return from the bank, the hospital is on fire. You try to find the courage to run in and rescue Zoey . If you pass, Zoey gratefully says a prayer for you; gain 1 Boon Condition. If you fail, the only remnant of her you find among the ashes is an old photo of her as a child with her parents. Whether you pass or not, discard her Investigator token.",
+      "lossOfSanity": "The priest tell you that Zoey donated all of her belongings to the church, but he understand your work and offers them to you. Gain all of her possessions. He tells you that Zoey has been deep in prayer since she arrived. You try to convince her to speak to you . If you pass, she admits that God gave her one final message of powerful significance and then stopped speaking to her; retreat by 1. If you fail, she steadfastly continues to pray, begging to hear a response. Whether you pass or not, discard her Investigator token."
+    }
+  }
+]

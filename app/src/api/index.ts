@@ -1,25 +1,158 @@
 /**
- * API Stubs for n8n Backend Integration
- * 
- * These functions will be replaced with real API calls once the n8n backend is set up.
- * For now, they return mock data to enable UI development.
+ * API Integration for n8n Backend
+ *
+ * Environment Variables:
+ *   VITE_N8N_ENV: 'test' | 'prod' (default: 'prod')
+ *
+ * URLs:
+ *   Test: https://n8n.yarden-zamir.com/webhook-test/...
+ *   Prod: https://n8n.yarden-zamir.com/webhook/...
  */
 
-import type { GameState, NarrativeEvent, WikiPage } from '../types';
+import type {
+  GameState,
+  NarrativeEvent,
+  WikiPage,
+  PlotContext,
+  GeneratePlotRequest,
+} from "../types";
+import { createEmptyPlotContext as createFallbackPlot } from "../types";
 
-// Base URL for the n8n webhook (to be configured)
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5678/webhook';
+// n8n webhook configuration
+const N8N_BASE = "https://n8n.yarden-zamir.com";
+const N8N_ENV = import.meta.env.VITE_N8N_ENV || "prod";
+
+// Base URL switches between test and production webhooks
+const API_BASE_URL =
+  N8N_ENV === "test" ? `${N8N_BASE}/webhook-test` : `${N8N_BASE}/webhook`;
+
+// Log which environment is being used (helpful for debugging)
+console.log(`[API] Using n8n ${N8N_ENV} environment: ${API_BASE_URL}`);
 
 // Simple fallback UUID generator if crypto.randomUUID is missing
 function generateUUID() {
-  if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+  if (typeof crypto !== "undefined" && crypto.randomUUID) {
     return crypto.randomUUID();
   }
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    const r = Math.random() * 16 | 0;
-    const v = c === 'x' ? r : (r & 0x3 | 0x8);
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+    const r = (Math.random() * 16) | 0;
+    const v = c === "x" ? r : (r & 0x3) | 0x8;
     return v.toString(16);
   });
+}
+
+/**
+ * Generate the plot context for a new game session
+ * Called when "Summon the Darkness" is clicked
+ * The AI creates a dark, flexible narrative based on investigators and Ancient One
+ */
+export async function generatePlot(
+  request: GeneratePlotRequest
+): Promise<PlotContext> {
+  const response = await fetch(`${API_BASE_URL}/game-start`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(request),
+    signal: AbortSignal.timeout(600000), // 60 second timeout for AI generation
+  });
+
+  if (!response.ok) {
+    console.error(
+      "Plot generation failed:",
+      response.status,
+      response.statusText
+    );
+    throw new Error(`Failed to generate plot: ${response.statusText}`);
+  }
+
+  const plotContext = (await response.json()) as PlotContext;
+  return plotContext;
+}
+
+/**
+ * Create a fallback plot context when the API is unavailable
+ * Generates minimal placeholder content based on the game setup
+ */
+function createFallbackPlotContext(request: GeneratePlotRequest): PlotContext {
+  const fallback = createFallbackPlot();
+  const ao = request.ancientOne;
+  const epithet = ao.epithet ? `, ${ao.epithet},` : "";
+
+  // Populate with context from the request using the rich data
+  fallback.premise = ao.shortDescription
+    ? `${ao.shortDescription} ${request.investigators.length} investigator${
+        request.investigators.length > 1 ? "s" : ""
+      } must uncover the truth before doom befalls the world.`
+    : `The stars align as ${
+        ao.name
+      }${epithet} stirs in the darkness beyond reality. ${
+        request.investigators.length
+      } investigator${
+        request.investigators.length > 1 ? "s" : ""
+      } must uncover the truth before doom befalls the world.`;
+
+  // Use the awakening flavor if available
+  fallback.ancientOneMotivation = ao.lore
+    ? ao.lore.slice(0, 300) + "..."
+    : `${ao.name} seeks to break through the barriers between worlds.`;
+
+  fallback.cultistAgenda = ao.cultistInfo
+    ? `Cultists serve ${ao.name}: ${ao.cultistInfo.slice(0, 200)}`
+    : `Dark cults work in shadow to hasten the awakening.`;
+
+  fallback.cosmicThreat = ao.awakeningFlavor
+    ? ao.awakeningFlavor
+    : `Should ${ao.name} fully awaken, reality itself will be unmade.`;
+
+  fallback.investigatorThreads = request.investigators.map((inv, idx) => ({
+    playerId: `player-${idx}`,
+    personalStakes: inv.biography
+      ? `${inv.name}, ${inv.profession}: ${inv.biography.slice(0, 200)}...`
+      : `${inv.name} must confront the darkness that has haunted their dreams.`,
+    connectionToThreat: inv.quote
+      ? `"${inv.quote}" - Their path has led them to this moment of cosmic significance.`
+      : `Their path has led them to this moment of cosmic significance.`,
+    potentialArc: inv.teamRole
+      ? `As a ${inv.role} specialist: ${inv.teamRole.slice(
+          0,
+          150
+        )}... If defeated: ${inv.defeatedEncounters.lossOfSanity.slice(
+          0,
+          50
+        )}...`
+      : `Will ${inv.name} find the strength to face the unknown?`,
+  }));
+
+  // Use mystery names if available
+  fallback.mysteryHooks = ao.mysteryNames?.length
+    ? ao.mysteryNames
+        .slice(0, 3)
+        .map((m) => `The mystery of "${m}" awaits investigation`)
+    : [
+        "Strange phenomena reported across the globe",
+        "Ancient texts speak of rituals long forgotten",
+        "Witnesses describe impossible geometries in the sky",
+      ];
+
+  fallback.possibleOutcomes = {
+    victory: `The investigators seal away ${ao.name}, but the memory of what they witnessed will haunt them forever.`,
+    defeat: ao.awakeningTitle
+      ? `${ao.awakeningTitle}: ${
+          ao.awakeningFlavor?.slice(0, 150) ||
+          `${ao.name} awakens, and the world is forever changed.`
+        }`
+      : `${ao.name} awakens, and the world is forever changed.`,
+    pyrrhicVictory: `The Ancient One is stopped, but at a terrible cost that none could have foreseen.`,
+  };
+
+  fallback.currentTension = 3;
+  fallback.activeThemes = [
+    "cosmic horror",
+    "forbidden knowledge",
+    "impending doom",
+  ];
+
+  return fallback;
 }
 
 /**
@@ -28,20 +161,28 @@ function generateUUID() {
  */
 export async function generateEncounter(context: {
   gameState: GameState;
-  encounterType: 'location' | 'research' | 'other_world' | 'combat' | 'special';
+  encounterType: "location" | "research" | "other_world" | "combat" | "special";
   location?: string;
 }): Promise<NarrativeEvent> {
   // Mock response
   return {
     id: generateUUID(),
     timestamp: Date.now(),
-    type: 'encounter',
-    title: 'Shadows in the Library',
+    type: "encounter",
+    title: "Shadows in the Library",
     content: `The ancient tomes seem to whisper as you approach. Something moves in the darkness between the shelves, and you catch a glimpse of eyes that should not exist...`,
     choices: [
-      { id: 'investigate', label: 'Investigate the movement', description: 'Test Observation (2)' },
-      { id: 'read', label: 'Read the nearest tome', description: 'Test Lore (1)' },
-      { id: 'leave', label: 'Leave quietly', description: 'No test required' },
+      {
+        id: "investigate",
+        label: "Investigate the movement",
+        description: "Test Observation (2)",
+      },
+      {
+        id: "read",
+        label: "Read the nearest tome",
+        description: "Test Lore (1)",
+      },
+      { id: "leave", label: "Leave quietly", description: "No test required" },
     ],
   };
 }
@@ -55,7 +196,7 @@ export async function advanceStory(context: {
   decision: string;
   choiceId: string;
 }): Promise<{
-  outcome: 'pass' | 'fail' | 'neutral';
+  outcome: "pass" | "fail" | "neutral";
   narrative: string;
   effects: {
     health?: number;
@@ -68,8 +209,9 @@ export async function advanceStory(context: {
 }> {
   // Mock response
   return {
-    outcome: 'pass',
-    narrative: 'The shadows recede as you shine your light upon them, revealing ancient texts that speak of rituals long forgotten. Your mind strains to comprehend the knowledge within.',
+    outcome: "pass",
+    narrative:
+      "The shadows recede as you shine your light upon them, revealing ancient texts that speak of rituals long forgotten. Your mind strains to comprehend the knowledge within.",
     effects: {
       clues: 1,
       sanity: -1,
@@ -81,14 +223,17 @@ export async function advanceStory(context: {
  * Generate a Mythos event appropriate to the current game state
  * The AI ensures the event fits the narrative arc and difficulty curve
  */
-export async function getMythosEvent(gameState: GameState): Promise<NarrativeEvent> {
+export async function getMythosEvent(
+  gameState: GameState
+): Promise<NarrativeEvent> {
   // Mock response
   return {
     id: generateUUID(),
     timestamp: Date.now(),
-    type: 'mythos',
-    title: 'Stars Align',
-    content: 'The constellations shift imperceptibly, but those attuned to cosmic forces feel reality shudder. The Ancient One grows stronger as the barrier between worlds weakens.',
+    type: "mythos",
+    title: "Stars Align",
+    content:
+      "The constellations shift imperceptibly, but those attuned to cosmic forces feel reality shudder. The Ancient One grows stronger as the barrier between worlds weakens.",
   };
 }
 
@@ -97,7 +242,7 @@ export async function getMythosEvent(gameState: GameState): Promise<NarrativeEve
  */
 export async function suggestAncientOne(context: {
   playerCount: number;
-  preferredDifficulty?: 'easy' | 'medium' | 'hard';
+  preferredDifficulty?: "easy" | "medium" | "hard";
   excludeIds?: number[];
 }): Promise<WikiPage | null> {
   return null;
@@ -116,7 +261,8 @@ export async function getInvestigatorSuggestions(context: {
 }> {
   return {
     suggested: [],
-    reasoning: 'The AI will suggest investigators that complement each other and match the narrative tone.',
+    reasoning:
+      "The AI will suggest investigators that complement each other and match the narrative tone.",
   };
 }
 
@@ -126,7 +272,7 @@ export async function getInvestigatorSuggestions(context: {
 export async function checkBackendHealth(): Promise<boolean> {
   try {
     const response = await fetch(`${API_BASE_URL}/health`, {
-      method: 'GET',
+      method: "GET",
       signal: AbortSignal.timeout(5000),
     });
     return response.ok;
