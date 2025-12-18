@@ -124,12 +124,13 @@ def extract_final_mystery(sections: dict) -> str:
     combined = awakening_text + '\n' + gameplay_text
     
     # Look for Final Mystery section
-    # Pattern: '''Final Mystery''' followed by the content until the next section or blank lines
-    match = re.search(r"'''Final Mystery'''([^']+?)(?:'''|$)", combined, re.DOTALL | re.IGNORECASE)
+    # Pattern: '''Final Mystery''' followed by content until the next section header
+    # Section headers are '''Section Name''' at the start of a line or after newlines
+    match = re.search(r"'''Final Mystery'''(.+?)(?:\n'''[A-Z]|$)", combined, re.DOTALL | re.IGNORECASE)
     
     if match:
         final_mystery = match.group(1).strip()
-        return strip_wiki_markup(final_mystery)[:800]
+        return strip_wiki_markup(final_mystery)[:1200]
     
     return ""
 
