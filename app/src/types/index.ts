@@ -203,6 +203,7 @@ export interface AncientOneContext {
   defeatCondition: string;
   awakeningTitle?: string;
   awakeningEffects?: string;
+  finalMystery?: string;
   appearance?: string;
   residence?: string;
   disposition?: string;
@@ -212,6 +213,16 @@ export interface AncientOneContext {
   difficulty?: string;
   startingDoom?: number;
   mythosDeckSize?: number;
+  set?: string;
+  setupInstructions?: string;
+  mythosDeck?: {
+    stage1: { green: string; yellow: string; blue: string };
+    stage2: { green: string; yellow: string; blue: string };
+    stage3: { green: string; yellow: string; blue: string };
+  };
+  mysteryNames?: string[];
+  researchEncounterDetails?: ResearchEncounterDetails;
+  mysteryDetails?: MysteryDetail[];
 }
 
 export interface InvestigatorContext {
