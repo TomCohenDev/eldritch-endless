@@ -615,6 +615,7 @@ export function useGameData() {
           awakeningTitle: detailed.awakeningTitle,
           awakeningFlavor: detailed.awakeningFlavor,
           awakeningEffects: detailed.awakeningEffects,
+          finalMystery: detailed.finalMystery,
           
           // Mysteries - both names and full details with flavor text and requirements
           mysteryNames: detailed.mysteryNames || [],
@@ -632,12 +633,15 @@ export function useGameData() {
           })),
           
           // Research encounters - full card descriptions for AI context
-          researchEncounterSummary: detailed.researchEncounters,
+          researchEncounters: detailed.researchEncounters,
           researchEncounterDetails: detailed.researchEncounterDetails ? {
             city: detailed.researchEncounterDetails.city || [],
             wilderness: detailed.researchEncounterDetails.wilderness || [],
             sea: detailed.researchEncounterDetails.sea || [],
           } : undefined,
+          
+          // This is the simple defeat text that AI uses as defeatCondition
+          defeatCondition: detailed.awakeningFlavor || detailed.awakeningTitle || "The Ancient One awakens and the world ends.",
         };
       }
 

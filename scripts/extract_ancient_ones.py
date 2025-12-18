@@ -114,6 +114,26 @@ def get_title_section(sections: dict, title: str) -> str:
     return ""
 
 
+def extract_final_mystery(sections: dict) -> str:
+    """Extract Final Mystery text from Awakening or Gameplay sections."""
+    # Try awakening first
+    awakening_text = sections.get('Awakening', '')
+    gameplay_text = sections.get('Gameplay', '')
+    
+    # Combine both to search
+    combined = awakening_text + '\n' + gameplay_text
+    
+    # Look for Final Mystery section
+    # Pattern: '''Final Mystery''' followed by the content until the next section or blank lines
+    match = re.search(r"'''Final Mystery'''([^']+?)(?:'''|$)", combined, re.DOTALL | re.IGNORECASE)
+    
+    if match:
+        final_mystery = match.group(1).strip()
+        return strip_wiki_markup(final_mystery)[:800]
+    
+    return ""
+
+
 def extract_ancient_one_detail(ao_data: dict) -> dict:
     """Extract all detailed information for an Ancient One."""
     sections = ao_data.get('sections', {})
@@ -161,6 +181,7 @@ def extract_ancient_one_detail(ao_data: dict) -> dict:
         'awakeningTitle': awakening_title,
         'awakeningFlavor': strip_wiki_markup(awakening_flavor)[:1000],
         'awakeningEffects': strip_wiki_markup(sections.get('Awakening', ''))[:1000],
+        'finalMystery': extract_final_mystery(sections),
         
         # Combat
         'cultistInfo': extract_cultist_info(sections),
