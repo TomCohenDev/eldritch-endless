@@ -192,119 +192,35 @@ export interface PlotContext {
 }
 
 // API request/response types for plot generation
-export interface MysteryDetail {
-  name: string;
-  type: string;
-  expansion: string;
-  flavorText: string;
-  mysteryText: string;
-  requiresClues: boolean;
-  requiresSpells: boolean;
-  hasEldritchTokens: boolean;
-  requiresArtifact: boolean;
-  hasMonster: boolean;
-}
-
-export interface ResearchEncounterDetail {
-  id: string;
-  expansion: string;
-  description: string;
-}
-
-export interface ResearchEncounterDetails {
-  city: ResearchEncounterDetail[];
-  wilderness: ResearchEncounterDetail[];
-  sea: ResearchEncounterDetail[];
-}
-
 export interface AncientOneContext {
-  // Identity
   name: string;
   epithet?: string;
   shortDescription?: string;
-  set?: string;
-  
-  // Full lore and backstory
   lore: string;
+  abilities: string;
+  mysteries: string[];
+  researchEncounters: string;
+  defeatCondition: string;
+  awakeningTitle?: string;
+  awakeningEffects?: string;
   appearance?: string;
   residence?: string;
   disposition?: string;
   antagonists?: string;
   source?: string;
-  
-  // Gameplay mechanics
-  abilities: string;
-  setupInstructions?: string;
+  cultistInfo?: string;
   difficulty?: string;
   startingDoom?: number;
   mythosDeckSize?: number;
-  mythosDeck?: {
-    stage1: { green: string; yellow: string; blue: string };
-    stage2: { green: string; yellow: string; blue: string };
-    stage3: { green: string; yellow: string; blue: string };
-  };
-  cultistInfo?: string;
-  
-  // Awakening/Defeat
-  defeatCondition: string; // Note: mapped from awakeningFlavor usually
-  awakeningTitle?: string;
-  awakeningFlavor?: string;
-  awakeningEffects?: string;
-  
-  // Mysteries
-  mysteries: string[]; // Names only (legacy support)
-  mysteryDetails?: MysteryDetail[]; // Full details
-  
-  // Research encounters
-  researchEncounters: string; // Summary string
-  researchEncounterDetails?: ResearchEncounterDetails; // Full details
-}
-
-export interface InvestigatorSkills {
-  lore: number;
-  influence: number;
-  observation: number;
-  strength: number;
-  will: number;
-}
-
-export interface StartingEquipment {
-  count: number;
-  item: string;
-}
-
-export interface DefeatedEncounters {
-  lossOfHealth: string;
-  lossOfSanity: string;
 }
 
 export interface InvestigatorContext {
-  // Identity
   name: string;
   profession: string;
-  role: string;
-  set?: string;
-
-  // Stats
-  skills: InvestigatorSkills;
-  health: number;
-  sanity: number;
-
-  // Starting info
-  startingLocation: string;
-  startingEquipment: StartingEquipment[];
-  personalStory: string;
-
-  // Narrative content
-  quote: string;
   biography: string;
   abilities: string;
-  teamRole: string;
-  rulings: string;
-  origin: string;
-
-  // Defeated encounters
-  defeatedEncounters: DefeatedEncounters;
+  personalStory: string;
+  startingLocation: string;
 }
 
 export interface GeneratePlotRequest {
