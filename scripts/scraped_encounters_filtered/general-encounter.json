@@ -1,0 +1,1579 @@
+{
+  "url": "https://eldritchhorror.fandom.com/wiki/General_Encounter",
+  "title": "General Encounter",
+  "intro": "A General Encounter is a sub-type of Location Encounter that may occur on any space provided it has not been Devastated. Just like a Research Encounter, each card is divided into three encounters based on the space the player is on: City, Wilderness, or Sea. Resolve the appropriate encounter when the card is read. Unlike a specific Location Encounter, there is no most common effect on a General Encounter. General Encounters generally have a bad risk/reward ratio, and are usually only chosen if the investigator cannot choose any other type of encounter. That said, some effects of General Encounters can be positive. If located on a City space, Darrell Simmons rolls 1 additional die when resolving a test during a General Encounter.",
+  "encounters": {
+    "City Encounters": {
+      "tables": [
+        {
+          "ID #": "1",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You make sure no one is watching before sneaking out of the shop with your stolen goods (Observation). If you pass, gain 1 Item Asset from the reserve or 1 random Item Asset from the deck. If you fail, you are caught by the store owner and arrested; gain a Detained Condition.",
+            "links": [
+              {
+                "text": "Item",
+                "href": "/wiki/Item"
+              },
+              {
+                "text": "Detained",
+                "href": "/wiki/Detained"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "City Encounters"
+        },
+        {
+          "ID #": "2",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Corrupt members of the police force pressure you for a bribe. You speak to some people you know to take care of the problem (). If you pass, the police are apologetic and share their leads with you; spawn 1 Clue. If you fail, gain a Debt Condition to pay the bribe.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "Debt",
+                "href": "/wiki/Debt"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "City Encounters"
+        },
+        {
+          "ID #": "3",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The shop is robbed while you are browsing! You attempt to fend off the thieves (). If you pass, the store owner is very gracious; gain 1 Item Asset from the reserve or 1 random Item Asset from the deck. If you fail, lose 1 Health and discard 1 Item possession.",
+            "links": [
+              {
+                "text": "Item",
+                "href": "/wiki/Item"
+              },
+              {
+                "text": "Item",
+                "href": "/wiki/Item"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "City Encounters"
+        },
+        {
+          "ID #": "4",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "A group of intimidating Syndicate member demand you pay them for protection. You offer the well-dressed men what you can afford (). If you fail, they make sure you meet with an accident; gain a Leg Injury Condition.",
+            "links": [
+              {
+                "text": "Leg Injury",
+                "href": "/wiki/Leg_Injury"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "City Encounters"
+        },
+        {
+          "ID #": "5",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "A shady figure offers to sell you a weapon, no questions asked. You speak with him to determine his motives (). If you pass, gain 1 random Weapon Asset from the deck. If you fail, the undercover policeman arrests you; gain a Detained Condition.",
+            "links": [
+              {
+                "text": "Weapon",
+                "href": "/wiki/Weapon"
+              },
+              {
+                "text": "Detained",
+                "href": "/wiki/Detained"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "City Encounters"
+        },
+        {
+          "ID #": "6",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You wander through the aisles of an antique book store. Although many extremely rare books can be found here, the organizational system is almost impossible to decipher (-1). If you pass, you're able to track down a hidden gem; gain 1 Tome Artifact.",
+            "links": [
+              {
+                "text": "Tome",
+                "href": "/wiki/Tome"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "City Encounters"
+        },
+        {
+          "ID #": "7",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "A friendly game of cards ends with a very high-stakes hand (). If you pass, you amaze everyone watching and find a new friend; gain 1 random Ally Asset from the deck. If you fail, gain a Debt Condition to cover the loss.",
+            "links": [
+              {
+                "text": "Ally",
+                "href": "/wiki/Ally"
+              },
+              {
+                "text": "Debt",
+                "href": "/wiki/Debt"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "City Encounters"
+        },
+        {
+          "ID #": "8",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "A night of drinking and good cheer helps raise your spirits. Recover 2 Sanity. While you are celebrating, you hardly notice that you are being robbed (). If you fail, discard 1 Item possession.",
+            "links": [
+              {
+                "text": "Item",
+                "href": "/wiki/Item"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "City Encounters"
+        },
+        {
+          "ID #": "9",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The police report that people are being abducted by a monster dwelling in the sewer system. Wandering through the underground tunnels you are suddenly attacked by a deep one ()! If you pass, you defeat the creature and rescue its hostage; gain 1 random Ally Asset from the deck. If you fail, lose 1 Health from the struggle.",
+            "links": [
+              {
+                "text": "Ally",
+                "href": "/wiki/Ally"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "City Encounters"
+        },
+        {
+          "ID #": "10",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The police ask for your help investigating a series of ritual killings. The grisly crime scenes threaten to overwhelm you with chills and nausea (). If you pass, you manage to examine the scene and find significant information; spawn 1 Clue. If you fail, you can't endure the horror; lose 2 Sanity.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "City Encounters"
+        },
+        {
+          "ID #": "11",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Legends say that this cemetery is haunted. Exploring the headstones, you encounter an angry specter, eager to share his story. The experience is nerve-wracking, but you try to listen (). If you pass, the spirit gratefully fades from view; recover 2 Sanity. If you fail, his desperate voice echoes in your mind; gain a Paranoia Condition.",
+            "links": [
+              {
+                "text": "Paranoia",
+                "href": "/wiki/Paranoia"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "City Encounters"
+        },
+        {
+          "ID #": "12",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The Syndicate is engaged in a gang war with local thugs and is under intense legal scrutiny. You try to trade your political clout for assistance (). If you pass, gain 1 Service Asset from the reserve or 1 random Service Asset from the deck.",
+            "links": [
+              {
+                "text": "Service",
+                "href": "/wiki/Service"
+              },
+              {
+                "text": "Service",
+                "href": "/wiki/Service"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "City Encounters"
+        },
+        {
+          "ID #": "13",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "A night watchman tells you that a crate of weapons has \"gone missing\" from his warehouse. You offer him some money to learn more (). If you pass, he sends you to an alley; gain 1 random Weapon Asset from the deck. If you fail, he sends you into a trap; lose 1 Health and gain a Leg Injury Condition.",
+            "links": [
+              {
+                "text": "Weapon",
+                "href": "/wiki/Weapon"
+              },
+              {
+                "text": "Leg Injury",
+                "href": "/wiki/Leg_Injury"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "City Encounters"
+        },
+        {
+          "ID #": "14",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "This city is home to an exclusive club for world travelers. You try to convince them that granting you a membership would be a prestigious feather in their cap (-1). If you pass, the other members will graciously help you with your future travel plans; gain 1 Ship Ticket and 1 Train Ticket.",
+            "links": [
+              {
+                "text": "1 Ship Ticket",
+                "href": "/wiki/Prepare_for_Travel#Travel_Tickets"
+              },
+              {
+                "text": "1 Train Ticket",
+                "href": "/wiki/Prepare_for_Travel#Travel_Tickets"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Ship Ticket",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Train Ticket",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "City Encounters"
+        },
+        {
+          "ID #": "15",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Grifters have chosen you to be their next mark. You plan on turning the tables with a few tricks of your own (-1). If you pass, you end up with the money and an impressive reputation; improve . If you fail, they swindle you; discard 1 Item possession and 1 Trinket possession.",
+            "links": [
+              {
+                "text": "Item",
+                "href": "/wiki/Item"
+              },
+              {
+                "text": "Trinket",
+                "href": "/wiki/Trinket"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "City Encounters"
+        },
+        {
+          "ID #": "16",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "A shop in the old part of town is reputed to have an amazing collection of rare books, but the shop cannot always be found. You research the legend and do your best to find it (-2). If you pass, gain 1 Tome Artifact. If you fail, the frustrating search leaves you unsettled; lose 2 Sanity.",
+            "links": [
+              {
+                "text": "Tome",
+                "href": "/wiki/Tome"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "City Encounters"
+        }
+      ]
+    },
+    "Wilderness Encounters": {
+      "tables": [
+        {
+          "ID #": "1",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The remains of a long-dead explorer lie before you. Some of his gear still seems salvageable, and he won't miss it. You dig through the dead man's pockets; gain 1 random Item Asset from the deck and lose 1 Sanity.",
+            "links": [
+              {
+                "text": "Item",
+                "href": "/wiki/Item"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Wilderness Encounters"
+        },
+        {
+          "ID #": "2",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Far from any road or village, you find a shallow grave marked only with an arcane symbol. As you dig, a growing dread weakens your resolve (). If you pass, you find a charred corpse clutching a journal; gain 1 Clue or improve . If you fail, you run from the area; gain a Cursed Condition.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "Cursed",
+                "href": "/wiki/Cursed"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Wilderness Encounters"
+        },
+        {
+          "ID #": "3",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You scrape away year of moss and lichen from the stone altar, uncovering a series of prehistoric symbols. You think you can interpret the carvings (). If you pass, gain 1 Clue or 1 Spell.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "Spell",
+                "href": "/wiki/Spell"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Wilderness Encounters"
+        },
+        {
+          "ID #": "4",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The terrain ahead of you looks impassable, but going around would take too long. You'll need to find some way to move forward (). If you pass, you discover a path; move 1 space. If you fail, you trip over the uneven ground; lose 1 Health and gain a Leg Injury Condition.",
+            "links": [
+              {
+                "text": "Leg Injury",
+                "href": "/wiki/Leg_Injury"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Wilderness Encounters"
+        },
+        {
+          "ID #": "5",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The ground slopes upward so uniformly that you suspect a structure exists underneath. You search for a buried entrance to claim the treasures found inside. You may spend 1 Clue to gain 1 Artifact.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "Artifact",
+                "href": "/wiki/Artifact"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Wilderness Encounters"
+        },
+        {
+          "ID #": "6",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You help a young woman search the countryside for her uncle (). If you pass, you find the eccentric, old man, and he gives you a gift for helping his niece; gain 1 Tome Artifact from the deck.",
+            "links": [
+              {
+                "text": "Tome",
+                "href": "/wiki/Tome"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Wilderness Encounters"
+        },
+        {
+          "ID #": "7",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Your map is gone, and you must navigate based on your own observations (). If you pass, you confidently progress on your journey; move 1 space. If you fail, you travel in circles; you become Delayed and gain a Madness Condition.",
+            "links": [
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              },
+              {
+                "text": "Madness",
+                "href": "/wiki/Madness"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Wilderness Encounters"
+        },
+        {
+          "ID #": "8",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Past where your campfire allows you to see, you hear voices chanting. You try to draw a protective sigil in the ground (). If you pass, the next morning you find evidence of cult activity that you can use to identify the cult members; gain 1 Clue or improve . If you fail, gain a Cursed Condition.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "Cursed",
+                "href": "/wiki/Cursed"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Wilderness Encounters"
+        },
+        {
+          "ID #": "9",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "In the middle of the night, a feral beast rips apart your camp and attacks you ()! if you pass, you feel invincible; improve . If you fail, lose 1 Health and gain a Leg Injury Condition.",
+            "links": [
+              {
+                "text": "Leg Injury",
+                "href": "/wiki/Leg_Injury"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Wilderness Encounters"
+        },
+        {
+          "ID #": "10",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Extreme conditions have left you fevered and delirious. You force yourself to keep moving, putting a terrible strain on your body (). If you fail, the fever grows worse and you begin seeing things; gain a Hallucinations Condition.",
+            "links": [
+              {
+                "text": "Hallucinations",
+                "href": "/wiki/Hallucinations"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Wilderness Encounters"
+        },
+        {
+          "ID #": "11",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "According to your map, you can make a detour to visit a lake purported to have restorative powers. You may become Delayed to recover 3 Sanity or discard a Madness Condition.",
+            "links": [
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              },
+              {
+                "text": "Madness",
+                "href": "/wiki/Madness"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Wilderness Encounters"
+        },
+        {
+          "ID #": "12",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You find a primitive painting on the wall of a cave and decide to explore the subterranean depths that lie beyond. The dark, constricting passages create a terrible sense of claustrophobia (-1). If you pass, gain 1 Artifact left by an ancient civilization. If you fail, lose 2 Sanity.",
+            "links": [
+              {
+                "text": "Artifact",
+                "href": "/wiki/Artifact"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Wilderness Encounters"
+        },
+        {
+          "ID #": "13",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You find an injured priest who needs to be carried over difficult terrain (-1). If you pass, he is reunited with his parish, and he prays on your behalf. If you fail, you soon require assistance yourself; gain a Back Injury Condition.",
+            "links": [
+              {
+                "text": "Back Injury",
+                "href": "/wiki/Back_Injury"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Wilderness Encounters"
+        },
+        {
+          "ID #": "14",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You notice a highly venomous spider crawling up your arm. You try to gently brush it away, but your fear threatens to break your calm (). If you fail, you move too clumsily, and the spider bites you; lose 1 Sanity and gain a Poisoned Condition.",
+            "links": [
+              {
+                "text": "Poisoned",
+                "href": "/wiki/Poisoned"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Wilderness Encounters"
+        },
+        {
+          "ID #": "15",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You discover a shrine with a natural spring that you do not remember from your maps (-2). If you pass, you recall an old story about a well of life; gain 1 Elixir Artifact. If you fail, you don't notice native wildlife making off with your gear as you search your maps; discard 1 Trinket possession.",
+            "links": [
+              {
+                "text": "Elixir",
+                "href": "/wiki/Elixir"
+              },
+              {
+                "text": "Trinket",
+                "href": "/wiki/Trinket"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Wilderness Encounters"
+        },
+        {
+          "ID #": "16",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Your food has gone bad and there's no place nearby to purchase more supplies. If you want to eat, you'll have to hunt for your meal (-1). If you pass, the meal invigorates you; recover 2 Health. If you fail, you have to make due with the rancid food; gain a Poisoned Condition.",
+            "links": [
+              {
+                "text": "Poisoned",
+                "href": "/wiki/Poisoned"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Wilderness Encounters"
+        }
+      ]
+    },
+    "Sea Encounters": {
+      "tables": [
+        {
+          "ID #": "1",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You find the floating detritus of some sunken ship and search for any survivors or salvageable objects (). If you pass, you discover a floating trunk; gain 1 Artifact. If you fail, you waste hours without result; become Delayed.",
+            "links": [
+              {
+                "text": "Artifact",
+                "href": "/wiki/Artifact"
+              },
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sea Encounters"
+        },
+        {
+          "ID #": "2",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Your ship becomes lost in a dense fog bank, terrifying the superstitious crew. When the mist finally clears, you've somehow traveled hundreds of miles. Move 1 space and lose 1 Sanity.",
+            "images": [
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sea Encounters"
+        },
+        {
+          "ID #": "3",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "One of the sailors is singing an old sea shanty about a woman searching for her dead husband. The story seems familiar to you (-1). If you pass, you recognize it as the story of Isis, and sailor teaches you the song; gain a Blessed Condition and recover 1 Health and 1 Sanity.",
+            "links": [
+              {
+                "text": "Blessed",
+                "href": "/wiki/Blessed"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sea Encounters"
+        },
+        {
+          "ID #": "4",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You discover a signal fire on a small island, but don't find any people. You search the beach for signs of life (). If you pass, you spot a person hiding behind large stones; gain 1 Clue and 1 random Ally Asset from the deck. If you fail, the mystery remains unsolved; gain a Paranoia Condition.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "Ally",
+                "href": "/wiki/Ally"
+              },
+              {
+                "text": "Paranoia",
+                "href": "/wiki/Paranoia"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sea Encounters"
+        },
+        {
+          "ID #": "5",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The captain tells you that you are passing over the site of a famous shipwreck. You can use this ship's deep-sea diving equipment to explore the wreckage. You may become Delayed to gain 1 Artifact.",
+            "links": [
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              },
+              {
+                "text": "Artifact",
+                "href": "/wiki/Artifact"
+              }
+            ]
+          },
+          "_section": "Sea Encounters"
+        },
+        {
+          "ID #": "6",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The ship ahead of you seemed abandoned, but now you see that it is crewed entirely by ghostly figures. You try to discern what ship this had once been and what happened to it (). If you pass, the spectral captain grants you aid; gain 1 Clue or improve . If you fail, gain a Cursed Condition.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "Cursed",
+                "href": "/wiki/Cursed"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sea Encounters"
+        },
+        {
+          "ID #": "7",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "A sudden storm descends upon you and strong winds whip around your vessel. Huge waves toss your ship around like a toy, and you are thrown to the deck repeatedly. Lose 1 Sanity and gain a Back Injury Condition.",
+            "links": [
+              {
+                "text": "Back Injury",
+                "href": "/wiki/Back_Injury"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sea Encounters"
+        },
+        {
+          "ID #": "8",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You find a terrified stowaway aboard the ship. You attempt to comfort him and coax him into telling you his story (). If you pass, he tells you about horrifying beasts and unbelievable worlds; gain 1 Clue.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sea Encounters"
+        },
+        {
+          "ID #": "9",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The captain of the ship invites you to dine with him. You have the feeling that he's had some experience with unearthly creatures and try to convince him to share his story (). If you pass, his tale includes highly-significant details; spawn 1 Clue.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sea Encounters"
+        },
+        {
+          "ID #": "10",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You're awakened in the night by gunfire. Deep ones have climbed aboard the ship and are trying to sabotage the engine. You do your best to help the crew fight them (). If you fail, the engine is destroyed before you finish off the sea creatures, and you must wait to be rescued; become Delayed.",
+            "links": [
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sea Encounters"
+        },
+        {
+          "ID #": "11",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "One of the sailors speaks in a strange, ancient dialect. You try to communicate with the man based on obscure languages you have studied (). If you pass, the peculiar man teaches you a chant; gain 1 Spell. If you fail, he growls an unintelligible phrase; gain a Cursed Condition.",
+            "links": [
+              {
+                "text": "Spell",
+                "href": "/wiki/Spell"
+              },
+              {
+                "text": "Cursed",
+                "href": "/wiki/Cursed"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sea Encounters"
+        },
+        {
+          "ID #": "12",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "A large wave washes across the deck, and a prized possession slips from your fingers. You dive into the water, holding your breath as long as you can to recover the object before it sinks out of reach (). If you fail, discard 1 Item possession.",
+            "links": [
+              {
+                "text": "Item",
+                "href": "/wiki/Item"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sea Encounters"
+        },
+        {
+          "ID #": "13",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The ship's cargo hold is taking on water. The crew asks for your help in repairing the hull (). If you pass, you spot something useful among the crates; gain 1 random Item Asset from the deck. If you fail, the effort is too much for you; lose 2 Health.",
+            "links": [
+              {
+                "text": "Item",
+                "href": "/wiki/Item"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sea Encounters"
+        },
+        {
+          "ID #": "14",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The crew knows a legend about gold coins lost in this area. The story reminds you of an obscure shipwreck you've study (). If you pass, you find the treasure and split the profit; improve . If you fail, the crew claims you owe them; discard 2 Item and Trinket possessions.",
+            "links": [
+              {
+                "text": "Item",
+                "href": "/wiki/Item"
+              },
+              {
+                "text": "Trinket",
+                "href": "/wiki/Trinket"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sea Encounters"
+        },
+        {
+          "ID #": "15",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "During a flash of lightning in the night, you see an enormous creature silhouetted against the sky. The image chills you to the core (). If you fail, lose 1 Sanity and gain a Paranoia Condition.",
+            "links": [
+              {
+                "text": "Paranoia",
+                "href": "/wiki/Paranoia"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sea Encounters"
+        },
+        {
+          "ID #": "16",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "A school of dolphins has surrounded your ship, trying to keep you here. You may become Delayed to spend the night in this spot. If you become Delayed, the Elder God Nodens visits your dreams, and you wake with profound new insights; spawn 2 Clues.",
+            "links": [
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              },
+              {
+                "text": "2 Clues",
+                "href": "/wiki/Clues"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sea Encounters"
+        }
+      ]
+    }
+  }
+}

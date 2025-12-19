@@ -1,0 +1,113 @@
+{
+  "url": "https://eldritchhorror.fandom.com/wiki/Combat_Encounter",
+  "title": "Combat Encounter",
+  "intro": "A Combat Encounter is a type of encounter that occurs when the Investigator begins the Encounter Phase while on the same space as a monster. The investigator must encounter every monster that shares his space, one at a time. If there are both non-Epic Monsters and Epic Monsters on the space, the non-Epic Monster(s) must be encountered before the Epic Monster(s) are encountered. (This rule is not in the base game but is part of the rules insert for every expansion.)",
+  "categories": [
+    "Encounters"
+  ],
+  "sections": {
+    "_intro": {
+      "text": "A Combat Encounter is a type of encounter that occurs when the Investigator begins the Encounter Phase while on the same space as a monster. The investigator must encounter every monster that shares his space, one at a time. If there are both non-Epic Monsters and Epic Monsters on the space, the non-Epic Monster(s) must be encountered before the Epic Monster(s) are encountered. (This rule is not in the base game but is part of the rules insert for every expansion.) A Combat Encounter is a type of encounter that occurs when the Investigator begins the Encounter Phase while on the same space as a monster. The investigator must encounter every monster that shares his space, one at a time. If there are both non-Epic Monsters and Epic Monsters on the space, the non-Epic Monster(s) must be encountered before the Epic Monster(s) are encountered. (This rule is not in the base game but is part of the rules insert for every expansion.)"
+    },
+    "Contents": {
+      "lists": [
+        {
+          "text": "1.1 Examples",
+          "links": [
+            {
+              "text": "1.1 Examples",
+              "href": "#Examples"
+            }
+          ],
+          "_section": "Contents"
+        },
+        {
+          "text": "1.2 Notes",
+          "links": [
+            {
+              "text": "1.2 Notes",
+              "href": "#Notes"
+            }
+          ],
+          "_section": "Contents"
+        },
+        {
+          "text": "3.1 List of Monsters with Physical Resistance",
+          "links": [
+            {
+              "text": "3.1 List of Monsters with Physical Resistance",
+              "href": "#List_of_Monsters_with_Physical_Resistance"
+            }
+          ],
+          "_section": "Contents"
+        },
+        {
+          "text": "3.2 List of Monsters with Magical Resistance",
+          "links": [
+            {
+              "text": "3.2 List of Monsters with Magical Resistance",
+              "href": "#List_of_Monsters_with_Magical_Resistance"
+            }
+          ],
+          "_section": "Contents"
+        }
+      ]
+    },
+    "Rules": {
+      "text": "When encountering a Monster, the investigator flips the Monster token facedown and reads the information on the back of the token, resolving any effects that could affect the combat encounter. He then resolves two tests from top to bottom, in most cases a test and then a test, to determine the result of the Combat Encounter. A combat example from the rulebook The Encounter begins by making a test against the monster's Horror rating. If the investigator's result is lower than the monster's Horror, the investigator suffers Sanity loss equal to the difference. If the test result is equal to or greater than the rating, he loses no Sanity. Some monsters have no skill listed for this test at all, in which case no skill test is performed. Then, the investigator tests against the monster's Damage rating. If this result is lower than the monster's, the investigator suffers Health loss equal to the difference. If the investigator's result is equal or greater than the rating, he loses no Health. If the monster has no Damage rating, the player still performs this test unless otherwise specified on the back of the Monster's token, but there is no possibility of Health loss. If the investigator passes the Damage test, the Monster loses Health equal to the number of successes rolled during the test. Indicate this by placing Health tokens on the Monster token. The investigator and Monster lose Health simultaneously. When a Monster has lost Health equal to or greater than its toughness, the Monster is defeated and returned to the Monster cup. If the Monster is not defeated, it remains on its space along with any Health tokens on it. If there are multiple Monsters on the investigator's space, the investigator must have one Combat Encounter with each one. After all Monsters on the investigator's space have been encountered, if there are no longer any Monsters on the investigator's space (e.g. if they were all defeated in combat), the investigator may have an additional encounter on his space. If there are still one or more Monsters remaining on the space, that investigator does not get to have an additional encounter, and play continues to the next investigator. Some Monsters list other skills to test in place of and/or ; they are handled just like those 2 tests above."
+    },
+    "Examples": {
+      "text": "A: Less Success than the Monster's Damage: The investigator fights against a Ghoul which has 1 Toughness and 2 Damage. The investigator rolls and obtains only 1 success. As a result, the investigator loses 1 Health (2 damage from the Ghoul minus 1 success), and the Ghoul loses 1 Health (from the investigator's 1 success) and is defeated. B: Success Equal to the Monster's Damage: The investigator fights against a Goat Spawn which has 1 Toughness and 2 Damage. The investigator rolls and obtains 2 successes. As a result, the investigator does not lose any Health, while the Goat Spawn loses 2 Health due to the investigator's 2 successes and is defeated."
+    },
+    "Ambush": {
+      "text": "An Ambush causes a Monster to attack an investigator at a time other than a typical Combat Encounter. This may occur as a result of a Mythos card, a Reckoning effect, or during the Encounter Phase. When an investigator is ambushed, they immediately draw one random Monster and resolve a Combat Encounter with it."
+    },
+    "Physical and Magical Resistance": {
+      "text": "Physical and Magical Resistance are abilities introduced in the Mountains of Madness expansion. They are properties that certain Monsters may have, as indicated on the Monster's token. Improvement tokens are not affected by Physical or Magical Resistance. Effects that allow the investigator to roll \"additional dice\", reroll dice, manipulate dice results or cause any effects other than a direct skill bonus (e.g. cause the Monster to lose Health) may be used regardless of the monster's Physical or Magical Resistance.",
+      "tables": []
+    }
+  },
+  "all_encounters": [],
+  "all_list_items": [
+    {
+      "text": "1.1 Examples",
+      "links": [
+        {
+          "text": "1.1 Examples",
+          "href": "#Examples"
+        }
+      ],
+      "_section": "Contents"
+    },
+    {
+      "text": "1.2 Notes",
+      "links": [
+        {
+          "text": "1.2 Notes",
+          "href": "#Notes"
+        }
+      ],
+      "_section": "Contents"
+    },
+    {
+      "text": "3.1 List of Monsters with Physical Resistance",
+      "links": [
+        {
+          "text": "3.1 List of Monsters with Physical Resistance",
+          "href": "#List_of_Monsters_with_Physical_Resistance"
+        }
+      ],
+      "_section": "Contents"
+    },
+    {
+      "text": "3.2 List of Monsters with Magical Resistance",
+      "links": [
+        {
+          "text": "3.2 List of Monsters with Magical Resistance",
+          "href": "#List_of_Monsters_with_Magical_Resistance"
+        }
+      ],
+      "_section": "Contents"
+    }
+  ]
+}
