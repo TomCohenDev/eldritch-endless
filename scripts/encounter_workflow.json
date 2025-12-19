@@ -1,0 +1,163 @@
+{
+  "name": "Eldritch Horror Encounter Generator",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "encounter-generate",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-encounter-generate",
+      "name": "Encounter Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [-1200, 300],
+      "webhookId": "encounter-generate"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Access-Control-Allow-Origin",
+                "value": "*"
+              },
+              {
+                "name": "Access-Control-Allow-Methods",
+                "value": "POST, OPTIONS"
+              },
+              {
+                "name": "Access-Control-Allow-Headers",
+                "value": "Content-Type"
+              }
+            ]
+          }
+        }
+      },
+      "id": "respond-encounter",
+      "name": "Send Encounter Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [-200, 300]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{(() => {\n  const body = $json.body;\n  const req = body.encounterRequest || {};\n  const plot = body.plotContext || {};\n  const investigator = body.activeInvestigator || {};\n  const ao = body.ancientOne || {};\n  const tension = body.currentTension || 5;\n  const gs = body.gameState || {};\n\n  // Use incoming encounter rules context from frontend (comprehensive data from encounter-context.json)\n  const rulesCtx = body.encounterRulesContext || {};\n  const locCtx = rulesCtx.locationContext || {};\n  const encTypeCtx = rulesCtx.encounterTypeContext || {};\n  const skillsCtx = rulesCtx.skills || {};\n  const conditionsCtx = rulesCtx.conditions || {};\n  const difficultyCtx = rulesCtx.difficultyScaling || {};\n  const encRules = rulesCtx.encounterRules || {};\n\n  // Location type from context (already computed by frontend)\n  const locationType = locCtx.locationType || 'city';\n  \n  // Build location guide from incoming context\n  const locGuide = {\n    atmosphere: locCtx.atmosphere || 'Unknown environment',\n    skills: (locCtx.commonSkills || ['Observation']).join(', '),\n    themes: (locCtx.commonThemes || []).join('. '),\n    passOutcomes: (locCtx.typicalPassOutcomes || ['Gain Clue']).join(', '),\n    failOutcomes: (locCtx.typicalFailOutcomes || ['Lose Sanity']).join(', ')\n  };\n\n  // Build encounter guide from incoming context\n  const encGuide = {\n    complexity: encTypeCtx.complexity || 'simple',\n    structure: encTypeCtx.complexity === 'complex' ? encRules.complexStructure : encRules.regularStructure,\n    description: encTypeCtx.description || 'Standard encounter',\n    trigger: encTypeCtx.trigger || 'During Encounter Phase'\n  };\n\n  // Investigator thread\n  const thread = (plot.investigatorThreads || []).find(t => t.playerId === investigator.id) || {};\n\n  // Recent narrative\n  const recentNarr = (body.recentNarrative || []).slice(-5).map(e => `[${e.type}] ${e.title}: ${String(e.content || '').slice(0, 120)}...`).join('\\n');\n\n  // Round actions\n  const roundActions = (body.currentRoundTimeline?.actions || []).map(a => `${a.investigatorName}: ${a.description}`).join('\\n');\n\n  // Location significance from both sources\n  const loc = (req.location || '').toLowerCase();\n  const locSig = locCtx.significance || plot.locationSignificance?.[req.location] || plot.locationSignificance?.[Object.keys(plot.locationSignificance || {}).find(k => k.toLowerCase().includes(loc))] || '';\n\n  // Difficulty from tension using incoming scaling data\n  let diff = 1;\n  const tensionKey = tension <= 3 ? '0-3' : tension <= 6 ? '4-6' : tension <= 9 ? '7-9' : '10';\n  const diffInfo = difficultyCtx[tensionKey];\n  if (diffInfo) {\n    const diffStr = diffInfo.difficulty || '1';\n    diff = parseInt(diffStr.split(' ')[0]) || 1;\n  } else {\n    if (tension <= 3) diff = 0;\n    else if (tension <= 6) diff = 1;\n    else if (tension <= 9) diff = 2;\n    else diff = 3;\n  }\n\n  // Build skills reference from incoming context\n  const skillsList = Object.entries(skillsCtx).map(([name, info]) => `${name}: ${info.description} (Common: ${(info.commonUses || []).slice(0, 2).join(', ')})`).join('\\n');\n\n  // Build conditions reference\n  const conditionsList = [\n    `Physical: ${(conditionsCtx.physical || []).slice(0, 5).join(', ')}`,\n    `Mental: ${(conditionsCtx.mental || []).slice(0, 5).join(', ')}`,\n    `Situational: ${(conditionsCtx.situational || []).slice(0, 5).join(', ')}`\n  ].join('\\n');\n\n  return `You are the Keeper of Arcane Lore for Eldritch Horror. Generate ONE complete encounter as a branching narrative tree.\n\n## YOUR MISSION: CONTINUE THE STORY\nThis encounter is NOT random. It must:\n1. Flow from the established PREMISE and PLOT\n2. Connect to the investigator's PERSONAL STAKES\n3. Fit the LOCATION TYPE and its atmosphere\n4. Match the ENCOUNTER TYPE's expected structure\n5. Advance the ongoing narrative\n\n## STORY CONTEXT\n**Premise:** ${plot.premise ? plot.premise.slice(0, 350) : 'An ancient evil threatens the world.'}\n\n**Ancient One:** ${ao.name || 'Unknown'}\n**Motivation:** ${ao.motivation ? ao.motivation.slice(0, 200) : plot.ancientOneMotivation?.slice(0, 200) || 'Unknown'}\n**Cultist Agenda:** ${ao.cultistAgenda ? ao.cultistAgenda.slice(0, 150) : plot.cultistAgenda?.slice(0, 150) || 'Unknown'}\n\n**Active Themes:** ${(body.activeThemes || []).slice(0, 3).join('; ') || 'cosmic horror, forbidden knowledge'}\n**Current Act:** ${plot.currentAct || 'rising'}\n\n## THE INVESTIGATOR\n**${investigator.name || 'Unknown'}** the ${investigator.profession || 'Investigator'}\n- Health: ${investigator.health}/${investigator.maxHealth}, Sanity: ${investigator.sanity}/${investigator.maxSanity}\n- Clues: ${investigator.clues || 0}\n- Conditions: ${(investigator.conditions || []).join(', ') || 'None'}\n- Assets: ${(investigator.assets || []).join(', ') || 'None'}\n\n**Personal Stakes:** ${thread.personalStakes || investigator.personalStakes || 'Fighting cosmic horror'}\n**Connection to Threat:** ${thread.connectionToThreat || investigator.connectionToThreat || 'Unknown'}\n**Potential Arc:** ${thread.potentialArc ? thread.potentialArc.slice(0, 150) : 'Unknown'}\n\n## LOCATION\n**Location:** ${req.location || 'Unknown'}\n**Type:** ${locationType.toUpperCase()}\n**Atmosphere:** ${locGuide.atmosphere}\n**Appropriate Skills:** ${locGuide.skills}\n**Common Themes:** ${locGuide.themes}\n${locSig ? `**Plot Significance:** ${locSig}` : ''}\n\n## ENCOUNTER TYPE\n**Type:** ${req.type}${req.subType ? ' / ' + req.subType : ''}\n**Complexity:** ${encGuide.complexity}\n**Description:** ${encGuide.description}\n**Expected Structure:** ${encGuide.structure}\n**Trigger:** ${encGuide.trigger}\n${req.selectedCard ? `**Card Reference:** \"${req.selectedCard.title}\" - ${req.selectedCard.originalText}` : ''}\n\n## SKILLS REFERENCE\n${skillsList}\n\n## CONDITIONS REFERENCE\n${conditionsList}\n\n## GAME STATE\n- Round ${gs.round || 1}, Phase: ${gs.phase || 'encounter'}\n- Doom: ${gs.doom || 0}/${gs.maxDoom || 12} (${gs.doomPercentage || 0}% toward awakening)\n- Tension: ${tension}/10 → **Use difficulty ${diff} for tests**\n\n## WHAT JUST HAPPENED\n**This Round:**\n${roundActions || '(No actions recorded)'}\n\n**Recent Events:**\n${recentNarr || '(Game just started)'}\n\n## OUTPUT FORMAT\nReturn ONLY valid JSON:\n\n{\"encounter\":{\"title\":\"Evocative Title\",\"narrative\":\"2-3 sentences setting scene. Location-appropriate. Story-connected.\",\"flavorText\":\"Optional atmospheric quote\",\"startingNodeId\":\"start\"},\"nodes\":[{\"id\":\"start\",\"text\":\"What ${investigator.name || 'the investigator'} sees/experiences. 2-4 sentences. Reference location type (${locationType}).\",\"type\":\"decision\",\"choices\":[{\"id\":\"c1\",\"label\":\"Action\",\"description\":\"Brief\",\"nextNodeId\":\"test1\"}]},{\"id\":\"test1\",\"text\":\"Attempting...\",\"type\":\"test\",\"test\":{\"skill\":\"${locGuide.skills.split(', ')[0]}\",\"difficulty\":${diff},\"passNodeId\":\"pass\",\"failNodeId\":\"fail\"}},{\"id\":\"pass\",\"text\":\"Success narrative.\",\"type\":\"outcome\",\"effects\":{\"cluesGained\":1}},{\"id\":\"fail\",\"text\":\"Failure consequences.\",\"type\":\"outcome\",\"effects\":{\"sanityChange\":-1}}],\"tensionChange\":0,\"newPlotPoints\":[\"Relevant discovery\"]}\n\n## CRITICAL RULES\n1. **encounter.narrative** MUST be set - it's the setup text\n2. **encounter.startingNodeId** MUST match a node id\n3. Every **choice.nextNodeId** MUST exist in nodes\n4. Every **test.passNodeId/failNodeId** MUST exist\n5. Every **outcome** needs an \"effects\" object (can be {})\n6. Skills: Lore, Influence, Observation, Strength, Will\n7. Keep text SHORT (2-4 sentences per node)\n8. Write **Lovecraftian prose** - atmospheric dread, cosmic horror\n9. **Reference ${investigator.name || 'the investigator'} BY NAME**\n10. **Connect to the story** - reference plot, themes, investigator arc\n11. **Location-appropriate** - ${locationType} encounter should feel like ${locationType}\n12. Pass outcomes should include: ${locGuide.passOutcomes}\n13. Fail outcomes should include: ${locGuide.failOutcomes}\n\nGenerate the encounter now.`;\n})()}}",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "id": "llm-chain-encounter",
+      "name": "Encounter Generator LLM",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [-900, 300]
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "claude-sonnet-4-20250514",
+          "mode": "list",
+          "cachedResultName": "Claude Sonnet 4"
+        },
+        "options": {
+          "temperature": 0.75
+        }
+      },
+      "id": "model-anthropic",
+      "name": "Anthropic Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [-900, 500],
+      "credentials": {
+        "anthropicApi": {
+          "id": "QFfidum9MvAqqqOe",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"encounter\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"title\": { \"type\": \"string\", \"description\": \"Short evocative title\" },\n        \"narrative\": { \"type\": \"string\", \"description\": \"2-3 sentence scene setup shown first\" },\n        \"flavorText\": { \"type\": \"string\", \"description\": \"Optional atmospheric quote\" },\n        \"startingNodeId\": { \"type\": \"string\", \"description\": \"Must match a node id\" }\n      },\n      \"required\": [\"title\", \"narrative\", \"startingNodeId\"]\n    },\n    \"nodes\": {\n      \"type\": \"array\",\n      \"description\": \"All nodes in the encounter tree\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": { \"type\": \"string\" },\n          \"text\": { \"type\": \"string\", \"description\": \"2-4 sentence narrative\" },\n          \"type\": { \"type\": \"string\", \"enum\": [\"decision\", \"test\", \"outcome\"] },\n          \"choices\": {\n            \"type\": \"array\",\n            \"description\": \"For decision nodes only\",\n            \"items\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"id\": { \"type\": \"string\" },\n                \"label\": { \"type\": \"string\" },\n                \"description\": { \"type\": \"string\" },\n                \"nextNodeId\": { \"type\": \"string\" }\n              },\n              \"required\": [\"id\", \"label\", \"nextNodeId\"]\n            }\n          },\n          \"test\": {\n            \"type\": \"object\",\n            \"description\": \"For test nodes only\",\n            \"properties\": {\n              \"skill\": { \"type\": \"string\", \"enum\": [\"Lore\", \"Influence\", \"Observation\", \"Strength\", \"Will\"] },\n              \"difficulty\": { \"type\": \"number\", \"minimum\": 0, \"maximum\": 3 },\n              \"passNodeId\": { \"type\": \"string\" },\n              \"failNodeId\": { \"type\": \"string\" }\n            },\n            \"required\": [\"skill\", \"difficulty\", \"passNodeId\", \"failNodeId\"]\n          },\n          \"effects\": {\n            \"type\": \"object\",\n            \"description\": \"For outcome nodes - mechanical effects\",\n            \"properties\": {\n              \"healthChange\": { \"type\": \"number\" },\n              \"sanityChange\": { \"type\": \"number\" },\n              \"cluesGained\": { \"type\": \"number\" },\n              \"doomChange\": { \"type\": \"number\" },\n              \"conditionsGained\": { \"type\": \"array\", \"items\": { \"type\": \"string\" } },\n              \"conditionsRemoved\": { \"type\": \"array\", \"items\": { \"type\": \"string\" } },\n              \"assetsGained\": { \"type\": \"array\", \"items\": { \"type\": \"string\" } },\n              \"assetsLost\": { \"type\": \"array\", \"items\": { \"type\": \"string\" } }\n            }\n          }\n        },\n        \"required\": [\"id\", \"text\", \"type\"]\n      }\n    },\n    \"tensionChange\": { \"type\": \"number\", \"description\": \"How much to change game tension (-2 to +2)\" },\n    \"newPlotPoints\": { \"type\": \"array\", \"items\": { \"type\": \"string\" }, \"description\": \"New story developments\" }\n  },\n  \"required\": [\"encounter\", \"nodes\"]\n}"
+      },
+      "id": "parser-encounter",
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [-750, 500]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse and validate the AI response robustly\nconst input = $input.first().json;\nlet raw = input.output || input.text || input.message?.content || input;\n\nlet parsed = raw;\n\nif (typeof raw === 'string') {\n  // Try to extract JSON from markdown code fences\n  const fenceMatch = raw.match(/```(?:json)?\\s*([\\s\\S]*?)```/i);\n  const jsonStr = (fenceMatch ? fenceMatch[1] : raw).trim();\n  \n  // Also try to find raw JSON object\n  const jsonMatch = jsonStr.match(/\\{[\\s\\S]*\\}/);\n  const finalStr = jsonMatch ? jsonMatch[0] : jsonStr;\n  \n  try {\n    parsed = JSON.parse(finalStr);\n  } catch (e) {\n    // Try to fix common JSON issues\n    let fixed = finalStr\n      .replace(/,\\s*}/g, '}')  // trailing commas in objects\n      .replace(/,\\s*]/g, ']')  // trailing commas in arrays\n      .replace(/([{,]\\s*)([a-zA-Z_][a-zA-Z0-9_]*)\\s*:/g, '$1\"$2\":'); // unquoted keys\n    try {\n      parsed = JSON.parse(fixed);\n    } catch (e2) {\n      throw new Error('Failed to parse AI response as JSON: ' + e.message + '\\nRaw: ' + finalStr.slice(0, 500));\n    }\n  }\n}\n\nif (!parsed || typeof parsed !== 'object') {\n  throw new Error('AI response is not an object');\n}\n\n// Validate structure\nconst encounter = parsed.encounter;\nconst nodes = parsed.nodes;\n\nif (!encounter || typeof encounter !== 'object') {\n  throw new Error('Missing encounter object');\n}\nif (!Array.isArray(nodes) || nodes.length === 0) {\n  throw new Error('Missing or empty nodes array');\n}\n\n// Ensure encounter.narrative exists\nif (!encounter.narrative || encounter.narrative.trim() === '') {\n  // Try to use the first node's text as narrative\n  const startNode = nodes.find(n => n.id === encounter.startingNodeId);\n  encounter.narrative = startNode?.text || 'The encounter begins...';\n}\n\nif (!encounter.startingNodeId) {\n  // Default to first node\n  encounter.startingNodeId = nodes[0].id;\n}\n\n// Build node ID set for validation\nconst nodeIds = new Set(nodes.map(n => n.id));\n\nif (!nodeIds.has(encounter.startingNodeId)) {\n  throw new Error(`startingNodeId \"${encounter.startingNodeId}\" does not exist in nodes`);\n}\n\n// Validate each node\nconst errors = [];\nfor (const n of nodes) {\n  if (!n || typeof n !== 'object') {\n    errors.push('Invalid node object');\n    continue;\n  }\n  if (!n.id) errors.push('Node missing id');\n  if (!n.type) errors.push(`Node ${n.id} missing type`);\n  if (!n.text) n.text = ''; // Allow empty text but warn\n\n  if (n.type === 'decision') {\n    if (!Array.isArray(n.choices) || n.choices.length === 0) {\n      errors.push(`Decision node ${n.id} has no choices`);\n    } else {\n      for (const c of n.choices) {\n        if (!c.nextNodeId) {\n          errors.push(`Choice in ${n.id} missing nextNodeId`);\n        } else if (!nodeIds.has(c.nextNodeId)) {\n          errors.push(`Choice in ${n.id} points to missing node \"${c.nextNodeId}\"`);\n        }\n      }\n    }\n  }\n\n  if (n.type === 'test') {\n    if (!n.test) {\n      errors.push(`Test node ${n.id} missing test object`);\n    } else {\n      if (!n.test.passNodeId || !nodeIds.has(n.test.passNodeId)) {\n        errors.push(`Test node ${n.id} passNodeId missing or invalid`);\n      }\n      if (!n.test.failNodeId || !nodeIds.has(n.test.failNodeId)) {\n        errors.push(`Test node ${n.id} failNodeId missing or invalid`);\n      }\n    }\n  }\n\n  if (n.type === 'outcome') {\n    // Ensure effects object exists\n    if (!n.effects) {\n      n.effects = {};\n    }\n  }\n}\n\nif (errors.length > 0) {\n  throw new Error('Encounter validation errors:\\n- ' + errors.join('\\n- '));\n}\n\n// Ensure top-level optional fields exist\nif (typeof parsed.tensionChange !== 'number') parsed.tensionChange = 0;\nif (!Array.isArray(parsed.newPlotPoints)) parsed.newPlotPoints = [];\n\nreturn { json: parsed };"
+      },
+      "id": "validate-response",
+      "name": "Validate JSON",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-550, 300]
+    }
+  ],
+  "connections": {
+    "Encounter Webhook": {
+      "main": [
+        [
+          {
+            "node": "Encounter Generator LLM",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Encounter Generator LLM": {
+      "main": [
+        [
+          {
+            "node": "Validate JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Encounter Generator LLM",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Encounter Generator LLM",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate JSON": {
+      "main": [
+        [
+          {
+            "node": "Send Encounter Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}
