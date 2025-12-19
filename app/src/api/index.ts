@@ -184,16 +184,53 @@ export async function generateEncounter(
       request.encounterRequest.type
     );
 
-    // Augment request with the encounter rules context
-    const augmentedRequest = {
-      ...request,
-      encounterRulesContext,
+    // Map webapp type to n8n encounter_type
+    const typeMap: Record<string, string> = {
+      location_region: "location",
+      general: "general",
+      research: "research",
+      other_world: "other_world",
+      expedition: "expedition",
+      combat: "combat",
+      special: "special",
+    };
+
+    const n8nType =
+      typeMap[request.encounterRequest.type] || request.encounterRequest.type;
+
+    // Derive space_type from location context or default to City
+    const spaceType =
+      encounterRulesContext.locationContext.locationType
+        .charAt(0)
+        .toUpperCase() +
+        encounterRulesContext.locationContext.locationType.slice(1) || "City";
+
+    // Extract other world location if applicable
+    const otherWorld =
+      request.encounterRequest.type === "other_world"
+        ? request.encounterRequest.location
+        : undefined;
+
+    // Structure request for n8n workflow
+    const n8nRequest = {
+      encounter_type: n8nType,
+      location: request.encounterRequest.location,
+      space_type: spaceType,
+      ancient_one: request.ancientOne.name,
+      other_world: otherWorld,
+      // Pass full context for AI generation
+      game_context: {
+        ...request,
+        encounterRulesContext,
+      },
+      // Original request included for backward compatibility/reference
+      original_request: request,
     };
 
     const response = await fetch(`${API_BASE_URL}/encounter-generate`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(augmentedRequest),
+      body: JSON.stringify(n8nRequest),
       signal: AbortSignal.timeout(120000), // 2 minute timeout for AI generation
     });
 
