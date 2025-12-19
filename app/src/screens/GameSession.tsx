@@ -42,11 +42,17 @@ import {
   Undo2,
   FileText,
   Search,
-  Check
+  Check,
+  Loader2,
+  Settings,
+  Volume2,
+  Play
 } from 'lucide-react';
 import { useGame } from '../context/GameContext';
 import { useGameData } from '../hooks/useGameData';
-import type { ActionType } from '../types';
+import { generateEncounter } from '../api';
+import { NARRATOR_VOICES, type ActionType, type EncounterType, type GenerateEncounterResponse } from '../types';
+import { playVoiceSample } from '../utils/voiceSamples';
 
 // Action definitions with icons and descriptions
 const ACTIONS: { type: ActionType; label: string; icon: typeof Footprints; description: string }[] = [
@@ -68,13 +74,19 @@ export function GameSession() {
     performAction,
     setPlayerLocation,
     undoLastAction,
-    canUndo
+    canUndo,
+    buildEncounterRequest,
+    addNarrativeEvent,
+    updatePlotTension,
+    addPlotPoint,
+    setNarratorVoice
   } = useGame();
   const { mapLocations, allEncounters, helpers } = useGameData();
   
   const [showLocationPicker, setShowLocationPicker] = useState(false);
   const [isLocationPickerForTravel, setIsLocationPickerForTravel] = useState(false); // true = uses action, false = free move
   const [showActionMenu, setShowActionMenu] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
   const [locationSearch, setLocationSearch] = useState('');
   
   // Encounter phase state
@@ -83,9 +95,16 @@ export function GameSession() {
   const [selectedCombatSubCategory, setSelectedCombatSubCategory] = useState<string | null>(null);
   const [selectedOtherWorldSubCategory, setSelectedOtherWorldSubCategory] = useState<string | null>(null);
   const [encounterSearch, setEncounterSearch] = useState('');
-  const [selectedEncounter, setSelectedEncounter] = useState<{ title: string; content: string } | null>(null);
+  const [selectedEncounter, setSelectedEncounter] = useState<{ 
+    title: string; 
+    content: string;
+    type: EncounterType;
+    subType?: string;
+  } | null>(null);
   const [isCardFlipped, setIsCardFlipped] = useState(false);
-  const [encounterResult, setEncounterResult] = useState<string | null>(null);
+  const [encounterResult, setEncounterResult] = useState<GenerateEncounterResponse | null>(null);
+  const [currentNodeId, setCurrentNodeId] = useState<string | null>(null);
+  const [isGeneratingEncounter, setIsGeneratingEncounter] = useState(false);
 
   const activePlayer = state.players[state.activePlayerIndex];
 
@@ -200,11 +219,17 @@ export function GameSession() {
       {/* Header - Compact */}
       <header className="px-4 py-2 border-b border-obsidian/50 bg-abyss/50 sticky top-0 z-10 backdrop-blur-sm">
         <div className="flex items-center justify-between gap-4">
-          {/* Home + Round/Phase */}
+          {/* Home + Settings + Round/Phase */}
           <div className="flex items-center gap-3">
             <Link to="/" className="touch-target p-1">
               <Home className="w-5 h-5 text-parchment-dark hover:text-parchment transition-colors" />
             </Link>
+            <button 
+              onClick={() => setShowSettings(true)}
+              className="touch-target p-1"
+            >
+              <Settings className="w-5 h-5 text-parchment-dark hover:text-parchment transition-colors" />
+            </button>
             <div>
               <div className="flex items-baseline gap-2">
                 <span className="font-display text-lg font-bold text-parchment-light">
@@ -733,6 +758,8 @@ export function GameSession() {
                       setSelectedEncounter({
                         title: `General Encounter`,
                         content: `General encounter at ${activePlayer?.location || 'unknown location'}.`,
+                        type: 'general',
+                        subType: activePlayer?.location,
                       });
                       setShowEncounterPicker(false);
                       setSelectedEncounterCategory(null);
@@ -744,6 +771,8 @@ export function GameSession() {
                       setSelectedEncounter({
                         title: `${state.ancientOne?.title || 'Ancient One'} Research Encounter`,
                         content: 'Research encounter for the current threat.',
+                        type: 'research',
+                        subType: state.ancientOne?.title,
                       });
                       setShowEncounterPicker(false);
                       setSelectedEncounterCategory(null);
@@ -755,6 +784,7 @@ export function GameSession() {
                       setSelectedEncounter({
                         title: 'Other World Encounter',
                         content: 'An encounter from beyond the veil of reality.',
+                        type: 'other_world',
                       });
                       setShowEncounterPicker(false);
                       setSelectedEncounterCategory(null);
@@ -766,6 +796,8 @@ export function GameSession() {
                       setSelectedEncounter({
                         title: `Expedition Encounter`,
                         content: `Expedition at ${activePlayer?.location || 'unknown location'}.`,
+                        type: 'expedition',
+                        subType: activePlayer?.location,
                       });
                       setShowEncounterPicker(false);
                       setSelectedEncounterCategory(null);
@@ -777,6 +809,8 @@ export function GameSession() {
                       setSelectedEncounter({
                         title: `Location Encounter`,
                         content: `Location encounter at ${activePlayer?.location || 'unknown location'}.`,
+                        type: 'location_region',
+                        subType: activePlayer?.location,
                       });
                       setShowEncounterPicker(false);
                       setSelectedEncounterCategory(null);
@@ -787,9 +821,22 @@ export function GameSession() {
                     if (cat.cards.length === 1 && cat.category !== 'combat') {
                       const card = cat.cards[0];
                       const content = helpers.stripWikiMarkup(card.fullText || card.sections?.[''] || 'No encounter text available.');
+                      // Map category to encounter type
+                      const typeMap: Record<string, EncounterType> = {
+                        general: 'general',
+                        locationRegion: 'location_region',
+                        research: 'research',
+                        otherWorld: 'other_world',
+                        expedition: 'expedition',
+                        devastation: 'devastation',
+                        combat: 'combat',
+                        special: 'special',
+                      };
                       setSelectedEncounter({
                         title: card.title,
                         content: content.slice(0, 2000),
+                        type: typeMap[cat.category] || 'general',
+                        subType: card.title,
                       });
                       setShowEncounterPicker(false);
                     } else {
@@ -886,9 +933,22 @@ export function GameSession() {
                     onClick={() => {
                       // Extract encounter text from the card
                       const content = helpers.stripWikiMarkup(card.fullText || card.sections?.[''] || 'No encounter text available.');
+                      // Map category to encounter type
+                      const typeMap: Record<string, EncounterType> = {
+                        general: 'general',
+                        locationRegion: 'location_region',
+                        research: 'research',
+                        otherWorld: 'other_world',
+                        expedition: 'expedition',
+                        devastation: 'devastation',
+                        combat: 'combat',
+                        special: 'special',
+                      };
                       setSelectedEncounter({
                         title: card.title,
-                        content: content.slice(0, 2000), // Limit length
+                        content: content.slice(0, 2000),
+                        type: typeMap[selectedEncounterCategory || ''] || 'general',
+                        subType: selectedCombatSubCategory || selectedOtherWorldSubCategory || card.title,
                       });
                       setShowEncounterPicker(false);
                       setSelectedEncounterCategory(null);
@@ -992,20 +1052,170 @@ export function GameSession() {
 
                 {/* Card Back (Result) */}
                 <div 
-                  className="absolute inset-0 rounded-xl border-2 border-cosmic bg-gradient-to-br from-abyss via-shadow to-cosmic-light/20 flex flex-col p-6"
+                  className="absolute inset-0 rounded-xl border-2 border-cosmic bg-gradient-to-br from-abyss via-shadow to-cosmic-light/20 flex flex-col p-4 overflow-hidden"
                   style={{ 
                     backfaceVisibility: 'hidden',
                     transform: 'rotateY(180deg)'
                   }}
                 >
-                  <h3 className="font-display text-lg text-parchment-light text-center mb-4">
-                    {selectedEncounter.title}
+                  <h3 className="font-display text-lg text-parchment-light text-center mb-2 shrink-0">
+                    {encounterResult?.encounter.title || selectedEncounter.title}
                   </h3>
                   
-                  <div className="flex-1 overflow-y-auto">
-                    <p className="font-body text-sm text-parchment-dark leading-relaxed">
-                      {encounterResult || 'The AI Game Master will generate your encounter narrative here. This will be connected to the n8n backend for dynamic story generation...'}
-                    </p>
+                  <div className="flex-1 overflow-y-auto space-y-3">
+                    {(() => {
+                      // Find current node
+                      const currentNode = encounterResult?.nodes?.find(n => n.id === currentNodeId);
+                      
+                      if (!encounterResult && isGeneratingEncounter) {
+                        return (
+                          <div className="flex flex-col items-center justify-center h-full space-y-4">
+                            <Loader2 className="w-8 h-8 animate-spin text-eldritch-light" />
+                            <p className="font-accent text-sm text-parchment-dark animate-pulse text-center">
+                              Consulting the archives...
+                            </p>
+                          </div>
+                        );
+                      }
+
+                      if (!currentNode) {
+                        return (
+                          <p className="font-body text-sm text-parchment-dark leading-relaxed">
+                            {encounterResult ? "Encounter complete." : "Waiting for encounter..."}
+                          </p>
+                        );
+                      }
+
+                      return (
+                        <div className="space-y-4 animate-in fade-in duration-500">
+                          {/* Encounter setup (shown once, before the first node) */}
+                          {currentNode.id === encounterResult.encounter.startingNodeId &&
+                            encounterResult.encounter.narrative &&
+                            encounterResult.encounter.narrative.trim() &&
+                            encounterResult.encounter.narrative.trim() !== currentNode.text.trim() && (
+                              <div className="bg-abyss/40 rounded p-3 border border-cosmic-light/20">
+                                <p className="font-accent text-xs text-parchment-dark uppercase tracking-wide mb-1">
+                                  Setup
+                                </p>
+                                <p className="font-body text-sm text-parchment leading-relaxed whitespace-pre-line">
+                                  {encounterResult.encounter.narrative}
+                                </p>
+                              </div>
+                            )}
+
+                          {/* Narrative */}
+                          <p className="font-body text-sm text-parchment leading-relaxed whitespace-pre-line">
+                            {currentNode.text}
+                          </p>
+                          
+                          {/* Flavor text only on first node */}
+                          {currentNode.id === encounterResult.encounter.startingNodeId && encounterResult.encounter.flavorText && (
+                            <p className="font-accent text-xs text-parchment-dark italic border-l-2 border-cosmic-light/30 pl-2">
+                              {encounterResult.encounter.flavorText}
+                            </p>
+                          )}
+                          
+                          {/* Decisions */}
+                          {currentNode.type === 'decision' && currentNode.choices && (
+                            <div className="space-y-2 pt-2">
+                              <p className="font-accent text-xs text-parchment-dark uppercase tracking-wide mb-2">
+                                Make a Choice
+                              </p>
+                              {currentNode.choices.map(choice => (
+                                <button 
+                                  key={choice.id}
+                                  onClick={() => setCurrentNodeId(choice.nextNodeId)}
+                                  className="w-full text-left bg-shadow/50 hover:bg-eldritch/30 border border-obsidian hover:border-eldritch rounded p-3 transition-colors group"
+                                >
+                                  <div className="flex items-center justify-between">
+                                    <p className="font-display text-sm text-parchment-light group-hover:text-parchment transition-colors">
+                                      {choice.label}
+                                    </p>
+                                    <ChevronRight className="w-4 h-4 text-parchment-dark group-hover:text-parchment opacity-0 group-hover:opacity-100 transition-all" />
+                                  </div>
+                                  {choice.description && (
+                                    <p className="font-body text-xs text-parchment-dark mt-1">
+                                      {choice.description}
+                                    </p>
+                                  )}
+                                </button>
+                              ))}
+                            </div>
+                          )}
+
+                          {/* Skill Tests */}
+                          {currentNode.type === 'test' && currentNode.test && (
+                            <div className="bg-obsidian/30 rounded p-4 border border-obsidian text-center mt-2">
+                              <p className="font-display text-parchment-light mb-1">
+                                Test {currentNode.test.skill}
+                              </p>
+                              <p className="font-accent text-xs text-parchment-dark mb-3">
+                                Difficulty {currentNode.test.difficulty > 0 ? '+' : ''}{currentNode.test.difficulty}
+                              </p>
+                              
+                              <div className="grid grid-cols-2 gap-3">
+                                <button
+                                  onClick={() => setCurrentNodeId(currentNode.test!.passNodeId)}
+                                  className="px-4 py-3 bg-green-900/30 hover:bg-green-800/40 border border-green-800/50 hover:border-green-700 text-green-100 rounded transition-colors flex flex-col items-center"
+                                >
+                                  <span className="font-display text-lg">Pass</span>
+                                  <span className="text-[10px] opacity-70">Success</span>
+                                </button>
+                                <button
+                                  onClick={() => setCurrentNodeId(currentNode.test!.failNodeId)}
+                                  className="px-4 py-3 bg-red-900/30 hover:bg-red-800/40 border border-red-800/50 hover:border-red-700 text-red-100 rounded transition-colors flex flex-col items-center"
+                                >
+                                  <span className="font-display text-lg">Fail</span>
+                                  <span className="text-[10px] opacity-70">Failure</span>
+                                </button>
+                              </div>
+                              <p className="text-[10px] text-parchment-dark mt-2 italic">
+                                (Resolve this test using your real-life dice, then choose Pass/Fail.)
+                              </p>
+                            </div>
+                          )}
+
+                          {/* Outcome Effects */}
+                          {currentNode.type === 'outcome' && currentNode.effects && (
+                             <div className="mt-4 p-3 bg-eldritch/10 rounded border border-eldritch/20 animate-in slide-in-from-bottom-2">
+                                <p className="font-display text-sm text-parchment-light mb-2 flex items-center gap-2">
+                                  <Sparkles className="w-3 h-3 text-gold" />
+                                  Consequences
+                                </p>
+                                <div className="grid grid-cols-2 gap-2 text-xs">
+                                   {currentNode.effects.healthChange ? (
+                                     <div className={`flex items-center gap-1 ${currentNode.effects.healthChange > 0 ? 'text-green-400' : 'text-red-400'}`}>
+                                       <Heart className="w-3 h-3" />
+                                       {currentNode.effects.healthChange > 0 ? '+' : ''}{currentNode.effects.healthChange} Health
+                                     </div>
+                                   ) : null}
+                                   {currentNode.effects.sanityChange ? (
+                                     <div className={`flex items-center gap-1 ${currentNode.effects.sanityChange > 0 ? 'text-blue-400' : 'text-red-400'}`}>
+                                       <Brain className="w-3 h-3" />
+                                       {currentNode.effects.sanityChange > 0 ? '+' : ''}{currentNode.effects.sanityChange} Sanity
+                                     </div>
+                                   ) : null}
+                                   {currentNode.effects.cluesGained ? (
+                                     <div className="flex items-center gap-1 text-gold-400">
+                                       <Search className="w-3 h-3" />
+                                       +{currentNode.effects.cluesGained} Clue(s)
+                                     </div>
+                                   ) : null}
+                                   {currentNode.effects.doomChange ? (
+                                     <div className="flex items-center gap-1 text-purple-400">
+                                       <Zap className="w-3 h-3" />
+                                       {currentNode.effects.doomChange > 0 ? '+' : ''}{currentNode.effects.doomChange} Doom
+                                     </div>
+                                   ) : null}
+                                </div>
+                                {(!currentNode.effects.healthChange && !currentNode.effects.sanityChange && !currentNode.effects.cluesGained && !currentNode.effects.doomChange) && (
+                                  <p className="text-xs text-parchment-dark italic">No mechanical effects.</p>
+                                )}
+                             </div>
+                          )}
+                        </div>
+                      );
+                    })()}
                   </div>
                 </div>
               </div>
@@ -1014,29 +1224,172 @@ export function GameSession() {
             {/* Action Button */}
             {!isCardFlipped ? (
               <button
-                onClick={() => {
+                onClick={async () => {
+                  if (!activePlayer || !selectedEncounter) return;
+                  
+                  setIsGeneratingEncounter(true);
+                  
+                  // Build the encounter request with full context
+                  const encounterRequest = buildEncounterRequest({
+                    type: selectedEncounter.type,
+                    subType: selectedEncounter.subType,
+                    investigatorId: activePlayer.id,
+                    location: activePlayer.location,
+                    selectedCard: {
+                      title: selectedEncounter.title,
+                      originalText: selectedEncounter.content,
+                    },
+                  });
+                  
+                  if (encounterRequest) {
+                    try {
+                      // Call the n8n encounter generation workflow
+                      const response = await generateEncounter(encounterRequest);
+                      setEncounterResult(response);
+                      setCurrentNodeId(response.encounter.startingNodeId);
+                      
+                      // Update tension if the encounter suggests it
+                      if (response.tensionChange) {
+                        updatePlotTension((state.plotContext?.currentTension || 3) + response.tensionChange);
+                      }
+                      
+                      // Add any new plot points
+                      if (response.newPlotPoints) {
+                        response.newPlotPoints.forEach(point => addPlotPoint(point));
+                      }
+                    } catch (error) {
+                      console.error('Failed to generate encounter:', error);
+                      // Fallback handled by API
+                    }
+                  }
+                  
+                  setIsGeneratingEncounter(false);
                   setIsCardFlipped(true);
-                  // Placeholder - in the future this will call the AI backend
-                  setEncounterResult('The mists part to reveal an ancient stone archway, covered in symbols that seem to writhe in the flickering torchlight. You feel a presence watching from beyond the threshold...\n\n[Placeholder: AI-generated narrative will appear here]');
                 }}
-                className="w-full max-w-xs py-4 bg-eldritch hover:bg-eldritch-light text-parchment-light font-display text-lg tracking-wide rounded-lg flex items-center justify-center gap-3 transition-colors shadow-lg shadow-eldritch/30"
+                disabled={isGeneratingEncounter}
+                className="w-full max-w-xs py-4 bg-eldritch hover:bg-eldritch-light disabled:bg-eldritch/50 text-parchment-light font-display text-lg tracking-wide rounded-lg flex items-center justify-center gap-3 transition-colors shadow-lg shadow-eldritch/30"
               >
-                <Sparkles className="w-5 h-5" />
-                Resolve Encounter
+                {isGeneratingEncounter ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    Generating...
+                  </>
+                ) : (
+                  <>
+                    <Sparkles className="w-5 h-5" />
+                    Resolve Encounter
+                  </>
+                )}
               </button>
             ) : (
               <button
                 onClick={() => {
+                  // Log the encounter to narrative
+                  if (encounterResult) {
+                    addNarrativeEvent({
+                      type: 'encounter',
+                      title: encounterResult.encounter.title,
+                      content: encounterResult.encounter.narrative,
+                      playerIds: activePlayer ? [activePlayer.id] : undefined,
+                    });
+                  }
+                  
                   setSelectedEncounter(null);
                   setIsCardFlipped(false);
                   setEncounterResult(null);
+                  setCurrentNodeId(null);
                 }}
-                className="w-full max-w-xs py-4 bg-cosmic hover:bg-cosmic-light text-parchment-light font-display text-lg tracking-wide rounded-lg flex items-center justify-center gap-3 transition-colors"
+                disabled={encounterResult ? encounterResult.nodes.find(n => n.id === currentNodeId)?.type !== 'outcome' : false}
+                className={`w-full max-w-xs py-4 font-display text-lg tracking-wide rounded-lg flex items-center justify-center gap-3 transition-colors ${
+                  encounterResult && encounterResult.nodes.find(n => n.id === currentNodeId)?.type !== 'outcome'
+                    ? 'bg-obsidian/50 text-parchment-dark cursor-not-allowed opacity-50'
+                    : 'bg-cosmic hover:bg-cosmic-light text-parchment-light'
+                }`}
               >
                 <Check className="w-5 h-5" />
                 Complete Encounter
               </button>
             )}
+          </div>
+        </div>
+      )}
+
+      {/* Settings Modal */}
+      {showSettings && (
+        <div className="fixed inset-0 z-50 bg-void/95 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="w-full max-w-md bg-shadow/95 rounded-lg border border-obsidian overflow-hidden">
+            {/* Header */}
+            <div className="px-4 py-3 border-b border-obsidian flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Settings className="w-5 h-5 text-eldritch-light" />
+                <h2 className="font-display text-lg text-parchment-light">Settings</h2>
+              </div>
+              <button
+                onClick={() => setShowSettings(false)}
+                className="touch-target p-1 text-parchment-dark hover:text-parchment"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            
+            {/* Content */}
+            <div className="p-4 space-y-6">
+              {/* Narrator Voice Selection */}
+              <section>
+                <div className="flex items-center gap-2 mb-3">
+                  <Volume2 className="w-4 h-4 text-eldritch-light" />
+                  <h3 className="font-accent text-sm text-parchment-light uppercase tracking-wide">
+                    Narrator Voice
+                  </h3>
+                </div>
+                <p className="font-body text-xs text-parchment-dark mb-3">
+                  Select the voice for AI narration (ElevenLabs)
+                </p>
+                <div className="grid grid-cols-1 gap-2">
+                  {NARRATOR_VOICES.map((voice) => (
+                    <div
+                      key={voice.id}
+                      className={`flex items-center gap-2 p-3 rounded border transition-all ${
+                        state.narratorVoiceId === voice.id
+                          ? 'bg-eldritch-dark/50 border-eldritch text-parchment-light'
+                          : 'bg-void/30 border-obsidian/50 text-parchment-dark hover:border-eldritch-dark'
+                      }`}
+                    >
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          playVoiceSample(voice.sampleFile);
+                        }}
+                        className="shrink-0 w-8 h-8 rounded-full bg-eldritch/50 hover:bg-eldritch flex items-center justify-center transition-colors"
+                        title="Play sample"
+                      >
+                        <Play className="w-4 h-4 text-parchment-light ml-0.5" />
+                      </button>
+                      <button
+                        onClick={() => setNarratorVoice(voice.id)}
+                        className="flex-1 text-left"
+                      >
+                        <p className="font-display text-sm">{voice.name}</p>
+                        <p className="font-body text-xs opacity-70">{voice.description}</p>
+                      </button>
+                      {state.narratorVoiceId === voice.id && (
+                        <Check className="w-4 h-4 text-eldritch-light shrink-0" />
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </section>
+            </div>
+            
+            {/* Footer */}
+            <div className="px-4 py-3 border-t border-obsidian">
+              <button
+                onClick={() => setShowSettings(false)}
+                className="w-full py-2 bg-eldritch hover:bg-eldritch-light text-parchment-light font-display rounded transition-colors"
+              >
+                Done
+              </button>
+            </div>
           </div>
         </div>
       )}

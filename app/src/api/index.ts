@@ -15,8 +15,13 @@ import type {
   WikiPage,
   PlotContext,
   GeneratePlotRequest,
+  GenerateEncounterRequest,
+  GenerateEncounterResponse,
+  ResolveEncounterRequest,
+  ResolveEncounterResponse,
 } from "../types";
 import { createEmptyPlotContext as createFallbackPlot } from "../types";
+import { buildEncounterContextForRequest } from "../data/encounterContextLoader";
 
 // n8n webhook configuration
 const N8N_BASE = "https://n8n.yarden-zamir.com";
@@ -49,24 +54,29 @@ function generateUUID() {
 export async function generatePlot(
   request: GeneratePlotRequest
 ): Promise<PlotContext> {
-  const response = await fetch(`${API_BASE_URL}/game-start`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(request),
-    signal: AbortSignal.timeout(600000), // 60 second timeout for AI generation
-  });
+  try {
+    const response = await fetch(`${API_BASE_URL}/game-start`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(request),
+      signal: AbortSignal.timeout(600000), // 60 second timeout for AI generation
+    });
 
-  if (!response.ok) {
-    console.error(
-      "Plot generation failed:",
-      response.status,
-      response.statusText
-    );
-    throw new Error(`Failed to generate plot: ${response.statusText}`);
+    if (!response.ok) {
+      console.error(
+        "Plot generation failed:",
+        response.status,
+        response.statusText
+      );
+      return createFallbackPlotContext(request);
+    }
+
+    const plotContext = (await response.json()) as PlotContext;
+    return plotContext;
+  } catch (e) {
+    console.error("Plot generation error:", e);
+    return createFallbackPlotContext(request);
   }
-
-  const plotContext = (await response.json()) as PlotContext;
-  return plotContext;
 }
 
 /**
@@ -113,13 +123,17 @@ function createFallbackPlotContext(request: GeneratePlotRequest): PlotContext {
       ? `"${inv.quote}" - Their path has led them to this moment of cosmic significance.`
       : `Their path has led them to this moment of cosmic significance.`,
     potentialArc: inv.teamRole
-      ? `As a ${inv.role} specialist: ${inv.teamRole.slice(
+      ? `As a ${inv.role || "team"} specialist: ${inv.teamRole.slice(
           0,
           150
-        )}... If defeated: ${inv.defeatedEncounters.lossOfSanity.slice(
-          0,
-          50
-        )}...`
+        )}...${
+          inv.defeatedEncounters?.lossOfSanity
+            ? ` If defeated: ${inv.defeatedEncounters.lossOfSanity.slice(
+                0,
+                50
+              )}...`
+            : ""
+        }`
       : `Will ${inv.name} find the strength to face the unknown?`,
   }));
 
@@ -156,34 +170,239 @@ function createFallbackPlotContext(request: GeneratePlotRequest): PlotContext {
 }
 
 /**
- * Generate a narrative encounter based on game context
- * This will call the AI agent to create story-appropriate encounters
+ * Generate a narrative encounter based on full game context
+ * This calls the n8n encounter generation workflow with ALL context
+ * including the plot, action timeline, player states, and narrative history
  */
-export async function generateEncounter(context: {
-  gameState: GameState;
-  encounterType: "location" | "research" | "other_world" | "combat" | "special";
-  location?: string;
-}): Promise<NarrativeEvent> {
-  // Mock response
+export async function generateEncounter(
+  request: GenerateEncounterRequest
+): Promise<GenerateEncounterResponse> {
+  try {
+    // Build encounter context based on location and encounter type
+    const encounterRulesContext = buildEncounterContextForRequest(
+      request.encounterRequest.location,
+      request.encounterRequest.type
+    );
+
+    // Augment request with the encounter rules context
+    const augmentedRequest = {
+      ...request,
+      encounterRulesContext,
+    };
+
+    const response = await fetch(`${API_BASE_URL}/encounter-generate`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(augmentedRequest),
+      signal: AbortSignal.timeout(120000), // 2 minute timeout for AI generation
+    });
+
+    if (!response.ok) {
+      console.error(
+        "Encounter generation failed:",
+        response.status,
+        response.statusText
+      );
+      // Return fallback encounter
+      return createFallbackEncounter(request);
+    }
+
+    const raw = await response.json();
+    // n8n may respond with an array of items; unwrap first item if so
+    const result = (
+      Array.isArray(raw) ? raw[0] : raw
+    ) as GenerateEncounterResponse;
+    return result;
+  } catch (error) {
+    console.error("Encounter generation error:", error);
+    return createFallbackEncounter(request);
+  }
+}
+
+/**
+ * Create a fallback encounter when API is unavailable
+ */
+function createFallbackEncounter(
+  request: GenerateEncounterRequest
+): GenerateEncounterResponse {
+  const { activeInvestigator, encounterRequest, plotContext } = request;
+
+  // Generate contextual fallback based on encounter type
+  const encounterNarratives: Record<
+    string,
+    { title: string; narrative: string }
+  > = {
+    general: {
+      title: `Strange Occurrences in ${encounterRequest.location}`,
+      narrative: `As ${activeInvestigator.name} moves through ${encounterRequest.location}, the air grows thick with an unnatural tension. The shadows seem to watch with malevolent intent.`,
+    },
+    location_region: {
+      title: `Whispers in ${encounterRequest.location}`,
+      narrative: `The locals speak in hushed tones of recent disturbances. ${activeInvestigator.name} feels the weight of ancient secrets pressing against the veil of reality.`,
+    },
+    research: {
+      title: `${request.ancientOne.name} Research`,
+      narrative: `Dusty tomes reveal fragments of truth about ${request.ancientOne.name}. Each revelation comes at a cost—knowledge that burdens the soul.`,
+    },
+    other_world: {
+      title: "Beyond the Veil",
+      narrative: `Reality bends and warps around ${activeInvestigator.name}. Colors that have no names paint impossible geometries across a sky that holds no stars humanity has ever seen.`,
+    },
+    expedition: {
+      title: `Expedition: ${encounterRequest.location}`,
+      narrative: `The expedition pushes forward into territories marked only as "unknown" on any map.`,
+    },
+    combat: {
+      title: "A Horror Emerges",
+      narrative: `From the darkness, something terrible takes form. ${activeInvestigator.name} faces a creature that defies natural law.`,
+    },
+    special: {
+      title: "The Thread of Fate",
+      narrative: `The cosmic tapestry shifts, and ${activeInvestigator.name} finds themselves at a nexus of destiny.`,
+    },
+  };
+
+  const base =
+    encounterNarratives[encounterRequest.type] || encounterNarratives.general;
+  const startId = "node_start";
+
   return {
-    id: generateUUID(),
-    timestamp: Date.now(),
-    type: "encounter",
-    title: "Shadows in the Library",
-    content: `The ancient tomes seem to whisper as you approach. Something moves in the darkness between the shelves, and you catch a glimpse of eyes that should not exist...`,
-    choices: [
+    encounter: {
+      title: base.title,
+      narrative: base.narrative,
+      flavorText: plotContext.premise
+        ? `"${plotContext.activeThemes[0] || "cosmic horror"}"`
+        : undefined,
+      startingNodeId: startId,
+    },
+    nodes: [
       {
-        id: "investigate",
-        label: "Investigate the movement",
-        description: "Test Observation (2)",
+        id: startId,
+        text: base.narrative,
+        type: "decision",
+        choices: [
+          {
+            id: "investigate",
+            label: "Investigate thoroughly",
+            description: "Search for clues and understanding",
+            nextNodeId: "node_investigate_test",
+          },
+          {
+            id: "confront",
+            label: "Face it head-on",
+            description: "Confront the situation directly",
+            nextNodeId: "node_confront_test",
+          },
+          {
+            id: "retreat",
+            label: "Withdraw carefully",
+            description: "Preserve yourself for future battles",
+            nextNodeId: "outcome_retreat",
+          },
+        ],
       },
       {
-        id: "read",
-        label: "Read the nearest tome",
-        description: "Test Lore (1)",
+        id: "node_investigate_test",
+        text: "You delve deep into the mystery...",
+        type: "test",
+        test: {
+          skill: "Observation",
+          difficulty: 1,
+          passNodeId: "outcome_investigate_pass",
+          failNodeId: "outcome_investigate_fail",
+        },
       },
-      { id: "leave", label: "Leave quietly", description: "No test required" },
+      {
+        id: "node_confront_test",
+        text: "You steel your nerves and step forward...",
+        type: "test",
+        test: {
+          skill: "Will",
+          difficulty: 1,
+          passNodeId: "outcome_confront_pass",
+          failNodeId: "outcome_confront_fail",
+        },
+      },
+      {
+        id: "outcome_investigate_pass",
+        text: "You uncover valuable information hidden in the shadows.",
+        type: "outcome",
+        effects: { cluesGained: 1 },
+      },
+      {
+        id: "outcome_investigate_fail",
+        text: "The search yields nothing but dread and confusion.",
+        type: "outcome",
+        effects: { sanityChange: -1 },
+      },
+      {
+        id: "outcome_confront_pass",
+        text: "Your courage is rewarded, and you push back the darkness.",
+        type: "outcome",
+        effects: { cluesGained: 1, sanityChange: 1 },
+      },
+      {
+        id: "outcome_confront_fail",
+        text: "The experience shakes you to your core.",
+        type: "outcome",
+        effects: { sanityChange: -2 },
+      },
+      {
+        id: "outcome_retreat",
+        text: "You manage to escape unharmed, but the mystery remains.",
+        type: "outcome",
+        effects: {},
+      },
     ],
+    tensionChange: 0,
+  };
+}
+
+/**
+ * Resolve an encounter choice and get the outcome
+ * This calls the n8n workflow to generate narrative consequences
+ */
+export async function resolveEncounter(
+  request: ResolveEncounterRequest
+): Promise<ResolveEncounterResponse> {
+  try {
+    const response = await fetch(`${API_BASE_URL}/encounter-resolve`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(request),
+      signal: AbortSignal.timeout(60000), // 1 minute timeout
+    });
+
+    if (!response.ok) {
+      console.error(
+        "Encounter resolution failed:",
+        response.status,
+        response.statusText
+      );
+      return createFallbackResolution(request);
+    }
+
+    return (await response.json()) as ResolveEncounterResponse;
+  } catch (error) {
+    console.error("Encounter resolution error:", error);
+    return createFallbackResolution(request);
+  }
+}
+
+/**
+ * Create a fallback resolution when API is unavailable
+ */
+function createFallbackResolution(
+  request: ResolveEncounterRequest
+): ResolveEncounterResponse {
+  const passed = request.testResult?.passed ?? Math.random() > 0.5;
+
+  return {
+    outcome: passed ? "pass" : "fail",
+    narrative: passed
+      ? `${request.investigator.name} succeeds against the odds. The darkness recedes, if only momentarily, and a small victory is claimed in this endless night.`
+      : `Despite ${request.investigator.name}'s efforts, the cosmic forces prove overwhelming. The experience leaves its mark, a reminder of humanity's fragility against the infinite.`,
+    effects: passed ? { cluesGained: 1 } : { sanityChange: -1 },
   };
 }
 
@@ -207,6 +426,7 @@ export async function advanceStory(context: {
     assets?: string[];
   };
 }> {
+  void context;
   // Mock response
   return {
     outcome: "pass",
@@ -224,8 +444,9 @@ export async function advanceStory(context: {
  * The AI ensures the event fits the narrative arc and difficulty curve
  */
 export async function getMythosEvent(
-  gameState: GameState
+  _gameState: GameState
 ): Promise<NarrativeEvent> {
+  void _gameState;
   // Mock response
   return {
     id: generateUUID(),
@@ -245,13 +466,14 @@ export async function suggestAncientOne(context: {
   preferredDifficulty?: "easy" | "medium" | "hard";
   excludeIds?: number[];
 }): Promise<WikiPage | null> {
+  void context;
   return null;
 }
 
 /**
  * Get narrative suggestions for investigator selection
  */
-export async function getInvestigatorSuggestions(context: {
+export async function getInvestigatorSuggestions(_context: {
   playerCount: number;
   ancientOne?: WikiPage;
   selectedInvestigators: string[];
@@ -259,6 +481,7 @@ export async function getInvestigatorSuggestions(context: {
   suggested: WikiPage[];
   reasoning: string;
 }> {
+  void _context;
   return {
     suggested: [],
     reasoning:
