@@ -1,0 +1,4765 @@
+{
+  "url": "https://eldritchhorror.fandom.com/wiki/Location_Encounter",
+  "title": "Location Encounter",
+  "intro": "A Location Encounter is a specific type of Encounter the player might gain during a game of Eldritch Horror. The investigator draws an encounter card matching his space's artwork or from the General Encounter deck. He resolves the effect that matches his current space, then discards the card. For a specific area's Location Encounter card, each Location Encounter card is split into three sections, each for one area in its color group; the investigator only resolves the encounter for the area that they are in. For the General Encounter card, each is also split into three sections: City, Wilderness, and Sea. Unlike the General Encounter, a specific area's Location Encounter will likely trigger a specific effect written just below the location name, usually through a skill check, but may be obtained automatically without it. Thus, a player who wants that effect to happen should head to that location and undertake an encounter there. If located on a City space, Darrell Simmons rolls 1 additional die when resolving a test during a Location Encounter.",
+
+  "encounters": {
+    "Arkham": {
+      "text": "Arkham Location Encounters have a high probability of giving Incantation Spells.",
+      "tables": [
+        {
+          "ID #": "1",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "In the restricted section of Miskatonic University's library, you study an esoteric tome. Gain 1 Incantation Spell. You try to decode a note written in the margin (). If you fail, the words put strange visions into your mind; gain a Hallucinations Condition.",
+            "links": [
+              {
+                "text": "Incantation",
+                "href": "/wiki/Incantation"
+              },
+              {
+                "text": "Hallucinations",
+                "href": "/wiki/Hallucinations"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Arkham"
+        },
+        {
+          "ID #": "2",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "During the night, you have a nightmare about the old witch, Keziah Mason. In the dream, she shares her power with you; gain 1 Incantation Spell. When you wake up, you fear that the old witch will someday ask you for a favor in return (+1). If you fail, gain a Paranoia Condition.",
+            "links": [
+              {
+                "text": "Incantation",
+                "href": "/wiki/Incantation"
+              },
+              {
+                "text": "Paranoia",
+                "href": "/wiki/Paranoia"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Arkham"
+        },
+        {
+          "ID #": "3",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The Silver Twilight Lodge members ask you several riddles to prove your knowledge (+1). If you pass, they instruct you in their ways; gain 1 Spell.",
+            "links": [
+              {
+                "text": "Spell",
+                "href": "/wiki/Spell"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Arkham"
+        },
+        {
+          "ID #": "4",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "An anonymous patient in the asylum pleads with you to share what you've learned. You may spend 1 Clue to share what you know. If you spend the Clue, the man begins chanting in a long-dead language; gain 1 Incantation Spell.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "Incantation",
+                "href": "/wiki/Incantation"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Arkham"
+        },
+        {
+          "ID #": "5",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Some ritual had been performed in the Black Cave, but the cultists are long gone.[1] You look around for anything they may have left behind (). If you pass, you find a scrap of parchment and gain 1 Incantation Spell. If you fail, lose 1 Health as you stumble around in the dark.",
+            "links": [
+              {
+                "text": "[1]",
+                "href": "#cite_note-ah2-1"
+              },
+              {
+                "text": "Incantation",
+                "href": "/wiki/Incantation"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Arkham"
+        },
+        {
+          "ID #": "6",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Inside Ye Olde Magick Shoppe, Miriam Beecher talks to you about the finer points of the occult (). If you pass, you impress her with your acumen, and she gives you a rare text; gain 1 Incantation Spell. If you fail, you lose track of time and can't seem to remember when you departed; gain an Amnesia Condition.",
+            "links": [
+              {
+                "text": "Incantation",
+                "href": "/wiki/Incantation"
+              },
+              {
+                "text": "Amnesia",
+                "href": "/wiki/Amnesia"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Arkham"
+        },
+        {
+          "ID #": "7",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The administrators of Arkham's Historical Society take great pains to show you their extensive collection of historical documents. You may become Delayed to gain 2 Spells.",
+            "links": [
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              },
+              {
+                "text": "Spells",
+                "href": "/wiki/Spells"
+              }
+            ]
+          },
+          "_section": "Arkham"
+        },
+        {
+          "ID #": "8",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "A fortune teller in Independence Square warns you of dire events.[2] You try to interpret her words (). If you pass, you discern that you ultimately survive; gain a Blessed Condition. If you fail, you fear an inevitable doom; gain a Paranoia Condition.",
+            "links": [
+              {
+                "text": "[2]",
+                "href": "#cite_note-kaslow-2"
+              },
+              {
+                "text": "Blessed",
+                "href": "/wiki/Blessed"
+              },
+              {
+                "text": "Paranoia",
+                "href": "/wiki/Paranoia"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Arkham"
+        },
+        {
+          "ID #": "9",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Ma Mathison shows you a journal left behind by one of the lodgers at her boarding house.[3] The text makes several oblique references to the occult, but you think you can decipher its meaning (-1). If you pass, you determine the lodger's true intent; gain 1 Incantation Spell and spawn 1 Clue.",
+            "links": [
+              {
+                "text": "[3]",
+                "href": "#cite_note-ah2_king-3"
+              },
+              {
+                "text": "Incantation",
+                "href": "/wiki/Incantation"
+              },
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Arkham"
+        },
+        {
+          "ID #": "10",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You try to gain access to an experiment at the University's Science Building (-1). If you pass, the experiment provides knowledge of worlds beyond; gain a Plumb the Void Spell. If you fail, you sneak in but get caught in the experiment; gain a Lost in Time and Space Condition.",
+            "links": [
+              {
+                "text": "Plumb the Void",
+                "href": "/wiki/Plumb_the_Void"
+              },
+              {
+                "text": "Lost in Time and Space",
+                "href": "/wiki/Lost_in_Time_and_Space"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Arkham"
+        },
+        {
+          "ID #": "11",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "One of the stained glass windows in the South Church features an angel reading strange runes from a scroll. The runes look familiar to you (). If you pass, gain 1 Incantation Spell. If you fail, you cannot interpret the runes, but the angel's face has a more inhuman aspect now; lose 2 Sanity.",
+            "links": [
+              {
+                "text": "Incantation",
+                "href": "/wiki/Incantation"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Arkham"
+        },
+        {
+          "ID #": "12",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Arcane rituals take place regularly in the nearby woods. You hope to uncover secrets left behind by the cult (). If you pass, gain 1 Incantation Spell. If you fail, you trigger a protective ward; a Monster ambushes you!",
+            "links": [
+              {
+                "text": "Incantation",
+                "href": "/wiki/Incantation"
+              },
+              {
+                "text": "Monster",
+                "href": "/wiki/Monster"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Arkham"
+        },
+        {
+          "ID #": "13",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The Arkham Advertiser ran an exposé on cult activity. You hope to stealthily look through the reporter's notes (). If you pass, you spot a repeated arcane phrase; gain 1 Incantation Spell. If you fail, you are roughly kicked out to the streets; lose 1 Health and gain a Back Injury.",
+            "links": [
+              {
+                "text": "Incantation",
+                "href": "/wiki/Incantation"
+              },
+              {
+                "text": "Back Injury",
+                "href": "/wiki/Back_Injury"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Arkham"
+        },
+        {
+          "ID #": "14",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "As Oliver Thomas is unwrapping a new acquisition for his Curiositie Shoppe, you spot a bit of writing on the wrapping paper.[3] You attempt to decipher the strange runic figures (-2). If you pass, gain 1 Incantation Spell.",
+            "links": [
+              {
+                "text": "[3]",
+                "href": "#cite_note-ah2_king-3"
+              },
+              {
+                "text": "Incantation",
+                "href": "/wiki/Incantation"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Arkham"
+        },
+        {
+          "ID #": "15",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You are suddenly confronted on Meadow Hill by an unnamable presence![4] The sight of the creature horrifies you beyond description (). If you pass, it imparts strange knowledge to you; gain 1 Incantation Spell. If you fail, you awake some time later with strange bruises; lose 1 Sanity and gain a Back Injury Condition.",
+            "links": [
+              {
+                "text": "[4]",
+                "href": "#cite_note-unnamable-4"
+              },
+              {
+                "text": "Incantation",
+                "href": "/wiki/Incantation"
+              },
+              {
+                "text": "Back Injury",
+                "href": "/wiki/Back_Injury"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Arkham"
+        },
+        {
+          "ID #": "16",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The police ask you to examine a book they seized in a recent arrest (). If you pass, gain 1 Incantation Spell. If you fail, the text proves to be an indecipherable mess of disturbing images; lose 1 Sanity and gain a Hallucinations Condition.",
+            "links": [
+              {
+                "text": "Incantation",
+                "href": "/wiki/Incantation"
+              },
+              {
+                "text": "Hallucinations",
+                "href": "/wiki/Hallucinations"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Arkham"
+        }
+      ]
+    },
+    "San Francisco": {
+      "text": "San Francisco Location Encounters have a high probability of improving .",
+      "tables": [
+        {
+          "ID #": "1",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Inspector Jack Manion is looking for information about the Tongs in Chinatown. If you can help him, he'll teach you the basics of police work in exchange. You may spend 1 Clue to improve .",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "San Francisco"
+        },
+        {
+          "ID #": "2",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You find the husk of a squid-like creature in a tunnel. Just seeing it terrifies you (-1). If you pass, you identify the cthonian; improve 1 skill of your choice as scientists clamor to contribute to its study. If you fail, you run headlong through the tunnel; gain a Leg Injury Condition.",
+            "links": [
+              {
+                "text": "Leg Injury",
+                "href": "/wiki/Leg_Injury"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "San Francisco"
+        },
+        {
+          "ID #": "3",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You meet Hammett, a former Pinkerton Agent, on the street car and try to convince him to teach you how to be a detective (). If you pass, he agrees; improve . If you fail, he's too distracted by his financial woes; gain a Debt Condition while helping to support his family.",
+            "links": [
+              {
+                "text": "Debt",
+                "href": "/wiki/Debt"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "San Francisco"
+        },
+        {
+          "ID #": "4",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You speak to a military prisoner on Alcatraz Island. He tells you his story of deserting after encountering a horrific creature (). If you pass, he thanks you for believing him and blesses your name; gain a Blessed Condition. If you fail, the story throws you into a hysterical fit, and the guards arrest you; gain a Detained Condition.",
+            "links": [
+              {
+                "text": "Blessed",
+                "href": "/wiki/Blessed"
+              },
+              {
+                "text": "Detained",
+                "href": "/wiki/Detained"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "San Francisco"
+        },
+        {
+          "ID #": "5",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You are invited to the Hearst Castle and find yourself surrounded by the best and brightest. You may become Delayed to stay for a few days. If you become Delayed, you pick up some amazing talents; improve 1 skill of your choice.",
+            "links": [
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              }
+            ]
+          },
+          "_section": "San Francisco"
+        },
+        {
+          "ID #": "6",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "While patrolling in Chinatown, you become adept at spotting signs of cult activity. Improve . You find their temple, but must dispel a hex on the door to enter (). If you fail, lose 1 Health and 1 Sanity as the hex saps your life away.",
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "San Francisco"
+        },
+        {
+          "ID #": "7",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The Examiner hires you to spend a night in the Winchester Mystery House. They provide you with experts in detecting the supernatural. Improve . The odd architecture and the building's history threaten to unhinge your mind as the evening passes (-1). If you fail, lose 2 Sanity.",
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "San Francisco"
+        },
+        {
+          "ID #": "8",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "A pulp author named Smith invites you to read his work. The stories disturb you (). If you pass, you gain insight into how the invisible world remains hidden; improve . If you fail, the tale chills you to the bone; gain a Madness Condition.",
+            "links": [
+              {
+                "text": "Madness",
+                "href": "/wiki/Madness"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "San Francisco"
+        },
+        {
+          "ID #": "9",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "A private investigator prepares you to help him on a case. Improve . He's looking for a strangely shaped skull that's gone missing after being recovered from a file. Your investigation reveals Atlantean symbols including the one for \"resurrection\" (-1). If you fail, you do not notice the symbol for \"curse;\" gain a Cursed Condition.",
+            "links": [
+              {
+                "text": "Cursed",
+                "href": "/wiki/Cursed"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "San Francisco"
+        },
+        {
+          "ID #": "10",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You study a fascinating book entitled Megapolisomancy which describes how to use the energy of large cities to manipulate the future ().If you pass, you gain keen insight into future events; improve . If you fail, a horrific, paranormal creature manifests in your room; lose 1 Health and 1 Sanity.",
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "San Francisco"
+        },
+        {
+          "ID #": "11",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "A tall, gaunt man with a bald, skull-like head introduces himself as Surama and offers to teach you the secrets of Atlantis.[1] However, you can sense he is trying to manipulate you as he speaks. You may gain Dark Pact Condition to improve and 1 other skill of your choice.",
+            "links": [
+              {
+                "text": "[1]",
+                "href": "#cite_note-sacrifice-13"
+              },
+              {
+                "text": "Dark Pact",
+                "href": "/wiki/Dark_Pact"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "San Francisco"
+        },
+        {
+          "ID #": "12",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "At the Tlaxcala Mining Company, you find strange records of a man who could transport himself across tremendous distances.[2] The idea sounds absurd, but some elements of his story ring familiar. You may spend 2 Sanity to move to a space of your choice.",
+            "links": [
+              {
+                "text": "[2]",
+                "href": "#cite_note-executioner-14"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "San Francisco"
+        },
+        {
+          "ID #": "13",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You hear of a powerful wizard in Chinatown named Lang-Fu, who will help you if you can afford his fee[3] (-1). If you pass, he uses his sorcery to transform you; improve 1 skill of your choice. If you fail, he deems you unworthy, and several deep ones attack you; lose 1 Health and 1 Sanity.",
+            "links": [
+              {
+                "text": "[3]",
+                "href": "#cite_note-fungi-15"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "San Francisco"
+        },
+        {
+          "ID #": "14",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The fabric of reality is weak in the seedy Tenderloin district. As a result, many here suffer from the Black Madness. Very little of what they say can be understood (-1). If you pass, you learn much; improve 1 skill of your choice. If you fail, they drag you with them into the unknown; gain a Lost in Time and Space Condition.",
+            "links": [
+              {
+                "text": "Lost in Time and Space",
+                "href": "/wiki/Lost_in_Time_and_Space"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "San Francisco"
+        },
+        {
+          "ID #": "15",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You are asked to examine a corpse. Working with the mortician, you learn some basic forensic skills. Improve . The body has a strange wire hood over its head and seems to have been electrocuted. It's a grisly sight (-1). If you fail, the image haunts your nightmares; lose 2 Sanity.",
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "San Francisco"
+        },
+        {
+          "ID #": "16",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "As a stranger bumps into you, a small needle pierces your skin, infecting you with the black fever. Dr. Miller oversees your recovery (). If you pass, you recover, and Miller teaches you to be alert to such tactics in the future; improve . If you fail, the fever stays with you; gain a Poisoned Condition and a Paranoia Condition.",
+            "links": [
+              {
+                "text": "Poisoned",
+                "href": "/wiki/Poisoned"
+              },
+              {
+                "text": "Paranoia",
+                "href": "/wiki/Paranoia"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "San Francisco"
+        }
+      ]
+    },
+    "Buenos Aires": {
+      "text": "Buenos Aires Location Encounters have a high probability of giving Ritual Spells.",
+      "tables": [
+        {
+          "ID #": "1",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "In an ancient underground chamber, you study strange scientific and magic paraphernalia once used by the Serpent Men (). If you pass, you manipulate the devices to transform yourself and gain a Blessed Condition. If you fail, the devices remain utterly alien; lose 2 Sanity.",
+            "links": [
+              {
+                "text": "Blessed",
+                "href": "/wiki/Blessed"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Buenos Aires"
+        },
+        {
+          "ID #": "2",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You sneak into the temple and overhear the rough croaking of deep ones chanting. You recognize familiar elements to the words they are intoning (). If you pass, gain 1 Ritual Spell. If you fail, it's nothing more than horrific noise; lose 1 Sanity.",
+            "links": [
+              {
+                "text": "Ritual",
+                "href": "/wiki/Ritual"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Buenos Aires"
+        },
+        {
+          "ID #": "3",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The museum's curator shows you a unique golden jewel that was recovered from the sea. You believe that the symbols on it indicate that something is hidden inside (+1). If you pass, you reveal a small scroll; gain 1 Spell. If you fail, you damage the jewel and must pay for the repairs; gain a Debt Condition.",
+            "links": [
+              {
+                "text": "Spell",
+                "href": "/wiki/Spell"
+              },
+              {
+                "text": "Debt",
+                "href": "/wiki/Debt"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Buenos Aires"
+        },
+        {
+          "ID #": "4",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "A student has been studying the university's copy of the Necronomicon and is eager to share what he's learned in exchange for hearing what you know. You may spend 1 Clue to share what you know and gain 1 Ritual Spell.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "Ritual",
+                "href": "/wiki/Ritual"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Buenos Aires"
+        },
+        {
+          "ID #": "5",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You sneak aboard a ship loaded with stolen antiquities, including an ancient stone table. Reading it, you gain 1 Ritual Spell. Memorizing the words, you feel yourself slipping into a trance (). If you fail, you wake up imprisoned for theft; gain a Detained Condition.",
+            "links": [
+              {
+                "text": "Ritual",
+                "href": "/wiki/Ritual"
+              },
+              {
+                "text": "Detained",
+                "href": "/wiki/Detained"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Buenos Aires"
+        },
+        {
+          "ID #": "6",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "An old woman warns you that you've angered Yig and teaches you a protective chant. Gain 1 Ritual Spell. Concerned that she may be right, you learn all you can about Yig (). If you fail, you learn nothing; gain a Paranoia Condition.",
+            "links": [
+              {
+                "text": "Ritual",
+                "href": "/wiki/Ritual"
+              },
+              {
+                "text": "Paranoia",
+                "href": "/wiki/Paranoia"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Buenos Aires"
+        },
+        {
+          "ID #": "7",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "At the hospital you find a bald, old man with leathery skin and a flat face. He speaks very slowly, but his story is fascinating. You may become Delayed to gain 2 Spells as he recounts all the details of his time worshiping the Father of Serpents.",
+            "links": [
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              },
+              {
+                "text": "Spells",
+                "href": "/wiki/Spells"
+              }
+            ]
+          },
+          "_section": "Buenos Aires"
+        },
+        {
+          "ID #": "8",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "A copy of the Necronomicon is kept at the University of Buenos Aires, but the librarian tells you that it's not available for viewing at this time. You try to convince him of the book's importance (). If you pass, he relents and allows you a brief look at the book; gain 1 Ritual Spell.",
+            "links": [
+              {
+                "text": "Ritual",
+                "href": "/wiki/Ritual"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Buenos Aires"
+        },
+        {
+          "ID #": "9",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The subway car stops, and you hear the sound of hissing voices in the dark (-1). If you pass, you discern the phrases being whispered; gain 1 Ritual Spell. If you fail, the voices haunt you even after the lights are restored; gain a Hallucinations Condition.",
+            "links": [
+              {
+                "text": "Ritual",
+                "href": "/wiki/Ritual"
+              },
+              {
+                "text": "Hallucinations",
+                "href": "/wiki/Hallucinations"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Buenos Aires"
+        },
+        {
+          "ID #": "10",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You visit the University's former librarian and find that he owns many ancient parchments and scrolls (-1). If you pass, gain 2 Spells. If you fail, you discover a terrible set of runes; discard half of your Spells.",
+            "links": [
+              {
+                "text": "Spells",
+                "href": "/wiki/Spells"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Buenos Aires"
+        },
+        {
+          "ID #": "11",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "A well-dressed man is browsing for antique books. Something about him seems strange (). If you pass, you see that he's one of the serpent people in disguise; lose 1 Sanity and gain 1 Clue. If you fail, his identity remains a mystery; lose 1 Sanity and gain a Paranoia Condition.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "Paranoia",
+                "href": "/wiki/Paranoia"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Buenos Aires"
+        },
+        {
+          "ID #": "12",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The King in Yellow is being performed at the Cervantes Theatre. The play seems to infect your mind (). If you pass, you commit a key passage of the script to memory; gain 1 Ritual Spell. If you fail, madness seizes you; lose 1 Sanity and gain a Paranoia Condition.",
+            "links": [
+              {
+                "text": "Ritual",
+                "href": "/wiki/Ritual"
+              },
+              {
+                "text": "Paranoia",
+                "href": "/wiki/Paranoia"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Buenos Aires"
+        },
+        {
+          "ID #": "13",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You hear the sad tale of Rufina who died after her beloved was unfaithful. Riddled with guilt, her lover used dark magic to bring her back from death. You search for signs of the spell he used (-1). If you pass, gain a Healing Words Spell. If you fail, you hear her voice from beyond; lose 1 Sanity.",
+            "links": [
+              {
+                "text": "Healing Words",
+                "href": "/wiki/Healing_Words"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Buenos Aires"
+        },
+        {
+          "ID #": "14",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You discover a dying serpent person. There's evidence that deep ones interrogated it. The creature repeats a strange phrase (-1). If you pass, gain 1 Clue and 1 Ritual Spell. If you fail, the creature's dying words hinder your thoughts; lose 1 Sanity and discard 1 Spell.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "Ritual",
+                "href": "/wiki/Ritual"
+              },
+              {
+                "text": "Spell",
+                "href": "/wiki/Spell"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Buenos Aires"
+        },
+        {
+          "ID #": "15",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You find a hidden altar to Dagon. The police are eager to destroy the shrine, so you quickly study the sigils before they're removed (). If you pass, gain 1 Ritual Spell. If you fail, you have a sudden, terrible vision of drowning; lose 2 Sanity.",
+            "links": [
+              {
+                "text": "Ritual",
+                "href": "/wiki/Ritual"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Buenos Aires"
+        },
+        {
+          "ID #": "16",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The cult left their sacrifice to die in a pit of scorpions. You may gain a Poisoned Condition to save him. If you gain the Condition, he recalls the ritual in detail; gain a Poison Mist Spell. If you do not gain the Condition, he is buried under the crawling mass; lose 2 Sanity.",
+            "links": [
+              {
+                "text": "Poisoned",
+                "href": "/wiki/Poisoned"
+              },
+              {
+                "text": "Poison Mist",
+                "href": "/wiki/Poison_Mist"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Buenos Aires"
+        }
+      ]
+    },
+    "London": {
+      "text": "London Location Encounters have a high probability of spawning Clues.",
+      "tables": [
+        {
+          "ID #": "1",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The Silver Twilight Lodge is locked up tight. You look over the old building for a possible entrance (). If you pass, the Lodge members are delighted by your ingenuity and offer their favor; gain a Blessed Condition. If you fail, you waste fruitless hours searching and become Delayed.",
+            "links": [
+              {
+                "text": "Blessed",
+                "href": "/wiki/Blessed"
+              },
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "London"
+        },
+        {
+          "ID #": "2",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Inside the Herefordshire Asylum, a patient asks you if you've seen the Yellow Sign. You listen to his story of the King in Yellow (). If you pass, spawn 2 Clues. If you fail, his gibberish imprints itself onto your subconscious; gain a Hallucinations Condition.",
+            "links": [
+              {
+                "text": "2 Clues",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "Hallucinations",
+                "href": "/wiki/Hallucinations"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "London"
+        },
+        {
+          "ID #": "3",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You peruse The Scoop, a tabloid paper that specializes in strange and lurid stories (-1). If you pass, gain 1 Clue as you find a vital bit of information.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "London"
+        },
+        {
+          "ID #": "4",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "In exchange for a generous donation, the Penhew Foundation will happily show the results of its global explorations.[1] You may gain a Debt Condition to gain 2 Clues.",
+            "links": [
+              {
+                "text": "[1]",
+                "href": "#cite_note-penhew-25"
+              },
+              {
+                "text": "Debt",
+                "href": "/wiki/Debt"
+              },
+              {
+                "text": "2 Clues",
+                "href": "/wiki/Clues"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "London"
+        },
+        {
+          "ID #": "5",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Impulsively, you look through the inspector's files while his back is turned. Spawn 1 Clue on a space of your choice. Unfortunately, he sees you, and you'll need to fight your way out of Scotland Yard (). If you fail, gain a Detained Condition as there is no shortage of police to arrest you.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "Detained",
+                "href": "/wiki/Detained"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "London"
+        },
+        {
+          "ID #": "6",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You meet an eccentric painter in Soho who offers to show you his work. Amid his bizarre, alien landscapes, you notice some familiar details (). If you pass, spawn 1 Clue on a space of your choice. If you fail, you see nothing but horrors; lose 1 Sanity.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "London"
+        },
+        {
+          "ID #": "7",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "At the lecture of a noted archaeologist, he reveals startling information! Spawn 2 Clues. During the presentation, a stranger tries to sneak a scarab into your pocket (). It is inscribed with words, \"Cursed be he who moves my body. To him shall come fire, water, and pestilence.\"[2] If you fail, gain an Internal Injury Condition.",
+            "links": [
+              {
+                "text": "2 Clues",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "[2]",
+                "href": "#cite_note-inscription-26"
+              },
+              {
+                "text": "Internal Injury",
+                "href": "/wiki/Internal_Injury"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "London"
+        },
+        {
+          "ID #": "8",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You are invited to journey down to Oxford to examine John Dee's translation of the Necronomicon. You may become Delayed to spawn 2 Clues.",
+            "links": [
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              },
+              {
+                "text": "2 Clues",
+                "href": "/wiki/Clues"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "London"
+        },
+        {
+          "ID #": "9",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Sir Arthur Conan Doyle tells you of his interest in spiritualism around the world. His stories sound dubious but somehow familiar (-1). If you pass, you discern which tales are genuine; spawn 2 Clues. If you fail, you get sidetracked pursuing false leads; become Delayed.",
+            "links": [
+              {
+                "text": "2 Clues",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "London"
+        },
+        {
+          "ID #": "10",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You try to schedule a meeting with D. G. Hogarth, President of the Royal Geographical Society (). If you pass, the distinguished explorer shares his fascinating tales; spawn 2 Clues. If you fail, he doesn't understand the significance of your recent find; advance Doom by 1.",
+            "links": [
+              {
+                "text": "2 Clues",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "Doom",
+                "href": "/wiki/Doom"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Doom",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "London"
+        },
+        {
+          "ID #": "11",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The famous author Agatha Christie has disappeared! You suspect cult involvement and look into the case (-1). If you pass, you find messages sent by the author from another world; spawn 1 Clue on each space containing a Gate. If you fail, your investigation runs cold; lose 1 Sanity.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "London"
+        },
+        {
+          "ID #": "12",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You interrupt a group of cultists about to sacrifice a large muscular man. A Cultist Monster ambushes you! If you defeat it, the man you rescued introduces himself as \"Bulldog\" Drummond and tells you of his adventures; spawn 1 Clue.",
+            "links": [
+              {
+                "text": "Cultist",
+                "href": "/wiki/Cultist"
+              },
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "London"
+        },
+        {
+          "ID #": "13",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "At the new Reptile House, you try to recapture a snake (-1). If you pass, the herpetologists gratefully tell you about the snake's homeland; gain 1 Clue and spawn 1 Clue on a Wilderness space of your choice. If you fail, the snake bites you and disappears; gain a Poisoned Condition.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "Wilderness",
+                "href": "/wiki/Wilderness"
+              },
+              {
+                "text": "Poisoned",
+                "href": "/wiki/Poisoned"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sea",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "London"
+        },
+        {
+          "ID #": "14",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Thomas Carnacki offers to teach you some of his ghost-hunting techniques (). If you pass, you learn how to build an electric pentacle; each Monster on a space containing a Clue loses 1 Health. If you fail, the poorly built device attracts bad luck; gain a Cursed Condition.",
+            "links": [
+              {
+                "text": "Monster",
+                "href": "/wiki/Monster"
+              },
+              {
+                "text": "Clue",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "Cursed",
+                "href": "/wiki/Cursed"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "London"
+        },
+        {
+          "ID #": "15",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You search for the arcane symbols that permeate the city's architecture (). If you pass, you use the city as a magical beacon; move up to 2 Clues on the game board to London. If you fail, the city's layout propels you into realms beyond; gain a Lost in Time and Space Condition.",
+            "links": [
+              {
+                "text": "2 Clues",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "Lost in Time and Space",
+                "href": "/wiki/Lost_in_Time_and_Space"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "London"
+        },
+        {
+          "ID #": "16",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The SIS detain you on charges of espionage and interrogate you at length (). If you pass, you pick up some information they let slip, and they encourage you to leave England; spawn 1 Clue and gain 1 Ship Ticket. If you fail, lose 1 Sanity and gain a Detained Condition.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "1 Ship Ticket",
+                "href": "/wiki/Prepare_for_Travel#Travel_Tickets"
+              },
+              {
+                "text": "Detained",
+                "href": "/wiki/Detained"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Ship Ticket",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "London"
+        }
+      ]
+    },
+    "Rome": {
+      "text": "Rome Location Encounters have a high probability of improving .",
+      "tables": [
+        {
+          "ID #": "1",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The Vatican Library is so vast! You ask a librarian for a recommendation (). If you pass, he leads you to a codex that recounts how worshipers of Shub-Niggurath were driven out of Rome, and the story renews your confidence; improve .",
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Rome"
+        },
+        {
+          "ID #": "2",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You have an inspirational dream in which you are a proud Roman quaestor. Improve . Your reverie is interrupted by a band of small, primitive men running wild outside. You try to negotiate with this lost tribe of Miri Nigri (). If you fail, lose 1 Health and 1 Sanity as they continue their pursuit of some ancient grudge.",
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Rome"
+        },
+        {
+          "ID #": "3",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You speak to a number of Vatican authorities about your investigations. They carefully consider your story (-1). If you pass, you are thanked for doing good work; gain a Blessed Condition. If you fail, you are demoralized by their rejection; lose 1 Sanity and discard a Blessed Condition.",
+            "links": [
+              {
+                "text": "Blessed",
+                "href": "/wiki/Blessed"
+              },
+              {
+                "text": "Blessed",
+                "href": "/wiki/Blessed"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Rome"
+        },
+        {
+          "ID #": "4",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You discover a hidden shrine to Cybele in an ancient catacomb. It will be a long process to excavate the find, but removing such a blight from Rome's foundations will grant you a higher reward. You may become Delayed to gain a Blessed Condition.",
+            "links": [
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              },
+              {
+                "text": "Blessed",
+                "href": "/wiki/Blessed"
+              }
+            ]
+          },
+          "_section": "Rome"
+        },
+        {
+          "ID #": "5",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Ever since arriving in Rome, you've had nightmares about being betrayed. You try to assure yourself that they are only dreams (). If you pass, the nightmare stops; improve . If you fail, the nightmares continue; lose 1 Sanity.",
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Rome"
+        },
+        {
+          "ID #": "6",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "A group of Blackshirts are interrogating an old priest, and you try to intervene (). If you pass, they let the priest go, and he is eternally grateful; gain a Blessed Condition. If you fail, you are shoved against a wall and arrested; gain a Detained Condition.",
+            "links": [
+              {
+                "text": "Blessed",
+                "href": "/wiki/Blessed"
+              },
+              {
+                "text": "Detained",
+                "href": "/wiki/Detained"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Rome"
+        },
+        {
+          "ID #": "7",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "A witch cult must have used this villa to conduct their rituals. They've left behind a number of small potions. You may drink one to improve 1 skill of your choice. If you improve a skill, you must resist the ill effects of the elixir (). If you fail, gain a Cursed Condition.",
+            "links": [
+              {
+                "text": "Cursed",
+                "href": "/wiki/Cursed"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Rome"
+        },
+        {
+          "ID #": "8",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You are invigorated by a visit to a magnificent cathedral. Improve . In the basement, you find a mosaic depicting robed men bowing before a great fire. To your horror, it is surrounded by scorch marks that resemble human silhouettes (-1). If you fail, gain a Paranoia Condition.",
+            "links": [
+              {
+                "text": "Paranoia",
+                "href": "/wiki/Paranoia"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Rome"
+        },
+        {
+          "ID #": "9",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "In a hidden room beneath the Colosseum, you find an ancient creature that once fought gladiators. Somehow, the terrible beast has survived and attacks you on sight ()! If you fail, you are incapacitated by your wounds, and the monstrosity escapes; lose 1 Health and gain a Leg Injury Condition.",
+            "links": [
+              {
+                "text": "Leg Injury",
+                "href": "/wiki/Leg_Injury"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Rome"
+        },
+        {
+          "ID #": "10",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The Sistine Chapel is temporarily closed, but you attempt to sneak inside (). If you pass, the breathtaking paintings and tapestries inside inspire you; improve . If you fail, you are caught and arrested; gain a Detained Condition.",
+            "links": [
+              {
+                "text": "Detained",
+                "href": "/wiki/Detained"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Rome"
+        },
+        {
+          "ID #": "11",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You attend a lecture by a physics professor named Enrico Fermi about the incredible power contained in atoms. You do your best to follow his theories (-1). If you pass, you see a new potential for overcoming the threats to this world; gain 1 Clue and improve . If you fail, you grow even more disheartened; lose 1 Sanity.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Rome"
+        },
+        {
+          "ID #": "12",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You discover the ancient recipe to create Mithridate, a powerful concoction to protect you from harm. Interpreting it as best you can, you assemble the ingredients (-1). If you pass, the Mithridate works; gain a Blessed Condition. If you fail, the foul brew makes you sick; gain a Poisoned Condition.",
+            "links": [
+              {
+                "text": "Blessed",
+                "href": "/wiki/Blessed"
+              },
+              {
+                "text": "Poisoned",
+                "href": "/wiki/Poisoned"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Rome"
+        },
+        {
+          "ID #": "13",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You closely examine the ancient writing on the obelisk in the Piazza del Popolo and implore the ancient pharaohs to watch over you. Gain a Blessed Condition. The presence of the relic entrances you (-1). If you fail, you step through the obelisk into another reality; gain a Lost in Time and Space Condition.",
+            "links": [
+              {
+                "text": "Blessed",
+                "href": "/wiki/Blessed"
+              },
+              {
+                "text": "Lost in Time and Space",
+                "href": "/wiki/Lost_in_Time_and_Space"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Rome"
+        },
+        {
+          "ID #": "14",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "A raggedy-looking man offers to trade an old coin for one of your belongings. He claims that throwing the coin into the Trevi Fountain will ensure that you will safely return to Rome. You may discard 1 Item possession. If you discard the possession, the knowledge strengthens your resolve, improve .",
+            "links": [
+              {
+                "text": "Item",
+                "href": "/wiki/Item"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Rome"
+        },
+        {
+          "ID #": "15",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "In the Capuchin Crypt, you are surrounded by the bones of thousands of dead monks, arranged in strange patterns. The sight forces you to confront your own impending death. You may spend 2 Sanity to face your fears and discover a new sense of destiny. If you spend the Sanity, gain a Blessed Condition.",
+            "links": [
+              {
+                "text": "Blessed",
+                "href": "/wiki/Blessed"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Rome"
+        },
+        {
+          "ID #": "16",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "After an unsuccessful attempt on the life of Benito Mussolini, you observe the interrogation of the would-be assassin (). If you pass, you learn much about resisting intense coercion; improve . If you fail, their tactics are horrible to behold; lose 1 Sanity and gain a Paranoia Condition.",
+            "links": [
+              {
+                "text": "Paranoia",
+                "href": "/wiki/Paranoia"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Rome"
+        }
+      ]
+    },
+    "Istanbul": {
+      "text": "Istanbul Location Encounters have a high probability of improving .",
+      "tables": [
+        {
+          "ID #": "1",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Inside the loud hustle and bustle of the Grand Bazaar, you negotiate to find a skilled instructor to tutor you (-1). If you pass, improve 1 skill of your choice. If you fail, the instructor teaches you nothing; gain a Debt Condition to pay for his lessons.",
+            "links": [
+              {
+                "text": "Debt",
+                "href": "/wiki/Debt"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Istanbul"
+        },
+        {
+          "ID #": "2",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "People from every walk of life can be found enjoying the cleansing steam of the Turkish baths. Inside, you'll eventually find an expert in any give field. You may become Delayed to improve 1 skill of your choice.",
+            "links": [
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              }
+            ]
+          },
+          "_section": "Istanbul"
+        },
+        {
+          "ID #": "3",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Professor Azap at the Topkapi Museum is not easily impressed.[1] Only serious scholars can earn his respect (). If you pass, he offers you any help the institute can provide; improve .",
+            "links": [
+              {
+                "text": "[1]",
+                "href": "#cite_note-azap-36"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Istanbul"
+        },
+        {
+          "ID #": "4",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You see a horrid apparition slowly ascending the stairs and have the immediate impulse to run away (). If you pass, you discover that it wants only to take revenge on the murderous cultists for all of their victims; improve . If you fail, you are overcome by terror; gain a Madness Condition.",
+            "links": [
+              {
+                "text": "Madness",
+                "href": "/wiki/Madness"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Istanbul"
+        },
+        {
+          "ID #": "5",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The British Ambassador, Sir Douglas Rutherford, begs for your help. His child has been abducted by the Brothers of the Skin. You may spend 1 Clue to find the cultists and recover the boy. If you do, improve .",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Istanbul"
+        },
+        {
+          "ID #": "6",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Members of the Turkish parliament offer you help in exchange for clearing a group of cultists out of the Shunned Mosque.[2] Improve . Inside, you interrupt a ritual and must resist the effect of its magical energies (). If you fail, lose 2 Health as your skin writhes across your body.",
+            "links": [
+              {
+                "text": "[2]",
+                "href": "#cite_note-mosque-37"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Istanbul"
+        },
+        {
+          "ID #": "7",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "A secret group of scholars has taken an interest in you. Improve . They show you a shocking, ancient text written by Theodorus Philetas regarding his translation of the Necronomicon. His words deeply disturb you (). If you fail, lose 2 Sanity.",
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Istanbul"
+        },
+        {
+          "ID #": "8",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You suspect that you are being followed. You use a reflective window to watch the people walking behind you (). If you pass, you spot someone stalking you and escape into a mosque, and the imam there prays for your safety; gain a Blessed Condition. If you fail, the assassin finds you first; gain a Back Injury Condition.",
+            "links": [
+              {
+                "text": "Blessed",
+                "href": "/wiki/Blessed"
+              },
+              {
+                "text": "Back Injury",
+                "href": "/wiki/Back_Injury"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Istanbul"
+        },
+        {
+          "ID #": "9",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You decide to look into rumors of a conspiracy and soon uncover a plot to assassinate Mustafa Kemal. You gather evidence to make your case (-1). If you pass, the government is extremely grateful; improve . If you fail, the conspirators catch you and attack; gain a Leg Injury Condition.",
+            "links": [
+              {
+                "text": "Leg Injury",
+                "href": "/wiki/Leg_Injury"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Istanbul"
+        },
+        {
+          "ID #": "10",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Experts from all over the world pour into the city from the Orient Express. At the station, you look for a tutor willing to help you (-1). If you pass, you find the ideal teacher; improve 1 skill of your choice. If you fail, your time is wasted; become Delayed.",
+            "links": [
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Istanbul"
+        },
+        {
+          "ID #": "11",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "As you sleep, your path to the Dreamlands is blocked by nightmarish visions (-1). If you pass, you dream of living out your entire life; improve 1 skill of your choice. If you fail, you step off the path; gain a Lost in Time and Space Condition.",
+            "links": [
+              {
+                "text": "Lost in Time and Space",
+                "href": "/wiki/Lost_in_Time_and_Space"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Istanbul"
+        },
+        {
+          "ID #": "12",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You defend a young scribe being attacked by an angry mob (). If you pass, the man offers to introduce you to many important politicians; improve . If you fail, the mob beats you quite badly; lose 1 Health and gain an Internal Injury Condition.",
+            "links": [
+              {
+                "text": "Internal Injury",
+                "href": "/wiki/Internal_Injury"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Istanbul"
+        },
+        {
+          "ID #": "13",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Sweeping changes to the recently formed Republic of Turkey's educational system are taking place. In exchange for your specialized knowledge, you can be taught any number of topics. You may spend 1 Clue to improve 1 skill of your choice.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Istanbul"
+        },
+        {
+          "ID #": "14",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "A stolen treasure was hidden under the city during the Crusades. Using your knowledge of the area, you think you can find it (-1). If you pass, you discover a lost fortune; improve . If you fail, toxic fumes in the tunnels overpower you; gain a Poisoned Condition.",
+            "links": [
+              {
+                "text": "Poisoned",
+                "href": "/wiki/Poisoned"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Istanbul"
+        },
+        {
+          "ID #": "15",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You find a crude carvings of a worm-like creature in a nearby cave. The image seems familiar (). If you pass, you identify it as Shudde-M'ell, gain 1 Clue. If you fail, the disturbing image haunts your thoughts; lose 1 Sanity and gain a Paranoid Condition.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "Paranoid",
+                "href": "/wiki/Paranoid"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Istanbul"
+        },
+        {
+          "ID #": "16",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You search crates of antique books until you are exhausted (). If you pass, you find the Oracle of Leo the Wise, a priceless collection of prophecies; improve . If you fail, you lose something of yours in one of the crates; discard 1 Item or Trinket possession.",
+            "links": [
+              {
+                "text": "Item",
+                "href": "/wiki/Item"
+              },
+              {
+                "text": "Trinket",
+                "href": "/wiki/Trinket"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Istanbul"
+        }
+      ]
+    },
+    "Shanghai": {
+      "text": "Shanghai Location Encounters have a high probability of improving .",
+      "tables": [
+        {
+          "ID #": "1",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You search through old copies of The Shanghai Courier to find strange or unexplained stories (). If you pass, you discover a pattern of arcane activity in the city; improve . If you fail, lose 1 Sanity as no pattern emerges from all this horror.",
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Shanghai"
+        },
+        {
+          "ID #": "2",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "If you can convince Chu Min to help, he will use New China's vast resources to provide you with any sort of instruction you require (). If you pass, improve 1 skill of your choice. If you fail, lose 1 Health as his men force you out onto the street.",
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Shanghai"
+        },
+        {
+          "ID #": "3",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The shrine holds an abundance of ancient relics. Improve . Your eye catches strange figures written on the ceiling. You find it hard to look away (). If you fail, the writing seems to move on its own; gain a Hallucinations Condition.",
+            "links": [
+              {
+                "text": "Hallucinations",
+                "href": "/wiki/Hallucinations"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Shanghai"
+        },
+        {
+          "ID #": "4",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The Shanghai Museum recommends you speak to Mu Hsien, a preeminent scholar of the occult. You send him a message that you hope will convince him to help (). If you pass, improve as he shares his wealth of knowledge.",
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Shanghai"
+        },
+        {
+          "ID #": "5",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The decadent crime lord, Lin Tang-Yu, offers, you access to his library of occult treasures in exchange for information. You may spend 1 Clue to improve .",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Shanghai"
+        },
+        {
+          "ID #": "6",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You break into a warehouse filled with ancient wonders and learn much by studying its content. Improve . You must remain silent to avoid being caught (). If you fail, they question you for days; become Delayed.",
+            "links": [
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Shanghai"
+        },
+        {
+          "ID #": "7",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The old man offers to make tea for you. You see him mix in a strange, green powder that he calls \"tyuk\". You may become Delayed to wait for it to brew. If you become Delayed, the tyuk seems to heighten all of your senses; improve 1 skill of your choice.",
+            "links": [
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              }
+            ]
+          },
+          "_section": "Shanghai"
+        },
+        {
+          "ID #": "8",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You spot an odd, fish-like man pull a young monk underwater![1] You dive in to rescue him, holding your breath as long as you can (). If you pass, the grateful monk prays over you; gain a Blessed Condition. If you fail, you are implicated in his disappearance; gain a Detained Condition.",
+            "links": [
+              {
+                "text": "[1]",
+                "href": "#cite_note-hybrid-40"
+              },
+              {
+                "text": "Blessed",
+                "href": "/wiki/Blessed"
+              },
+              {
+                "text": "Detained",
+                "href": "/wiki/Detained"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Shanghai"
+        },
+        {
+          "ID #": "9",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You try to persuade a collector of Chinese antiquities to let you see the Seven Cryptical Books of Hsan (). If you pass, the scrolls prove instructive; improve . If you fail, the collector tricks you; discard 1 Artifact or 1 Trinket Asset.",
+            "links": [
+              {
+                "text": "Artifact",
+                "href": "/wiki/Artifact"
+              },
+              {
+                "text": "Trinket",
+                "href": "/wiki/Trinket"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Shanghai"
+        },
+        {
+          "ID #": "10",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The Green Gang has hidden 200-years worth of stolen treasures in a vault. Despite the risk, you try to break in (). If you pass, you discover several magical texts; improve . If you fail, you are caught and punished without mercy; lose 1 Health and gain an Internal Injury Condition.",
+            "links": [
+              {
+                "text": "Internal Injury",
+                "href": "/wiki/Internal_Injury"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Shanghai"
+        },
+        {
+          "ID #": "11",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "A Taoist priest teaches you his esoteric skills; improve . He requests that in return, you help him combat the jiangshi (-2). If you pass, you return the hopping corpses to their graves; recover 2 Sanity. If you fail, they steal some of your life force; lose 1 Health and 1 Sanity.",
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Shanghai"
+        },
+        {
+          "ID #": "12",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The Shanghai Museum asks for your help in cataloging a recent donation. You may become Delayed to help them. If you become Delayed, you find lost chapters from the book Zi Bu Yu that provide you with many stories of the supernatural[2]; improve .",
+            "links": [
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              },
+              {
+                "text": "[2]",
+                "href": "#cite_note-zi_bu_yu-41"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Shanghai"
+        },
+        {
+          "ID #": "13",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "A man with a loudly ticking watch offers to help you in exchange for spying on the Communist Party. You may gain a Dark Pact Condition to improve 1 skill of your choice. If you do not gain the Condition, the well-dressed man warns you that he's always watching; gain a Paranoia Condition.",
+            "links": [
+              {
+                "text": "Dark Pact",
+                "href": "/wiki/Dark_Pact"
+              },
+              {
+                "text": "Paranoia",
+                "href": "/wiki/Paranoia"
+              }
+            ]
+          },
+          "_section": "Shanghai"
+        },
+        {
+          "ID #": "14",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "An old man offers to tattoo a symbol on the palm of your hand for good luck. You accept, but the pain is overwhelming (-1). If you pass, improve 1 skill of your choice. If you fail, you pass out and lose your memories; lose 1 Health and gain an Amnesia Condition.",
+            "links": [
+              {
+                "text": "Amnesia",
+                "href": "/wiki/Amnesia"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Shanghai"
+        },
+        {
+          "ID #": "15",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "As you sleep, you are drawn into the realm of dreams by the Monkey King. He tells you that a fish demon has trapped him there. You must focus to return to your body (-1). If you pass, the Monkey King gives you a gift; improve 1 skill of your choice. If you fail, you cannot return home; gain a Lost in Time and Space Condition.",
+            "links": [
+              {
+                "text": "Lost in Time and Space",
+                "href": "/wiki/Lost_in_Time_and_Space"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Shanghai"
+        },
+        {
+          "ID #": "16",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Investigating an altar to the great dragon Yinglong, you are attacked by serpent people. The only way to defend against them is to perform a powerful magical sacrifice. Lose 1 Health and gain a Poisoned Condition unless you discard 1 Spell.",
+            "links": [
+              {
+                "text": "Poisoned",
+                "href": "/wiki/Poisoned"
+              },
+              {
+                "text": "Spell",
+                "href": "/wiki/Spell"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Shanghai"
+        }
+      ]
+    },
+    "Tokyo": {
+      "text": "Tokyo Location Encounters have a high probability of killing or injuring Monsters. steal what cash you have; impair .",
+      "tables": [
+        {
+          "ID #": "1",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You ask the enigmatic Dragon Lords to rid the world of potential threats to Japan (). If you pass, each Monster on a space of your choice loses 2 Health as the mysterious group casts their spells. If you fail, the Dragon Lords lash out at you; gain a Back Injury Condition.",
+            "links": [
+              {
+                "text": "Monster",
+                "href": "/wiki/Monster"
+              },
+              {
+                "text": "Back Injury",
+                "href": "/wiki/Back_Injury"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Tokyo"
+        },
+        {
+          "ID #": "2",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You may become Delayed to explore some submerged pyramids off the coast of Okinawa. If you do, you discover ancient writing that claims to \"harm one's enemies;\" 1 Monster of your choice on any space loses 3 Health.",
+            "links": [
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              },
+              {
+                "text": "Monster",
+                "href": "/wiki/Monster"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Tokyo"
+        },
+        {
+          "ID #": "3",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You find a gem bearing the symbol of the Emerald Lama.[1] In its facets, you see the image of some horrible beast. Suddenly, the creature is right next to you! Choose 1 non-Epic Monster on any space and move it to your space, then encounter it.",
+            "links": [
+              {
+                "text": "[1]",
+                "href": "#cite_note-emerald-45"
+              },
+              {
+                "text": "Monster",
+                "href": "/wiki/Monster"
+              }
+            ]
+          },
+          "_section": "Tokyo"
+        },
+        {
+          "ID #": "4",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The reigning Emperor has been plagued by nightmares. His advisors ask your opinion and you assure them that these horrors are real (). If you pass, they act immediately; 1 Monster of your choice on any space loses 2 Health. If you fail, gain a Detained Condition.",
+            "links": [
+              {
+                "text": "Monster",
+                "href": "/wiki/Monster"
+              },
+              {
+                "text": "Detained",
+                "href": "/wiki/Detained"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Tokyo"
+        },
+        {
+          "ID #": "5",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Captain Isoge Taro of the Imperial Japanese Navy takes particular interest in your investigations.[2] You describe the threats that the world is facing (-1). If you pass, you convince him to help you; 1 Monster of your choice on any space loses 3 Health. If you fail, he is convinced that you are a dangerous menace; gain a Detained Condition.",
+            "links": [
+              {
+                "text": "[2]",
+                "href": "#cite_note-taro-46"
+              },
+              {
+                "text": "Monster",
+                "href": "/wiki/Monster"
+              },
+              {
+                "text": "Detained",
+                "href": "/wiki/Detained"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Tokyo"
+        },
+        {
+          "ID #": "6",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The Brotherhood of the Black Lotus has poisoned you! You fall into a coma and confront your greatest fears (). If you pass, you awake and feel transformed; gain a Blessed Condition. If you fail, the nightmares follow you into the waking world; gain a Hallucinations Condition.",
+            "links": [
+              {
+                "text": "Blessed",
+                "href": "/wiki/Blessed"
+              },
+              {
+                "text": "Hallucinations",
+                "href": "/wiki/Hallucinations"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Tokyo"
+        },
+        {
+          "ID #": "7",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "A strange man dressed in the charred robes of a monk offers you help in exchange for knowledge. You may spend 1 Clue to convince the Black Monk to assist you and discard 1 Monster of your choice from any space.[3]",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "Monster",
+                "href": "/wiki/Monster"
+              },
+              {
+                "text": "[3]",
+                "href": "#cite_note-black_monk-47"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Tokyo"
+        },
+        {
+          "ID #": "8",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "A translation of The Tao of Immortality is kept in the Tokyo University Library. If you are deemed trustworthy, you are granted access to the ancient text (). If you pass, you can use the arcane manual to move 1 Monster of your choice from any space to another space of your choice.",
+            "links": [
+              {
+                "text": "Monster",
+                "href": "/wiki/Monster"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Tokyo"
+        },
+        {
+          "ID #": "9",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The University allows you access to the Jigoku Zoshi, the Scroll of the Hells. If you pass, you are able to cast a dark spell on your enemies; 1 Monster of your choice on any space loses 2 Health. If you fail, the horrible descriptions overpower your senses; lose 2 Sanity.",
+            "links": [
+              {
+                "text": "Monster",
+                "href": "/wiki/Monster"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Tokyo"
+        },
+        {
+          "ID #": "10",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Your hotel room is haunted by a yūrei. You are terrified as the white-clad woman howls and passes through you (). If you fail, her lingering presence is a blight on your soul; lose 1 Sanity and gain a Cursed Condition.",
+            "links": [
+              {
+                "text": "Cursed",
+                "href": "/wiki/Cursed"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Tokyo"
+        },
+        {
+          "ID #": "11",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "An old sailor struggles to remember a chant he once used to drive off a chthonian in 1923. As he mumbles, you try to identify the phrases (-2). If you pass, you recognize the Vach-Viraj incantation[4]; 1 Monster of your choice on any space loses 2 Health.",
+            "links": [
+              {
+                "text": "[4]",
+                "href": "#cite_note-vach_viraj-48"
+              },
+              {
+                "text": "Monster",
+                "href": "/wiki/Monster"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Tokyo"
+        },
+        {
+          "ID #": "12",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You are placed on trial for violating the Peace Protection Laws (). If you pass, you prove your innocence, and the government takes immediate action; discard all Monsters with 1 toughness from the game board. If you fail, you are declared guilty; gain a Detained Condition.",
+            "links": [
+              {
+                "text": "Monsters",
+                "href": "/wiki/Monsters"
+              },
+              {
+                "text": "Detained",
+                "href": "/wiki/Detained"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Tokyo"
+        },
+        {
+          "ID #": "13",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You track down a shrine to the yato-no-kami, the gods who rule over snakes. You implore them to help you (-2). If you pass, a serpent army aids you; each Monster on a space of your choice loses 2 Health. If you fail, your presumptuous request earns you a snake bite; gain a Poisoned Condition.",
+            "links": [
+              {
+                "text": "Monster",
+                "href": "/wiki/Monster"
+              },
+              {
+                "text": "Poisoned",
+                "href": "/wiki/Poisoned"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Tokyo"
+        },
+        {
+          "ID #": "14",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You have the opportunity to display your mastery of the martial arts before karate master Gichin Funakoshi (-2). If you pass, he is impressed and will instruct his students to help your cause; 1 Monster of your choice on any space loses 2 Health.",
+            "links": [
+              {
+                "text": "Monster",
+                "href": "/wiki/Monster"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Tokyo"
+        },
+        {
+          "ID #": "15",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You study the writings of Princess Takiyasha, hoping to master her sorcerous power (-1). If you pass, you are able to summon an avenging skeleton to carry out your commands; 1 Monster of your choice on any space loses 2 Health. If you fail, you mistakenly summon a skeleton that attacks you; lose 1 Health and 1 Sanity.",
+            "links": [
+              {
+                "text": "Monster",
+                "href": "/wiki/Monster"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Tokyo"
+        },
+        {
+          "ID #": "16",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Japanese scientists have struck a bargain with the mi-go. You try to break into one of their laboratories (). If you pass, you find a radio that can control monstrous beings; discard 1 Monster of your choice with toughness 3 or less from any space. If you fail, a bright light flashes and an alarm rings; gain a Lost in Time and Space Condition.",
+            "links": [
+              {
+                "text": "Monster",
+                "href": "/wiki/Monster"
+              },
+              {
+                "text": "Lost in Time and Space",
+                "href": "/wiki/Lost_in_Time_and_Space"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Tokyo"
+        }
+      ]
+    },
+    "Sydney": {
+      "text": "Sydney Location Encounters have a high probability of improving .",
+      "tables": [
+        {
+          "ID #": "1",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You dream of crossing a vast desert hunted by an enormous winged creature. In the dream, you turn to face your fears (). If you pass, you wake up feeling more alive than ever; improve . If you fail, the fear lingers; lose 1 Sanity.",
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sydney"
+        },
+        {
+          "ID #": "2",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "A group of hunters provide you with the skills to track down a bunyip. Improve . When you find the massive four-legged creature, your weapons cannot pierce its leathery hide. You try to protect yourself from the beast's terrible claws and teeth (-1). If you fail, lose 2 Health",
+            "images": [
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sydney"
+        },
+        {
+          "ID #": "3",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Your money and passport have been stolen! You work on the Sydney Harbor Bridge to pay the bills. Improve as you meet the job's rigorous demands. When your passport is found at the scene of a crime, you need to prove your innocence (). If you fail, gain a Detained Condition.",
+            "links": [
+              {
+                "text": "Detained",
+                "href": "/wiki/Detained"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sydney"
+        },
+        {
+          "ID #": "4",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Several passengers on an underground train have been trapped by a tunnel collapse. The dark and claustrophobic climb through the rubble is terrifying (). If you pass, your nerves hold out enough to help dig a clear path for the survivors; improve . If you fail, lose 1 Sanity.",
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sydney"
+        },
+        {
+          "ID #": "5",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The Theosophical Society is excited to hear what knowledge you have gained during your travels. You may spend 1 Clue. If you do, they gratefully provide you with an exercise and diet regimen that fortifies your vitality; improve .",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sydney"
+        },
+        {
+          "ID #": "6",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Due to a city-wide shortage of supplies, shopkeepers won't even show you their wares unless you prove that you can pay top dollar (-1). If you pass, gain 1 random Weapon Asset from the deck. If you fail, you are roped into a devious scheme; gain a Debt Condition.",
+            "links": [
+              {
+                "text": "Weapon",
+                "href": "/wiki/Weapon"
+              },
+              {
+                "text": "Debt",
+                "href": "/wiki/Debt"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sydney"
+        },
+        {
+          "ID #": "7",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "An old, aboriginal man is on trial for a murder that you know he didn't commit. You agree to testify to prove his innocence (). If you pass, he speaks to the spirits on your behalf; gain a Blessed Condition. If you fail, you are accused of perjury; gain a Detained Condition.",
+            "links": [
+              {
+                "text": "Blessed",
+                "href": "/wiki/Blessed"
+              },
+              {
+                "text": "Detained",
+                "href": "/wiki/Detained"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sydney"
+        },
+        {
+          "ID #": "8",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "The constable sees you admire the abandoned weapon. \"Give it a bit to see if anyone claims it,\" he says. \"If not, you can help yourself.\" You may become Delayed to gain 1 random Weapon Asset from the deck.",
+            "links": [
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              },
+              {
+                "text": "Weapon",
+                "href": "/wiki/Weapon"
+              }
+            ]
+          },
+          "_section": "Sydney"
+        },
+        {
+          "ID #": "9",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Charles Hopkins hires you to restore the suburb of Bungarribee. At night, you feel hands grab your throat ()! If you pass, you return to the work in the morning and grow stronger; improve . If you fail, you run away in terror; lose 1 Sanity and gain a Hallucinations Condition.",
+            "links": [
+              {
+                "text": "Hallucinations",
+                "href": "/wiki/Hallucinations"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sydney"
+        },
+        {
+          "ID #": "10",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "In a game of cards, the stakes are raised and you bet a prized possession. You watch the other players carefully for any tells (-1). If you pass, you call a bluff; gain 1 random Weapon Asset from the deck. If you fail, another player outwits you and claims your prize; discard 1 Item or Trinket possession.",
+            "links": [
+              {
+                "text": "Weapon",
+                "href": "/wiki/Weapon"
+              },
+              {
+                "text": "Item",
+                "href": "/wiki/Item"
+              },
+              {
+                "text": "Trinket",
+                "href": "/wiki/Trinket"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sydney"
+        },
+        {
+          "ID #": "11",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "Late at night, dark young wander into the city from the surrounding wilderness. You struggle to escape from the creatures (). If you fail, the attack leaves you badly wounded; lose 2 Health and gain a Back Injury Condition.",
+            "links": [
+              {
+                "text": "Back Injury",
+                "href": "/wiki/Back_Injury"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sydney"
+        },
+        {
+          "ID #": "12",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "You've been caught in a bushfire. You try to find a safe path through the smoke and flames (-1). If you pass, you find previously unknown speed and strength in yourself; improve . If you fail, you need time to recover; become Delayed.",
+            "links": [
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sydney"
+        },
+        {
+          "ID #": "13",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "An armed man asks you strange questions. You suspect that he is possessed by an alien being. You may spend 1 Clue to answer his questions. If you spend the Clue, he regains his senses and surrenders his weapon; gain 1 random Weapon Asset from the deck.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "Weapon",
+                "href": "/wiki/Weapon"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sydney"
+        },
+        {
+          "ID #": "14",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "In the dream world, you are attacked by the arkaroo, sorcerers who resemble snakes. You use warding symbols to protect yourself (). If you pass, you wake invigorated; improve . If you fail, you wake feeling weak; lose 1 Sanity and gain a Poisoned Condition.",
+            "links": [
+              {
+                "text": "Poisoned",
+                "href": "/wiki/Poisoned"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sydney"
+        },
+        {
+          "ID #": "15",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "A young aboriginal football player named Douglas offers to teach you how to play. You may become Delayed to train with him. If you become Delayed, improve .",
+            "links": [
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sydney"
+        },
+        {
+          "ID #": "16",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Encounter": {
+            "text": "A prisoner has stolen a weapon and escaped into the bush. You hope to track him down (-1). If you pass, you arrest him and secure his weapon; gain 1 random Weapon Asset from the deck. If you fail, he gets the drop on you and escapes; lose 1 Health and gain a Leg Injury Condition.",
+            "links": [
+              {
+                "text": "Weapon",
+                "href": "/wiki/Weapon"
+              },
+              {
+                "text": "Leg Injury",
+                "href": "/wiki/Leg_Injury"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_section": "Sydney"
+        }
+      ]
+    }
+  }
+}
