@@ -1,0 +1,56 @@
+{
+  "filter": "Core and Forsaken Lore only",
+  "allowed_sets": [
+    "core",
+    "forsaken lore",
+    "01core",
+    "02forsaken lore"
+  ],
+  "files": {
+    "combat-encounter.json": {
+      "before": 38,
+      "after": 0,
+      "removed": 38
+    },
+    "defeated.json": {
+      "before": 110,
+      "after": 0,
+      "removed": 110
+    },
+    "expedition-encounters.json": {
+      "before": 108,
+      "after": 48,
+      "removed": 60
+    },
+    "general-encounter.json": {
+      "before": 144,
+      "after": 96,
+      "removed": 48
+    },
+    "location-encounter.json": {
+      "before": 1344,
+      "after": 288,
+      "removed": 1056
+    },
+    "other-world-encounters.json": {
+      "before": 22,
+      "after": 0,
+      "removed": 22
+    },
+    "research-encounter.json": {
+      "before": 0,
+      "after": 0,
+      "removed": 0
+    },
+    "special-encounters.json": {
+      "before": 376,
+      "after": 64,
+      "removed": 312
+    }
+  },
+  "totals": {
+    "before": 2142,
+    "after": 496,
+    "removed": 1646
+  }
+}
