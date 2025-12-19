@@ -1,0 +1,1033 @@
+{
+  "description": "Complete encounter context for Eldritch Horror. Contains all encounter types, rules, location data, and outcome patterns from the official game.",
+
+  "encounterPhaseRules": {
+    "description": "During the Encounter Phase, investigators must each complete one or more encounters. Many types draw cards from specific decks. Other encounters may be initiated by Monsters, Mysteries, or other events.",
+    "encounterOrder": {
+      "description": "When the encounter phase begins, investigators resolve encounters starting with the Lead Investigator going clockwise.",
+      "precedence": [
+        {
+          "priority": 1,
+          "type": "card_effect",
+          "rule": "If a card effect (such as Lost in Time and Space) requires the investigator to complete an encounter, this encounter supersedes all other encounters."
+        },
+        {
+          "priority": 2,
+          "type": "combat",
+          "rule": "If there are one or more Monsters present on the investigator's space, you must enter a Combat Encounter with all Monsters in the order of your choice. If there are both non-epic Monsters and Epic Monsters on that space, the non-epic Monsters must be encountered before the Epic Monsters. If, after all Combat Encounters, there are no Monsters remaining on that space, he may resolve another encounter of lower precedence."
+        },
+        {
+          "priority": 3,
+          "type": "choice",
+          "rule": "If, at this point, there are multiple encounters available to the investigator, he may choose one encounter to resolve."
+        }
+      ],
+      "specialRules": [
+        "All Combat Encounters are queued before any encounters are resolved. Once queued, very few effects can stop them.",
+        "Effects like Gug's and Mists of Releh's can't prevent resolving other Combat Encounters after one has started.",
+        "If an encounter causes an additional Combat Encounter and the Monster is defeated, no second non-combat encounter is allowed that round.",
+        "Effects saying 'as an encounter' or 'choose to encounter' grant additional encounter options but require defeating Monsters first.",
+        "Effects saying 'as if there are no Monsters' or 'ignoring Monsters' bypass the Monster requirement.",
+        "Effects saying 'instead of resolving an encounter' (like Detained Condition) can be resolved even on a space containing a Monster."
+      ]
+    }
+  },
+
+  "encounterComplexity": {
+    "regular": {
+      "description": "Regular encounters have one test or task that the investigator needs to successfully complete.",
+      "structure": "Single test → Pass/Fail outcomes",
+      "types": ["Location Encounter", "Research Encounter", "General Encounter"]
+    },
+    "complex": {
+      "description": "Complex encounters have three sections and usually require two tests/tasks to be completed.",
+      "structure": {
+        "section1": {
+          "name": "Initial Section",
+          "background": "white",
+          "content": "Initial test or task. If passed, proceed to pass section. If failed, proceed to fail section. Sometimes allows choice between sections."
+        },
+        "section2_pass": {
+          "name": "Pass Section",
+          "background": "yellow-gold",
+          "content": "Usually contains a second test or task that must be completed."
+        },
+        "section2_fail": {
+          "name": "Fail Section",
+          "background": "red",
+          "content": "May contain a second test, or just simply have an effect to resolve."
+        }
+      },
+      "types": [
+        "Other World Encounter",
+        "Expedition Encounter",
+        "Mystic Ruins Encounter",
+        "Dream-Quest Encounter",
+        "Devastation Encounter",
+        "Special Encounter"
+      ]
+    }
+  },
+
+  "encounterTypes": {
+    "combat": {
+      "description": "A Combat Encounter occurs when the Investigator begins the Encounter Phase while on the same space as a monster. Must encounter every monster that shares the space, one at a time.",
+      "complexity": "simple",
+      "trigger": "Monster on same space as investigator at start of Encounter Phase",
+      "rules": {
+        "order": "If both non-Epic and Epic Monsters are present, non-Epic must be encountered first.",
+        "process": [
+          "Flip Monster token facedown and read information on back",
+          "Resolve any effects that could affect the combat encounter",
+          "Resolve Will test against Horror rating (top to bottom)",
+          "Resolve Strength test against Damage rating"
+        ],
+        "horrorTest": {
+          "skill": "Will",
+          "against": "Horror rating",
+          "failure": "Lose Sanity equal to difference between Horror rating and successes",
+          "success": "No Sanity loss"
+        },
+        "damageTest": {
+          "skill": "Strength",
+          "against": "Damage rating",
+          "failure": "Lose Health equal to difference between Damage rating and successes",
+          "success": "No Health loss, Monster loses Health equal to successes rolled"
+        },
+        "monsterDefeat": "When Monster has lost Health equal to or greater than its toughness, it is defeated and returned to the Monster cup.",
+        "afterCombat": "If no Monsters remain on space after all Combat Encounters, investigator may have an additional encounter. If Monsters remain, no additional encounter."
+      },
+      "ambush": {
+        "description": "An Ambush causes a Monster to attack at a time other than a typical Combat Encounter.",
+        "triggers": [
+          "Mythos card",
+          "Reckoning effect",
+          "During Encounter Phase"
+        ],
+        "resolution": "Immediately draw one random Monster and resolve a Combat Encounter with it."
+      },
+      "resistance": {
+        "physical": {
+          "description": "Monster with Physical Resistance prevents applying bonuses to dice pool except from Magical possessions or Spells.",
+          "monstersWithPhysicalResistance": [
+            "Colour Out of Space",
+            "Dark Young",
+            "Elder Thing",
+            "Formless Spawn",
+            "Ghost",
+            "Ghoul",
+            "Giant Spider",
+            "Goat Spawn",
+            "Gug",
+            "Hound of Tindalos",
+            "Leng Spider",
+            "Mi-Go",
+            "Nightgaunt",
+            "Proto-Shoggoth",
+            "Serpent People",
+            "Shoggoth",
+            "Star Spawn",
+            "Yithian"
+          ]
+        },
+        "magical": {
+          "description": "Monster with Magical Resistance prevents applying bonuses from Magical possessions or Spells.",
+          "monstersWithMagicalResistance": [
+            "Byakhee",
+            "Cultist",
+            "Deep One",
+            "Dhole",
+            "Dimensional Shambler",
+            "Flying Polyp",
+            "Gnoph-Keh",
+            "Hunting Horror",
+            "Lloigor",
+            "Mummy",
+            "Rat-Thing",
+            "Sand-Dweller",
+            "Zombie"
+          ]
+        },
+        "notes": [
+          "Improvement tokens are not affected by Physical or Magical Resistance.",
+          "Effects that allow 'additional dice', reroll, or manipulate dice results may be used regardless of resistance."
+        ]
+      },
+      "commonOutcomes": {
+        "victory": [
+          "Monster defeated",
+          "May resolve additional encounter if no Monsters remain"
+        ],
+        "defeat": [
+          "Lose Health/Sanity based on monster ratings",
+          "Monster remains on space"
+        ]
+      }
+    },
+
+    "location": {
+      "description": "An investigator may choose to complete a General Encounter or a specific Location Encounter if on a major area (distinct color group with large portrait).",
+      "complexity": "simple",
+      "trigger": "On a named location space during Encounter Phase",
+      "generalEncounter": {
+        "description": "Available on any space. Draw from General Encounter deck.",
+        "subTypes": {
+          "city": {
+            "icon": "City",
+            "atmosphere": "Urban settings with libraries, museums, hospitals, police stations, markets, hotels, universities, speakeasies.",
+            "commonSkills": ["Influence", "Observation", "Lore"]
+          },
+          "wilderness": {
+            "icon": "Wilderness",
+            "atmosphere": "Natural areas including forests, mountains, caves, deserts, jungles, ancient ruins.",
+            "commonSkills": ["Strength", "Observation", "Will"]
+          },
+          "sea": {
+            "icon": "Sea",
+            "atmosphere": "Ocean voyages with ships, storms, fog, sailors, cargo, islands, sea creatures.",
+            "commonSkills": ["Will", "Strength", "Observation"]
+          }
+        }
+      },
+      "locationEncounters": {
+        "americas": {
+          "arkham": {
+            "commonReward": "Incantation Spells",
+            "themes": [
+              "Miskatonic University",
+              "Arkham Asylum",
+              "Witch House",
+              "Terrible Old Man"
+            ]
+          },
+          "sanFrancisco": {
+            "commonReward": "Improve Observation",
+            "themes": [
+              "Chinatown mysticism",
+              "Scientific experiments",
+              "Strange cults"
+            ]
+          },
+          "buenosAires": {
+            "commonReward": "Ritual Spells",
+            "themes": [
+              "Occultists",
+              "South American mysticism",
+              "Dunwich family connections"
+            ]
+          }
+        },
+        "europe": {
+          "london": {
+            "commonReward": "Spawn Clues",
+            "themes": [
+              "Penhew Foundation",
+              "Egyptian artifacts",
+              "de la Poer family",
+              "Secret societies"
+            ]
+          },
+          "rome": {
+            "commonReward": "Improve Will",
+            "themes": [
+              "Vatican secrets",
+              "Ancient Roman cults",
+              "Order of St. Jerome"
+            ]
+          },
+          "istanbul": {
+            "commonReward": "Improve Influence",
+            "themes": [
+              "Orient Express",
+              "Sedefkar",
+              "Cult of Y'golonac",
+              "Ancient manuscripts"
+            ]
+          }
+        },
+        "asiaAustralia": {
+          "shanghai": {
+            "commonReward": "Improve Lore",
+            "themes": [
+              "Deep One hybrids",
+              "Opium dens",
+              "Ancient texts",
+              "Hounds of Tindalos"
+            ]
+          },
+          "tokyo": {
+            "commonReward": "Kill/Injure Monsters",
+            "themes": [
+              "Japanese mythology",
+              "Kaiju",
+              "Ninja assassins",
+              "Emerald Lama"
+            ]
+          },
+          "sydney": {
+            "commonReward": "Improve Strength",
+            "themes": [
+              "Outback mysteries",
+              "Great War veterans",
+              "Haunter of the Dark"
+            ]
+          }
+        }
+
+      },
+      "bonuses": {
+        "darrellSimmons": "Rolls 1 additional die when resolving a test during a Location Encounter on a City space."
+      }
+    },
+
+    "research": {
+      "description": "An investigator may choose to draw a Research Encounter if on a space with a Clue token during the Encounter Phase.",
+      "complexity": "simple",
+      "trigger": "On space with Clue token during Encounter Phase",
+      "ancientOneSpecific": true,
+      "subTypes": {
+        "city": "Resolve City section of Research Encounter card",
+        "wilderness": "Resolve Wilderness section of Research Encounter card",
+        "sea": "Resolve Sea section of Research Encounter card"
+      },
+      "commonTest": "Observation",
+      "commonPassOutcome": "Gain the Clue on the space",
+      "commonFailOutcome": "Clue remains on space",
+      "antarticaException": "On Antarctica side board, draw Antarctica Research Encounter instead of Ancient One-specific card. Refers to location name. Still counts as Research Encounter for game effects.",
+      "ancientOneEncounters": [
+        "Abhoth",
+        "Antediluvium",
+        "Atlach-Nacha",
+        "Azathoth",
+        "Cthulhu",
+        "Elder Things",
+        "Hastur",
+        "Hypnos",
+        "Ithaqua",
+        "Nephren-Ka",
+        "Nyarlathotep",
+        "Shub-Niggurath",
+        "Shudde M'ell",
+        "Syzygy",
+        "Yig",
+        "Yog-Sothoth"
+      ],
+      "effectsOnResearch": [
+        "Most Mysteries require resolving Research Encounters to be solved",
+        "Harvey Walters' ability interacts with Research Encounters",
+        "Tasks or Rumors can require Research Encounters (e.g., Light of Reason)",
+        "Darrell Simmons gets bonus dice under certain conditions",
+        "Anna Tilton Unique Asset gives bonus when resolving Research Encounters"
+      ]
+    },
+
+    "otherWorld": {
+      "description": "An investigator on a space containing a Gate may choose to complete an Other World Encounter. Primary way to close Gates.",
+      "complexity": "complex",
+      "trigger": "On space with Gate during Encounter Phase",
+      "passEffect": "Usually allows closing the Gate",
+      "failEffect": "May still allow closing Gate if test passed, or just escape unharmed",
+      "commonSkills": ["Lore", "Will", "Strength (on fail path)"],
+      "encounters": {
+        "theDreamlands": {
+          "tests": ["Strength", "Lore", "Will", "Influence", "Observation"],
+          "grantsClues": false
+        },
+        "thePast": {
+          "tests": ["Lore", "Will", "Influence", "Strength", "Observation"],
+          "grantsClues": false
+        },
+        "yuggoth": {
+          "tests": ["Lore", "Will", "Observation", "Influence", "Strength"],
+          "grantsClues": true
+        },
+        "lostCarcosa": {
+          "tests": ["Lore", "Will", "Influence", "Observation", "Strength"],
+          "grantsClues": true
+        },
+        "theFuture": {
+          "tests": ["Will", "Lore", "Observation", "Strength", "Influence"],
+          "grantsClues": false
+        },
+        "plateauOfLeng": {
+          "tests": ["Observation", "Strength", "Influence", "Lore", "Will"],
+          "grantsClues": false
+        },
+        "greatHallOfCelaeno": {
+          "tests": ["Lore", "Will", "Strength", "Influence", "Observation"],
+          "grantsClues": true
+        },
+        "cityOfTheGreatRace": {
+          "tests": ["Will", "Lore", "Influence", "Strength"],
+          "grantsClues": true
+        },
+        "theAbyss": {
+          "tests": ["Strength", "Influence", "Observation", "Will"],
+          "grantsClues": false
+        },
+        "theUnderworld": {
+          "tests": ["Will", "Lore", "Influence"],
+          "grantsClues": false
+        },
+        "unknownKadath": {
+          "tests": ["Lore", "Observation", "Strength", "Will"],
+          "grantsClues": false
+        }
+      },
+      "bonuses": [
+        "Map of the Ley Lines gives bonus dice or reroll",
+        "Dream Box has effect after resolving Other World Encounter",
+        "Gloria Goldberg adds dice when resolving tests",
+        "Patrice Hathaway has effect when closing a Gate"
+      ]
+    },
+
+    "expedition": {
+      "description": "An investigator on the Active Expedition space may draw and resolve an Expedition Encounter.",
+      "complexity": "complex",
+      "trigger": "On space with Active Expedition token during Encounter Phase",
+      "tokenMovement": "After resolving, move Active Expedition token to space matching newly-revealed top card of Expedition deck",
+      "commonReward": "Artifact (effective for Mysteries requiring artifacts)",
+      "otherRewards": ["Advance Mystery", "Retreat Doom"],
+      "locations": {
+        "theAmazon": {
+          "region": "Americas",
+          "spaceType": "Wilderness",
+          "themes": [
+            "Temple of Yig",
+            "Mapinguari",
+            "Lupuna tree",
+            "Lost City of Z"
+          ]
+        },
+        "antarctica": {
+          "region": "Antarctica",
+          "spaceType": "Special",
+          "themes": [
+            "Elder Things",
+            "Shoggoths",
+            "Dark tower",
+            "Time distortions"
+          ]
+        },
+        "theHeartOfAfrica": {
+          "region": "Africa",
+          "spaceType": "Wilderness",
+          "themes": [
+            "G'harne",
+            "Leopard men",
+            "G'harne Fragments",
+            "Underground cities"
+          ]
+        },
+        "theHimalayas": {
+          "region": "Asia",
+          "spaceType": "Wilderness",
+          "themes": ["Mi-go", "Gnoph-keh", "Shambhala", "Death's Head Order"]
+        },
+        "thePyramids": {
+          "region": "Egypt",
+          "spaceType": "Wilderness",
+          "themes": ["Hidden chambers", "Mummies", "Nephren-Ka", "Traps"]
+        },
+        "tunguska": {
+          "region": "Asia",
+          "spaceType": "Wilderness",
+          "themes": ["Meteor impact", "Alien technology", "Strange phenomena"]
+        },
+        "arkham": {
+          "expansion": "Mountains of Madness",
+          "spaceType": "City",
+          "themes": ["Cemetery tunnels", "Witch House dimensions", "Dark Man"]
+        },
+        "buenosAires": {
+          "expansion": "Under the Pyramids",
+          "spaceType": "City"
+        },
+        "istanbul": {
+          "expansion": "Under the Pyramids",
+          "spaceType": "City",
+          "themes": ["Epigenes' stones", "Bosphorus diving", "Daoloth cult"]
+        },
+        "london": {
+          "expansion": "Cities in Ruin",
+          "spaceType": "City"
+        },
+        "rome": {
+          "expansion": "Mountains of Madness",
+          "spaceType": "City"
+        },
+        "sanFrancisco": {
+          "expansion": "Cities in Ruin",
+          "spaceType": "City"
+        },
+        "shanghai": {
+          "expansion": "Cities in Ruin",
+          "spaceType": "City"
+        },
+        "sydney": {
+          "expansion": "Mountains of Madness",
+          "spaceType": "City"
+        },
+        "tokyo": {
+          "expansion": "Under the Pyramids",
+          "spaceType": "City"
+        }
+      },
+      "bonuses": [
+        "Expedition Map Asset gives bonus to tests",
+        "Monterey Jack's ability interacts with Expedition Encounters",
+        "Jake Williams Unique Asset can shuffle Expedition deck",
+        "Leo Anderson's ability affects Sea/Wilderness expedition spaces"
+      ]
+    },
+
+
+
+    "special": {
+      "description": "Special Encounters are tailored to specific Ancient Ones and only used when a Mystery or special rule specifies their usage.",
+      "complexity": "complex",
+      "trigger": "Mystery or special rule specifies",
+      "finalMysteryNote": "Some Ancient Ones have a Final Mystery that is a Special Encounter. Failing skill tests can result in devouring the investigator.",
+      "encounterTypes": {
+        "aDarkGod": {
+          "ancientOne": "Elder Things",
+          "relatedTo": "Rise of the Elder Things"
+        },
+        "blackWind": {
+          "ancientOne": "Nephren-Ka"
+        },
+        "citiesOnTheLake": {
+          "ancientOne": "Hastur"
+        },
+        "cityBeneathTheSands": {
+          "ancientOne": "Nyarlathotep",
+          "location": "Pnakotus"
+        },
+        "coronaBorealis": {
+          "ancientOne": "Hypnos"
+        },
+        "darkPharaoh": {
+          "ancientOne": "Nephren-Ka"
+        },
+        "deepCaverns": {
+          "ancientOne": "Abhoth",
+          "relatedTo": "Exploring the Caverns"
+        },
+        "dreamWithinADream": {
+          "ancientOne": "Hypnos"
+        },
+        "dreamwalker": {
+          "ancientOne": "Hypnos"
+        },
+        "exploringGharne": {
+          "ancientOne": "Shudde M'ell"
+        },
+        "exploringHyperborea": {
+          "ancientOne": "Ithaqua"
+        },
+        "fortifyingTheBarrier": {
+          "ancientOne": "Syzygy"
+        },
+        "knyanUnearthed": {
+          "ancientOne": "Yig",
+          "themes": [
+            "Animated corpses",
+            "Serpent people",
+            "Ghost-like men",
+            "Underground temples"
+          ]
+        },
+        "theKeyAndTheGate": {
+          "ancientOne": "Yog-Sothoth",
+          "themes": [
+            "Yog-Sothoth manifestation",
+            "Umr-At-Tawil",
+            "Carl Sanford",
+            "Randolph Carter",
+            "Whateley clan"
+          ],
+          "highRisk": true,
+          "devouringPossible": true
+        },
+        "kingInYellow": {
+          "ancientOne": "Hastur"
+        },
+        "rlyehRisen": {
+          "ancientOne": "Cthulhu"
+        },
+        "sealingThePortal": {
+          "ancientOne": "Syzygy"
+        },
+        "spawnOfAbhoth": {
+          "ancientOne": "Abhoth"
+        },
+        "sphinxsLabyrinth": {
+          "ancientOne": "Nyarlathotep",
+          "relatedTo": "Labyrinth of Queen Nitocris"
+        },
+        "unspeakableOne": {
+          "ancientOne": "Hastur",
+          "themes": [
+            "Hurricane",
+            "Cultists",
+            "Tattered King",
+            "Carcosa merging"
+          ],
+          "highRisk": true,
+          "devouringPossible": true
+        },
+        "voidBetweenWorlds": {
+          "ancientOne": "Yog-Sothoth"
+        }
+      }
+    },
+
+    "defeatedInvestigator": {
+      "description": "If an investigator is on the same space as a defeated investigator, he may do an encounter with that defeated investigator.",
+      "complexity": "simple",
+      "trigger": "On same space as defeated investigator token during Encounter Phase",
+      "resolution": "Follow checks written on back of investigator's sheet, then remove investigator token from play",
+      "outcomes": {
+        "lossOfHealth": "Resolve 'Crippled' effect on back of defeated investigator's sheet",
+        "lossOfSanity": "Resolve 'Insane' effect on back of defeated investigator's sheet"
+      },
+      "commonRewards": [
+        "Gain defeated investigator's possessions",
+        "Retreat Doom on successful skill check"
+      ],
+      "notes": [
+        "When gaining a defeated investigator's possessions, effects that trigger on gaining items will trigger",
+        "If space with defeated investigator token is devastated, remove the token from the board"
+      ]
+    },
+
+    "effectInitiated": {
+      "description": "Encounters triggered by Conditions or tokens rather than location.",
+      "types": {
+        "conditions": {
+          "example": "Detained",
+          "trigger": "If investigator still has the Condition when Encounter Phase begins"
+        },
+        "tokens": {
+          "types": [
+            "Mystery token",
+            "Rumor token",
+            "Adventure token",
+            "Eldritch token"
+          ],
+          "resolution": "Follow instructions on corresponding card, usually performing a skill check or action"
+        }
+      }
+    }
+  },
+
+  "locationTypes": {
+    "city": {
+      "description": "Urban locations with civilization, crowds, institutions, and services.",
+      "icon": "City",
+      "atmosphere": "Busy streets, libraries, museums, hospitals, police stations, markets, opera houses, universities, speakeasies, hotels.",
+      "commonSkills": ["Influence", "Observation", "Lore"],
+      "commonThemes": [
+        "Investigating archives or libraries",
+        "Dealing with authorities or police",
+        "Meeting informants or contacts",
+        "Attending events or gatherings",
+        "Shopping or acquiring assets",
+        "Navigating criminal underworld",
+        "Encountering cultists in crowds"
+      ],
+      "typicalPassOutcomes": [
+        "Gain Clue",
+        "Gain Ally",
+        "Gain Tome",
+        "Improve skill",
+        "Gain Spell"
+      ],
+      "typicalFailOutcomes": [
+        "Gain Debt Condition",
+        "Gain Detained Condition",
+        "Lose Item",
+        "Impair Influence"
+      ]
+    },
+    "sea": {
+      "description": "Ocean voyages, ships, and maritime locations.",
+      "icon": "Sea",
+      "atmosphere": "Ship decks, cabins, storms, fog, sailors, cargo holds, distant islands, sea creatures, drifting vessels.",
+      "commonSkills": ["Will", "Strength", "Observation"],
+      "commonThemes": [
+        "Surviving storms or ship disasters",
+        "Encountering sea creatures",
+        "Dreams and nightmares at sea",
+        "Gambling or socializing with crew",
+        "Finding stowaways or cult infiltrators",
+        "Discovering drifting ships or survivors",
+        "Visions and omens on the water"
+      ],
+      "typicalPassOutcomes": [
+        "Gain Clue",
+        "Gain Artifact",
+        "Gain Spell",
+        "Improve Strength",
+        "Retreat Doom"
+      ],
+      "typicalFailOutcomes": [
+        "Become Delayed",
+        "Lose Health",
+        "Gain Illness Condition",
+        "Discard Ally",
+        "Impair Will"
+      ]
+    },
+    "wilderness": {
+      "description": "Remote natural areas far from civilization.",
+      "icon": "Wilderness",
+      "atmosphere": "Forests, mountains, caves, deserts, jungles, ancient ruins, abandoned camps, trackless wastes.",
+      "commonSkills": ["Strength", "Observation", "Will"],
+      "commonThemes": [
+        "Tracking creatures or cultists",
+        "Exploring caves or ruins",
+        "Surviving harsh conditions",
+        "Encountering monsters",
+        "Finding corpses or clues",
+        "Following strange tracks",
+        "Witnessing unnatural phenomena"
+      ],
+      "typicalPassOutcomes": [
+        "Gain Clue",
+        "Gain Item",
+        "Gain Artifact",
+        "Improve Observation"
+      ],
+      "typicalFailOutcomes": [
+        "Gain Injury Condition",
+        "Gain Illness Condition",
+        "Monster Ambush",
+        "Lose Sanity",
+        "Impair Strength"
+      ]
+    }
+  },
+
+  "worldMapLocations": {
+    "namedCities": {
+      "sanFrancisco": {
+        "space": 1,
+        "type": "city",
+        "region": "Americas",
+        "action": "Improve Observation"
+      },
+      "arkham": {
+        "space": 2,
+        "type": "city",
+        "region": "Americas",
+        "action": "Acquire Assets"
+      },
+      "buenosAires": {
+        "space": 4,
+        "type": "city",
+        "region": "Americas",
+        "action": "Improve Strength"
+      },
+      "london": {
+        "space": 5,
+        "type": "city",
+        "region": "Europe",
+        "action": "Acquire Assets"
+      },
+      "dallas": {
+        "space": 6,
+        "type": "city",
+        "region": "Americas",
+        "action": "Improve Influence"
+      },
+      "istanbul": {
+        "space": 8,
+        "type": "city",
+        "region": "Europe",
+        "action": "Improve Influence"
+      },
+      "rome": {
+        "space": 9,
+        "type": "city",
+        "region": "Europe",
+        "action": "Improve Will"
+      },
+      "tokyo": {
+        "space": 10,
+        "type": "city",
+        "region": "AsiaAustralia",
+        "action": "Acquire Assets"
+      },
+      "shanghai": {
+        "space": 11,
+        "type": "city",
+        "region": "AsiaAustralia",
+        "action": "Improve Lore"
+      },
+      "scandinavia": { "space": 14, "type": "city", "region": "Europe" },
+      "sydney": {
+        "space": 18,
+        "type": "city",
+        "region": "AsiaAustralia",
+        "action": "Improve Strength"
+      }
+    },
+    "seaSpaces": {
+      "space3": {
+        "type": "sea",
+        "region": "Pacific",
+        "note": "Pacific Ocean, possible R'lyeh location"
+      },
+      "space7": {
+        "type": "sea",
+        "region": "Atlantic",
+        "note": "Atlantic Ocean"
+      },
+      "space12": {
+        "type": "sea",
+        "region": "Pacific",
+        "note": "South Pacific"
+      },
+      "space13": {
+        "type": "sea",
+        "region": "Arctic",
+        "note": "North Atlantic/Arctic"
+      },
+      "space17": {
+        "type": "sea",
+        "region": "Mediterranean",
+        "note": "Mediterranean to Indian Ocean"
+      },
+      "space19": {
+        "type": "sea",
+        "region": "Pacific",
+        "note": "Pacific Islands"
+      },
+      "space21": {
+        "type": "sea",
+        "region": "Antarctic",
+        "note": "Antarctic waters"
+      }
+    },
+    "wildernessSpaces": {
+      "space15": {
+        "type": "wilderness",
+        "region": "Africa",
+        "name": "South Africa"
+      },
+      "space16": {
+        "type": "wilderness",
+        "region": "Africa",
+        "name": "Heart of Africa"
+      },
+      "space20": {
+        "type": "wilderness",
+        "region": "Americas",
+        "name": "The Amazon"
+      }
+    },
+    "sideBoards": {
+      "antarctica": {
+        "spaces": [
+          "Miskatonic Outpost",
+          "Lake Camp",
+          "Frozen Waste",
+          "Snowy Mountains",
+          "City of the Elder Things",
+          "Plateau of Leng"
+        ],
+        "encounterTypes": [
+          "Outpost Encounter",
+          "Mountain Encounter",
+          "Antarctica Research Encounter"
+        ],
+        "specialRules": "Spaces have no standard location type. Research Encounters use Antarctica Research cards."
+      },
+      "egypt": {
+        "spaces": [
+          "Alexandria",
+          "Cairo",
+          "The Pyramids",
+          "The Bent Pyramid",
+          "Tel el-Amarna",
+          "The Sahara Desert",
+          "The Nile River"
+        ],
+        "encounterTypes": [
+          "Egypt Location Encounter",
+          "General Encounter (City only)"
+        ]
+      },
+      "dreamlands": {
+        "spaces": [
+          "Celephaïs",
+          "Dylath-Leen",
+          "Kadatheron",
+          "Ulthar",
+          "Unknown Kadath",
+          "Underworld"
+        ],
+        "encounterTypes": [
+          "Dreamlands Location Encounter",
+          "Dream-Quest Encounter"
+        ]
+      }
+    }
+  },
+
+  "skills": {
+    "lore": {
+      "description": "Arcane knowledge, occult understanding, research ability",
+      "commonUsesInEncounters": [
+        "Reading ancient texts",
+        "Understanding rituals",
+        "Recognizing magical phenomena",
+        "Decoding ciphers",
+        "Identifying creatures"
+      ],
+      "relatedEncounterTypes": ["research", "mysticRuins", "otherWorld"]
+    },
+    "influence": {
+      "description": "Social skills, charm, persuasion, connections",
+      "commonUsesInEncounters": [
+        "Convincing NPCs",
+        "Gathering information",
+        "Negotiating",
+        "Acquiring help",
+        "Bluffing"
+      ],
+      "relatedEncounterTypes": ["city locations", "acquiring assets"]
+    },
+    "observation": {
+      "description": "Perception, attention to detail, investigation",
+      "commonUsesInEncounters": [
+        "Finding clues",
+        "Spotting danger",
+        "Tracking",
+        "Noticing hidden things",
+        "Navigation"
+      ],
+      "relatedEncounterTypes": ["wilderness", "expedition", "research"]
+    },
+    "strength": {
+      "description": "Physical power, combat prowess, endurance",
+      "commonUsesInEncounters": [
+        "Fighting monsters",
+        "Physical challenges",
+        "Enduring hardship",
+        "Rescuing others",
+        "Climbing/swimming"
+      ],
+      "relatedEncounterTypes": ["combat", "wilderness", "sea", "expedition"]
+    },
+    "will": {
+      "description": "Mental fortitude, resistance to horror, determination",
+      "commonUsesInEncounters": [
+        "Resisting madness",
+        "Facing horrors",
+        "Maintaining composure",
+        "Dream navigation",
+        "Horror tests"
+      ],
+      "relatedEncounterTypes": ["otherWorld", "dreamQuest", "combat"]
+    }
+  },
+
+  "conditions": {
+    "physical": [
+      "Injury",
+      "Illness",
+      "Leg Injury",
+      "Internal Injury",
+      "Back Injury",
+      "Hypothermia",
+      "Infection",
+      "Poisoned"
+    ],
+    "mental": [
+      "Madness",
+      "Amnesia",
+      "Paranoia",
+      "Despair",
+      "Hallucinations",
+      "Dark Pact",
+      "Cursed",
+      "Bane"
+    ],
+    "situational": [
+      "Delayed",
+      "Detained",
+      "Debt",
+      "Wanted",
+      "Lost in Time and Space",
+      "Hunted",
+      "Pursuit"
+    ],
+    "positive": ["Boon", "Blessed", "Focused", "Talent"]
+  },
+
+  "outcomeEffects": {
+    "healthChange": {
+      "range": [-3, 2],
+      "description": "Health loss (negative) or recovery (positive)"
+    },
+    "sanityChange": {
+      "range": [-3, 2],
+      "description": "Sanity loss (negative) or recovery (positive)"
+    },
+    "cluesGained": { "range": [1, 3], "description": "Clue tokens gained" },
+    "doomChange": {
+      "range": [-2, 2],
+      "description": "Doom advance (positive) or retreat (negative)"
+    },
+    "conditionsGained": { "description": "Conditions added to investigator" },
+    "conditionsRemoved": {
+      "description": "Conditions removed from investigator"
+    },
+    "assetsGained": {
+      "types": [
+        "Ally",
+        "Item",
+        "Tome",
+        "Artifact",
+        "Spell",
+        "Trinket",
+        "Relic",
+        "Magical",
+        "Weapon",
+        "Unique Asset"
+      ]
+    },
+    "assetsLost": { "description": "Possessions discarded" },
+    "skillImprove": {
+      "skills": ["Lore", "Influence", "Observation", "Strength", "Will"]
+    },
+    "skillImpair": {
+      "skills": ["Lore", "Influence", "Observation", "Strength", "Will"]
+    },
+    "monsterSpawn": { "description": "Monster placed on investigator's space" },
+    "monsterAmbush": {
+      "description": "Draw random Monster and resolve Combat Encounter"
+    },
+    "delayed": { "description": "Investigator becomes Delayed" },
+    "mysteryAdvance": {
+      "description": "Place Eldritch token on active Mystery"
+    },
+    "gateClose": { "description": "Remove Gate from space" }
+  },
+
+  "difficultyScaling": {
+    "tensionToDifficulty": {
+      "0-3": { "difficulty": "0 or 1", "meaning": "Easy, early game" },
+      "4-6": { "difficulty": "1 or 2", "meaning": "Moderate challenge" },
+      "7-9": { "difficulty": "2 or 3", "meaning": "High stakes" },
+      "10": { "difficulty": "3", "meaning": "Desperate times" }
+    },
+    "testModifiers": {
+      "description": "Many tests have -1 or -2 modifiers for increased difficulty",
+      "examples": ["Observation-1", "Lore-2", "Will-1"]
+    }
+  }
+}

@@ -11,9 +11,17 @@ import type {
   ActionRecord,
   PlotContext,
   GeneratePlotRequest,
+  GenerateEncounterRequest,
+  EncounterRequest,
+  RoundTimeline,
 } from '../types';
 import { useGameData } from '../hooks/useGameData';
 import { generatePlot } from '../api';
+import { 
+  buildEncounterContext, 
+  buildRoundTimeline, 
+  createInvestigatorSnapshot 
+} from '../utils/encounterContext';
 
 const STORAGE_KEY = 'eldritch-endless-state';
 
@@ -30,6 +38,9 @@ interface GameContextValue {
   // Setup flow
   setAncientOne: (ancientOne: AncientOnePage) => void;
   setPlayerInvestigator: (playerIndex: number, investigator: WikiPage) => void;
+  
+  // Narrator voice
+  setNarratorVoice: (voiceId: string) => void;
   
   // Plot management
   setPlotContext: (plotContext: PlotContext) => void;
@@ -61,6 +72,10 @@ interface GameContextValue {
   
   // Doom tracking
   adjustDoom: (amount: number) => void;
+  
+  // Encounter Context Building (for n8n workflow)
+  getCurrentRoundTimeline: () => RoundTimeline;
+  buildEncounterRequest: (encounterRequest: EncounterRequest) => GenerateEncounterRequest | null;
 }
 
 const GameContext = createContext<GameContextValue | null>(null);
@@ -168,6 +183,13 @@ export function GameProvider({ children }: { children: ReactNode }) {
         doom: startingDoom,
       };
     });
+  }, []);
+
+  const setNarratorVoice = useCallback((voiceId: string) => {
+    setState(prev => ({
+      ...prev,
+      narratorVoiceId: voiceId,
+    }));
   }, []);
 
   const setPlayerInvestigator = useCallback((playerIndex: number, investigator: WikiPage) => {
@@ -569,6 +591,32 @@ export function GameProvider({ children }: { children: ReactNode }) {
   const canUndo = state.actionHistory?.length > 0 && 
     state.actionHistory[state.actionHistory.length - 1]?.round === state.round;
 
+  /**
+   * Get the timeline of actions for the current round
+   * Used to provide context to the encounter generation workflow
+   */
+  const getCurrentRoundTimeline = useCallback((): RoundTimeline => {
+    return buildRoundTimeline(state.actionHistory || [], state.players || [], state.round);
+  }, [state.actionHistory, state.players, state.round]);
+
+  /**
+   * Build the complete encounter request context
+   * This packages ALL context needed for the n8n encounter generation workflow
+   */
+  const buildEncounterRequest = useCallback((encounterRequest: EncounterRequest): GenerateEncounterRequest | null => {
+    if (!state.plotContext || !state.ancientOne) {
+      console.error('Cannot build encounter request: missing plot context or ancient one');
+      return null;
+    }
+    
+    try {
+      return buildEncounterContext(state, encounterRequest);
+    } catch (error) {
+      console.error('Failed to build encounter context:', error);
+      return null;
+    }
+  }, [state]);
+
   const undoLastAction = useCallback(() => {
     setState((prev) => {
       if (!prev.actionHistory || prev.actionHistory.length === 0) return prev;
@@ -640,6 +688,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
     clearGame,
     setAncientOne,
     setPlayerInvestigator,
+    setNarratorVoice,
     setPlotContext,
     updatePlotTension,
     addPlotPoint,
@@ -659,6 +708,9 @@ export function GameProvider({ children }: { children: ReactNode }) {
     setCurrentEncounter,
     resolveEncounter,
     adjustDoom,
+    // Encounter context builders
+    getCurrentRoundTimeline,
+    buildEncounterRequest,
   };
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;
