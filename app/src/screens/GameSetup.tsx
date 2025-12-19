@@ -11,13 +11,19 @@ import {
   User,
   ArrowLeft,
   Loader2,
-  Star
+  Star,
+  BookOpen,
+  MapPin,
+  Sparkles,
+  Volume2,
+  Play
 } from 'lucide-react';
 import { useGame } from '../context/GameContext';
 import { useGameData } from '../hooks/useGameData';
-import type { AncientOnePage, WikiPage } from '../types';
+import { NARRATOR_VOICES, type AncientOnePage, type WikiPage } from '../types';
+import { playVoiceSample } from '../utils/voiceSamples';
 
-type SetupStep = 'count' | 'ancientOne' | 'investigators' | 'summary';
+type SetupStep = 'count' | 'ancientOne' | 'investigators' | 'summary' | 'prologue';
 
 export function GameSetup() {
   const navigate = useNavigate();
@@ -26,6 +32,7 @@ export function GameSetup() {
     startNewGame, 
     setAncientOne, 
     setPlayerInvestigator, 
+    setNarratorVoice,
     confirmSetupAndGeneratePlot,
     isGeneratingPlot
   } = useGame();
@@ -78,13 +85,17 @@ export function GameSetup() {
 
   const handleFinishSetup = async () => {
     const success = await confirmSetupAndGeneratePlot();
-    // Only navigate if plot generation succeeded
+    // Show prologue if plot generation succeeded
     if (success) {
-      navigate('/game');
+      setStep('prologue');
     } else {
       // Show error message to user
       alert('Failed to generate plot. Please try again.');
     }
+  };
+
+  const handleBeginGame = () => {
+    navigate('/game');
   };
 
   // --- Render Functions ---
@@ -365,6 +376,47 @@ export function GameSetup() {
         </div>
       </div>
 
+      {/* Narrator Voice Selection */}
+      <div className="bg-shadow/30 rounded-lg p-4 border border-obsidian mb-6">
+        <div className="flex items-center gap-2 mb-3">
+          <Volume2 className="w-4 h-4 text-eldritch-light" />
+          <h3 className="font-display text-sm text-parchment-light">Narrator Voice</h3>
+        </div>
+        <div className="grid grid-cols-1 gap-2">
+          {NARRATOR_VOICES.map((voice) => (
+            <div
+              key={voice.id}
+              className={`flex items-center gap-2 p-3 rounded border transition-all ${
+                state.narratorVoiceId === voice.id
+                  ? 'bg-eldritch-dark/50 border-eldritch text-parchment-light'
+                  : 'bg-void/30 border-obsidian/50 text-parchment-dark hover:border-eldritch-dark'
+              }`}
+            >
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  playVoiceSample(voice.sampleFile);
+                }}
+                className="shrink-0 w-8 h-8 rounded-full bg-eldritch/50 hover:bg-eldritch flex items-center justify-center transition-colors"
+                title="Play sample"
+              >
+                <Play className="w-4 h-4 text-parchment-light ml-0.5" />
+              </button>
+              <button
+                onClick={() => setNarratorVoice(voice.id)}
+                className="flex-1 text-left"
+              >
+                <p className="font-display text-sm">{voice.name}</p>
+                <p className="font-body text-xs opacity-70">{voice.description}</p>
+              </button>
+              {state.narratorVoiceId === voice.id && (
+                <Check className="w-4 h-4 text-eldritch-light shrink-0" />
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
       <button
         onClick={handleFinishSetup}
         disabled={isGeneratingPlot}
@@ -393,6 +445,153 @@ export function GameSetup() {
     </div>
   );
 
+  const renderStepPrologue = () => {
+    const plot = state.plotContext;
+    if (!plot) return null;
+
+    return (
+      <div className="flex flex-col h-full animate-fade-in overflow-hidden">
+        <div className="flex-1 overflow-y-auto pb-32 space-y-6">
+          {/* Title Card */}
+          <div className="text-center py-6 border-b border-obsidian/50">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <Star className="w-5 h-5 text-eldritch-light" />
+              <span className="font-accent text-xs text-eldritch-light uppercase tracking-widest">
+                The Story Begins
+              </span>
+              <Star className="w-5 h-5 text-eldritch-light" />
+            </div>
+            <h1 className="font-display text-3xl text-parchment-light mb-2">
+              {state.ancientOne?.title}
+            </h1>
+            <p className="font-accent text-sm text-blood-light">
+              {state.ancientOne?.infobox?.epithet || 'Ancient Horror'}
+            </p>
+          </div>
+
+          {/* The Premise */}
+          <section className="bg-shadow/30 rounded-lg p-5 border border-obsidian">
+            <div className="flex items-center gap-2 mb-4">
+              <BookOpen className="w-5 h-5 text-eldritch-light" />
+              <h2 className="font-display text-lg text-parchment-light">The Situation</h2>
+            </div>
+            <p className="font-body text-sm text-parchment leading-relaxed">
+              {plot.premise}
+            </p>
+          </section>
+
+          {/* Active Themes */}
+          {plot.activeThemes && plot.activeThemes.length > 0 && (
+            <section className="bg-shadow/20 rounded-lg p-4 border border-obsidian/50">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="w-4 h-4 text-cosmic-light" />
+                <h3 className="font-accent text-xs text-cosmic-light uppercase tracking-wide">Themes of Dread</h3>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {plot.activeThemes.slice(0, 5).map((theme, idx) => (
+                  <span 
+                    key={idx}
+                    className="px-3 py-1 bg-void/50 rounded-full font-body text-xs text-parchment-dark border border-obsidian/30"
+                  >
+                    {theme}
+                  </span>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Investigator Stories */}
+          <section>
+            <div className="flex items-center gap-2 mb-4">
+              <Users className="w-5 h-5 text-sickly-light" />
+              <h2 className="font-display text-lg text-parchment-light">The Investigators</h2>
+            </div>
+            
+            <div className="space-y-4">
+              {state.players.map((player, idx) => {
+                const thread = plot.investigatorThreads?.find(t => t.playerId === player.id) 
+                  || plot.investigatorThreads?.[idx];
+                
+                if (!thread || !player.investigator) return null;
+
+                return (
+                  <div 
+                    key={player.id}
+                    className="bg-shadow/40 rounded-lg p-4 border border-obsidian hover:border-eldritch-dark transition-colors"
+                  >
+                    <div className="flex items-start gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-full bg-eldritch-dark flex items-center justify-center shrink-0">
+                        <User className="w-5 h-5 text-parchment" />
+                      </div>
+                      <div>
+                        <h3 className="font-display text-base text-parchment-light">
+                          {player.investigator.title}
+                        </h3>
+                        <p className="font-accent text-xs text-parchment-dark">
+                          {player.investigator.infobox?.profession || 'Investigator'} • {player.location}
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {thread.personalStakes && (
+                      <div className="mb-3">
+                        <p className="font-accent text-[10px] text-blood-light uppercase tracking-wide mb-1">Personal Stakes</p>
+                        <p className="font-body text-xs text-parchment leading-relaxed">
+                          {thread.personalStakes}
+                        </p>
+                      </div>
+                    )}
+                    
+                    {thread.connectionToThreat && (
+                      <div>
+                        <p className="font-accent text-[10px] text-eldritch-light uppercase tracking-wide mb-1">Connection to the Threat</p>
+                        <p className="font-body text-xs text-parchment-dark leading-relaxed">
+                          {thread.connectionToThreat}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+
+          {/* Key Locations */}
+          {plot.locationSignificance && Object.keys(plot.locationSignificance).length > 0 && (
+            <section className="bg-shadow/20 rounded-lg p-4 border border-obsidian/50">
+              <div className="flex items-center gap-2 mb-3">
+                <MapPin className="w-4 h-4 text-gold-light" />
+                <h3 className="font-accent text-xs text-gold-light uppercase tracking-wide">Locations of Interest</h3>
+              </div>
+              <div className="grid grid-cols-1 gap-2">
+                {Object.entries(plot.locationSignificance).slice(0, 4).map(([location, significance]) => (
+                  <div key={location} className="bg-void/30 rounded p-2">
+                    <p className="font-display text-xs text-parchment-light">{location}</p>
+                    <p className="font-body text-[10px] text-parchment-dark leading-relaxed">
+                      {String(significance).slice(0, 120)}...
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+        </div>
+
+        {/* Fixed Bottom Button */}
+        <div className="fixed bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-void via-void to-transparent">
+          <button
+            onClick={handleBeginGame}
+            className="touch-target w-full flex items-center justify-center gap-3 px-8 py-4 bg-eldritch hover:bg-eldritch-light text-parchment-light font-display text-lg tracking-wide rounded shadow-lg shadow-eldritch/20 transition-all"
+          >
+            <Skull className="w-5 h-5" />
+            Begin the Investigation
+            <ArrowRight className="w-5 h-5" />
+          </button>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className="min-h-dvh flex flex-col p-6 bg-void relative">
       {/* Progress Header */}
@@ -415,9 +614,10 @@ export function GameSetup() {
             {step === 'ancientOne' && 'The Threat'}
             {step === 'investigators' && 'The Investigators'}
             {step === 'summary' && 'The Ritual'}
+            {step === 'prologue' && 'The Prologue'}
           </h1>
           <div className="flex justify-center gap-1 mt-2">
-            {['count', 'ancientOne', 'investigators', 'summary'].map((s, i) => (
+            {['count', 'ancientOne', 'investigators', 'summary', 'prologue'].map((s) => (
               <div 
                 key={s} 
                 className={`h-1 rounded-full transition-all ${
@@ -436,6 +636,7 @@ export function GameSetup() {
         {step === 'ancientOne' && renderStepAncientOne()}
         {step === 'investigators' && renderStepInvestigators()}
         {step === 'summary' && renderStepSummary()}
+        {step === 'prologue' && renderStepPrologue()}
       </div>
     </div>
   );
