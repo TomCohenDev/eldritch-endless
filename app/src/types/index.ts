@@ -199,6 +199,17 @@ export interface NarrativeEvent {
   playerIds?: string[];
   outcome?: "pass" | "fail" | "neutral";
   choices?: NarrativeChoice[];
+  // Full encounter history for AI context
+  encounterHistory?: {
+    nodes: Array<{
+      text: string;
+      type: 'decision' | 'test' | 'outcome';
+      choiceMade?: string; // For decision nodes
+      testResult?: 'pass' | 'fail'; // For test nodes
+      effects?: any; // For outcome nodes
+    }>;
+    finalOutcome?: any;
+  };
 }
 
 export interface NarrativeChoice {
@@ -253,6 +264,7 @@ export interface AncientOneContext {
   lore: string;
   abilities: string;
   mysteries: string[];
+  researchEncounterThematicSummary?: string; // AI-generated thematic summary of research encounters
   researchEncounters: string;
   defeatCondition: string;
   awakeningTitle?: string;
@@ -376,7 +388,7 @@ export function createInitialGameState(): GameState {
 // Encounter types for the encounter picker
 export type EncounterType =
   | 'general'
-  | 'location_region'
+  | 'location'
   | 'research'
   | 'other_world'
   | 'expedition'
@@ -459,10 +471,24 @@ export interface GenerateEncounterRequest {
     activeThemes: string[];
     majorPlotPoints: string[];
     investigatorThread?: InvestigatorThread;
+    ancientOneMotivation: string;
+    cultistAgenda: string;
+    cosmicThreat: string;
+    locationSignificance: Record<string, string>;
   };
   
   // Recent actions for context
   roundTimeline: RoundTimeline;
+  
+  // Recent encounters for narrative continuity
+  recentEncounters?: Array<{
+    title: string;
+    location: string;
+    investigatorName: string;
+    summary: string;
+    choicesMade: string[];
+    outcome: any;
+  }>;
 }
 
 // Encounter node for branching narratives

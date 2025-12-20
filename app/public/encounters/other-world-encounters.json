@@ -1,0 +1,1965 @@
+{
+  "url": "https://eldritchhorror.fandom.com/wiki/Other_World_Encounters",
+  "title": "Other World Encounters",
+  "intro": "An investigator on a space containing a Gate may choose to complete an Other World Encounter; Other World Encounters are the primary way in which investigators close Gates. Other World Encounters are complex encounters; the pass effect usually allows players to close the Gate that they are on. The fail effect may allow the investigator to still close the Gate if they pass a test, but more often than not the fail effect will only allow them to pass through unharmed if they succeed.",
+  "effects_on_other_world_encounters": {
+    "description": "Some effects can occur when resolving Other World Encounters:",
+    "examples": [
+      "An Asset, Unique Asset or Artifact may give a bonus dice or a reroll during Other World Encounters (e.g. Map of the Ley Lines).",
+      "An Asset, Unique Asset or Artifact may have an effect after resolving an Other World Encounter (e.g. Dream Box).",
+      "An investigator ability can add a dice when resolving a test during Other World Encounters (e.g. Gloria Goldberg).",
+      "An investigator ability may have an effect when closing a Gate during an Other World Encounter (e.g. Patrice Hathaway)."
+    ],
+    "common_skill_tests": "The most common skill test in Other World Encounters are Lore and Will. During the fail effect, Strength is also a semi-frequent test."
+  },
+  "encounters": {
+    "The Underworld": {
+      "tables": [
+        {
+          "ID #": "18",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "You find yourself surrounded by ghouls. However, they don't seem to be antagonistic toward you. In fact, you believe you could persuade them to help you ().",
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "https://static.wikia.nocookie.net/eldritchhorrorgame/images/9/91/Influence.png/revision/latest?cb=20210718212727"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "The ghouls direct you into the Tower of Koth in the City of the Gugs. As you ascend the tower's stairs, an enormous gug chases after you. The sound of the monstrosity rattles your nerves (). If you pass, close this Gate. If you fail, you hide, waiting for it to go away; lost 1 Sanity.",
+            "links": [
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "https://static.wikia.nocookie.net/eldritchhorrorgame/images/0/08/Will.png/revision/latest?cb=20210728191243"
+              },
+              {
+                "alt": "Sanity",
+                "src": "https://static.wikia.nocookie.net/eldritchhorrorgame/images/1/1d/Sanity_Icon.png/revision/latest/scale-to-width-down/17?cb=20210822172059"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "Your well-reasoned arguments seem to have no impact, but bribery might. You may discard 1 Item possession to close this Gate. If you do not discard the possession, the ghouls attack you; lose 1 Health and gain an Injury Condition.",
+            "links": [
+              {
+                "text": "Item",
+                "href": "/wiki/Item"
+              },
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              },
+              {
+                "text": "Injury",
+                "href": "/wiki/Injury"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_location": "The Underworld"
+        }
+      ]
+    },
+    "The Abyss": {
+      "tables": [
+        {
+          "ID #": "23",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "The nightgaunts seem intent on keeping you here in the darkness. You do your best to continue climbing out of these terrible depths without alerting them to your presence ().",
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "https://static.wikia.nocookie.net/eldritchhorrorgame/images/6/64/Observation.png/revision/latest?cb=20210728191759"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "You reach the trap door that leads from the Abyss to Sarkomand. The journey has only strengthened your resolve. Improve . Now it will require all of your strength to push open the door (-1). If you pass, you are able to escape; close this Gate. If you fail, gain a Back Injury Condition.",
+            "links": [
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              },
+              {
+                "text": "Back Injury",
+                "href": "/wiki/Back_Injury"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "https://static.wikia.nocookie.net/eldritchhorrorgame/images/0/08/Will.png/revision/latest?cb=20210728191243"
+              },
+              {
+                "alt": "Strength",
+                "src": "https://static.wikia.nocookie.net/eldritchhorrorgame/images/8/8b/Strength.png/revision/latest?cb=20210728192528"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "The nightgaunts pick you up and toss you back to the bottom of the Abyss. Gain a Leg Injury Condition. In this dark stony landscape, you struggle to resist fear and hunger (). If you fail, lose 1 Health and 1 Sanity.",
+            "links": [
+              {
+                "text": "Leg Injury",
+                "href": "/wiki/Leg_Injury"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_location": "The Abyss"
+        }
+      ]
+    },
+    "City of the Great Race": {
+      "tables": [
+        {
+          "ID #": "3",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "On a high, stone shelf you find books containing the wisdom of both the distant past and the far-flung future. Unfortunately, the tomes were written using a series of strange curvilinear symbols. You do your best to translate the alien language (-1).",
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "https://static.wikia.nocookie.net/eldritchhorrorgame/images/f/fc/Lore.png/revision/latest?cb=20210718213138"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "You decipher the means to return yourself to your own time; close this Gate. After you return, you forget your time with the Great Race, but a plagued by strange dreams (). If you pass, you explore these visions during your sleep; gain 1 Clue.",
+            "links": [
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              },
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "https://static.wikia.nocookie.net/eldritchhorrorgame/images/0/08/Will.png/revision/latest?cb=20210728191243"
+              },
+              {
+                "alt": "Clue",
+                "src": "https://static.wikia.nocookie.net/eldritchhorrorgame/images/f/f8/Clue_Icon.png/revision/latest/scale-to-width-down/16?cb=20220705191129"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "The symbols make no sense to you. You fear that you will be stuck here forever and search for a way home. You feel despair eating at you; lose 2 Sanity and gain a Paranoia Condition unless you spend 1 Clue.",
+            "links": [
+              {
+                "text": "Paranoia",
+                "href": "/wiki/Paranoia"
+              },
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_location": "City of the Great Race"
+        },
+        {
+          "ID #": "9",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "You are horrified to realize that the body you are inhabiting in this world is not your own. The shock of seeing yourself in an alien, conical shell threatens to shatter your mind ().",
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "You steel yourself against the horror of this alien body and try to recall the knowledge necessary to build a device that will return you to your body (). If you pass, the machine works; close this Gate. If you fail, the machine malfunctions; lose 2 Health.",
+            "links": [
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "The horrible truth shakes the foundations of your mind. You try to banish any knowledge of the arcane from your thoughts, but you lose your grip on reality. Gain a Hallucinations Condition unless you spend 1 Clue.",
+            "links": [
+              {
+                "text": "Hallucinations",
+                "href": "/wiki/Hallucinations"
+              },
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_location": "City of the Great Race"
+        },
+        {
+          "ID #": "14",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "You hear the sound of a terrible gust of wind and listen carefully to determine the origin of the sound. You may spend 1 Clue to resolve the pass effect. If you do not spend the Clue, resolve the fail effect.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "Something large and powerful is trying to break through a sealed trap door. The racket is startling, and you consider running away (). If you pass, you resolve to fend off the terrible beast and, with the help of the Yithians, you close this Gate. If you fail, you flee in terror from approaching threat; lose 1 Sanity.",
+            "links": [
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "Bursting up through an opening in the floor, a flying polyp attacks ()! If you pass, the grateful Yithians help you; close this Gate. If you fail, the encounter leaves you bruised and shaken; lose 1 Health and 1 Sanity.",
+            "links": [
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_location": "City of the Great Race"
+        },
+        {
+          "ID #": "19",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "You find others who, like you, have had their consciousness pulled into alien bodies from throughout time. You try to convince them to share their knowledge ().",
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "Their stories are highly illuminating. Gain 2 Clues. They remind you of a ritual you researched that may provide you with a solution (-1). If you pass, close this Gate. If you fail, your attempts only meet with failure; lose 1 Sanity.",
+            "links": [
+              {
+                "text": "2 Clues",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "You gain nothing from speaking to them. Just being around them sets you on edge. Your mind might unhinge if you continue to push yourself without resting. Gain a Paranoia Condition and lose 1 Sanity unless you become Delayed.",
+            "links": [
+              {
+                "text": "Paranoia",
+                "href": "/wiki/Paranoia"
+              },
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_location": "City of the Great Race"
+        }
+      ]
+    },
+    "Great Hall of Celaeno": {
+      "tables": [
+        {
+          "ID #": "1",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "You are stunned to see a familiar face reading through tomes of dark sorcery. You try to catch a glimpse of what he's reading without alerting him to your presence (-1).",
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "https://static.wikia.nocookie.net/eldritchhorrorgame/images/6/64/Observation.png/revision/latest?cb=20210728191759"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "You learn what he's been reading and realize that he has opened a portal between worlds; close this Gate. Afterward, you examine the book that he was reading (). If you pass, gain 1 Clue or 1 Spell. If you fail, you've never encountered such horrors before; lose 2 Sanity.",
+            "links": [
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              },
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "Spell",
+                "href": "/wiki/Spell"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "https://static.wikia.nocookie.net/eldritchhorrorgame/images/f/fc/Lore.png/revision/latest?cb=20210718213138"
+              },
+              {
+                "alt": "Clue",
+                "src": "https://static.wikia.nocookie.net/eldritchhorrorgame/images/f/f8/Clue_Icon.png/revision/latest/scale-to-width-down/16?cb=20220705191129"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "He spots you and unleashes a torrent of arcane energy that tears at your mind. Lose 3 Sanity unless you spend 1 Clue.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_location": "Great Hall of Celaeno"
+        },
+        {
+          "ID #": "11",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "You are forbidden to enter the library unless you bear the necessary sigil. You draw the symbol to the best of your knowledge ().",
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "After you enter the Great Hall, you realize you must have confidence in your actions so others do not suspect you of trespassing (). If you pass, you recover the book you are looking for; close this Gate. If you fail, your fear gives you away and you are held captive; become Delayed.",
+            "links": [
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              },
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "Your drawing proves insufficient and you find yourself back on Earth, struggling to retain your memories of what happened. Gain an Amnesia Condition unless you spend 1 Clue.",
+            "links": [
+              {
+                "text": "Amnesia",
+                "href": "/wiki/Amnesia"
+              },
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_location": "Great Hall of Celaeno"
+        },
+        {
+          "ID #": "16",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "The book you are looking for is not on its proper shelf. You search the surrounding area, but after long hours you have lost the will to keep searching ().",
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "The tome was hidden at the back of the shelf. Opening it up you find a series of handwritten instructions scrawled in the margin. You follow the instructions to the best of your understanding (). If you pass, close this Gate. If you fail, you become frustrated; lose 1 Sanity.",
+            "links": [
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "You cannot find the book, but perhaps you unknowingly already have the information you need. You may spend 1 Clue to close this Gate. If you do not spend the Clue, you become Delayed.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              },
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_location": "Great Hall of Celaeno"
+        },
+        {
+          "ID #": "20",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "The book you are reading describes complex rituals in very abstract terms. You do your best to comprehend the dense material ().",
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "You gradually begin to see a pattern emerge. Gain 1 Spell. After staring so long at the book, however, you've forgotten how to get back home. You ask others in the library for help (-1). If you pass, an alien creature comes to your aid; close this Gate. If you fail, you wander the Great Hall; become Delayed.",
+            "links": [
+              {
+                "text": "Spell",
+                "href": "/wiki/Spell"
+              },
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              },
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "The opaque descriptions twist your mind with horrid imagery. Gain a Hallucinations Condition. In your unsteady state, you are overcome by vertigo as you descend the stairs to leave. You must focus to keep your footing (). If you fail, lose 2 Health.",
+            "links": [
+              {
+                "text": "Hallucinations",
+                "href": "/wiki/Hallucinations"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_location": "Great Hall of Celaeno"
+        }
+      ]
+    },
+    "Plateau of Leng": {
+      "tables": [
+        {
+          "ID #": "30",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "https://static.wikia.nocookie.net/eldritchhorrorgame/images/e/e2/FL_Symbol_-_Small.png/revision/latest?cb=20210718214138"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "As you make your way through a web-filled valley, you see an enormous purple spider crawling toward your path. You hope to sneak past the creature (-1).",
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "https://static.wikia.nocookie.net/eldritchhorrorgame/images/6/64/Observation.png/revision/latest?cb=20210728191759"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "As you leave the spider behind, you discover the corpse of a previous victim. You find the unfortunate man's journal and translate the strange symbols on the pages (). If you pass, you discover a safe path home; close this Gate. If you fail, you misinterpret the directions; gain a Lost in Time and Space Condition.",
+            "links": [
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              },
+              {
+                "text": "Lost in Time and Space",
+                "href": "/wiki/Lost_in_Time_and_Space"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "https://static.wikia.nocookie.net/eldritchhorrorgame/images/f/fc/Lore.png/revision/latest?cb=20210718213138"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "The spider sees you and attacks (-1)! If you pass, you rescue someone else trapped in its web; gain 1 random Ally Asset from the deck. If you fail, you're bitten by the spider; lose 1 Health and gain a Poisoned Condition.",
+            "links": [
+              {
+                "text": "Ally",
+                "href": "/wiki/Ally"
+              },
+              {
+                "text": "Poisoned",
+                "href": "/wiki/Poisoned"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_location": "Plateau of Leng"
+        }
+      ]
+    },
+    "The Future": {
+      "tables": [
+        {
+          "ID #": "2",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "You stand in Times Square, New York, but not as you know it. The streets are empty, and the buildings have crumbled to dust. It appears that you will fail to save the world, and you try desperately not to fall into despair (-1).",
+            "images": [
+              {
+                "alt": "Will",
+                "src": "https://static.wikia.nocookie.net/eldritchhorrorgame/images/0/08/Will.png/revision/latest?cb=20210728191243"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "You get to your feet and find what is left of the central library. The books you find there prove useful; close this Gate. Deep in the basement of the library, you dig through the archives, searching for clues about the downfall of man (). If you pass, gain 2 Clues.",
+            "links": [
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              },
+              {
+                "text": "2 Clues",
+                "href": "/wiki/Clues"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "https://static.wikia.nocookie.net/eldritchhorrorgame/images/6/64/Observation.png/revision/latest?cb=20210728191759"
+              },
+              {
+                "alt": "Clue",
+                "src": "https://static.wikia.nocookie.net/eldritchhorrorgame/images/f/f8/Clue_Icon.png/revision/latest/scale-to-width-down/16?cb=20220705191129"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "As you kneel sobbing on the cracked pavement, a shadow of a man falls over you. \"You caused this,\" the man says calmly. His gold headdress looks somehow familiar (). If you fail, you accept the truth in his words; lose 6 Sanity.",
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_location": "The Future"
+        },
+        {
+          "ID #": "8",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "You find yourself in a familiar city, but there's no electricity. The only light comes from the greenish moon, and the only sound is distant screaming. You can feel your reason being overrun by fear ().",
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "Resisting the urge to panic, you find a large metal and glass machine that has electricity sparking across its surface. You try to learn how to operate the device (). If you pass, you return to your own time; close this Gate. If you fail, you receive an electrical shock; lose 2 Health.",
+            "links": [
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "Without thinking, you start walking with a long line of people. You hear screams from the people ahead of you. You try to escape, but the area is being guarded (). If you fail, you return home with no memory of what happened; gain an Amnesia Condition.",
+            "links": [
+              {
+                "text": "Amnesia",
+                "href": "/wiki/Amnesia"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_location": "The Future"
+        },
+        {
+          "ID #": "29",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "You find yourself in an unknown place. Large beetle-like creatures swarm over the landscape. You search the charred surroundings to find some central location from which they originate (-1).",
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "You reach a city and discover a written form of language (). If you pass, you realize that this is the Great Race of Yith in the far future and convince them to send you home; close this Gate. If you fail, the toxic atmosphere takes a toll on you before you can find an escape; gain a Poisoned Condition.",
+            "links": [
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              },
+              {
+                "text": "Poisoned",
+                "href": "/wiki/Poisoned"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "One of the beetles tries to dominate your mind (-1). If you pass, you retain your personality but gain memories of other times; gain 1 Clue. If you fail, you trade bodies with the beetle temporarily; gain a Lost in Time and Space Condition.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "Lost in Time and Space",
+                "href": "/wiki/Lost_in_Time_and_Space"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_location": "The Future"
+        }
+      ]
+    },
+    "Lost Carcosa": {
+      "tables": [
+        {
+          "ID #": "4",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "Turning the corner, you suddenly find yourself on stage. Other actors speak their dialogue and look at you expectantly. Someone offstage passes you a script, but the text is difficult to interpret (-1).",
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "https://static.wikia.nocookie.net/eldritchhorrorgame/images/f/fc/Lore.png/revision/latest?cb=20210718213138"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "The audience applauds your performance and curtain falls. Close this Gate. You consider sticking around for the second show in hopes of picking up details you missed the first time. You may become Delayed to gain 2 Clues.",
+            "links": [
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              },
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              },
+              {
+                "text": "2 Clues",
+                "href": "/wiki/Clues"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Clue",
+                "src": "https://static.wikia.nocookie.net/eldritchhorrorgame/images/f/f8/Clue_Icon.png/revision/latest/scale-to-width-down/16?cb=20220705191129"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "The other actors glare at you, waiting for you to speak. You hope that by simple acting with confidence they'll believe it's someone else's line (). If you fail, the show comes to a stop, and everyone silently leaves the theater; advance Doom by 1.",
+            "links": [
+              {
+                "text": "Doom",
+                "href": "/wiki/Doom"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Doom",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_location": "Lost Carcosa"
+        },
+        {
+          "ID #": "12",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "You grow frustrated walking through the empty streets, able to hear people talking and laughing nearby, but unable to catch up to them. You try to focus and distinguish specific words from the mingling conversations ().",
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "The words you hear sound familiar to something you've read. You try to recall their significance (). If you pass, you use the words to close this Gate. If you fail, the words insinuate themselves into every conversation you hear; gain a Paranoia Condition.",
+            "links": [
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              },
+              {
+                "text": "Paranoia",
+                "href": "/wiki/Paranoia"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "The words remain unintelligible, and you realize that you've become lost in the city while chasing after these voices. You walk, lost, through Carcosa's darkest alleyways and consider timestakingly retracing your steps. Lose 2 Sanity unless you become Delayed.",
+            "links": [
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_location": "Lost Carcosa"
+        },
+        {
+          "ID #": "17",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "Staring out at the cloudy water of Lake Hali, you are horrified to see the entire lake rippling, as if something at the bottom is about to surface. You are seized by a terrible panic that paralyzes you ().",
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "Through sheer will, you force yourself to run toward the door you entered through. You find the doorway has been replaced by a blank wall. You try to recall an incantation from your studies that will open the lost postal (). If you pass, close this Gate. If you fail, you frantically scratch at the wallpaper; lose 1 Sanity.",
+            "links": [
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "Suddenly, a flurry of tentacles bursts out of the water. One of the flailing limbs grabs you and tries to pull you into the water. You attempt to bind the creature with powerful magic (-1). If you pass, you run for your life; close this Gate. If you fail, you are dragged into the water; lose 2 Health.",
+            "links": [
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_location": "Lost Carcosa"
+        },
+        {
+          "ID #": "24",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "At an elaborate masquerade, you talk to decadent party-goers who are all maneuvering to be declared as the proper heir to the crown ().",
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "Believing that you can help him, a guest attempts to bribe you. Gain 1 Artifact. Seeing this, the Queen demands that you unmask. She questions you relentlessly in an attempt to discover what you've learned. Become Delayed unless you spend 2 Clues. If you spend the Clues, you gain her favor; close this Gate.",
+            "links": [
+              {
+                "text": "Artifact",
+                "href": "/wiki/Artifact"
+              },
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              },
+              {
+                "text": "2 Clues",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "You suddenly realize you are speaking to the Phantom of Truth. Lose 1 Sanity. Fear threatens to overwhelm you when you realize he is not wearing a mask (). If you fail, gain a Paranoia Condition.",
+            "links": [
+              {
+                "text": "Paranoia",
+                "href": "/wiki/Paranoia"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_location": "Lost Carcosa"
+        },
+        {
+          "ID #": "28",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "A strange-looking man named Wilde offers to repair your reputation in exchange for information.[1] You may spend 1 Clue to resolve the pass effect. If you do not spend the Clue, resolve the fail effect.",
+            "links": [
+              {
+                "text": "[1]",
+                "href": "#cite_note-repairer-1"
+              },
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "Your reputation is repaired. Improve . Wilde then tells you that you are the Last King of America. You try to resist this delusion ( - 1). If you pass, Wilde troubles you no further and sends you home; close this Gate. If you fail, you become highly suspicious of threats to your throne; gain a Paranoia Condition.",
+            "links": [
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              },
+              {
+                "text": "Paranoia",
+                "href": "/wiki/Paranoia"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "After turning down the offer, you find yourself the target of a smear campaign engineered by Wilde. You are certain that you command enough respect to resist his efforts ( - 1). If you fail, people on the street openly glare at you; lose 1 Sanity and discard all Ally Assets.",
+            "links": [
+              {
+                "text": "Ally",
+                "href": "/wiki/Ally"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_location": "Lost Carcosa"
+        }
+      ]
+    },
+    "Yuggoth": {
+      "tables": [
+        {
+          "ID #": "10",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "You find a room filled with strange metal cylinders. Inside of each cylinder is a living brain that can communicate through a speaker box. You ask them for help ().",
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "https://static.wikia.nocookie.net/eldritchhorrorgame/images/9/91/Influence.png/revision/latest?cb=20210718212727"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "They describe how to operate the mi-go's machinery to travel between worlds. Based on what they say, you try to operate the alien devices (). If you pass, you return home; close this Gate. If you fail, the machine shows you horrid vistas you would never want to visit; lose 1 Sanity.",
+            "links": [
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "https://static.wikia.nocookie.net/eldritchhorrorgame/images/f/fc/Lore.png/revision/latest?cb=20210718213138"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "The disembodied brains demand that you stay. They tell you terrible secrets they've learned about the fate of the Earth. Lose 2 Sanity unless you spend 1 Clue.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_location": "Yuggoth"
+        },
+        {
+          "ID #": "13",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "You discover a waxen mask and artificial hands. Your mind reels as you realize that the old man you had spoken to earlier was actually some terrible creature disguised as a human ().",
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "You realize now that the old man's words carry a secondary meaning. You attempt to decrypt what he said (). If you pass, you understand the man's implied instructions; close this Gate. If you fail, his words lead you in circles; become Delayed.",
+            "links": [
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              },
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "What was the nature of that blasphemous horror behind the mask? You consult your notes, trying to find what might disguise itself this way (-1). If you pass, you find the data you need; close this Gate. If you fail, fear of the unknowable easts at your thoughts; lose 3 Sanity.",
+            "links": [
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_location": "Yuggoth"
+        },
+        {
+          "ID #": "15",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "You discover a fetid creature with wings and webbed feet. The beast is strange, like something from your wildest dreams. You may spend 1 Clue to resolve the pass effect. If you do not spend the Clue, resolve the fail effect.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "You believe you've read of a way to use this beast to travel through space (). If you pass, you remember that by drinking space-mead you can safely use this byakhee to return home; close this Gate. If you fail, you drink something you shouldn't have; gain a Hallucinations Condition.",
+            "links": [
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              },
+              {
+                "text": "Hallucinations",
+                "href": "/wiki/Hallucinations"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "The creature is terrifying, but if you can keep your calm, you will be able to overpower it (). If you pass, you subdue the creature and use it to return home; close this Gate. If you fail, lose 1 Health.",
+            "links": [
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_location": "Yuggoth"
+        },
+        {
+          "ID #": "22",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "The mi-go refuse to go near the city of green pyramids. You summon your courage and explore this abandoned area ().",
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "You find lost treasure! Gain 1 Artifact. You hear sounds coming from within the pyramids and look for a place to hide (-1). If you pass, you stay out of sight until the threat is gone; close this Gate. If you fail, you wake up uncertain of what's happened; gain an Amnesia Condition.",
+            "links": [
+              {
+                "text": "Artifact",
+                "href": "/wiki/Artifact"
+              },
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              },
+              {
+                "text": "Amnesia",
+                "href": "/wiki/Amnesia"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "You run from the pyramids as fast as you can. Until the mi-go return, you need to rely on your own means of survival (). If you fail, you succumb to the harsh elements of this strange world; lose 1 Health and 1 Sanity.",
+            "images": [
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_location": "Yuggoth"
+        },
+        {
+          "ID #": "27",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "You find a dead mi-go that was carrying a large container of the strange metal known as tok'l. Although valuable, the substance is also extremely heavy, and the container proves difficult to move ( - 1).",
+            "images": [
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "You hope to trade the tok'l to the mi-go in exchange for their help ( - 1). If you pass, the strange, winged crustaceans agree and return you home; close this Gate. If you fail, the mi-go use a device to steal both the container and your memories; gain an Amnesia Condition.",
+            "links": [
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              },
+              {
+                "text": "Amnesia",
+                "href": "/wiki/Amnesia"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "The container proves too heavy to carry. Gain a Back Injury Condition. You take only a small sample to study ( - 1). If you pass, the alien substance gives you insight into the arcane arts; gain 1 Spell.",
+            "links": [
+              {
+                "text": "Back Injury",
+                "href": "/wiki/Back_Injury"
+              },
+              {
+                "text": "Spell",
+                "href": "/wiki/Spell"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_location": "Yuggoth"
+        }
+      ]
+    },
+    "The Past": {
+      "tables": [
+        {
+          "ID #": "5",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "Through the slits in the closet door you see yourself as a small child, sitting up in bed. \"Who's there?\" ask a frightened voice. You try to calmly persuade your younger self that you're a friend (-1).",
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "https://static.wikia.nocookie.net/eldritchhorrorgame/images/9/91/Influence.png/revision/latest?cb=20210718212727"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "The child calms down, but eyes you suspiciously. \"Listen carefully to what I say,\" you tell yourself. \"It might save your life...\" You may become Delayed to gain 2 Clues. Whether you become Delayed or not, close this Gate.",
+            "links": [
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              },
+              {
+                "text": "2 Clues",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              },
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Clue",
+                "src": "https://static.wikia.nocookie.net/eldritchhorrorgame/images/f/f8/Clue_Icon.png/revision/latest/scale-to-width-down/16?cb=20220705191129"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "The child screams out for help, and a man bursts into your bedroom. Your father aims his shotgun at your chest, and you attempt to wrestle it away (). If you fail, you are peppered with buckshot; lose 6 Health.",
+            "images": [
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_location": "The Past"
+        },
+        {
+          "ID #": "6",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "You find yourself standing in front of antique scientific equipment. According to the papers the year is 1771. You read through the notes and try to interpret the nature of the experiments ().",
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "Joseph Curwen was using this lab to revive dead wizards from their ashes and interrogate them for arcane knowledge. Using his notes, you close this Gate. The rest of his results may also prove useful. You may become Delayed to gain 1 Spell.",
+            "links": [
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              },
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              },
+              {
+                "text": "Spell",
+                "href": "/wiki/Spell"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "These notes make no sense to you. Your reading is interrupted by a terrible moaning sound, and you find malformed creatures trapped in deep wells under the stone floor. The sight of them tears at your mind (). If you fail, lose 3 Sanity.",
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Sanity",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_location": "The Past"
+        },
+        {
+          "ID #": "26",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "Through the shifting sands of the desert, you spot a deranged-looking man. You try to follow him, but he abruptly disappears. You search the wind-swept landscape for any sign of him ().",
+            "images": [
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "You find the man inside a cave, examining a mural. You think you recognize Abdul Alhazred and the Nameless City (-1). If you pass, the Mad Arab returns you to your home; close this Gate. If you fail, you leave the cave, forsaken; gain a Cursed Condition.",
+            "links": [
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              },
+              {
+                "text": "Cursed",
+                "href": "/wiki/Cursed"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "You wander in the unrelenting heat of the desert, forcing yourself to keep going (-1). If you pass, you eventually find an object in the sands; gain 1 Artifact. If you fail, you collapse in despair; lose 2 Health and gain a Hallucinations Condition.",
+            "links": [
+              {
+                "text": "Artifact",
+                "href": "/wiki/Artifact"
+              },
+              {
+                "text": "Hallucinations",
+                "href": "/wiki/Hallucinations"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_location": "The Past"
+        }
+      ]
+    },
+    "The Dreamlands": {
+      "tables": [
+        {
+          "ID #": "7",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "In the cavern of flame, the bearded priests Nasht and Kaman-Thah warn you that it is too dangerous to continue.[1] You insist that you possess the knowledge you need and are resolved to enter the Dreamlands (-1). Roll 1 additional die for each Clue you have.",
+            "links": [
+              {
+                "text": "[1]",
+                "href": "#cite_note-kadath-1"
+              },
+              {
+                "text": "Clue",
+                "href": "/wiki/Clues"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Will",
+                "src": "https://static.wikia.nocookie.net/eldritchhorrorgame/images/0/08/Will.png/revision/latest?cb=20210728191243"
+              },
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "After gaining access to the Dreamlands, you find yourself fighting moonbeasts on a black galley sailing to the moon (). If you pass, you steal their treasure and area able to barter with it; close this Gate. If you fail, you become lost in a forest on the moon; lose 2 Health and become Delayed.",
+            "links": [
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              },
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "The gods of dreams exile you back to the waking world and punish you for your overreaching ambition. Your dream and the waking world become indistinguishable. Become Delayed and gain a Hallucinations Condition.",
+            "links": [
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              },
+              {
+                "text": "Hallucinations",
+                "href": "/wiki/Hallucinations"
+              }
+            ]
+          },
+          "_location": "The Dreamlands"
+        },
+        {
+          "ID #": "21",
+          "Set": {
+            "text": "01Core",
+            "links": [
+              {
+                "text": "Core",
+                "href": "/wiki/Eldritch_Horror"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "You are strictly admonished that in the city of Ulthar, no man may kill a cat. As a result, you see the city is filled with cats. If you know the language, you can communicate with these highly intelligent creatures ().",
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "The cats are pleased to chat and share useful secrets. Gain 1 Clue. When the topic of food is brought up, dozens of cats take an interest. A crowd of hungry felines surround you. Become Delayed unless you spend 1 Health. If you spend the Health, you feed the cats your rations and go hungry yourself; close this Gate.",
+            "links": [
+              {
+                "text": "1 Clue",
+                "href": "/wiki/Clues"
+              },
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              },
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Clue",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "The cats flee from you, making the people of Ulthar suspicious and they force you into the Enchanted Wood. Lose 1 Health. While you're out there, you must keep a careful watch to prevent the zoogs from stealing your belongings (). If you fail, discard 1 Item possession.",
+            "links": [
+              {
+                "text": "Item",
+                "href": "/wiki/Item"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Health",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              },
+              {
+                "alt": "Observation",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_location": "The Dreamlands"
+        },
+        {
+          "ID #": "25",
+          "Set": {
+            "text": "02Forsaken Lore",
+            "images": [
+              {
+                "alt": "Forsaken Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Initial Text": {
+            "text": "In Dylath-Leen, a suspicious-looking thug in a dark robe offers you his help. However, he warns you that he's a fugitive being hunted by the prince's agents and will require your protection ( - 2).",
+            "images": [
+              {
+                "alt": "Strength",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Pass Effect": {
+            "text": "You defend the man from his assailants, and he gratefully invites you aboard his galley to return you to the waking world. Close this Gate. As you speak to him, it is clear he knows many forgotten truths. You may become Delayed to improve .",
+            "links": [
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              },
+              {
+                "text": "Delayed",
+                "href": "/wiki/Delayed"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Lore",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "Fail Effect": {
+            "text": "The Eyes of Dylath-Leen capture you and sell you as a slave. You try to persuade the other slaves to fight back (). If you pass, the former slaves gratefully help you; close this Gate. If you fail, you are banished as punishment; gain a Lost in Time and Space Condition.",
+            "links": [
+              {
+                "text": "Gate",
+                "href": "/wiki/Gate"
+              },
+              {
+                "text": "Lost in Time and Space",
+                "href": "/wiki/Lost_in_Time_and_Space"
+              }
+            ],
+            "images": [
+              {
+                "alt": "Influence",
+                "src": "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+              }
+            ]
+          },
+          "_location": "The Dreamlands"
+        }
+      ]
+    }
+  }
+}

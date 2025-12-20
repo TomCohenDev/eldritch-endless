@@ -1,0 +1,55 @@
+{
+  "url": "https://eldritchhorror.fandom.com/wiki/Defeated",
+  "title": "Defeated",
+  "intro": "An investigator is defeated when he loses all Health, Sanity, or both, through any means.",
+  "defeated_resolution_steps": {
+    "description": "When an investigator has lost all Health or Sanity, he is immediately defeated and resolves the following steps:",
+    "steps": [
+      {
+        "step": 1,
+        "name": "Advance Doom",
+        "description": "Immediately advance Doom by 1."
+      },
+      {
+        "step": 2,
+        "name": "Relocation",
+        "description": "Move the Investigator token to the nearest City space, or if the investigator is already on a city, leave them where they are. Lay the token on its side and place a Health token on it if the player has lost all Health, or a Sanity token if the player has lost all Sanity. If the player lost all Health and Sanity at the same time, the player may choose which token he wishes to place on the card."
+      },
+      {
+        "step": 3,
+        "name": "Collect Possessions",
+        "description": "The investigator discard all Conditions, Health and Sanity tokens, Improvement and Impairment tokens, and Focus tokens, then places his possessions on his Investigator sheet. Keep the sheet faceup and place it in a common area, out of the way."
+      },
+      {
+        "step": 4,
+        "name": "Pass Lead Investigator",
+        "description": "If the defeated investigator has the Lead Investigator token, he must pass it to an investigator of his choice. If all investigators are defeated or are Lost in Time and Space, the Lead Investigator token cannot be passed. The player who had it last keeps it. If an effect refers to the Lead Investigator during that time, the effect will be resolved only if able. For example, the Lead Investigator player could still make a decision, but cannot gain a possession or a Condition because there is currently no investigator to do so."
+      }
+    ]
+  },
+  "other_rules": {
+    "description": "Additional rules for defeated investigators:",
+    "rules": [
+      "If an investigator is defeated during an encounter or action, he immediately stops resolving that encounter or action.",
+      "The player chooses a new investigator at the end of the Mythos Phase. A player may not choose an investigator that has been previously defeated during the same game.",
+      "If the player cannot choose a new investigator because there are none available, he is eliminated.",
+      "If the newly chosen investigator requires a starting item that is already in play, he will not get that item.",
+      "If an investigator is defeated after the Ancient One awakens, that player is eliminated; this is checking if the Ancient One has awoken at the time the investigator is defeated, not at the end of the Mythos Phase.",
+      "If an investigator or multiple investigators are defeated from a single effect and the Doom advancement from their defeat causes the Ancient One to awaken, all of those players will be allowed to select new investigators at the end of that Mythos Phase.",
+      "If a single effect causes more than 1 investigator to resolve a Combat Encounter and they are defeated in combat, that doesn't count as defeated by a single effect but rather by their respective Combat Encounter effect. Since the Combat Encounters are resolved one at a time, each investigator up to and including the one whose defeat causes the Ancient One to awaken will not be eliminated. But each investigator defeated after that point will be eliminated.",
+      "During the Encounter Phase, an investigator on a space containing a defeated investigator token may encounter it by resolving the Defeated Investigator Encounter on the back of the Investigator sheet in order to gain that investigator's possessions or other benefits, most probably retreating Doom.",
+      "The investigator resolves the Crippled effect on the back of the defeated investigator's sheet if the defeated investigator's token has a Health token on it, or the Insane effect if it has a Sanity token on it. After this is completed, remove the investigator token from the board.",
+      "When an investigator gains a defeated investigator's possessions, he is considered 'gaining' them. Any effect that triggers when investigators gain possessions (e.g 'When an investigator gains an artifact') will trigger in this case.",
+      "If the space a defeated Investigator token is on is devastated, remove the Investigator token from the board."
+    ]
+  },
+  "defeated_investigator_encounters": {
+    "description": "If an investigator is on the same space as a defeated investigator, he may do an encounter with that defeated investigator. The investigator follows whichever checks are written on the back of the investigator's sheet, and removes the investigator token from play after this is completed.",
+    "mechanics": [
+      "In general, encounters with defeated investigators will grant the player the defeated investigators' possessions and will typically retreat Doom if a successful skill check is passed.",
+      "When an investigator gains a defeated investigator's possessions, he is gaining them. Effects that trigger on gaining items like Voice of Azathoth would trigger in this case.",
+      "The Defeated Encounters are located on the back of each investigator's sheet."
+    ]
+  }
+
+}

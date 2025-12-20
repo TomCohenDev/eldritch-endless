@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { getLocationContext } from '../data/encounterContextLoader';
 
 // Encounter card images
 import africaCard from '../assets/encounter-cards/Africa_Encounter.webp';
@@ -46,7 +47,9 @@ import {
   Loader2,
   Settings,
   Volume2,
-  Play
+  Play,
+  AlertCircle,
+  Package
 } from 'lucide-react';
 import { useGame } from '../context/GameContext';
 import { useGameData } from '../hooks/useGameData';
@@ -81,6 +84,9 @@ export function GameSession() {
     addPlotPoint,
     setNarratorVoice
   } = useGame();
+  
+  // Track encounter history for back navigation
+  const [encounterHistory, setEncounterHistory] = useState<string[]>([]);
   const { mapLocations, allEncounters, helpers } = useGameData();
   
   const [showLocationPicker, setShowLocationPicker] = useState(false);
@@ -105,6 +111,9 @@ export function GameSession() {
   const [encounterResult, setEncounterResult] = useState<GenerateEncounterResponse | null>(null);
   const [currentNodeId, setCurrentNodeId] = useState<string | null>(null);
   const [isGeneratingEncounter, setIsGeneratingEncounter] = useState(false);
+  
+  // Narrative event viewer
+  const [viewingEvent, setViewingEvent] = useState<typeof state.narrativeEvents[0] | null>(null);
 
   const activePlayer = state.players[state.activePlayerIndex];
 
@@ -524,14 +533,18 @@ export function GameSession() {
             ) : (
               <div className="space-y-4">
                 {state.narrativeLog.slice().reverse().slice(0, 3).map((event) => (
-                  <div key={event.id} className="border-l-2 border-eldritch-dark pl-3">
+                  <button
+                    key={event.id}
+                    onClick={() => setViewingEvent(event)}
+                    className="w-full border-l-2 border-eldritch-dark pl-3 text-left hover:bg-shadow/50 -ml-1 pl-4 rounded transition-colors"
+                  >
                     <p className="font-display text-sm text-parchment-light mb-1">
                       {event.title}
                     </p>
                     <p className="font-body text-xs text-parchment-dark line-clamp-3">
                       {event.content}
                     </p>
-                  </div>
+                  </button>
                 ))}
               </div>
             )}
@@ -755,11 +768,17 @@ export function GameSession() {
                   onClick={() => {
                     // General encounters - direct select with player location
                     if (cat.category === 'general') {
+                      // Determine space type based on location
+                      const locationInfo = getLocationContext(activePlayer?.location || '');
+                      const spaceType = locationInfo.locationType === 'city' ? 'City' 
+                        : locationInfo.locationType === 'sea' ? 'Sea' 
+                        : 'Wilderness';
+                      
                       setSelectedEncounter({
                         title: `General Encounter`,
                         content: `General encounter at ${activePlayer?.location || 'unknown location'}.`,
                         type: 'general',
-                        subType: activePlayer?.location,
+                        subType: spaceType,
                       });
                       setShowEncounterPicker(false);
                       setSelectedEncounterCategory(null);
@@ -809,7 +828,7 @@ export function GameSession() {
                       setSelectedEncounter({
                         title: `Location Encounter`,
                         content: `Location encounter at ${activePlayer?.location || 'unknown location'}.`,
-                        type: 'location_region',
+                        type: 'location',
                         subType: activePlayer?.location,
                       });
                       setShowEncounterPicker(false);
@@ -824,7 +843,7 @@ export function GameSession() {
                       // Map category to encounter type
                       const typeMap: Record<string, EncounterType> = {
                         general: 'general',
-                        locationRegion: 'location_region',
+                        locationRegion: 'location',
                         research: 'research',
                         otherWorld: 'other_world',
                         expedition: 'expedition',
@@ -936,7 +955,7 @@ export function GameSession() {
                       // Map category to encounter type
                       const typeMap: Record<string, EncounterType> = {
                         general: 'general',
-                        locationRegion: 'location_region',
+                        locationRegion: 'location',
                         research: 'research',
                         otherWorld: 'other_world',
                         expedition: 'expedition',
@@ -1058,14 +1077,14 @@ export function GameSession() {
                     transform: 'rotateY(180deg)'
                   }}
                 >
-                  <h3 className="font-display text-lg text-parchment-light text-center mb-2 shrink-0">
+                  {/* Header with centered title */}
+                  <h3 className="font-display text-lg font-semibold text-parchment-light text-center mb-3 shrink-0">
                     {encounterResult?.encounter.title || selectedEncounter.title}
                   </h3>
                   
-                  <div className="flex-1 overflow-y-auto space-y-3">
-                    {(() => {
+                  <div className="flex-1 overflow-y-auto space-y-4">{(() => {
                       // Find current node
-                      const currentNode = encounterResult?.nodes?.find(n => n.id === currentNodeId);
+                      const currentNode = currentNodeId && encounterResult?.encounter.nodes[currentNodeId];
                       
                       if (!encounterResult && isGeneratingEncounter) {
                         return (
@@ -1086,55 +1105,98 @@ export function GameSession() {
                         );
                       }
 
+                      // Build history of visited nodes
+                      const historyNodes = encounterHistory
+                        .map(nodeId => encounterResult?.nodes?.find(n => n.id === nodeId))
+                        .filter(Boolean);
+
                       return (
-                        <div className="space-y-4 animate-in fade-in duration-500">
-                          {/* Encounter setup (shown once, before the first node) */}
-                          {currentNode.id === encounterResult.encounter.startingNodeId &&
-                            encounterResult.encounter.narrative &&
-                            encounterResult.encounter.narrative.trim() &&
-                            encounterResult.encounter.narrative.trim() !== currentNode.text.trim() && (
-                              <div className="bg-abyss/40 rounded p-3 border border-cosmic-light/20">
-                                <p className="font-accent text-xs text-parchment-dark uppercase tracking-wide mb-1">
-                                  Setup
-                                </p>
-                                <p className="font-body text-sm text-parchment leading-relaxed whitespace-pre-line">
-                                  {encounterResult.encounter.narrative}
-                                </p>
+                        <div className="space-y-4">
+                          {/* Show history (previous nodes in gray) */}
+                          {historyNodes.length > 0 && (
+                            <div className="space-y-3 pb-3 border-b border-obsidian/50">
+                              {historyNodes.map((node, idx) => (
+                                <div key={`history-${idx}`} className="opacity-60">
+                                  <p className="font-body text-sm text-parchment-dark leading-relaxed">
+                                    {node.text}
+                                  </p>
+                                  
+                                  {/* Show chosen option for decision nodes */}
+                                  {node.type === 'decision' && encounterHistory[idx + 1] && node.choices && (
+                                    <div className="mt-2">
+                                      {(() => {
+                                        const chosenChoice = node.choices.find(c => c.nextNodeId === encounterHistory[idx + 1]);
+                                        if (!chosenChoice) return null;
+                                        return (
+                                          <div className="w-full text-left bg-eldritch/20 border border-eldritch/40 rounded p-3">
+                                            <div className="flex items-center gap-2">
+                                              <Check className="w-4 h-4 text-eldritch-light" />
+                                              <p className="font-display text-sm font-semibold text-parchment-light">
+                                                {chosenChoice.label}
+                                              </p>
+                                            </div>
+                                            {chosenChoice.description && (
+                                              <p className="font-body text-xs text-parchment-dark mt-1 ml-6">
+                                                {chosenChoice.description}
+                                              </p>
+                                            )}
+                                          </div>
+                                        );
+                                      })()}
                               </div>
                             )}
 
-                          {/* Narrative */}
-                          <p className="font-body text-sm text-parchment leading-relaxed whitespace-pre-line">
-                            {currentNode.text}
-                          </p>
-                          
-                          {/* Flavor text only on first node */}
-                          {currentNode.id === encounterResult.encounter.startingNodeId && encounterResult.encounter.flavorText && (
-                            <p className="font-accent text-xs text-parchment-dark italic border-l-2 border-cosmic-light/30 pl-2">
-                              {encounterResult.encounter.flavorText}
-                            </p>
+                                  {/* Show test result */}
+                                  {node.type === 'test' && encounterHistory[idx + 1] && (
+                                    <div className="mt-2 text-center">
+                                      <div className={`inline-flex items-center gap-2 px-3 py-2 rounded border ${
+                                        encounterHistory[idx + 1] === node.test.passNodeId 
+                                          ? 'bg-green-900/20 border-green-800/40 text-green-300' 
+                                          : 'bg-red-900/20 border-red-800/40 text-red-300'
+                                      }`}>
+                                        <Check className="w-4 h-4" />
+                                        <span className="font-display text-sm font-semibold">
+                                          {encounterHistory[idx + 1] === node.test.passNodeId ? 'Passed' : 'Failed'} {node.test.skill}
+                                        </span>
+                                      </div>
+                                    </div>
+                                  )}
+                                </div>
+                              ))}
+                            </div>
                           )}
+
+                          {/* Current node content */}
+                          <div className="animate-in fade-in duration-500">
+                            {/* Main text */}
+                            <p className="font-body text-base font-semibold text-parchment leading-relaxed whitespace-pre-line">
+                            {currentNode.content}
+                          </p>
+                          </div>
                           
                           {/* Decisions */}
                           {currentNode.type === 'decision' && currentNode.choices && (
-                            <div className="space-y-2 pt-2">
-                              <p className="font-accent text-xs text-parchment-dark uppercase tracking-wide mb-2">
-                                Make a Choice
+                            <div className="space-y-3 pt-2">
+                              <p className="font-accent text-sm text-parchment-dark uppercase tracking-wide">
+                                Choose Your Action
                               </p>
                               {currentNode.choices.map(choice => (
                                 <button 
                                   key={choice.id}
-                                  onClick={() => setCurrentNodeId(choice.nextNodeId)}
-                                  className="w-full text-left bg-shadow/50 hover:bg-eldritch/30 border border-obsidian hover:border-eldritch rounded p-3 transition-colors group"
+                                  onClick={() => {
+                                    setEncounterHistory(prev => [...prev, currentNodeId]);
+                                    setCurrentNodeId(choice.nextNodeId);
+                                  }}
+                                  className="w-full text-left bg-shadow/50 hover:bg-eldritch/30 border border-obsidian hover:border-eldritch rounded p-4 transition-colors group"
                                 >
                                   <div className="flex items-center justify-between">
-                                    <p className="font-display text-sm text-parchment-light group-hover:text-parchment transition-colors">
+                                    <p className="font-display text-base font-semibold text-parchment-light group-hover:text-parchment transition-colors">
                                       {choice.label}
                                     </p>
-                                    <ChevronRight className="w-4 h-4 text-parchment-dark group-hover:text-parchment opacity-0 group-hover:opacity-100 transition-all" />
+                                    <ChevronRight className="w-5 h-5 text-parchment-dark group-hover:text-parchment opacity-0 group-hover:opacity-100 transition-all" />
                                   </div>
                                   {choice.description && (
-                                    <p className="font-body text-xs text-parchment-dark mt-1">
+                                    <p className="font-body text-sm text-parchment-dark mt-2">
                                       {choice.description}
                                     </p>
                                   )}
@@ -1144,72 +1206,95 @@ export function GameSession() {
                           )}
 
                           {/* Skill Tests */}
-                          {currentNode.type === 'test' && currentNode.test && (
+                          {currentNode.type === 'test' && currentNode.testInfo && (
                             <div className="bg-obsidian/30 rounded p-4 border border-obsidian text-center mt-2">
-                              <p className="font-display text-parchment-light mb-1">
-                                Test {currentNode.test.skill}
+                              <p className="font-display text-lg font-semibold text-parchment-light mb-2">
+                                Test {currentNode.testInfo.skill}
                               </p>
-                              <p className="font-accent text-xs text-parchment-dark mb-3">
-                                Difficulty {currentNode.test.difficulty > 0 ? '+' : ''}{currentNode.test.difficulty}
+                              <p className="font-accent text-sm text-parchment-dark mb-4">
+                                Difficulty {currentNode.testInfo.difficulty > 0 ? '+' : ''}{currentNode.testInfo.difficulty}
                               </p>
                               
                               <div className="grid grid-cols-2 gap-3">
                                 <button
-                                  onClick={() => setCurrentNodeId(currentNode.test!.passNodeId)}
-                                  className="px-4 py-3 bg-green-900/30 hover:bg-green-800/40 border border-green-800/50 hover:border-green-700 text-green-100 rounded transition-colors flex flex-col items-center"
+                                  onClick={() => {
+                                    setEncounterHistory(prev => [...prev, currentNodeId]);
+                                    setCurrentNodeId(currentNode.test!.passNodeId);
+                                  }}
+                                  className="px-4 py-4 bg-green-900/30 hover:bg-green-800/40 border border-green-800/50 hover:border-green-700 text-green-100 rounded transition-colors flex flex-col items-center"
                                 >
-                                  <span className="font-display text-lg">Pass</span>
-                                  <span className="text-[10px] opacity-70">Success</span>
+                                  <span className="font-display text-xl font-semibold">Pass</span>
+                                  <span className="text-xs opacity-70">Success</span>
                                 </button>
                                 <button
-                                  onClick={() => setCurrentNodeId(currentNode.test!.failNodeId)}
-                                  className="px-4 py-3 bg-red-900/30 hover:bg-red-800/40 border border-red-800/50 hover:border-red-700 text-red-100 rounded transition-colors flex flex-col items-center"
+                                  onClick={() => {
+                                    setEncounterHistory(prev => [...prev, currentNodeId]);
+                                    setCurrentNodeId(currentNode.test!.failNodeId);
+                                  }}
+                                  className="px-4 py-4 bg-red-900/30 hover:bg-red-800/40 border border-red-800/50 hover:border-red-700 text-red-100 rounded transition-colors flex flex-col items-center"
                                 >
-                                  <span className="font-display text-lg">Fail</span>
-                                  <span className="text-[10px] opacity-70">Failure</span>
+                                  <span className="font-display text-xl font-semibold">Fail</span>
+                                  <span className="text-xs opacity-70">Failure</span>
                                 </button>
                               </div>
-                              <p className="text-[10px] text-parchment-dark mt-2 italic">
+                              <p className="text-xs text-parchment-dark mt-3 italic">
                                 (Resolve this test using your real-life dice, then choose Pass/Fail.)
                               </p>
                             </div>
                           )}
 
                           {/* Outcome Effects */}
-                          {currentNode.type === 'outcome' && currentNode.effects && (
-                             <div className="mt-4 p-3 bg-eldritch/10 rounded border border-eldritch/20 animate-in slide-in-from-bottom-2">
-                                <p className="font-display text-sm text-parchment-light mb-2 flex items-center gap-2">
-                                  <Sparkles className="w-3 h-3 text-gold" />
+                          {currentNode.type === 'outcome' && currentNode.outcome && (
+                             <div className="mt-4 p-4 bg-eldritch/10 rounded border border-eldritch/20 animate-in slide-in-from-bottom-2">
+                                <p className="font-display text-base font-semibold text-parchment-light mb-3 flex items-center gap-2">
+                                  <Sparkles className="w-4 h-4 text-gold" />
                                   Consequences
                                 </p>
-                                <div className="grid grid-cols-2 gap-2 text-xs">
-                                   {currentNode.effects.healthChange ? (
-                                     <div className={`flex items-center gap-1 ${currentNode.effects.healthChange > 0 ? 'text-green-400' : 'text-red-400'}`}>
-                                       <Heart className="w-3 h-3" />
-                                       {currentNode.effects.healthChange > 0 ? '+' : ''}{currentNode.effects.healthChange} Health
+                                <div className="space-y-2 text-sm">
+                                   {currentNode.outcome.effects.health ? (
+                                     <div className={`flex items-center gap-2 font-medium ${currentNode.outcome.effects.health > 0 ? 'text-green-400' : 'text-red-400'}`}>
+                                       <Heart className="w-4 h-4" />
+                                       {currentNode.outcome.effects.health > 0 ? '+' : ''}{currentNode.outcome.effects.health} Health
                                      </div>
                                    ) : null}
-                                   {currentNode.effects.sanityChange ? (
-                                     <div className={`flex items-center gap-1 ${currentNode.effects.sanityChange > 0 ? 'text-blue-400' : 'text-red-400'}`}>
-                                       <Brain className="w-3 h-3" />
-                                       {currentNode.effects.sanityChange > 0 ? '+' : ''}{currentNode.effects.sanityChange} Sanity
+                                   {currentNode.outcome.effects.sanity ? (
+                                     <div className={`flex items-center gap-2 font-medium ${currentNode.outcome.effects.sanity > 0 ? 'text-blue-400' : 'text-red-400'}`}>
+                                       <Brain className="w-4 h-4" />
+                                       {currentNode.outcome.effects.sanity > 0 ? '+' : ''}{currentNode.outcome.effects.sanity} Sanity
                                      </div>
                                    ) : null}
-                                   {currentNode.effects.cluesGained ? (
-                                     <div className="flex items-center gap-1 text-gold-400">
-                                       <Search className="w-3 h-3" />
-                                       +{currentNode.effects.cluesGained} Clue(s)
+                                   {currentNode.outcome.effects.clues ? (
+                                     <div className="flex items-center gap-2 font-medium text-gold-400">
+                                       <Search className="w-4 h-4" />
+                                       +{currentNode.outcome.effects.clues} Clue(s)
                                      </div>
                                    ) : null}
-                                   {currentNode.effects.doomChange ? (
-                                     <div className="flex items-center gap-1 text-purple-400">
-                                       <Zap className="w-3 h-3" />
-                                       {currentNode.effects.doomChange > 0 ? '+' : ''}{currentNode.effects.doomChange} Doom
+                                   {currentNode.outcome.effects.doom ? (
+                                     <div className="flex items-center gap-2 font-medium text-purple-400">
+                                       <Zap className="w-4 h-4" />
+                                       {currentNode.outcome.effects.doom > 0 ? '+' : ''}{currentNode.outcome.effects.doom} Doom
                                      </div>
                                    ) : null}
+                                   {currentNode.outcome.effects.conditions && currentNode.outcome.effects.conditions.length > 0 && (
+                                     <div className="flex items-center gap-2 font-medium text-purple-300">
+                                       <AlertCircle className="w-4 h-4" />
+                                       Gain: {currentNode.outcome.effects.conditions.join(', ')}
                                 </div>
-                                {(!currentNode.effects.healthChange && !currentNode.effects.sanityChange && !currentNode.effects.cluesGained && !currentNode.effects.doomChange) && (
-                                  <p className="text-xs text-parchment-dark italic">No mechanical effects.</p>
+                                   )}
+                                   {currentNode.outcome.effects.assets && currentNode.outcome.effects.assets.length > 0 && (
+                                     <div className="flex items-center gap-2 font-medium text-blue-300">
+                                       <Package className="w-4 h-4" />
+                                       Gain: {currentNode.outcome.effects.assets.join(', ')}
+                                     </div>
+                                   )}
+                                </div>
+                                {(!currentNode.outcome.effects.health && 
+                                  !currentNode.outcome.effects.sanity && 
+                                  !currentNode.outcome.effects.clues && 
+                                  !currentNode.outcome.effects.doom &&
+                                  (!currentNode.outcome.effects.conditions || currentNode.outcome.effects.conditions.length === 0) &&
+                                  (!currentNode.outcome.effects.assets || currentNode.outcome.effects.assets.length === 0)) && (
+                                  <p className="text-sm text-parchment-dark italic">No mechanical effects.</p>
                                 )}
                              </div>
                           )}
@@ -1247,6 +1332,7 @@ export function GameSession() {
                       const response = await generateEncounter(encounterRequest);
                       setEncounterResult(response);
                       setCurrentNodeId(response.encounter.startingNodeId);
+                      setEncounterHistory([]); // Reset history for new encounter
                       
                       // Update tension if the encounter suggests it
                       if (response.tensionChange) {
@@ -1284,13 +1370,69 @@ export function GameSession() {
             ) : (
               <button
                 onClick={() => {
-                  // Log the encounter to narrative
-                  if (encounterResult) {
+                  // Build full encounter history for AI context
+                  if (encounterResult && activePlayer) {
+                    // Build narrative from history
+                    const fullHistory = [...encounterHistory, currentNodeId]
+                      .filter(nodeId => nodeId && encounterResult.encounter.nodes[nodeId])
+                      .map(nodeId => encounterResult.encounter.nodes[nodeId!]);
+                    
+                    const encounterHistoryData = fullHistory.map((node, idx) => {
+                      const result: any = {
+                        text: node.content,
+                        type: node.type,
+                      };
+                      
+                      // For decision nodes, record what was chosen
+                      if (node.type === 'decision' && idx < fullHistory.length - 1) {
+                        const nextNodeId = fullHistory[idx + 1]?.id;
+                        const choiceMade = node.choices?.find(c => c.nextNodeId === nextNodeId);
+                        if (choiceMade) {
+                          result.choiceMade = choiceMade.label;
+                        }
+                      }
+                      
+                      // For test nodes, record pass/fail
+                      if (node.type === 'test' && idx < fullHistory.length - 1) {
+                        const nextNodeId = fullHistory[idx + 1]?.id;
+                        result.testResult = nextNodeId === node.passNodeId ? 'pass' : 'fail';
+                      }
+                      
+                      // For outcome nodes, record effects
+                      if (node.type === 'outcome' && node.outcome) {
+                        result.effects = node.outcome.effects;
+                      }
+                      
+                      return result;
+                    });
+                    
+                    // Create readable narrative summary
+                    const narrativeSummary = fullHistory
+                      .map((node, idx) => {
+                        let text = node.content;
+                        if (node.type === 'decision' && idx < fullHistory.length - 1) {
+                          const nextNodeId = fullHistory[idx + 1]?.id;
+                          const choiceMade = node.choices?.find(c => c.nextNodeId === nextNodeId);
+                          if (choiceMade) text += `\n→ Chose: ${choiceMade.label}`;
+                        }
+                        if (node.type === 'test' && idx < fullHistory.length - 1) {
+                          const nextNodeId = fullHistory[idx + 1]?.id;
+                          const result = nextNodeId === node.test?.passNodeId ? 'Passed' : 'Failed';
+                          text += `\n→ ${result} ${node.test?.skill} test`;
+                        }
+                        return text;
+                      })
+                      .join('\n\n');
+                    
                     addNarrativeEvent({
                       type: 'encounter',
                       title: encounterResult.encounter.title,
-                      content: encounterResult.encounter.narrative,
-                      playerIds: activePlayer ? [activePlayer.id] : undefined,
+                      content: narrativeSummary,
+                      playerIds: [activePlayer.id],
+                      encounterHistory: {
+                        nodes: encounterHistoryData,
+                        finalOutcome: fullHistory[fullHistory.length - 1]?.effects,
+                      },
                     });
                   }
                   
@@ -1298,10 +1440,11 @@ export function GameSession() {
                   setIsCardFlipped(false);
                   setEncounterResult(null);
                   setCurrentNodeId(null);
+                  setEncounterHistory([]); // Reset history
                 }}
-                disabled={encounterResult ? encounterResult.nodes.find(n => n.id === currentNodeId)?.type !== 'outcome' : false}
+                disabled={encounterResult ? encounterResult.encounter.nodes[currentNodeId || '']?.type !== 'outcome' : false}
                 className={`w-full max-w-xs py-4 font-display text-lg tracking-wide rounded-lg flex items-center justify-center gap-3 transition-colors ${
-                  encounterResult && encounterResult.nodes.find(n => n.id === currentNodeId)?.type !== 'outcome'
+                  encounterResult && encounterResult.encounter.nodes[currentNodeId || '']?.type !== 'outcome'
                     ? 'bg-obsidian/50 text-parchment-dark cursor-not-allowed opacity-50'
                     : 'bg-cosmic hover:bg-cosmic-light text-parchment-light'
                 }`}
@@ -1388,6 +1531,123 @@ export function GameSession() {
                 className="w-full py-2 bg-eldritch hover:bg-eldritch-light text-parchment-light font-display rounded transition-colors"
               >
                 Done
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Encounter Details Modal */}
+      {viewingEvent && viewingEvent.encounterHistory && (
+        <div className="fixed inset-0 z-50 bg-void/95 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="w-full max-w-2xl bg-shadow/95 rounded-lg border border-cosmic overflow-hidden max-h-[80vh] flex flex-col">
+            {/* Header */}
+            <div className="px-4 py-3 border-b border-cosmic/50 flex items-center justify-between shrink-0">
+              <div className="flex items-center gap-2">
+                <Scroll className="w-5 h-5 text-cosmic-light" />
+                <h2 className="font-display text-lg text-parchment-light">{viewingEvent.title}</h2>
+              </div>
+              <button
+                onClick={() => setViewingEvent(null)}
+                className="touch-target p-1 text-parchment-dark hover:text-parchment"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            
+            {/* Content */}
+            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+              {viewingEvent.encounterHistory.nodes.map((node, idx) => (
+                <div key={idx} className="space-y-2">
+                  {/* Node text */}
+                  <p className="font-body text-sm text-parchment leading-relaxed">
+                    {node.text}
+                  </p>
+                  
+                  {/* Show choice made */}
+                  {node.choiceMade && (
+                    <div className="ml-4 p-3 bg-eldritch/10 border border-eldritch/30 rounded">
+                      <div className="flex items-center gap-2">
+                        <Check className="w-4 h-4 text-eldritch-light" />
+                        <p className="font-display text-sm font-semibold text-parchment-light">
+                          {node.choiceMade}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                  
+                  {/* Show test result */}
+                  {node.testResult && (
+                    <div className="ml-4 text-center">
+                      <div className={`inline-flex items-center gap-2 px-3 py-2 rounded border ${
+                        node.testResult === 'pass'
+                          ? 'bg-green-900/20 border-green-800/40 text-green-300' 
+                          : 'bg-red-900/20 border-red-800/40 text-red-300'
+                      }`}>
+                        <Check className="w-4 h-4" />
+                        <span className="font-display text-sm font-semibold">
+                          {node.testResult === 'pass' ? 'Passed' : 'Failed'}
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                  
+                  {/* Show effects */}
+                  {node.effects && (
+                    <div className="ml-4 p-3 bg-cosmic/10 border border-cosmic/30 rounded">
+                      <p className="font-display text-xs text-parchment-dark uppercase tracking-wide mb-2">
+                        Effects
+                      </p>
+                      <div className="space-y-1 text-sm">
+                        {node.effects.healthChange && (
+                          <div className={`flex items-center gap-2 ${node.effects.healthChange > 0 ? 'text-green-400' : 'text-red-400'}`}>
+                            <Heart className="w-3 h-3" />
+                            {node.effects.healthChange > 0 ? '+' : ''}{node.effects.healthChange} Health
+                          </div>
+                        )}
+                        {node.effects.sanityChange && (
+                          <div className={`flex items-center gap-2 ${node.effects.sanityChange > 0 ? 'text-blue-400' : 'text-red-400'}`}>
+                            <Brain className="w-3 h-3" />
+                            {node.effects.sanityChange > 0 ? '+' : ''}{node.effects.sanityChange} Sanity
+                          </div>
+                        )}
+                        {node.effects.cluesGained && (
+                          <div className="flex items-center gap-2 text-gold-400">
+                            <Search className="w-3 h-3" />
+                            +{node.effects.cluesGained} Clue(s)
+                          </div>
+                        )}
+                        {node.effects.conditionsGained && node.effects.conditionsGained.length > 0 && (
+                          <div className="flex items-center gap-2 text-purple-300">
+                            <AlertCircle className="w-3 h-3" />
+                            Gain: {node.effects.conditionsGained.join(', ')}
+                          </div>
+                        )}
+                        {node.effects.assetsGained && node.effects.assetsGained.length > 0 && (
+                          <div className="flex items-center gap-2 text-blue-300">
+                            <Package className="w-3 h-3" />
+                            Gain: {node.effects.assetsGained.join(', ')}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                  
+                  {/* Divider between nodes */}
+                  {idx < viewingEvent.encounterHistory.nodes.length - 1 && (
+                    <div className="border-b border-obsidian/30 my-4" />
+                  )}
+                </div>
+              ))}
+            </div>
+            
+            {/* Footer */}
+            <div className="px-4 py-3 border-t border-cosmic/50 shrink-0">
+              <button
+                onClick={() => setViewingEvent(null)}
+                className="w-full py-2 bg-cosmic hover:bg-cosmic-light text-parchment-light font-display rounded transition-colors"
+              >
+                Close
               </button>
             </div>
           </div>

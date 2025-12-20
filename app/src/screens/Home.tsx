@@ -4,7 +4,7 @@ import { useGame } from '../context/GameContext';
 import bgImage from '../assets/eldritch-horror-board-game-artwork.webp';
 
 export function Home() {
-  const { state, hasSavedGame } = useGame();
+  const { state, hasSavedGame, clearGame } = useGame();
 
   return (
     <div className="min-h-dvh w-full flex flex-col items-center justify-center p-6 relative overflow-hidden bg-void text-parchment">
@@ -39,14 +39,28 @@ export function Home() {
 
         {/* Action buttons */}
         <div className="flex flex-col gap-4 w-full max-w-xs">
-          <Link
-            to="/setup"
-            className="touch-target flex items-center justify-center gap-3 px-8 py-4 bg-eldritch text-parchment-light font-display text-lg tracking-wide rounded"
+          <button
+            onClick={() => {
+              // Clear EVERYTHING to ensure a fresh start
+              try {
+                // Clear setup state
+                localStorage.removeItem('eldritch-endless-setup');
+                // Clear game state
+                clearGame();
+              } catch (e) {
+                console.warn('Failed to clear state:', e);
+              }
+              
+              // Force navigation to setup
+              // Using window.location to ensure fresh state mount
+              window.location.href = '/setup';
+            }}
+            className="touch-target flex items-center justify-center gap-3 px-8 py-4 bg-eldritch text-parchment-light font-display text-lg tracking-wide rounded w-full"
             style={{ backgroundColor: '#4a1a6b' }} // Inline style fallback
           >
             <BookOpen className="w-5 h-5" />
-            Begin Ritual
-          </Link>
+            Begin New Game
+          </button>
 
           {hasSavedGame && (
             <Link

@@ -34,6 +34,26 @@ interface ResearchEncounterData {
   description: string;
 }
 
+// Type for research encounter data from research-encounters.json
+interface ResearchEncountersData {
+  ancient_ones: {
+    [ancientOneName: string]: {
+      ancient_one: string;
+      url: string;
+      set: {
+        text: string;
+        expansion: string;
+      };
+      thematicSummary?: string;
+      encounters: {
+        City: Array<any>;
+        Wilderness: Array<any>;
+        Sea: Array<any>;
+      };
+    };
+  };
+}
+
 // Type for detailed Ancient One data loaded from ancient_ones_detailed.json
 interface AncientOneDetailed {
   name: string;
@@ -109,6 +129,9 @@ export function useGameData() {
   const [investigatorDetailed, setInvestigatorDetailed] = useState<
     Map<string, InvestigatorDetailed>
   >(new Map());
+  const [researchEncounters, setResearchEncounters] = useState<
+    Map<string, string>
+  >(new Map());
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -154,6 +177,19 @@ export function useGameData() {
       }
       setInvestigatorDetailed(invDetailedMap);
     }
+    // @ts-ignore
+    if (window.__ELDRITCH_RESEARCH_ENCOUNTERS__) {
+      // @ts-ignore
+      const researchJson = window.__ELDRITCH_RESEARCH_ENCOUNTERS__ as ResearchEncountersData;
+      const researchMap = new Map<string, string>();
+      for (const ancientOneName in researchJson.ancient_ones) {
+        const summary = researchJson.ancient_ones[ancientOneName].thematicSummary;
+        if (summary) {
+          researchMap.set(ancientOneName, summary);
+        }
+      }
+      setResearchEncounters(researchMap);
+    }
   }, []);
 
   useEffect(() => {
@@ -163,7 +199,8 @@ export function useGameData() {
       window.__ELDRITCH_DATA__ &&
       window.__ELDRITCH_META__ &&
       window.__ELDRITCH_DETAILED__ &&
-      window.__ELDRITCH_INVESTIGATORS_DETAILED__
+      window.__ELDRITCH_INVESTIGATORS_DETAILED__ &&
+      window.__ELDRITCH_RESEARCH_ENCOUNTERS__
     ) {
       // @ts-ignore
       setData(window.__ELDRITCH_DATA__);
@@ -188,8 +225,12 @@ export function useGameData() {
         if (!res.ok) throw new Error("Failed to load investigator details");
         return res.json();
       }),
+      fetch("/research-encounters.json").then((res) => {
+        if (!res.ok) throw new Error("Failed to load research encounters");
+        return res.json();
+      }),
     ])
-      .then(([json, metaJson, detailedJson, invDetailedJson]) => {
+      .then(([json, metaJson, detailedJson, invDetailedJson, researchJson]) => {
         console.log(`[GameData] Loaded ${invDetailedJson.length} detailed investigators`);
         // @ts-ignore
         window.__ELDRITCH_DATA__ = json;
@@ -199,6 +240,8 @@ export function useGameData() {
         window.__ELDRITCH_DETAILED__ = detailedJson;
         // @ts-ignore
         window.__ELDRITCH_INVESTIGATORS_DETAILED__ = invDetailedJson;
+        // @ts-ignore
+        window.__ELDRITCH_RESEARCH_ENCOUNTERS__ = researchJson;
 
         setData(json as GameData);
 
@@ -230,6 +273,18 @@ export function useGameData() {
           invDetailedMap.set(entry.name, entry);
         }
         setInvestigatorDetailed(invDetailedMap);
+
+        // Load Research Encounters thematic summaries
+        const researchData = researchJson as ResearchEncountersData;
+        const researchMap = new Map<string, string>();
+        for (const ancientOneName in researchData.ancient_ones) {
+          const summary = researchData.ancient_ones[ancientOneName].thematicSummary;
+          if (summary) {
+            researchMap.set(ancientOneName, summary);
+          }
+        }
+        setResearchEncounters(researchMap);
+        console.log(`[GameData] Loaded ${researchMap.size} research encounter summaries`);
 
         setLoading(false);
       })
@@ -586,6 +641,10 @@ export function useGameData() {
     (ao: WikiPage): AncientOneContext => {
       // First, try to get from pre-extracted detailed data
       const detailed = ancientOneDetailed.get(ao.title);
+      
+      // Get research encounter thematic summary
+      const researchThematicSummary = researchEncounters.get(ao.title) || researchEncounters.get(detailed?.name || '');
+      
       if (detailed) {
         return {
           // Identity
@@ -619,6 +678,9 @@ export function useGameData() {
           
           // Mysteries - both names and full details with flavor text and requirements
           mysteryNames: detailed.mysteryNames || [],
+          mysteries: detailed.mysteryDetails?.map(m => 
+            `**${m.name}** (${m.type})\n${m.flavorText}\n\n${m.mysteryText}`
+          ) || [],
           mysteryDetails: detailed.mysteryDetails?.map(m => ({
             name: m.name,
             type: m.type,
@@ -632,7 +694,8 @@ export function useGameData() {
             hasMonster: m.hasMonster,
           })),
           
-          // Research encounters - full card descriptions for AI context
+          // Research encounters - thematic summary and full card descriptions
+          researchEncounterThematicSummary: researchThematicSummary,
           researchEncounters: detailed.researchEncounters,
           researchEncounterDetails: detailed.researchEncounterDetails ? {
             city: detailed.researchEncounterDetails.city || [],
@@ -725,12 +788,14 @@ export function useGameData() {
         shortDescription: stripWikiMarkup(ao.sections?.[epithet] || "").slice(0, 500),
         lore: stripWikiMarkup(loreSection).slice(0, 2000),
         abilities: stripWikiMarkup(gameplaySection).slice(0, 1500),
+        mysteries: mysteries, // Array of mystery names as strings
         mysteryNames: mysteries,
-        researchEncounterSummary: stripWikiMarkup(researchSection).slice(0, 1000),
-        awakeningFlavor: stripWikiMarkup(defeatCondition).slice(0, 500),
+        researchEncounterThematicSummary: researchThematicSummary,
+        researchEncounters: stripWikiMarkup(researchSection).slice(0, 1000),
+        defeatCondition: stripWikiMarkup(defeatCondition).slice(0, 500),
       };
     },
-    [ancientOneDetailed]
+    [ancientOneDetailed, researchEncounters]
   );
 
   /**

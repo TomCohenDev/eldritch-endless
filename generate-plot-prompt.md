@@ -76,19 +76,6 @@ ${m.mysteryText}
 ${m.requiresClues ? '• Requires Clues' : ''}${m.requiresSpells ? '• Requires Spells' : ''}${m.hasEldritchTokens ? '• Uses Eldritch Tokens' : ''}${m.requiresArtifact ? '• Requires Artifact' : ''}${m.hasMonster ? '• Involves Monster' : ''}`).join('\n')
   : $json.body.ancientOne.mysteries.map((m, i) => `**Mystery ${i + 1}:** ${m}`).join('\n') }}
 
-### Research Encounters
-
-{{ $json.body.ancientOne.researchEncounters || 'Standard research encounters.' }}
-
-{{ $json.body.ancientOne.researchEncounterDetails ? `
-**City Research:**
-${$json.body.ancientOne.researchEncounterDetails.city.map(r => '• ' + r.description).join('\n')}
-
-**Wilderness Research:**
-${$json.body.ancientOne.researchEncounterDetails.wilderness.map(r => '• ' + r.description).join('\n')}
-
-**Sea Research:**
-${$json.body.ancientOne.researchEncounterDetails.sea.map(r => '• ' + r.description).join('\n')}` : '' }}
 
 ---
 
