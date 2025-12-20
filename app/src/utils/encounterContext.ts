@@ -206,7 +206,9 @@ export function buildEncounterContext(
     throw new Error('Cannot build encounter context: ancientOne is not set');
   }
   
-  const plotContext = gameState.plotContext;
+  // Exclude audioNarration from the plot context sent to the API (it contains large Base64 audio data)
+  const { audioNarration, ...plotContextWithoutAudio } = gameState.plotContext;
+  const plotContext = gameState.plotContext; // Keep full context for internal lookups
   
   // Build investigator snapshots
   const investigators = gameState.players.map(p => 
@@ -256,7 +258,7 @@ export function buildEncounterContext(
       phase: gameState.phase,
     },
     
-    plotContext,
+    plotContext: plotContextWithoutAudio,
     
     ancientOne: {
       name: gameState.ancientOne.title,
@@ -352,4 +354,6 @@ export function getActionTypeLabel(actionType: ActionType): string {
   };
   return labels[actionType] || actionType;
 }
+
+
 
