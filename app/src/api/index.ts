@@ -80,6 +80,40 @@ export async function generatePlot(
 }
 
 /**
+ * Generate audio narration for the prologue
+ */
+export async function generateNarration(
+  plotContext: PlotContext,
+  voiceId: string
+): Promise<{
+  premise: string; // Base64 or URL
+  investigatorStakes: Record<string, string>; // playerId -> Base64/URL
+  backgroundMusic?: string; // Base64/URL
+} | null> {
+  try {
+    const response = await fetch(`${API_BASE_URL}/game-narration`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        plotContext,
+        voiceId,
+      }),
+      signal: AbortSignal.timeout(120000), // 2 min timeout for audio generation
+    });
+
+    if (!response.ok) {
+      console.error("Narration generation failed");
+      return null;
+    }
+
+    return await response.json();
+  } catch (e) {
+    console.error("Narration generation error:", e);
+    return null;
+  }
+}
+
+/**
  * Create a fallback plot context when the API is unavailable
  * Generates minimal placeholder content based on the game setup
  */
