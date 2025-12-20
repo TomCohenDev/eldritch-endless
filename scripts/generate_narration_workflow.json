@@ -1,0 +1,206 @@
+{
+  "name": "Eldritch Endless - Generate Narration",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "game-narration",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [100, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = $input.all()[0].json;\n\n// Handle different input structures - plotContext might be nested or at root\nlet plotContext = input.plotContext || input.body?.plotContext || input;\nlet voiceId = input.voiceId || input.body?.voiceId;\n\n// Debug log\nconsole.log('Input keys:', Object.keys(input));\nconsole.log('plotContext keys:', plotContext ? Object.keys(plotContext) : 'null');\nconsole.log('voiceId:', voiceId);\n\nconst items = [];\n\n// 1. Premise\nif (plotContext && plotContext.premise) {\n  items.push({\n    json: {\n      type: 'premise',\n      text: plotContext.premise,\n      voiceId: voiceId\n    }\n  });\n}\n\n// 2. Investigators\nif (plotContext && plotContext.investigatorThreads) {\n  for (const thread of plotContext.investigatorThreads) {\n    const text = (thread.personalStakes || '') + ' ' + (thread.connectionToThreat || '');\n    if (text.trim()) {\n      items.push({\n        json: {\n          type: 'investigator',\n          id: thread.playerId,\n          text: text,\n          voiceId: voiceId\n        }\n      });\n    }\n  }\n}\n\n// 3. Music (Only one track based on themes)\nif (plotContext && plotContext.activeThemes && plotContext.activeThemes.length > 0) {\n  // Take just a few keywords, not full sentences\n  const themeKeywords = plotContext.activeThemes.slice(0, 3).map(t => t.split('—')[0].trim()).join(', ');\n  items.push({\n    json: {\n      type: 'music',\n      text: `Dark eldritch horror ambient music, slow, ominous, ${themeKeywords}`,\n      voiceId: null\n    }\n  });\n}\n\n// Fallback if no items generated\nif (items.length === 0) {\n  return [{ json: { error: 'No valid plot context found', inputKeys: Object.keys(input) } }];\n}\n\nreturn items;"
+      },
+      "id": "prepare-items",
+      "name": "Prepare Audio Items",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [300, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.type }}",
+              "value2": "music"
+            }
+          ]
+        }
+      },
+      "id": "if-music",
+      "name": "Is Music?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [500, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.elevenlabs.io/v1/sound-generation",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "xi-api-key",
+              "value": "sk_8eeeae4f45cbc36653d4b7b3505b8dad94e626fb365cfbfb"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"text\": \"{{ $json.text }}\",\n  \"duration_seconds\": 30\n}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "id": "generate-music",
+      "name": "Generate Music",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [700, 100]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.elevenlabs.io/v1/text-to-speech/{{ $json.voiceId }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "xi-api-key",
+              "value": "sk_8eeeae4f45cbc36653d4b7b3505b8dad94e626fb365cfbfb"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"text\": \"{{ $json.text }}\",\n  \"model_id\": \"eleven_monolingual_v1\",\n  \"voice_settings\": {\n    \"stability\": 0.5,\n    \"similarity_boost\": 0.5\n  }\n}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "id": "generate-speech",
+      "name": "Generate Speech",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [700, 400]
+    },
+    {
+      "parameters": {
+        "jsCode": "const results = {\n  premise: null,\n  investigatorStakes: {},\n  backgroundMusic: null\n};\n\nfor (const item of $input.all()) {\n  const type = item.json.type;\n  const binaryKey = Object.keys(item.binary || {})[0];\n  if (!binaryKey) continue;\n  \n  const base64Data = 'data:' + item.binary[binaryKey].mimeType + ';base64,' + item.binary[binaryKey].data;\n\n  if (type === 'music') {\n    results.backgroundMusic = base64Data;\n  } else if (type === 'premise') {\n    results.premise = base64Data;\n  } else if (type === 'investigator') {\n    results.investigatorStakes[item.json.id] = base64Data;\n  }\n}\n\nreturn [{ json: results }];"
+      },
+      "id": "format-response",
+      "name": "Format Response",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1000, 300]
+    },
+    {
+      "parameters": {},
+      "id": "merge-node",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [900, 250]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Prepare Audio Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Audio Items": {
+      "main": [
+        [
+          {
+            "node": "Is Music?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is Music?": {
+      "main": [
+        [
+          {
+            "node": "Generate Music",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Generate Speech",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Music": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Speech": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Format Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

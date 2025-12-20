@@ -254,3 +254,5 @@ export function buildEncounterContextForRequest(location: string, encounterType:
 
 export default fullEncounterContext;
 
+
+

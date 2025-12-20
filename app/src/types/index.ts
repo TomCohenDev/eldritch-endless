@@ -11,6 +11,18 @@ export interface NarratorVoice {
 
 export const NARRATOR_VOICES: NarratorVoice[] = [
   {
+    id: "VzL0S5icwVNq22k4PQh9",
+    name: "Amelia Tyler",
+    description: "Theatrical British Storyteller",
+    sampleFile: "amelia_tyler.mp3"
+  },
+  {
+    id: "iF3or9nmjbmmkApwUOyk",
+    name: "Celest",
+    description: "Mysterious British Narrator",
+    sampleFile: "celest.mp3"
+  },
+  {
     id: "tmtVLLFJVXmAZYwJoVdL",
     name: "Claire",
     description: "Rhythmic and Clear Narrator",
@@ -229,6 +241,13 @@ export interface PlotContext {
   currentTension: number; // 0-10 scale
   activeThemes: string[]; // Horror themes in play
   majorPlotPoints: string[]; // Key events that have occurred
+
+  // Audio Narration
+  audioNarration?: {
+    premise?: string; // URL or Base64
+    investigatorStakes?: Record<string, string>; // playerId -> audioUrl
+    backgroundMusic?: string; // URL or Base64
+  };
 }
 
 // API request/response types for plot generation
