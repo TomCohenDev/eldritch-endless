@@ -1,0 +1,53 @@
+{
+  "url": "https://eldritchhorror.fandom.com/wiki/Combat_Encounter",
+  "title": "Combat Encounter",
+  "intro": "A Combat Encounter is a type of encounter that occurs when the Investigator begins the Encounter Phase while on the same space as a monster. The investigator must encounter every monster that shares his space, one at a time. If there are both non-Epic Monsters and Epic Monsters on the space, the non-Epic Monster(s) must be encountered before the Epic Monster(s) are encountered. (This rule is not in the base game but is part of the rules insert for every expansion.)",
+  "combat_rules": {
+    "description": "When encountering a Monster, the investigator flips the Monster token facedown and reads the information on the back of the token, resolving any effects that could affect the combat encounter. He then resolves two tests from top to bottom, in most cases a Will test and then a Strength test, to determine the result of the Combat Encounter.",
+    "horror_test": {
+      "name": "Will Test (Horror)",
+      "description": "The Encounter begins by making a Will test against the monster's Horror rating. If the investigator's result is lower than the monster's Horror, the investigator suffers Sanity loss equal to the difference. If the test result is equal to or greater than the rating, he loses no Sanity. Some monsters have no skill listed for this test at all, in which case no skill test is performed."
+    },
+    "damage_test": {
+      "name": "Strength Test (Damage)",
+      "description": "Then, the investigator tests Strength against the monster's Damage rating. If this result is lower than the monster's, the investigator suffers Health loss equal to the difference. If the investigator's result is equal or greater than the rating, he loses no Health. If the monster has no Damage rating, the player still performs this test unless otherwise specified on the back of the Monster's token, but there is no possibility of Health loss."
+    },
+    "defeating_monsters": {
+      "description": "If the investigator passes the Damage test, the Monster loses Health equal to the number of successes rolled during the test. Indicate this by placing Health tokens on the Monster token. The investigator and Monster lose Health simultaneously. When a Monster has lost Health equal to or greater than its toughness, the Monster is defeated and returned to the Monster cup. If the Monster is not defeated, it remains on its space along with any Health tokens on it."
+    },
+    "multiple_monsters": {
+      "description": "If there are multiple Monsters on the investigator's space, the investigator must have one Combat Encounter with each one. After all Monsters on the investigator's space have been encountered, if there are no longer any Monsters on the investigator's space (e.g. if they were all defeated in combat), the investigator may have an additional encounter on his space. If there are still one or more Monsters remaining on the space, that investigator does not get to have an additional encounter, and play continues to the next investigator."
+    },
+    "alternate_skills": {
+      "description": "Some Monsters list other skills to test in place of Will and/or Strength; they are handled just like those 2 tests above."
+    }
+  },
+  "examples": [
+    {
+      "title": "A: Less Success than the Monster's Damage",
+      "description": "The investigator fights against a Ghoul which has 1 Toughness and 2 Damage. The investigator rolls Strength and obtains only 1 success. As a result, the investigator loses 1 Health (2 damage from the Ghoul minus 1 success), and the Ghoul loses 1 Health (from the investigator's 1 success) and is defeated."
+    },
+    {
+      "title": "B: Success Equal to the Monster's Damage",
+      "description": "The investigator fights against a Goat Spawn which has 1 Toughness and 2 Damage. The investigator rolls Strength and obtains 2 successes. As a result, the investigator does not lose any Health, while the Goat Spawn loses 2 Health due to the investigator's 2 successes and is defeated."
+    }
+  ],
+  "notes": [
+    "As with other kinds of tests, if an Investigator rolls at least one success on a Monster's Will/Strength test, that counts as 'passing' the test.",
+    "Monster's special effect example: If it states 'if the investigator fails the Will test, he does not resolve the Strength test', and the Monster's Horror rating is 2 and the investigator rolled 1 success on Will test, the investigator passes this test because he rolled at least one success, but still loses 1 Sanity since we subtract number of successes from Monster's Horror rating. If not defeated, he can now perform the Strength test as usual.",
+    "If the Monster's special effect states 'if the investigator loses Sanity from the Will test, he does not resolve the Strength test', investigator will not resolve the Strength test since he lost 1 Sanity.",
+    "When an effect refers to 'during Combat Encounters', that means when investigators resolve the skill tests printed on the Monster token.",
+    "Handcuffs cannot be used while encountering an enemy such as a Colour Out of Space or a Ghost which do not have a Strength test, but can be used to defeat a Cultist of Nephren-Ka which has a Lore test in place of its Strength test.",
+    "If a Monster has another skill icon in place of the Strength test indicator, the test is still considered 'the Strength test during a Combat Encounter' even though the actual skill being tested isn't Strength."
+  ],
+  "ambush": {
+    "description": "An Ambush causes a Monster to attack an investigator at a time other than a typical Combat Encounter. This may occur as a result of a Mythos card, a Reckoning effect, or during the Encounter Phase. When an investigator is ambushed, they immediately draw one random Monster and resolve a Combat Encounter with it."
+  },
+  "physical_and_magical_resistance": {
+    "description": "Physical and Magical Resistance are abilities introduced in the Mountains of Madness expansion. They are properties that certain Monsters may have, as indicated on the Monster's token.",
+    "rules": [
+      "Improvement tokens are not affected by Physical or Magical Resistance.",
+      "Effects that allow the investigator to roll 'additional dice', reroll dice, manipulate dice results or cause any effects other than a direct skill bonus (e.g. cause the Monster to lose Health) may be used regardless of the monster's Physical or Magical Resistance."
+    ]
+  }
+}

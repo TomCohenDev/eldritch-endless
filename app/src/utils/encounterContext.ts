@@ -133,6 +133,31 @@ export function buildEncounterContext(
     state.round
   );
   
+  // Build recent encounters context (last 3 encounters with full history)
+  const recentEncounters = (state.narrativeLog || [])
+    .filter(event => event.type === 'encounter' && event.encounterHistory)
+    .slice(-3)
+    .map(event => {
+      const encounterPlayer = state.players.find(p => 
+        event.playerIds?.includes(p.id)
+      );
+      
+      // Extract choices made
+      const choicesMade = event.encounterHistory!.nodes
+        .filter(n => n.choiceMade || n.testResult)
+        .map(n => n.choiceMade || `${n.testResult} test`)
+        .filter(Boolean) as string[];
+      
+      return {
+        title: event.title,
+        location: encounterPlayer?.location || 'Unknown',
+        investigatorName: encounterPlayer?.investigator?.title || encounterPlayer?.name || 'Unknown',
+        summary: event.content.split('\n\n')[0], // First paragraph
+        choicesMade,
+        outcome: event.encounterHistory!.finalOutcome || {},
+      };
+    });
+  
   return {
     sessionId: state.sessionId,
     encounterType: request.type,
@@ -160,8 +185,15 @@ export function buildEncounterContext(
       activeThemes: state.plotContext.activeThemes,
       majorPlotPoints: state.plotContext.majorPlotPoints,
       investigatorThread,
+      // Rich narrative context for the Ancient One
+      ancientOneMotivation: state.plotContext.ancientOneMotivation,
+      cultistAgenda: state.plotContext.cultistAgenda,
+      cosmicThreat: state.plotContext.cosmicThreat,
+      locationSignificance: state.plotContext.locationSignificance,
     },
     
     roundTimeline,
+    
+    recentEncounters,
   };
 }

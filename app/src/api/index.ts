@@ -1,13 +1,5 @@
-/**
- * API Integration for n8n Backend
- *
- * Environment Variables:
- *   VITE_N8N_ENV: 'test' | 'prod' (default: 'prod')
- *
- * URLs:
- *   Test: https://n8n.yarden-zamir.com/webhook-test/...
- *   Prod: https://n8n.yarden-zamir.com/webhook/...
- */
+// API Integration for Local AI Services
+// NOTE: n8n integration has been fully replaced by local Anthropic API calls.
 
 import type {
   GameState,
@@ -18,17 +10,9 @@ import type {
   GenerateEncounterRequest,
   GenerateEncounterResponse,
 } from "../types";
-
-// n8n webhook configuration
-const N8N_BASE = "https://n8n.yarden-zamir.com";
-const N8N_ENV = import.meta.env.VITE_N8N_ENV || "prod";
-
-// Base URL switches between test and production webhooks
-const API_BASE_URL =
-  N8N_ENV === "test" ? `${N8N_BASE}/webhook-test` : `${N8N_BASE}/webhook`;
-
-// Log which environment is being used (helpful for debugging)
-console.log(`[API] Using n8n ${N8N_ENV} environment: ${API_BASE_URL}`);
+import { generatePlotWithAI } from "../services/ai/plotGeneration";
+import { generateEncounterWithAI } from "../services/ai/encounterGeneration";
+import { generateNarrationWithAI } from "../services/ai/narration";
 
 // Simple fallback UUID generator if crypto.randomUUID is missing
 function generateUUID() {
@@ -51,23 +35,8 @@ function generateUUID() {
 export async function generatePlot(
   request: GeneratePlotRequest
 ): Promise<PlotContext> {
-  const response = await fetch(`${API_BASE_URL}/game-start`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(request),
-  });
-
-  if (!response.ok) {
-    console.error(
-      "Plot generation failed:",
-      response.status,
-      response.statusText
-    );
-    throw new Error(`Failed to generate plot: ${response.statusText}`);
-  }
-
-  const plotContext = (await response.json()) as PlotContext;
-  return plotContext;
+  // Use local AI service instead of n8n webhook
+  return await generatePlotWithAI(request);
 }
 
 /**
@@ -78,22 +47,8 @@ export async function generatePlot(
 export async function generateEncounter(
   request: GenerateEncounterRequest
 ): Promise<GenerateEncounterResponse> {
-  const response = await fetch(`${API_BASE_URL}/encounter`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(request),
-  });
-
-  if (!response.ok) {
-    console.error(
-      "Encounter generation failed:",
-      response.status,
-      response.statusText
-    );
-    throw new Error(`Failed to generate encounter: ${response.statusText}`);
-  }
-
-  return (await response.json()) as GenerateEncounterResponse;
+  // Use local AI service instead of n8n webhook
+  return await generateEncounterWithAI(request);
 }
 
 /**
@@ -126,22 +81,8 @@ export interface NarrationRequest {
  * Throws an error if the API call fails - no fallbacks allowed
  */
 export async function generateNarration(request: NarrationRequest): Promise<NarrationResponse> {
-  const response = await fetch(`${API_BASE_URL}/game-narration`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(request),
-  });
-
-  if (!response.ok) {
-    console.error(
-      "Narration generation failed:",
-      response.status,
-      response.statusText
-    );
-    throw new Error(`Failed to generate narration: ${response.statusText}`);
-  }
-
-  return (await response.json()) as NarrationResponse;
+  // Use local AI service instead of n8n webhook
+  return await generateNarrationWithAI(request);
 }
 
 /**
@@ -225,14 +166,9 @@ export async function getInvestigatorSuggestions(context: {
 
 /**
  * Health check for the backend connection
+ * Since we are now using client-side AI, we effectively always have a "backend"
+ * as long as the user has internet access.
  */
 export async function checkBackendHealth(): Promise<boolean> {
-  try {
-    const response = await fetch(`${API_BASE_URL}/health`, {
-      method: "GET",
-    });
-    return response.ok;
-  } catch {
-    return false;
-  }
+  return true;
 }

@@ -70,6 +70,12 @@ export function GameSetup() {
   
   // Determine initial step based on saved state and current game state
   const getInitialStep = (): SetupStep => {
+    // If we're navigating here fresh (no ancient one selected yet), always start at count
+    // unless we truly have a game in progress that we're resuming setup for.
+    if (!state.ancientOne && state.players.length === 0) {
+      return 'count';
+    }
+
     const saved = getSavedSetupState();
     
     // If we have a plot context, go straight to prologue
@@ -93,6 +99,11 @@ export function GameSetup() {
     }
     
     // Otherwise use saved step or default to count
+    // Force reset to 'count' if no active game state exists to prevent getting stuck in later steps
+    if (!state.ancientOne && !state.players.length) {
+      return 'count'; // Always start fresh if state is empty
+    }
+    
     return saved?.step || 'count';
   };
   
@@ -195,15 +206,38 @@ export function GameSetup() {
     }
   };
 
-  const handleBeginGame = () => {
-    // Stop any playing audio when leaving
+  const stopAllAudio = () => {
     if (ambianceAudio) {
       ambianceAudio.pause();
       ambianceAudio.currentTime = 0;
     }
+    if (narrationAudio) {
+      narrationAudio.pause();
+      narrationAudio.currentTime = 0;
+    }
     setIsMusicPlaying(false);
+    setPlayingNarrationId(null);
+  };
+
+  const handleBeginGame = () => {
+    // Stop any playing audio when leaving
+    stopAllAudio();
     navigate('/game');
   };
+  
+  // Cleanup audio when leaving the page
+  useEffect(() => {
+    return () => {
+      if (ambianceAudio) {
+        ambianceAudio.pause();
+        ambianceAudio.currentTime = 0;
+      }
+      if (narrationAudio) {
+        narrationAudio.pause();
+        narrationAudio.currentTime = 0;
+      }
+    };
+  }, [ambianceAudio, narrationAudio]);
 
   const toggleMusic = () => {
     if (!ambianceAudio) return;
