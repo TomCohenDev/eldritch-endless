@@ -1147,16 +1147,16 @@ export function GameSession() {
                             )}
 
                                   {/* Show test result */}
-                                  {node.type === 'test' && encounterHistory[idx + 1] && (
+                                  {node.type === 'test' && encounterHistory[idx + 1] && node.testInfo && (
                                     <div className="mt-2 text-center">
                                       <div className={`inline-flex items-center gap-2 px-3 py-2 rounded border ${
-                                        encounterHistory[idx + 1] === node.test.passNodeId 
+                                        encounterHistory[idx + 1] === node.passNodeId 
                                           ? 'bg-green-900/20 border-green-800/40 text-green-300' 
                                           : 'bg-red-900/20 border-red-800/40 text-red-300'
                                       }`}>
                                         <Check className="w-4 h-4" />
                                         <span className="font-display text-sm font-semibold">
-                                          {encounterHistory[idx + 1] === node.test.passNodeId ? 'Passed' : 'Failed'} {node.test.skill}
+                                          {encounterHistory[idx + 1] === node.passNodeId ? 'Passed' : 'Failed'} {node.testInfo.skill}
                                         </span>
                                       </div>
                                     </div>
@@ -1218,8 +1218,10 @@ export function GameSession() {
                               <div className="grid grid-cols-2 gap-3">
                                 <button
                                   onClick={() => {
-                                    setEncounterHistory(prev => [...prev, currentNodeId]);
-                                    setCurrentNodeId(currentNode.test!.passNodeId);
+                                    if (currentNode.testInfo && currentNode.passNodeId) {
+                                      setEncounterHistory(prev => [...prev, currentNodeId]);
+                                      setCurrentNodeId(currentNode.passNodeId);
+                                    }
                                   }}
                                   className="px-4 py-4 bg-green-900/30 hover:bg-green-800/40 border border-green-800/50 hover:border-green-700 text-green-100 rounded transition-colors flex flex-col items-center"
                                 >
@@ -1228,8 +1230,10 @@ export function GameSession() {
                                 </button>
                                 <button
                                   onClick={() => {
-                                    setEncounterHistory(prev => [...prev, currentNodeId]);
-                                    setCurrentNodeId(currentNode.test!.failNodeId);
+                                    if (currentNode.testInfo && currentNode.failNodeId) {
+                                      setEncounterHistory(prev => [...prev, currentNodeId]);
+                                      setCurrentNodeId(currentNode.failNodeId);
+                                    }
                                   }}
                                   className="px-4 py-4 bg-red-900/30 hover:bg-red-800/40 border border-red-800/50 hover:border-red-700 text-red-100 rounded transition-colors flex flex-col items-center"
                                 >
@@ -1393,7 +1397,7 @@ export function GameSession() {
                       }
                       
                       // For test nodes, record pass/fail
-                      if (node.type === 'test' && idx < fullHistory.length - 1) {
+                      if (node.type === 'test' && idx < fullHistory.length - 1 && node.passNodeId) {
                         const nextNodeId = fullHistory[idx + 1]?.id;
                         result.testResult = nextNodeId === node.passNodeId ? 'pass' : 'fail';
                       }
@@ -1415,10 +1419,10 @@ export function GameSession() {
                           const choiceMade = node.choices?.find(c => c.nextNodeId === nextNodeId);
                           if (choiceMade) text += `\n→ Chose: ${choiceMade.label}`;
                         }
-                        if (node.type === 'test' && idx < fullHistory.length - 1) {
+                        if (node.type === 'test' && idx < fullHistory.length - 1 && node.testInfo) {
                           const nextNodeId = fullHistory[idx + 1]?.id;
-                          const result = nextNodeId === node.test?.passNodeId ? 'Passed' : 'Failed';
-                          text += `\n→ ${result} ${node.test?.skill} test`;
+                          const result = nextNodeId === node.passNodeId ? 'Passed' : 'Failed';
+                          text += `\n→ ${result} ${node.testInfo.skill} test`;
                         }
                         return text;
                       })

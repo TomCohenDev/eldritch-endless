@@ -110,10 +110,30 @@ export async function generateEncounterWithAI(request: GenerateEncounterRequest)
   const prompt = generateEncounterPrompt(request, cards, metadata);
   
   console.log('[AI Encounter Generation] Generated Prompt:');
-  console.log('--- PROMPT START ---');
-  console.log(prompt);
-  console.log('--- PROMPT END ---');
   console.log(`[AI Encounter Generation] Prompt length: ${prompt.length} characters`);
+  console.log('[AI Encounter Generation] Prompt preview (first 1000 chars):', prompt.substring(0, 1000));
+  console.log('[AI Encounter Generation] Prompt preview (last 1000 chars):', prompt.substring(prompt.length - 1000));
+  
+  // Log full prompt in chunks to avoid console truncation
+  const chunkSize = 5000;
+  for (let i = 0; i < prompt.length; i += chunkSize) {
+    const chunk = prompt.substring(i, i + chunkSize);
+    console.log(`[AI Encounter Generation] Prompt chunk ${Math.floor(i / chunkSize) + 1}:`, chunk);
+  }
+  
+  // Also verify key data is present
+  console.log('[AI Encounter Generation] Data verification:', {
+    hasPremise: !!request.plotContext?.premise,
+    premiseLength: request.plotContext?.premise?.length || 0,
+    hasAncientOneMotivation: !!request.plotContext?.ancientOneMotivation,
+    motivationLength: request.plotContext?.ancientOneMotivation?.length || 0,
+    hasCultistAgenda: !!request.plotContext?.cultistAgenda,
+    hasCosmicThreat: !!request.plotContext?.cosmicThreat,
+    hasActiveThemes: !!request.plotContext?.activeThemes,
+    activeThemesCount: request.plotContext?.activeThemes?.length || 0,
+    hasInvestigatorThread: !!request.plotContext?.investigatorThread,
+    hasLocationSignificance: !!request.plotContext?.locationSignificance,
+  });
 
   try {
     console.log(`[AI Encounter Generation] Calling Anthropic API with model: ${ENCOUNTER_GENERATION_MODEL}`);
