@@ -15,8 +15,9 @@ import type {
   WikiPage,
   PlotContext,
   GeneratePlotRequest,
+  GenerateEncounterRequest,
+  GenerateEncounterResponse,
 } from "../types";
-import { createEmptyPlotContext as createFallbackPlot } from "../types";
 
 // n8n webhook configuration
 const N8N_BASE = "https://n8n.yarden-zamir.com";
@@ -45,114 +46,102 @@ function generateUUID() {
  * Generate the plot context for a new game session
  * Called when "Summon the Darkness" is clicked
  * The AI creates a dark, flexible narrative based on investigators and Ancient One
+ * Throws an error if the API call fails - no fallbacks allowed
  */
 export async function generatePlot(
   request: GeneratePlotRequest
 ): Promise<PlotContext> {
-  try {
-    const response = await fetch(`${API_BASE_URL}/game-start`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(request),
-      signal: AbortSignal.timeout(30000), // 30 second timeout for AI generation
-    });
+  const response = await fetch(`${API_BASE_URL}/game-start`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(request),
+  });
 
-    if (!response.ok) {
-      console.error(
-        "Plot generation failed:",
-        response.status,
-        response.statusText
-      );
-      throw new Error(`Failed to generate plot: ${response.statusText}`);
-    }
-
-    const plotContext = (await response.json()) as PlotContext;
-    return plotContext;
-  } catch (error) {
-    console.error("Plot generation error:", error);
-
-    // Return a fallback plot context so the game can continue
-    return createFallbackPlotContext(request);
+  if (!response.ok) {
+    console.error(
+      "Plot generation failed:",
+      response.status,
+      response.statusText
+    );
+    throw new Error(`Failed to generate plot: ${response.statusText}`);
   }
-}
 
-/**
- * Create a fallback plot context when the API is unavailable
- * Generates minimal placeholder content based on the game setup
- */
-function createFallbackPlotContext(request: GeneratePlotRequest): PlotContext {
-  const fallback = createFallbackPlot();
-
-  // Populate with basic context from the request
-  fallback.premise =
-    `The stars align as ${request.ancientOne.name} stirs in the darkness beyond reality. ` +
-    `${request.investigators.length} investigator${
-      request.investigators.length > 1 ? "s" : ""
-    } must uncover the truth before doom befalls the world.`;
-
-  fallback.ancientOneMotivation = `${request.ancientOne.name} seeks to break through the barriers between worlds.`;
-  fallback.cultistAgenda = `Dark cults work in shadow to hasten the awakening.`;
-  fallback.cosmicThreat = `Should ${request.ancientOne.name} fully awaken, reality itself will be unmade.`;
-
-  fallback.investigatorThreads = request.investigators.map((inv, idx) => ({
-    playerId: `player-${idx}`,
-    personalStakes: `${inv.name} must confront the darkness that has haunted their dreams.`,
-    connectionToThreat: `Their path has led them to this moment of cosmic significance.`,
-    potentialArc: `Will ${inv.name} find the strength to face the unknown?`,
-  }));
-
-  fallback.mysteryHooks = [
-    "Strange phenomena reported across the globe",
-    "Ancient texts speak of rituals long forgotten",
-    "Witnesses describe impossible geometries in the sky",
-  ];
-
-  fallback.possibleOutcomes = {
-    victory: `The investigators seal away ${request.ancientOne.name}, but the memory of what they witnessed will haunt them forever.`,
-    defeat: `${request.ancientOne.name} awakens, and the world is forever changed.`,
-    pyrrhicVictory: `The Ancient One is stopped, but at a terrible cost that none could have foreseen.`,
-  };
-
-  fallback.currentTension = 3;
-  fallback.activeThemes = [
-    "cosmic horror",
-    "forbidden knowledge",
-    "impending doom",
-  ];
-
-  return fallback;
+  const plotContext = (await response.json()) as PlotContext;
+  return plotContext;
 }
 
 /**
  * Generate a narrative encounter based on game context
  * This will call the AI agent to create story-appropriate encounters
+ * Throws an error if the API call fails - no fallbacks allowed
  */
-export async function generateEncounter(context: {
-  gameState: GameState;
-  encounterType: "location" | "research" | "other_world" | "combat" | "special";
-  location?: string;
-}): Promise<NarrativeEvent> {
-  // Mock response
-  return {
-    id: generateUUID(),
-    timestamp: Date.now(),
-    type: "encounter",
-    title: "Shadows in the Library",
-    content: `The ancient tomes seem to whisper as you approach. Something moves in the darkness between the shelves, and you catch a glimpse of eyes that should not exist...`,
-    choices: [
-      {
-        id: "investigate",
-        label: "Investigate the movement",
-        description: "Test Observation (2)",
-      },
-      {
-        id: "read",
-        label: "Read the nearest tome",
-        description: "Test Lore (1)",
-      },
-      { id: "leave", label: "Leave quietly", description: "No test required" },
-    ],
+export async function generateEncounter(
+  request: GenerateEncounterRequest
+): Promise<GenerateEncounterResponse> {
+  const response = await fetch(`${API_BASE_URL}/encounter`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(request),
+  });
+
+  if (!response.ok) {
+    console.error(
+      "Encounter generation failed:",
+      response.status,
+      response.statusText
+    );
+    throw new Error(`Failed to generate encounter: ${response.statusText}`);
+  }
+
+  return (await response.json()) as GenerateEncounterResponse;
+}
+
+/**
+ * Narration response with audio URLs for each section
+ */
+export interface NarrationResponse {
+  premise?: string;
+  investigators?: Record<string, string>; // playerId -> audioUrl
+}
+
+/**
+ * Request format for narration generation
+ * Matches the n8n workflow expected input
+ */
+export interface NarrationRequest {
+  plotContext: {
+    premise: string;
+    investigatorThreads: Array<{
+      playerId: string;
+      personalStakes: string;
+      connectionToThreat: string;
+    }>;
   };
+  voiceId: string;
+}
+
+/**
+ * Generate narration audio for the prologue sections
+ * Calls the TTS service to generate spoken narration
+ * Throws an error if the API call fails - no fallbacks allowed
+ */
+export async function generateNarration(request: NarrationRequest): Promise<NarrationResponse> {
+  const response = await fetch(`${API_BASE_URL}/game-narration`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(request),
+  });
+
+  if (!response.ok) {
+    console.error(
+      "Narration generation failed:",
+      response.status,
+      response.statusText
+    );
+    throw new Error(`Failed to generate narration: ${response.statusText}`);
+  }
+
+  return (await response.json()) as NarrationResponse;
 }
 
 /**
@@ -241,7 +230,6 @@ export async function checkBackendHealth(): Promise<boolean> {
   try {
     const response = await fetch(`${API_BASE_URL}/health`, {
       method: "GET",
-      signal: AbortSignal.timeout(5000),
     });
     return response.ok;
   } catch {
