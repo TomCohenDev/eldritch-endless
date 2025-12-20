@@ -1,56 +1,4 @@
-// =============================================================================
-// NARRATOR VOICE TYPES (for ElevenLabs integration)
-// =============================================================================
-
-export interface NarratorVoice {
-  id: string;
-  name: string;
-  description: string;
-  sampleFile: string; // Filename in assets/voices/ folder
-}
-
-export const NARRATOR_VOICES: NarratorVoice[] = [
-  {
-    id: "VzL0S5icwVNq22k4PQh9",
-    name: "Amelia Tyler",
-    description: "Theatrical British Storyteller",
-    sampleFile: "amelia_tyler.mp3"
-  },
-  {
-    id: "iF3or9nmjbmmkApwUOyk",
-    name: "Celest",
-    description: "Mysterious British Narrator",
-    sampleFile: "celest.mp3"
-  },
-  {
-    id: "tmtVLLFJVXmAZYwJoVdL",
-    name: "Claire",
-    description: "Rhythmic and Clear Narrator",
-    sampleFile: "claire.mp3"
-  },
-  {
-    id: "BpjGufoPiobT79j2vtj4",
-    name: "Priyanka",
-    description: "Calm, Neutral and Relaxed",
-    sampleFile: "priyanka.mp3"
-  },
-  {
-    id: "BQOei2tk6QCBMHQWPhbj",
-    name: "Cedric",
-    description: "Slow-Burn Horror Storyteller",
-    sampleFile: "cedric.mp3"
-  },
-  {
-    id: "NtSmOMyr386gAQrqbQcB",
-    name: "Global Artist",
-    description: "Soft, Kind and Clear",
-    sampleFile: "global-artist.mp3"
-  }
-];
-
-// =============================================================================
 // Wiki data types (from eldritch_horror_data.json)
-// =============================================================================
 // Renamed interface to force cache bust
 export interface WikiPage {
   title: string;
@@ -241,13 +189,6 @@ export interface PlotContext {
   currentTension: number; // 0-10 scale
   activeThemes: string[]; // Horror themes in play
   majorPlotPoints: string[]; // Key events that have occurred
-
-  // Audio Narration
-  audioNarration?: {
-    premise?: string; // URL or Base64
-    investigatorStakes?: Record<string, string>; // playerId -> audioUrl
-    backgroundMusic?: string; // URL or Base64
-  };
 }
 
 // API request/response types for plot generation
@@ -262,8 +203,6 @@ export interface AncientOneContext {
   defeatCondition: string;
   awakeningTitle?: string;
   awakeningEffects?: string;
-  awakeningFlavor?: string;
-  finalMystery?: string;
   appearance?: string;
   residence?: string;
   disposition?: string;
@@ -273,9 +212,6 @@ export interface AncientOneContext {
   difficulty?: string;
   startingDoom?: number;
   mythosDeckSize?: number;
-  mysteryNames?: string[];
-  researchEncounterDetails?: any;
-  mysteryDetails?: any[];
 }
 
 export interface InvestigatorContext {
@@ -285,16 +221,6 @@ export interface InvestigatorContext {
   abilities: string;
   personalStory: string;
   startingLocation: string;
-  quote?: string;
-  role?: string;
-  teamRole?: string;
-  origin?: string;
-  startingEquipment?: any[];
-  defeatedEncounters?: {
-    lossOfHealth: string;
-    lossOfSanity: string;
-  };
-  rulings?: string;
 }
 
 export interface GeneratePlotRequest {
@@ -354,9 +280,6 @@ export interface GameState {
 
   // Story context for AI (generated at game start, evolves during play)
   plotContext: PlotContext | null;
-
-  // Narrator voice for ElevenLabs TTS
-  narratorVoiceId: string;
 }
 
 // Simple fallback UUID generator
@@ -393,256 +316,5 @@ export function createInitialGameState(): GameState {
     narrativeLog: [],
     currentEncounter: null,
     plotContext: null,
-    narratorVoiceId: NARRATOR_VOICES[2].id, // Default to Cedric - Slow-Burn Horror Storyteller
-  };
-}
-
-// =============================================================================
-// ENCOUNTER GENERATION CONTEXT TYPES
-// These types provide ALL context needed for the n8n encounter generation workflow
-// =============================================================================
-
-/**
- * A single action in human-readable format for the AI
- * This is a simplified version of ActionRecord for narrative purposes
- */
-export interface ActionTimelineEntry {
-  timestamp: number;
-  investigatorName: string;
-  investigatorId: string;
-  actionType: ActionType;
-  description: string; // Human-readable action description
-  fromLocation?: string;
-  toLocation?: string;
-  currentLocation: string;
-}
-
-/**
- * Summary of all actions taken during a single round
- * Organized by investigator for clarity
- */
-export interface RoundTimeline {
-  round: number;
-  actions: ActionTimelineEntry[];
-  summary: string; // AI-friendly narrative summary of what happened
-}
-
-/**
- * Snapshot of a player's current state
- * Used to give the AI full context about each investigator
- */
-export interface InvestigatorSnapshot {
-  id: string;
-  name: string;
-  profession: string;
-  location: string;
-  health: number;
-  maxHealth: number;
-  sanity: number;
-  maxSanity: number;
-  clues: number;
-  conditions: string[];
-  assets: string[];
-  shipTickets: number;
-  trainTickets: number;
-  // From plot context - their personal narrative thread
-  personalStakes?: string;
-  connectionToThreat?: string;
-  potentialArc?: string;
-}
-
-/**
- * Types of encounters that can be generated
- */
-export type EncounterType =
-  | "general" // City/Sea/Wilderness based on location type
-  | "location_region" // Specific region (Europe, Americas, Asia, etc.)
-  | "research" // Ancient One specific research encounters
-  | "other_world" // Encounters from beyond reality
-  | "expedition" // Expedition location encounters
-  | "mystic_ruins" // Mystic Ruins encounters (complex)
-  | "dream_quest" // Dream-Quest encounters (complex)
-  | "devastation" // Devastation encounters (complex)
-  | "combat" // Monster encounters
-  | "special"; // Unique/story-driven encounters
-
-/**
- * The encounter being requested
- */
-export interface EncounterRequest {
-  type: EncounterType;
-  subType?: string; // e.g., "Europe", "Azathoth Research", "Monster: Shoggoth"
-  investigatorId: string; // Which investigator is having the encounter
-  location: string; // Where the encounter takes place
-  // Optional: specific card selected by player (for reference encounters)
-  selectedCard?: {
-    title: string;
-    originalText: string;
-  };
-}
-
-/**
- * Complete context package for encounter generation
- * This is everything the n8n workflow needs to generate a contextual encounter
- */
-export interface GenerateEncounterRequest {
-  // Session identification
-  sessionId: string;
-  
-  // Current game state
-  gameState: {
-    round: number;
-    doom: number;
-    maxDoom: number;
-    doomPercentage: number; // 0-100, how close to awakening
-    phase: GamePhase;
-  };
-  
-  // The plot context generated at game start
-  plotContext: PlotContext;
-  
-  // Ancient One information
-  ancientOne: {
-    name: string;
-    epithet?: string;
-    motivation: string; // From plotContext.ancientOneMotivation
-    cultistAgenda: string; // From plotContext.cultistAgenda
-  };
-  
-  // All investigators' current state
-  investigators: InvestigatorSnapshot[];
-  
-  // The investigator having this encounter
-  activeInvestigator: InvestigatorSnapshot;
-  
-  // What kind of encounter is being requested
-  encounterRequest: EncounterRequest;
-  
-  // Timeline of actions this round
-  currentRoundTimeline: RoundTimeline;
-  
-  // Recent narrative events (last 5-10 for context)
-  recentNarrative: Array<{
-    type: NarrativeEvent['type'];
-    title: string;
-    content: string;
-    outcome?: 'pass' | 'fail' | 'neutral';
-  }>;
-  
-  // Location significance from plot (if this location has narrative importance)
-  locationSignificance?: string;
-  
-  // Current tension level (0-10)
-  currentTension: number;
-  
-  // Active themes to maintain
-  activeThemes: string[];
-  
-  // Major plot points that have occurred
-  majorPlotPoints: string[];
-}
-
-/**
- * Node in the encounter narrative tree
- */
-export interface EncounterNode {
-  id: string;
-  text: string;
-  type: 'decision' | 'test' | 'outcome';
-  
-  // For decisions
-  choices?: {
-    id: string;
-    label: string;
-    description?: string;
-    nextNodeId: string;
-  }[];
-  
-  // For tests
-  test?: {
-    skill: 'Lore' | 'Influence' | 'Observation' | 'Strength' | 'Will';
-    difficulty: number;
-    passNodeId: string;
-    failNodeId: string;
-  };
-  
-  // For outcomes
-  effects?: {
-    healthChange?: number;
-    sanityChange?: number;
-    cluesGained?: number;
-    doomChange?: number;
-    conditionsGained?: string[];
-    assetsGained?: string[];
-  };
-}
-
-/**
- * Response from the encounter generation workflow
- */
-export interface GenerateEncounterResponse {
-  // The encounter meta
-  encounter: {
-    title: string;
-    narrative: string; // Overall setup description
-    flavorText?: string;
-    startingNodeId: string; // Entry point to the tree
-  };
-  
-  // The narrative tree nodes
-  nodes: EncounterNode[];
-  
-  // Suggested narrative hooks for future encounters
-  narrativeHooks?: string[];
-  
-  // Should tension increase/decrease based on this encounter?
-  tensionChange?: number; // -2 to +2
-  
-  // Any plot points established by this encounter
-  newPlotPoints?: string[];
-}
-
-/**
- * Response after resolving an encounter choice
- */
-export interface ResolveEncounterRequest {
-  sessionId: string;
-  encounterId: string;
-  choiceId: string;
-  testResult?: {
-    rolled: number;
-    successes: number;
-    passed: boolean;
-  };
-  // Current state for context
-  investigator: InvestigatorSnapshot;
-  plotContext: PlotContext;
-}
-
-export interface ResolveEncounterResponse {
-  outcome: 'pass' | 'fail' | 'neutral';
-  narrative: string; // What happens as a result
-  
-  // Mechanical effects
-  effects: {
-    healthChange?: number;
-    sanityChange?: number;
-    cluesGained?: number;
-    doomChange?: number;
-    conditionsGained?: string[];
-    conditionsRemoved?: string[];
-    assetsGained?: string[];
-    assetsLost?: string[];
-  };
-  
-  // Story impact
-  storyImpact?: {
-    plotPointAdded?: string;
-    tensionChange?: number;
-    locationSignificanceAdded?: {
-      location: string;
-      significance: string;
-    };
-    investigatorThreadUpdate?: string; // Update to this investigator's personal narrative
   };
 }
