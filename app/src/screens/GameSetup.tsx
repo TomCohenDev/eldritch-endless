@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
   Users, 
@@ -17,12 +17,25 @@ import {
   Sparkles,
   Volume2,
   Play,
-  Square
+  Square,
+  AlertTriangle,
+  Music2,
+  Pause,
+  SkipForward
 } from 'lucide-react';
 import { useGame } from '../context/GameContext';
 import { useGameData } from '../hooks/useGameData';
 import { NARRATOR_VOICES, type AncientOnePage, type WikiPage } from '../types';
 import { playVoiceSample, stopVoiceSample } from '../utils/voiceSamples';
+import { generateNarration as generateNarrationApi } from '../api';
+
+// Import ambiance audio
+import ambiance1 from '../assets/narration-ambiance/1.mp3';
+import ambiance2 from '../assets/narration-ambiance/2.mp3';
+import ambiance3 from '../assets/narration-ambiance/3.mp3';
+import ambiance4 from '../assets/narration-ambiance/4.mp3';
+
+const AMBIANCE_TRACKS = [ambiance1, ambiance2, ambiance3, ambiance4];
 
 type SetupStep = 'count' | 'ancientOne' | 'investigators' | 'summary' | 'prologue';
 
@@ -40,11 +53,94 @@ export function GameSetup() {
   
   const { ancientOnes, investigators, helpers, loading } = useGameData();
   
-  const [step, setStep] = useState<SetupStep>('count');
-  const [playerCount, setPlayerCount] = useState(2);
+  const SETUP_STORAGE_KEY = 'eldritch-endless-setup';
+  
+  // Load saved setup state from localStorage
+  const getSavedSetupState = (): { step: SetupStep; playerCount: number } | null => {
+    try {
+      const saved = localStorage.getItem(SETUP_STORAGE_KEY);
+      if (saved) {
+        return JSON.parse(saved);
+      }
+    } catch (e) {
+      console.warn('Failed to load setup state:', e);
+    }
+    return null;
+  };
+  
+  // Determine initial step based on saved state and current game state
+  const getInitialStep = (): SetupStep => {
+    const saved = getSavedSetupState();
+    
+    // If we have a plot context, go straight to prologue
+    if (state.plotContext) {
+      return 'prologue';
+    }
+    
+    // If we have players with investigators assigned, go to summary
+    if (state.players.length > 0 && state.players.every(p => p.investigator)) {
+      return 'summary';
+    }
+    
+    // If we have an ancient one but not all investigators, go to investigators
+    if (state.ancientOne && state.players.length > 0) {
+      return 'investigators';
+    }
+    
+    // If we have players but no ancient one, go to ancient one selection
+    if (state.players.length > 0) {
+      return 'ancientOne';
+    }
+    
+    // Otherwise use saved step or default to count
+    return saved?.step || 'count';
+  };
+  
+  const getInitialPlayerCount = (): number => {
+    // If we already have players, use that count
+    if (state.players.length > 0) {
+      return state.players.length;
+    }
+    // Otherwise use saved count or default
+    const saved = getSavedSetupState();
+    return saved?.playerCount || 2;
+  };
+  
+  const [step, setStep] = useState<SetupStep>(getInitialStep);
+  const [playerCount, setPlayerCount] = useState(getInitialPlayerCount);
   const [searchQuery, setSearchQuery] = useState('');
   const [editingPlayerIndex, setEditingPlayerIndex] = useState<number | null>(null);
   const [playingVoiceId, setPlayingVoiceId] = useState<string | null>(null);
+  const [plotError, setPlotError] = useState<string | null>(null);
+  const [isGeneratingNarration, setIsGeneratingNarration] = useState(false);
+  const [narrationUrls, setNarrationUrls] = useState<{
+    premise?: string;
+    investigators?: Record<string, string>;
+  } | null>(null);
+  const [playingNarrationId, setPlayingNarrationId] = useState<string | null>(null);
+  const [currentNarrationId, setCurrentNarrationId] = useState<string | null>(null); // Track which section is loaded
+  const [narrationAudio] = useState(() => typeof Audio !== 'undefined' ? new Audio() : null);
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+  const [musicVolume, setMusicVolume] = useState(0.3);
+  const [ambianceAudio] = useState(() => {
+    if (typeof Audio === 'undefined') return null;
+    const audio = new Audio();
+    // Pick a random track once
+    const randomTrack = AMBIANCE_TRACKS[Math.floor(Math.random() * AMBIANCE_TRACKS.length)];
+    audio.src = randomTrack;
+    audio.loop = true;
+    audio.volume = 0.3;
+    return audio;
+  });
+  
+  // Persist setup state to localStorage
+  useEffect(() => {
+    try {
+      localStorage.setItem(SETUP_STORAGE_KEY, JSON.stringify({ step, playerCount }));
+    } catch (e) {
+      console.warn('Failed to save setup state:', e);
+    }
+  }, [step, playerCount]);
 
   // --- Step 1: Player Count Handlers ---
   const handleStartSetup = () => {
@@ -88,18 +184,133 @@ export function GameSetup() {
   const handleFinishSetup = async () => {
     stopVoiceSample();
     setPlayingVoiceId(null);
+    setPlotError(null); // Clear any previous error
     const success = await confirmSetupAndGeneratePlot();
     // Show prologue if plot generation succeeded
     if (success) {
       setStep('prologue');
     } else {
-      // Show error message to user
-      alert('Failed to generate plot. Please try again.');
+      // Show error message and stay on summary page for retry
+      setPlotError('Failed to summon the darkness. The stars may not be aligned. Please try again.');
     }
   };
 
   const handleBeginGame = () => {
+    // Stop any playing audio when leaving
+    if (ambianceAudio) {
+      ambianceAudio.pause();
+      ambianceAudio.currentTime = 0;
+    }
+    setIsMusicPlaying(false);
     navigate('/game');
+  };
+
+  const toggleMusic = () => {
+    if (!ambianceAudio) return;
+    
+    if (isMusicPlaying) {
+      ambianceAudio.pause();
+      setIsMusicPlaying(false);
+    } else {
+      // Resume from where we left off (track already set on init)
+      ambianceAudio.play().catch(console.error);
+      setIsMusicPlaying(true);
+    }
+  };
+
+  const handleVolumeChange = (newVolume: number) => {
+    setMusicVolume(newVolume);
+    if (ambianceAudio) {
+      ambianceAudio.volume = newVolume;
+    }
+  };
+
+  const switchTrack = () => {
+    if (!ambianceAudio) return;
+    
+    // Get a different random track
+    const currentSrc = ambianceAudio.src;
+    let newTrack = AMBIANCE_TRACKS[Math.floor(Math.random() * AMBIANCE_TRACKS.length)];
+    
+    // Make sure we get a different track if possible
+    let attempts = 0;
+    while (newTrack === currentSrc && attempts < 5 && AMBIANCE_TRACKS.length > 1) {
+      newTrack = AMBIANCE_TRACKS[Math.floor(Math.random() * AMBIANCE_TRACKS.length)];
+      attempts++;
+    }
+    
+    const wasPlaying = isMusicPlaying;
+    ambianceAudio.src = newTrack;
+    ambianceAudio.currentTime = 0;
+    
+    if (wasPlaying) {
+      ambianceAudio.play().catch(console.error);
+    }
+  };
+
+  const generateNarration = async () => {
+    if (!state.plotContext || !state.ancientOne) return;
+    
+    setIsGeneratingNarration(true);
+    
+    try {
+      // Build investigator threads for narration
+      const investigatorThreads = state.plotContext.investigatorThreads?.map(thread => ({
+        playerId: thread.playerId,
+        personalStakes: thread.personalStakes || '',
+        connectionToThreat: thread.connectionToThreat || '',
+      })) || [];
+      
+      // Get the ElevenLabs voice ID from the selected narrator voice
+      const selectedVoice = NARRATOR_VOICES.find(v => v.id === state.narratorVoiceId);
+      const elevenLabsVoiceId = selectedVoice?.elevenLabsId || NARRATOR_VOICES[0].elevenLabsId;
+      
+      // Call the narration generation API with plotContext format
+      const data = await generateNarrationApi({
+        plotContext: {
+          premise: state.plotContext.premise,
+          investigatorThreads,
+        },
+        voiceId: elevenLabsVoiceId,
+      });
+      
+      console.log('[Narration] Received response:', data);
+      setNarrationUrls(data);
+      
+      // Auto-play the premise narration if available
+      if (data.premise && narrationAudio) {
+        playNarrationSection('premise', data.premise);
+      }
+    } catch (error) {
+      console.error('Failed to generate narration:', error);
+    } finally {
+      setIsGeneratingNarration(false);
+    }
+  };
+
+  const playNarrationSection = (sectionId: string, audioUrl: string) => {
+    if (!narrationAudio) return;
+    
+    // If same section is playing, pause it (resume later)
+    if (playingNarrationId === sectionId) {
+      narrationAudio.pause();
+      setPlayingNarrationId(null);
+      return;
+    }
+    
+    // If same section is paused, resume it
+    if (currentNarrationId === sectionId && !playingNarrationId) {
+      narrationAudio.play().catch(console.error);
+      setPlayingNarrationId(sectionId);
+      return;
+    }
+    
+    // Play a new section (different from current)
+    narrationAudio.src = audioUrl;
+    narrationAudio.onended = () => setPlayingNarrationId(null);
+    narrationAudio.play().catch(console.error);
+    setPlayingNarrationId(sectionId);
+    setCurrentNarrationId(sectionId);
   };
 
   // --- Render Functions ---
@@ -434,6 +645,21 @@ export function GameSetup() {
         </div>
       </div>
 
+      {/* Error message */}
+      {plotError && (
+        <div className="mb-4 p-4 bg-blood/20 border border-blood/50 rounded-lg">
+          <div className="flex items-start gap-3">
+            <AlertTriangle className="w-5 h-5 text-blood shrink-0 mt-0.5" />
+            <div>
+              <p className="font-body text-sm text-parchment-light">{plotError}</p>
+              <p className="font-body text-xs text-parchment-dark mt-1">
+                Check your connection and try again.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
       <button
         onClick={handleFinishSetup}
         disabled={isGeneratingPlot}
@@ -447,13 +673,16 @@ export function GameSetup() {
         ) : (
           <>
             <Skull className="w-5 h-5" />
-            Summon the Darkness
+            {plotError ? 'Try Again' : 'Summon the Darkness'}
           </>
         )}
       </button>
 
       <button
-        onClick={() => setStep('investigators')}
+        onClick={() => {
+          setPlotError(null);
+          setStep('investigators');
+        }}
         disabled={isGeneratingPlot}
         className="mt-4 text-parchment-dark hover:text-parchment text-sm text-center disabled:opacity-50"
       >
@@ -469,6 +698,72 @@ export function GameSetup() {
     return (
       <div className="flex flex-col h-full animate-fade-in overflow-hidden">
         <div className="flex-1 overflow-y-auto pb-32 space-y-6">
+          {/* Music Controls - Top */}
+          <div className="bg-shadow/40 rounded-lg p-4 border border-obsidian flex items-center gap-4">
+            <button
+              onClick={toggleMusic}
+              className={`flex items-center justify-center w-10 h-10 rounded-full transition-all ${
+                isMusicPlaying 
+                  ? 'bg-cosmic/30 text-cosmic-light border border-cosmic' 
+                  : 'bg-shadow/50 text-parchment-dark border border-obsidian hover:border-cosmic-dark hover:text-parchment'
+              }`}
+              title={isMusicPlaying ? 'Pause music' : 'Play music'}
+            >
+              {isMusicPlaying ? <Pause className="w-5 h-5" /> : <Music2 className="w-5 h-5" />}
+            </button>
+            
+            <button
+              onClick={switchTrack}
+              className="flex items-center justify-center w-10 h-10 rounded-full transition-all bg-shadow/50 text-parchment-dark border border-obsidian hover:border-cosmic-dark hover:text-parchment"
+              title="Switch track"
+            >
+              <SkipForward className="w-5 h-5" />
+            </button>
+            
+            <div className="flex-1 flex items-center gap-3">
+              <Volume2 className="w-4 h-4 text-parchment-dark shrink-0" />
+              <input
+                type="range"
+                min="0"
+                max="1"
+                step="0.05"
+                value={musicVolume}
+                onChange={(e) => handleVolumeChange(parseFloat(e.target.value))}
+                className="flex-1 h-2 bg-obsidian rounded-lg appearance-none cursor-pointer accent-cosmic"
+              />
+              <span className="font-accent text-xs text-parchment-dark w-8 text-right">
+                {Math.round(musicVolume * 100)}%
+              </span>
+            </div>
+          </div>
+
+          {/* Narration Controls */}
+          {!narrationUrls && (
+            <div className="flex items-center justify-center">
+              <button
+                onClick={generateNarration}
+                disabled={isGeneratingNarration}
+                className={`flex items-center gap-2 px-6 py-3 rounded-lg border transition-all w-full justify-center ${
+                  isGeneratingNarration 
+                    ? 'bg-eldritch/20 border-eldritch/50 text-eldritch-light cursor-wait' 
+                    : 'bg-shadow/50 border-obsidian hover:border-eldritch hover:bg-eldritch/20 text-parchment-dark hover:text-parchment'
+                }`}
+              >
+                {isGeneratingNarration ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    <span className="font-accent text-sm">Generating Narration...</span>
+                  </>
+                ) : (
+                  <>
+                    <Volume2 className="w-5 h-5" />
+                    <span className="font-accent text-sm">Generate Narration</span>
+                  </>
+                )}
+              </button>
+            </div>
+          )}
+
           {/* Title Card */}
           <div className="text-center py-6 border-b border-obsidian/50">
             <div className="flex items-center justify-center gap-2 mb-3">
@@ -488,11 +783,26 @@ export function GameSetup() {
 
           {/* The Premise */}
           <section className="bg-shadow/30 rounded-lg p-5 border border-obsidian">
-            <div className="flex items-center gap-2 mb-4">
-              <BookOpen className="w-5 h-5 text-eldritch-light" />
-              <h2 className="font-display text-lg text-parchment-light">The Situation</h2>
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-2">
+                <BookOpen className="w-5 h-5 text-eldritch-light" />
+                <h2 className="font-display text-lg text-parchment-light">The Situation</h2>
+              </div>
+              {narrationUrls?.premise && (
+                <button
+                  onClick={() => playNarrationSection('premise', narrationUrls.premise!)}
+                  className={`flex items-center justify-center w-8 h-8 rounded-full transition-all ${
+                    playingNarrationId === 'premise'
+                      ? 'bg-eldritch/30 text-eldritch-light border border-eldritch'
+                      : 'bg-shadow/50 text-parchment-dark border border-obsidian hover:border-eldritch-dark hover:text-parchment'
+                  }`}
+                  title={playingNarrationId === 'premise' ? 'Pause' : 'Play narration'}
+                >
+                  {playingNarrationId === 'premise' ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 ml-0.5" />}
+                </button>
+              )}
             </div>
-            <p className="font-body text-sm text-parchment leading-relaxed">
+            <p className="font-body text-base font-medium text-parchment leading-relaxed">
               {plot.premise}
             </p>
           </section>
@@ -508,7 +818,7 @@ export function GameSetup() {
                 {plot.activeThemes.slice(0, 5).map((theme, idx) => (
                   <span 
                     key={idx}
-                    className="px-3 py-1 bg-void/50 rounded-full font-body text-xs text-parchment-dark border border-obsidian/30"
+                    className="px-3 py-1.5 bg-void/50 rounded-full font-body text-sm font-medium text-parchment-dark border border-obsidian/30"
                   >
                     {theme}
                   </span>
@@ -530,30 +840,51 @@ export function GameSetup() {
                   || plot.investigatorThreads?.[idx];
                 
                 if (!thread || !player.investigator) return null;
+                
+                const investigatorAudioUrl = narrationUrls?.investigators?.[player.id];
+                // Debug: log what we're looking for
+                if (narrationUrls?.investigators) {
+                  console.log('[Narration] Looking for investigator:', player.id, 'Available keys:', Object.keys(narrationUrls.investigators), 'Found:', !!investigatorAudioUrl);
+                }
 
                 return (
                   <div 
                     key={player.id}
                     className="bg-shadow/40 rounded-lg p-4 border border-obsidian hover:border-eldritch-dark transition-colors"
                   >
-                    <div className="flex items-start gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-full bg-eldritch-dark flex items-center justify-center shrink-0">
-                        <User className="w-5 h-5 text-parchment" />
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="flex items-start gap-3">
+                        <div className="w-10 h-10 rounded-full bg-eldritch-dark flex items-center justify-center shrink-0">
+                          <User className="w-5 h-5 text-parchment" />
+                        </div>
+                        <div>
+                          <h3 className="font-display text-base text-parchment-light">
+                            {player.investigator.title}
+                          </h3>
+                          <p className="font-accent text-xs text-parchment-dark">
+                            {player.investigator.infobox?.profession || 'Investigator'} • {player.location}
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="font-display text-base text-parchment-light">
-                          {player.investigator.title}
-                        </h3>
-                        <p className="font-accent text-xs text-parchment-dark">
-                          {player.investigator.infobox?.profession || 'Investigator'} • {player.location}
-                        </p>
-                      </div>
+                      {investigatorAudioUrl && (
+                        <button
+                          onClick={() => playNarrationSection(player.id, investigatorAudioUrl)}
+                          className={`flex items-center justify-center w-8 h-8 rounded-full transition-all shrink-0 ${
+                            playingNarrationId === player.id
+                              ? 'bg-eldritch/30 text-eldritch-light border border-eldritch'
+                              : 'bg-shadow/50 text-parchment-dark border border-obsidian hover:border-eldritch-dark hover:text-parchment'
+                          }`}
+                          title={playingNarrationId === player.id ? 'Pause' : 'Play narration'}
+                        >
+                          {playingNarrationId === player.id ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 ml-0.5" />}
+                        </button>
+                      )}
                     </div>
                     
                     {thread.personalStakes && (
                       <div className="mb-3">
-                        <p className="font-accent text-[10px] text-blood-light uppercase tracking-wide mb-1">Personal Stakes</p>
-                        <p className="font-body text-xs text-parchment leading-relaxed">
+                        <p className="font-display text-sm font-bold text-gold-light uppercase tracking-wide mb-2">Personal Stakes</p>
+                        <p className="font-body text-sm font-medium text-parchment leading-relaxed">
                           {thread.personalStakes}
                         </p>
                       </div>
@@ -561,8 +892,8 @@ export function GameSetup() {
                     
                     {thread.connectionToThreat && (
                       <div>
-                        <p className="font-accent text-[10px] text-eldritch-light uppercase tracking-wide mb-1">Connection to the Threat</p>
-                        <p className="font-body text-xs text-parchment-dark leading-relaxed">
+                        <p className="font-display text-sm font-bold text-sickly-light uppercase tracking-wide mb-2">Connection to the Threat</p>
+                        <p className="font-body text-sm font-medium text-parchment leading-relaxed">
                           {thread.connectionToThreat}
                         </p>
                       </div>
@@ -598,11 +929,11 @@ export function GameSetup() {
         <div className="fixed bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-void via-void to-transparent">
           <button
             onClick={handleBeginGame}
-            className="touch-target w-full flex items-center justify-center gap-3 px-8 py-4 bg-eldritch hover:bg-eldritch-light text-parchment-light font-display text-lg tracking-wide rounded shadow-lg shadow-eldritch/20 transition-all"
+            className="touch-target w-full flex items-center justify-center gap-2 sm:gap-3 px-4 sm:px-8 py-3 sm:py-4 bg-eldritch hover:bg-eldritch-light text-parchment-light font-display text-base sm:text-lg tracking-wide rounded shadow-lg shadow-eldritch/20 transition-all flex-wrap"
           >
-            <Skull className="w-5 h-5" />
-            Begin the Investigation
-            <ArrowRight className="w-5 h-5" />
+            <Skull className="w-5 h-5 shrink-0" />
+            <span className="text-center">Begin the Investigation</span>
+            <ArrowRight className="w-5 h-5 shrink-0" />
           </button>
         </div>
       </div>
