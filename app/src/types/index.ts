@@ -1,3 +1,57 @@
+// Narrator voice configuration
+export interface NarratorVoice {
+  id: string;
+  elevenLabsId: string; // The actual ElevenLabs voice ID for API calls
+  name: string;
+  description: string;
+  sampleFile: string;
+}
+
+export const NARRATOR_VOICES: NarratorVoice[] = [
+  {
+    id: 'claire',
+    elevenLabsId: 'tmtVLLFJVXmAZYwJoVdL',
+    name: 'Claire',
+    description: 'Calm and measured, with an air of quiet authority',
+    sampleFile: 'claire.mp3',
+  },
+  {
+    id: 'priyanka',
+    elevenLabsId: 'BpjGufoPiobT79j2vtj4',
+    name: 'Priyanka',
+    description: 'Warm and inviting, with a storyteller\'s cadence',
+    sampleFile: 'priyanka.mp3',
+  },
+  {
+    id: 'cedric',
+    elevenLabsId: 'BQOei2tk6QCBMHQWPhbj',
+    name: 'Cedric',
+    description: 'Deep and resonant, evoking ancient mysteries',
+    sampleFile: 'cedric.mp3',
+  },
+  {
+    id: 'global-artist',
+    elevenLabsId: 'NtSmOMyr386gAQrqbQcB',
+    name: 'Global Artist',
+    description: 'Versatile and expressive, adapting to any tale',
+    sampleFile: 'global-artist.mp3',
+  },
+  {
+    id: 'celest',
+    elevenLabsId: 'iF3or9nmjbmmkApwUOyk',
+    name: 'Celest',
+    description: 'Ethereal and haunting, perfect for cosmic horror',
+    sampleFile: 'celest.mp3',
+  },
+  {
+    id: 'amelia',
+    elevenLabsId: 'VzL0S5icwVNq22k4PQh9',
+    name: 'Amelia Tyler',
+    description: 'Rich and dramatic, a classic narrator\'s voice',
+    sampleFile: 'amelia_tyler.mp3',
+  },
+];
+
 // Wiki data types (from eldritch_horror_data.json)
 // Renamed interface to force cache bust
 export interface WikiPage {
@@ -317,4 +371,149 @@ export function createInitialGameState(): GameState {
     currentEncounter: null,
     plotContext: null,
   };
+}
+
+// Encounter types for the encounter picker
+export type EncounterType =
+  | 'general'
+  | 'location_region'
+  | 'research'
+  | 'other_world'
+  | 'expedition'
+  | 'devastation'
+  | 'combat'
+  | 'special';
+
+// Timeline of actions for the current round (for AI context)
+export interface RoundTimeline {
+  round: number;
+  actions: {
+    playerId: string;
+    playerName: string;
+    investigatorName: string;
+    actionType: ActionType;
+    description: string;
+    timestamp: number;
+  }[];
+}
+
+// Request to build encounter context
+export interface EncounterRequest {
+  type: EncounterType;
+  subType?: string;
+  investigatorId: string;
+  location: string;
+  selectedCard?: {
+    title: string;
+    originalText: string;
+  };
+}
+
+// Snapshot of an investigator's current state
+export interface InvestigatorSnapshot {
+  id: string;
+  name: string;
+  investigatorName: string;
+  profession: string;
+  health: number;
+  maxHealth: number;
+  sanity: number;
+  maxSanity: number;
+  clues: number;
+  focus: number;
+  location: string;
+  conditions: string[];
+  assets: string[];
+  actionsRemaining: number;
+}
+
+// Full request to send to the n8n encounter generation workflow
+export interface GenerateEncounterRequest {
+  sessionId: string;
+  encounterType: EncounterType;
+  subType?: string;
+  
+  // The selected card info
+  selectedCard: {
+    title: string;
+    originalText: string;
+  };
+  
+  // Active investigator context
+  investigator: InvestigatorSnapshot;
+  
+  // Game state context
+  gameContext: {
+    round: number;
+    doom: number;
+    maxDoom: number;
+    phase: GamePhase;
+    ancientOneName: string;
+    currentTension: number;
+  };
+  
+  // Plot context for narrative continuity
+  plotContext: {
+    premise: string;
+    currentAct: string;
+    activeThemes: string[];
+    majorPlotPoints: string[];
+    investigatorThread?: InvestigatorThread;
+  };
+  
+  // Recent actions for context
+  roundTimeline: RoundTimeline;
+}
+
+// Encounter node for branching narratives
+export interface EncounterNode {
+  id: string;
+  type: 'narrative' | 'test' | 'choice' | 'outcome';
+  content: string;
+  
+  // For test nodes
+  testInfo?: {
+    skill: string;
+    difficulty: number;
+    modifiers?: string[];
+  };
+  
+  // For choice nodes
+  choices?: {
+    id: string;
+    label: string;
+    description?: string;
+    nextNodeId: string;
+  }[];
+  
+  // For outcome nodes
+  outcome?: {
+    success: boolean;
+    effects: {
+      health?: number;
+      sanity?: number;
+      clues?: number;
+      doom?: number;
+      conditions?: string[];
+      assets?: string[];
+    };
+  };
+  
+  // Navigation
+  nextNodeId?: string;
+  passNodeId?: string;
+  failNodeId?: string;
+}
+
+// Response from the encounter generation API
+export interface GenerateEncounterResponse {
+  encounter: {
+    title: string;
+    startingNodeId: string;
+    nodes: Record<string, EncounterNode>;
+  };
+  
+  // Optional narrative adjustments
+  tensionChange?: number;
+  newPlotPoints?: string[];
 }
