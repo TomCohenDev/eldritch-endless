@@ -3,6 +3,8 @@ import claireAudio from '../assets/voices/claire.mp3';
 import priyankaAudio from '../assets/voices/priyanka.mp3';
 import cedricAudio from '../assets/voices/cedric.mp3';
 import globalArtistAudio from '../assets/voices/global-artist.mp3';
+import celestAudio from '../assets/voices/celest.mp3';
+import ameliaAudio from '../assets/voices/amelia_tyler.mp3';
 
 // Map of sample filenames to imported audio URLs
 export const voiceSampleUrls: Record<string, string> = {
@@ -10,6 +12,8 @@ export const voiceSampleUrls: Record<string, string> = {
   'priyanka.mp3': priyankaAudio,
   'cedric.mp3': cedricAudio,
   'global-artist.mp3': globalArtistAudio,
+  'celest.mp3': celestAudio,
+  'amelia_tyler.mp3': ameliaAudio,
 };
 
 // Currently playing audio element (to stop previous playback)
