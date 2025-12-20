@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useRef } from 'react';
+import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
   Users, 
@@ -17,23 +17,12 @@ import {
   Sparkles,
   Volume2,
   Play,
-  Square,
-  Music,
-  Pause
+  Square
 } from 'lucide-react';
 import { useGame } from '../context/GameContext';
 import { useGameData } from '../hooks/useGameData';
 import { NARRATOR_VOICES, type AncientOnePage, type WikiPage } from '../types';
 import { playVoiceSample, stopVoiceSample } from '../utils/voiceSamples';
-import { generateNarration } from '../api';
-import { 
-  startAmbiance, 
-  pauseAmbiance, 
-  resumeAmbiance, 
-  setAmbianceVolume, 
-  isAmbiancePlaying,
-  stopAmbiance 
-} from '../utils/ambianceAudio';
 
 type SetupStep = 'count' | 'ancientOne' | 'investigators' | 'summary' | 'prologue';
 
@@ -46,8 +35,7 @@ export function GameSetup() {
     setPlayerInvestigator, 
     setNarratorVoice,
     confirmSetupAndGeneratePlot,
-    isGeneratingPlot,
-    setPlotContext
+    isGeneratingPlot
   } = useGame();
   
   const { ancientOnes, investigators, helpers, loading } = useGameData();
@@ -57,140 +45,6 @@ export function GameSetup() {
   const [searchQuery, setSearchQuery] = useState('');
   const [editingPlayerIndex, setEditingPlayerIndex] = useState<number | null>(null);
   const [playingVoiceId, setPlayingVoiceId] = useState<string | null>(null);
-  const [isGeneratingNarration, setIsGeneratingNarration] = useState(false);
-  const [playingAudioKey, setPlayingAudioKey] = useState<string | null>(null);
-  const [ambiancePlaying, setAmbiancePlaying] = useState(false);
-  const [ambianceVol, setAmbianceVol] = useState(0.3);
-  
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-  const musicRef = useRef<HTMLAudioElement | null>(null);
-
-  // Start ambiance when entering prologue
-  useEffect(() => {
-    if (step === 'prologue') {
-      startAmbiance(ambianceVol);
-      setAmbiancePlaying(true);
-    }
-  }, [step]);
-
-  // Cleanup on unmount
-  useEffect(() => {
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current = null;
-      }
-      if (musicRef.current) {
-        musicRef.current.pause();
-        musicRef.current = null;
-      }
-      stopAmbiance();
-    };
-  }, []);
-
-  const handleAmbianceToggle = () => {
-    if (ambiancePlaying) {
-      pauseAmbiance();
-      setAmbiancePlaying(false);
-    } else {
-      resumeAmbiance();
-      setAmbiancePlaying(true);
-    }
-  };
-
-  const handleAmbianceVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const vol = parseFloat(e.target.value);
-    setAmbianceVol(vol);
-    setAmbianceVolume(vol);
-  };
-
-  const playAudio = (key: string, base64: string, isMusic = false) => {
-    if (playingAudioKey === key) {
-      // Stop logic
-      if (isMusic) {
-        if (musicRef.current) {
-          musicRef.current.pause();
-          musicRef.current = null;
-        }
-      } else {
-        if (audioRef.current) {
-          audioRef.current.pause();
-          audioRef.current = null;
-        }
-      }
-      setPlayingAudioKey(null);
-      return;
-    }
-
-    // Play logic
-    if (isMusic) {
-       // Stop prev music if any (though usually we toggle)
-       if (musicRef.current) musicRef.current.pause();
-       musicRef.current = new Audio(base64);
-       musicRef.current.loop = true;
-       musicRef.current.volume = 0.3;
-       musicRef.current.play().catch(e => console.error("Failed to play music", e));
-       // We don't necessarily set playingAudioKey for music if we want independent control, 
-       // but for now let's track it separately or just use a boolean for music?
-       // Let's use a specific key suffix for music
-       setPlayingAudioKey(key);
-    } else {
-      // Stop other narration
-      if (audioRef.current) audioRef.current.pause();
-      
-      audioRef.current = new Audio(base64);
-      audioRef.current.onended = () => setPlayingAudioKey(null);
-      audioRef.current.play().catch(e => console.error("Failed to play audio", e));
-      setPlayingAudioKey(key);
-    }
-  };
-  
-  const stopAudio = () => {
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current = null;
-    }
-    setPlayingAudioKey(null);
-  };
-  
-  const stopMusic = () => {
-    if (musicRef.current) {
-      musicRef.current.pause();
-      musicRef.current = null;
-    }
-    // Only clear key if it was the music key
-    if (playingAudioKey === 'music') {
-       setPlayingAudioKey(null);
-    }
-  };
-
-  const handleGenerateNarration = async () => {
-    if (!state.plotContext || isGeneratingNarration) return;
-    
-    setIsGeneratingNarration(true);
-    try {
-      const audioData = await generateNarration(state.plotContext, state.narratorVoiceId);
-      
-      if (audioData) {
-        // Update context with audio data
-        setPlotContext({
-          ...state.plotContext,
-          audioNarration: {
-            premise: audioData.premise,
-            investigatorStakes: audioData.investigatorStakes,
-            backgroundMusic: audioData.backgroundMusic
-          }
-        });
-      } else {
-        alert("Failed to summon the voices from the void.");
-      }
-    } catch (e) {
-      console.error(e);
-      alert("An error occurred while generating narration.");
-    } finally {
-      setIsGeneratingNarration(false);
-    }
-  };
 
   // --- Step 1: Player Count Handlers ---
   const handleStartSetup = () => {
@@ -245,7 +99,6 @@ export function GameSetup() {
   };
 
   const handleBeginGame = () => {
-    stopAmbiance();
     navigate('/game');
   };
 
@@ -613,13 +466,11 @@ export function GameSetup() {
     const plot = state.plotContext;
     if (!plot) return null;
 
-    const hasAudio = !!plot.audioNarration;
-
     return (
       <div className="flex flex-col h-full animate-fade-in overflow-hidden">
         <div className="flex-1 overflow-y-auto pb-32 space-y-6">
           {/* Title Card */}
-          <div className="text-center py-6 border-b border-obsidian/50 relative">
+          <div className="text-center py-6 border-b border-obsidian/50">
             <div className="flex items-center justify-center gap-2 mb-3">
               <Star className="w-5 h-5 text-eldritch-light" />
               <span className="font-accent text-xs text-eldritch-light uppercase tracking-widest">
@@ -635,80 +486,11 @@ export function GameSetup() {
             </p>
           </div>
 
-          {/* Ambiance Controls */}
-          <div className="bg-shadow/30 rounded-lg p-3 border border-obsidian/50 flex items-center gap-3">
-            <button
-              onClick={handleAmbianceToggle}
-              className={`p-2 rounded-full border transition-all ${
-                ambiancePlaying 
-                  ? 'bg-eldritch text-parchment-light border-eldritch-light' 
-                  : 'bg-obsidian/50 text-parchment-dark border-obsidian hover:border-eldritch'
-              }`}
-              title={ambiancePlaying ? "Pause Ambience" : "Play Ambience"}
-            >
-              {ambiancePlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
-            </button>
-            
-            <div className="flex items-center gap-2 flex-1">
-              <Music className="w-4 h-4 text-parchment-dark shrink-0" />
-              <input
-                type="range"
-                min="0"
-                max="1"
-                step="0.05"
-                value={ambianceVol}
-                onChange={handleAmbianceVolumeChange}
-                className="flex-1 h-1 bg-obsidian rounded-lg appearance-none cursor-pointer accent-eldritch"
-                title="Ambience Volume"
-              />
-              <span className="font-accent text-xs text-parchment-dark w-8 text-right">
-                {Math.round(ambianceVol * 100)}%
-              </span>
-            </div>
-          </div>
-
-          {/* Generate Narration Button */}
-          {!hasAudio && (
-            <div className="flex justify-center">
-              <button
-                onClick={handleGenerateNarration}
-                disabled={isGeneratingNarration}
-                className="flex items-center gap-2 px-4 py-2 bg-obsidian border border-eldritch/50 rounded hover:bg-eldritch/20 hover:border-eldritch text-parchment-light text-sm transition-all disabled:opacity-50"
-              >
-                {isGeneratingNarration ? (
-                  <>
-                    <Loader2 className="w-4 h-4 animate-spin" />
-                    Communing with the Void...
-                  </>
-                ) : (
-                  <>
-                    <Volume2 className="w-4 h-4" />
-                    Generate Narration
-                  </>
-                )}
-              </button>
-            </div>
-          )}
-
           {/* The Premise */}
-          <section className="bg-shadow/30 rounded-lg p-5 border border-obsidian relative">
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center gap-2">
-                <BookOpen className="w-5 h-5 text-eldritch-light" />
-                <h2 className="font-display text-lg text-parchment-light">The Situation</h2>
-              </div>
-              {plot.audioNarration?.premise && (
-                <button
-                  onClick={() => playAudio('premise', plot.audioNarration!.premise!)}
-                  className="p-1.5 rounded-full bg-obsidian border border-obsidian hover:border-eldritch text-parchment-light hover:text-eldritch-light transition-colors"
-                >
-                  {playingAudioKey === 'premise' ? (
-                    <Square className="w-4 h-4 fill-current" />
-                  ) : (
-                    <Play className="w-4 h-4 fill-current" />
-                  )}
-                </button>
-              )}
+          <section className="bg-shadow/30 rounded-lg p-5 border border-obsidian">
+            <div className="flex items-center gap-2 mb-4">
+              <BookOpen className="w-5 h-5 text-eldritch-light" />
+              <h2 className="font-display text-lg text-parchment-light">The Situation</h2>
             </div>
             <p className="font-body text-sm text-parchment leading-relaxed">
               {plot.premise}
@@ -749,41 +531,23 @@ export function GameSetup() {
                 
                 if (!thread || !player.investigator) return null;
 
-                const audioUrl = plot.audioNarration?.investigatorStakes?.[player.id];
-                const isPlaying = playingAudioKey === `inv-${player.id}`;
-
                 return (
                   <div 
                     key={player.id}
-                    className="bg-shadow/40 rounded-lg p-4 border border-obsidian hover:border-eldritch-dark transition-colors relative"
+                    className="bg-shadow/40 rounded-lg p-4 border border-obsidian hover:border-eldritch-dark transition-colors"
                   >
-                    <div className="flex items-start justify-between mb-3">
-                      <div className="flex items-start gap-3">
-                        <div className="w-10 h-10 rounded-full bg-eldritch-dark flex items-center justify-center shrink-0">
-                          <User className="w-5 h-5 text-parchment" />
-                        </div>
-                        <div>
-                          <h3 className="font-display text-base text-parchment-light">
-                            {player.investigator.title}
-                          </h3>
-                          <p className="font-accent text-xs text-parchment-dark">
-                            {player.investigator.infobox?.profession || 'Investigator'} • {player.location}
-                          </p>
-                        </div>
+                    <div className="flex items-start gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-full bg-eldritch-dark flex items-center justify-center shrink-0">
+                        <User className="w-5 h-5 text-parchment" />
                       </div>
-                      
-                      {audioUrl && (
-                        <button
-                          onClick={() => playAudio(`inv-${player.id}`, audioUrl)}
-                          className="p-1.5 rounded-full bg-obsidian border border-obsidian hover:border-eldritch text-parchment-light hover:text-eldritch-light transition-colors"
-                        >
-                          {isPlaying ? (
-                            <Square className="w-4 h-4 fill-current" />
-                          ) : (
-                            <Play className="w-4 h-4 fill-current" />
-                          )}
-                        </button>
-                      )}
+                      <div>
+                        <h3 className="font-display text-base text-parchment-light">
+                          {player.investigator.title}
+                        </h3>
+                        <p className="font-accent text-xs text-parchment-dark">
+                          {player.investigator.infobox?.profession || 'Investigator'} • {player.location}
+                        </p>
+                      </div>
                     </div>
                     
                     {thread.personalStakes && (

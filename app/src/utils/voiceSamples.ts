@@ -1,6 +1,4 @@
 // Voice sample audio imports
-import ameliaTylerAudio from '../assets/voices/amelia_tyler.mp3';
-import celestAudio from '../assets/voices/celest.mp3';
 import claireAudio from '../assets/voices/claire.mp3';
 import priyankaAudio from '../assets/voices/priyanka.mp3';
 import cedricAudio from '../assets/voices/cedric.mp3';
@@ -8,8 +6,6 @@ import globalArtistAudio from '../assets/voices/global-artist.mp3';
 
 // Map of sample filenames to imported audio URLs
 export const voiceSampleUrls: Record<string, string> = {
-  'amelia_tyler.mp3': ameliaTylerAudio,
-  'celest.mp3': celestAudio,
   'claire.mp3': claireAudio,
   'priyanka.mp3': priyankaAudio,
   'cedric.mp3': cedricAudio,
