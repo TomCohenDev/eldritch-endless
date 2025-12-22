@@ -59,7 +59,13 @@ async function loadEncounterData(encounterType: string): Promise<any> {
   }
   
   console.log(`[Encounter Selection] Loading ${fileName}...`);
-  const response = await fetch(`/encounters/${fileName}`);
+  
+  // Research encounters are in the root public folder, not in encounters/
+  const filePath = encounterType === 'research' 
+    ? `/${fileName}`
+    : `/encounters/${fileName}`;
+  
+  const response = await fetch(filePath);
   
   if (!response.ok) {
     throw new Error(`Failed to load encounter data: ${response.statusText}`);
@@ -141,10 +147,46 @@ export async function selectEncounterCards(
     
     case 'location': {
       // Pick 1 from the current location
-      if (context.location && data.encounters?.[context.location]?.tables) {
-        pool = data.encounters[context.location].tables;
-        metadata.location_info = data.encounters[context.location].text || null;
+      // Location names in JSON might be shorter (e.g., "Arkham") than player location (e.g., "Arkham, Massachusetts")
+      if (context.location) {
+        // Try exact match first
+        if (data.encounters?.[context.location]?.tables) {
+          pool = data.encounters[context.location].tables;
+          metadata.location_info = data.encounters[context.location].text || null;
+        } else {
+          // Try to find a match by extracting the first part of the location name
+          // e.g., "Arkham, Massachusetts" -> "Arkham"
+          const locationParts = context.location.split(',').map(part => part.trim());
+          const shortLocationName = locationParts[0];
+          
+          if (data.encounters?.[shortLocationName]?.tables) {
+            pool = data.encounters[shortLocationName].tables;
+            metadata.location_info = data.encounters[shortLocationName].text || null;
+            console.log(`[Encounter Selection] Matched location: "${shortLocationName}" (from "${context.location}")`);
+          } else {
+            // Try case-insensitive match
+            const locationKeys = Object.keys(data.encounters || {});
+            const matchedKey = locationKeys.find(key => 
+              key.toLowerCase() === context.location.toLowerCase() ||
+              key.toLowerCase() === shortLocationName.toLowerCase() ||
+              context.location.toLowerCase().includes(key.toLowerCase()) ||
+              key.toLowerCase().includes(shortLocationName.toLowerCase())
+            );
+            
+            if (matchedKey && data.encounters[matchedKey]?.tables) {
+              pool = data.encounters[matchedKey].tables;
+              metadata.location_info = data.encounters[matchedKey].text || null;
+              console.log(`[Encounter Selection] Matched location: "${matchedKey}" (from "${context.location}")`);
+            }
+          }
+        }
       }
+      
+      if (pool.length === 0) {
+        console.warn(`[Encounter Selection] No cards found for location: "${context.location}"`);
+        console.log(`[Encounter Selection] Available locations:`, Object.keys(data.encounters || {}).slice(0, 10));
+      }
+      
       console.log(`[Encounter Selection] Location: ${context.location}, found ${pool.length} cards`);
       return { cards: selectRandomCards(pool, 1), metadata };
     }
@@ -175,9 +217,50 @@ export async function selectEncounterCards(
     
     case 'other_world': {
       // Pick 1 at random from the specific other world
-      if (context.otherWorld && data.encounters?.[context.otherWorld]?.tables) {
-        pool = data.encounters[context.otherWorld].tables;
+      // The otherWorld should be the name like "The Underworld", "The Abyss", etc.
+      if (context.otherWorld) {
+        // Clean the other world name - remove "(Other World)" suffix and trim
+        const cleanOtherWorld = context.otherWorld
+          .replace(/\s*\(Other World\)\s*$/i, '')
+          .trim();
+        
+        const otherWorldKeys = Object.keys(data.encounters || {});
+        
+        // Try exact match first (cleaned name)
+        if (data.encounters?.[cleanOtherWorld]?.tables) {
+          pool = data.encounters[cleanOtherWorld].tables;
+        } else if (data.encounters?.[context.otherWorld]?.tables) {
+          // Try original name as fallback
+          pool = data.encounters[context.otherWorld].tables;
+        } else {
+          // Try case-insensitive match with cleaned name
+          const matchedKey = otherWorldKeys.find(key => 
+            key.toLowerCase() === cleanOtherWorld.toLowerCase() ||
+            key.toLowerCase() === context.otherWorld!.toLowerCase() ||
+            cleanOtherWorld.toLowerCase().includes(key.toLowerCase()) ||
+            key.toLowerCase().includes(cleanOtherWorld.toLowerCase())
+          );
+          if (matchedKey && data.encounters[matchedKey]?.tables) {
+            pool = data.encounters[matchedKey].tables;
+            console.log(`[Encounter Selection] Matched other world: "${matchedKey}" (requested: "${context.otherWorld}", cleaned: "${cleanOtherWorld}")`);
+          }
+        }
+        
+        // If still no match, use a random other world as fallback
+        if (pool.length === 0 && otherWorldKeys.length > 0) {
+          const randomKey = otherWorldKeys[Math.floor(Math.random() * otherWorldKeys.length)];
+          if (data.encounters[randomKey]?.tables) {
+            pool = data.encounters[randomKey].tables;
+            console.warn(`[Encounter Selection] Other world "${context.otherWorld}" not found, using random fallback: "${randomKey}"`);
+          }
+        }
       }
+      
+      if (pool.length === 0) {
+        console.warn(`[Encounter Selection] No cards found for other world: "${context.otherWorld}"`);
+        console.log(`[Encounter Selection] Available other worlds:`, Object.keys(data.encounters || {}));
+      }
+      
       console.log(`[Encounter Selection] Other World: ${context.otherWorld}, found ${pool.length} cards`);
       return { cards: selectRandomCards(pool, 1), metadata };
     }

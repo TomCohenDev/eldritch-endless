@@ -688,14 +688,61 @@ export function GameProvider({ children }: { children: ReactNode }) {
    */
   const drawMythosCard = useCallback((cardPageId: number, cardTitle: string, color: 'Green' | 'Yellow' | 'Blue') => {
     setState(prev => {
-      const currentDeck = prev.mythosDeck || { stage: 1, usedCardIds: [] };
+      // Ensure stageDraws exists with defaults
+      const defaultStageDraws = {
+        stage1: { green: 0, yellow: 0, blue: 0 },
+        stage2: { green: 0, yellow: 0, blue: 0 },
+        stage3: { green: 0, yellow: 0, blue: 0 },
+      };
+      
+      const defaultStageCards = {
+        stage1: [] as Array<{ pageId: number; title: string; color: 'Green' | 'Yellow' | 'Blue' }>,
+        stage2: [] as Array<{ pageId: number; title: string; color: 'Green' | 'Yellow' | 'Blue' }>,
+        stage3: [] as Array<{ pageId: number; title: string; color: 'Green' | 'Yellow' | 'Blue' }>,
+      };
+      
+      const currentDeck = prev.mythosDeck || { 
+        stage: 1, 
+        usedCardIds: [],
+        stageDraws: defaultStageDraws,
+        stageCards: defaultStageCards,
+      };
+      
+      // Ensure stageDraws and stageCards exist (for backwards compatibility with old saves)
+      const existingStageDraws = currentDeck.stageDraws || defaultStageDraws;
+      const existingStageCards = currentDeck.stageCards || defaultStageCards;
+      
       const currentStage = currentDeck.stage;
+      const stageKey = `stage${currentStage}` as 'stage1' | 'stage2' | 'stage3';
+      
+      // Increment the count for this color in the current stage
+      const newStageDraws = {
+        ...defaultStageDraws,
+        ...existingStageDraws,
+        [stageKey]: {
+          ...defaultStageDraws[stageKey],
+          ...existingStageDraws[stageKey],
+          [color.toLowerCase()]: (existingStageDraws[stageKey]?.[color.toLowerCase() as 'green' | 'yellow' | 'blue'] || 0) + 1,
+        },
+      };
+      
+      // Add the card to the stage's card list
+      const newStageCards = {
+        ...defaultStageCards,
+        ...existingStageCards,
+        [stageKey]: [
+          ...(existingStageCards[stageKey] || []),
+          { pageId: cardPageId, title: cardTitle, color },
+        ],
+      };
       
       return {
         ...prev,
         mythosDeck: {
           ...currentDeck,
           usedCardIds: [...currentDeck.usedCardIds, cardPageId],
+          stageDraws: newStageDraws,
+          stageCards: newStageCards,
           lastDrawnCard: {
             pageId: cardPageId,
             title: cardTitle,
@@ -711,13 +758,28 @@ export function GameProvider({ children }: { children: ReactNode }) {
    * Update the current mythos deck stage
    */
   const updateMythosStage = useCallback((stage: 1 | 2 | 3) => {
-    setState(prev => ({
-      ...prev,
-      mythosDeck: {
-        ...(prev.mythosDeck || { stage: 1, usedCardIds: [] }),
-        stage,
-      },
-    }));
+    setState(prev => {
+      const defaultStageDraws = {
+        stage1: { green: 0, yellow: 0, blue: 0 },
+        stage2: { green: 0, yellow: 0, blue: 0 },
+        stage3: { green: 0, yellow: 0, blue: 0 },
+      };
+      
+      const existingDeck = prev.mythosDeck || { 
+        stage: 1, 
+        usedCardIds: [],
+        stageDraws: defaultStageDraws,
+      };
+      
+      return {
+        ...prev,
+        mythosDeck: {
+          ...existingDeck,
+          stage,
+          stageDraws: existingDeck.stageDraws || defaultStageDraws,
+        },
+      };
+    });
   }, []);
 
   const value: GameContextValue = {

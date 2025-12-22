@@ -54,9 +54,11 @@ const ENCOUNTER_JSON_SCHEMA = {
               healthChange: { type: "number" },
               doomChange: { type: "number" },
               assetsGained: { type: "array", items: { type: "string" } },
+              assetsLost: { type: "array", items: { type: "string" } },
               conditionsGained: { type: "array", items: { type: "string" } }
             }
           },
+          effectDescription: { type: "string" },
           nextNodeId: { type: "string" }
         },
         required: ["id", "text", "type"]
@@ -80,11 +82,28 @@ export async function generateEncounterWithAI(request: GenerateEncounterRequest)
   
   // Select encounter cards from JSON files
   console.log('[AI Encounter Generation] Selecting encounter cards...');
+  
+  // For research encounters, determine space type from location
+  let spaceType: 'City' | 'Wilderness' | 'Sea' | undefined = request.subType as 'City' | 'Wilderness' | 'Sea' | undefined;
+  if (request.encounterType === 'research') {
+    // Import getLocationContext to determine space type
+    const { getLocationContext } = await import('../../data/encounterContextLoader');
+    const locationInfo = getLocationContext(request.investigator.location);
+    spaceType = locationInfo.locationType === 'city' ? 'City' 
+      : locationInfo.locationType === 'sea' ? 'Sea' 
+      : 'Wilderness';
+    console.log('[AI Encounter Generation] Research encounter - determined space type:', spaceType, 'from location:', request.investigator.location);
+  }
+  
+  // For other world encounters, use subType as the other world name
+  // The investigator's location provides narrative context but doesn't determine which other world
+  const otherWorldName = request.encounterType === 'other_world' ? request.subType : undefined;
+  
   const { cards, metadata } = await selectEncounterCards({
     encounterType: request.encounterType,
-    location: request.investigator.location,
-    spaceType: request.subType as 'City' | 'Wilderness' | 'Sea',
-    otherWorld: request.subType, // For other_world encounters
+    location: request.investigator.location, // Used for narrative context
+    spaceType: request.encounterType === 'other_world' ? undefined : spaceType, // Not used for other world encounters
+    otherWorld: otherWorldName, // The specific other world name (e.g., "The Underworld", "The Abyss")
     ancientOne: request.gameContext?.ancientOneName,
   });
   
@@ -218,8 +237,10 @@ ${JSON.stringify(ENCOUNTER_JSON_SCHEMA, null, 2)}`,
                 clues: node.effects.cluesGained,
                 doom: node.effects.doomChange,
                 assets: node.effects.assetsGained,
+                assetsLost: node.effects.assetsLost || [],
                 conditions: node.effects.conditionsGained
-            }
+            },
+            effectDescription: node.effectDescription || undefined
         } : undefined,
         // Navigation
         nextNodeId: node.nextNodeId,

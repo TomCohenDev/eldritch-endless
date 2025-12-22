@@ -27,23 +27,33 @@ export async function generateMythosStory(
   request: GenerateMythosRequest
 ): Promise<GenerateMythosResponse> {
   console.log('[Mythos Generation] Starting...');
-  console.log('[Mythos Generation] Request:', {
+  console.log('[Mythos Generation] Full Request Object:');
+  console.log(JSON.stringify(request, null, 2));
+  
+  console.log('[Mythos Generation] Request Summary:', {
     sessionId: request.sessionId,
     cardTitle: request.card.title,
     color: request.card.color,
     stage: request.stage,
+    cardPageId: request.card.pageId,
+    cardEffect: request.card.effect,
+    cardTestSkill: request.card.testSkill,
+    cardIcons: request.card.icons,
   });
 
   const prompt = generateMythosPrompt(request);
 
   console.log('[Mythos Generation] Generated Prompt:');
   console.log(`[Mythos Generation] Prompt length: ${prompt.length} characters`);
+  console.log('[Mythos Generation] Full Prompt Text:');
+  console.log('--- PROMPT START ---');
+  console.log(prompt);
+  console.log('--- PROMPT END ---');
 
   try {
     console.log(`[Mythos Generation] Calling Anthropic API with model: ${ENCOUNTER_GENERATION_MODEL}`);
     
-    const startTime = Date.now();
-    const msg = await anthropic.messages.create({
+    const apiRequest = {
       model: ENCOUNTER_GENERATION_MODEL,
       max_tokens: 2048,
       temperature: 0.8, // Slightly higher for more creative storytelling
@@ -57,7 +67,23 @@ ${JSON.stringify(MYTHOS_JSON_SCHEMA, null, 2)}`,
           content: prompt,
         },
       ],
-    });
+    };
+    
+    console.log('[Mythos Generation] Full API Request:');
+    console.log(JSON.stringify({
+      model: apiRequest.model,
+      max_tokens: apiRequest.max_tokens,
+      temperature: apiRequest.temperature,
+      system: apiRequest.system,
+      messages: apiRequest.messages.map(m => ({
+        role: m.role,
+        contentLength: m.content.length,
+        contentPreview: m.content.substring(0, 200) + '...',
+      })),
+    }, null, 2));
+    
+    const startTime = Date.now();
+    const msg = await anthropic.messages.create(apiRequest);
     
     const duration = Date.now() - startTime;
     console.log(`[Mythos Generation] API call completed in ${duration}ms`);
@@ -72,6 +98,10 @@ ${JSON.stringify(MYTHOS_JSON_SCHEMA, null, 2)}`,
     console.log('--- RESPONSE START ---');
     console.log(content);
     console.log('--- RESPONSE END ---');
+    
+    // Also log the full response text for easier debugging
+    console.log('[Mythos Generation] Full Response Text:');
+    console.log(JSON.stringify(content, null, 2));
 
     const rawData = parseAndValidateResponse(content);
     console.log('[Mythos Generation] Parsed mythos data:', {
@@ -92,6 +122,8 @@ ${JSON.stringify(MYTHOS_JSON_SCHEMA, null, 2)}`,
         reckoning: request.card.reckoning,
         flavor: rawData.flavor,
         narrative: rawData.narrative,
+        testSkill: request.card.testSkill, // Pass through test skill
+        icons: request.card.icons, // Pass through icons
       },
       tensionChange: rawData.tensionChange,
       newPlotPoints: rawData.newPlotPoints,
@@ -105,10 +137,15 @@ ${JSON.stringify(MYTHOS_JSON_SCHEMA, null, 2)}`,
 
 function parseAndValidateResponse(jsonStr: string): any {
   console.log('[Mythos Generation] Parsing and validating response...');
+  console.log('[Mythos Generation] Raw JSON string length:', jsonStr.length);
+  console.log('[Mythos Generation] Raw JSON string (first 500 chars):', jsonStr.substring(0, 500));
+  
   try {
     const cleanStr = jsonStr.replace(/```json/g, "").replace(/```/g, "").trim();
+    console.log('[Mythos Generation] Cleaned JSON string length:', cleanStr.length);
     const parsed = JSON.parse(cleanStr);
     console.log('[Mythos Generation] JSON parsed successfully');
+    console.log('[Mythos Generation] Parsed object:', JSON.stringify(parsed, null, 2));
     return parsed;
   } catch (e) {
     console.error('[Mythos Generation] Failed to parse AI response JSON:', e);
