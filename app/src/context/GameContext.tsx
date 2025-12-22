@@ -76,6 +76,10 @@ interface GameContextValue {
   // Encounter Context Building (for n8n workflow)
   getCurrentRoundTimeline: () => RoundTimeline;
   buildEncounterRequest: (encounterRequest: EncounterRequest) => GenerateEncounterRequest | null;
+  
+  // Mythos deck management
+  drawMythosCard: (cardPageId: number, cardTitle: string, color: 'Green' | 'Yellow' | 'Blue') => void;
+  updateMythosStage: (stage: 1 | 2 | 3) => void;
 }
 
 const GameContext = createContext<GameContextValue | null>(null);
@@ -679,6 +683,43 @@ export function GameProvider({ children }: { children: ReactNode }) {
     });
   }, []);
 
+  /**
+   * Mark a mythos card as drawn and update deck state
+   */
+  const drawMythosCard = useCallback((cardPageId: number, cardTitle: string, color: 'Green' | 'Yellow' | 'Blue') => {
+    setState(prev => {
+      const currentDeck = prev.mythosDeck || { stage: 1, usedCardIds: [] };
+      const currentStage = currentDeck.stage;
+      
+      return {
+        ...prev,
+        mythosDeck: {
+          ...currentDeck,
+          usedCardIds: [...currentDeck.usedCardIds, cardPageId],
+          lastDrawnCard: {
+            pageId: cardPageId,
+            title: cardTitle,
+            color,
+            stage: currentStage,
+          },
+        },
+      };
+    });
+  }, []);
+
+  /**
+   * Update the current mythos deck stage
+   */
+  const updateMythosStage = useCallback((stage: 1 | 2 | 3) => {
+    setState(prev => ({
+      ...prev,
+      mythosDeck: {
+        ...(prev.mythosDeck || { stage: 1, usedCardIds: [] }),
+        stage,
+      },
+    }));
+  }, []);
+
   const value: GameContextValue = {
     state,
     hasSavedGame,
@@ -711,6 +752,9 @@ export function GameProvider({ children }: { children: ReactNode }) {
     // Encounter context builders
     getCurrentRoundTimeline,
     buildEncounterRequest,
+    // Mythos deck management
+    drawMythosCard,
+    updateMythosStage,
   };
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;

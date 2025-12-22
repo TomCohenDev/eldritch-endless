@@ -56,6 +56,8 @@ import { useGameData } from '../hooks/useGameData';
 import { generateEncounter } from '../api';
 import { NARRATOR_VOICES, type ActionType, type EncounterType, type GenerateEncounterResponse } from '../types';
 import { playVoiceSample } from '../utils/voiceSamples';
+import { MythosPhase } from './MythosPhase';
+import { MythosPhase } from './MythosPhase';
 
 // Action definitions with icons and descriptions
 const ACTIONS: { type: ActionType; label: string; icon: typeof Footprints; description: string }[] = [
@@ -222,6 +224,11 @@ export function GameSession() {
     }
     return cat;
   }).filter(cat => cat.cards.length > 0); // Remove empty categories
+
+  // Show Mythos Phase component when in mythos phase
+  if (state.phase === 'mythos') {
+    return <MythosPhase />;
+  }
 
   return (
     <div className="min-h-dvh flex flex-col bg-void">

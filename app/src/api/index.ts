@@ -9,10 +9,13 @@ import type {
   GeneratePlotRequest,
   GenerateEncounterRequest,
   GenerateEncounterResponse,
+  GenerateMythosRequest,
+  GenerateMythosResponse,
 } from "../types";
 import { generatePlotWithAI } from "../services/ai/plotGeneration";
 import { generateEncounterWithAI } from "../services/ai/encounterGeneration";
 import { generateNarrationWithAI } from "../services/ai/narration";
+import { generateMythosStory } from "../services/ai/mythosGeneration";
 
 // Simple fallback UUID generator if crypto.randomUUID is missing
 function generateUUID() {
@@ -118,8 +121,20 @@ export async function advanceStory(context: {
 }
 
 /**
+ * Generate a Mythos card story appropriate to the current game state
+ * The AI rewrites the flavor text while keeping all mechanics the same
+ */
+export async function generateMythos(
+  request: GenerateMythosRequest
+): Promise<GenerateMythosResponse> {
+  // Use local AI service
+  return await generateMythosStory(request);
+}
+
+/**
  * Generate a Mythos event appropriate to the current game state
  * The AI ensures the event fits the narrative arc and difficulty curve
+ * @deprecated Use generateMythos instead
  */
 export async function getMythosEvent(
   gameState: GameState
@@ -131,7 +146,7 @@ export async function getMythosEvent(
     type: "mythos",
     title: "Stars Align",
     content:
-      "The constellations shift imperceptibly, but those attuned to cosmic forces feel reality shudder. The Ancient One grows stronger as the barrier between worlds weakens.",
+      "The constellations shift imperceptibly, but those attuned to cosmic forces feel reality shudder. The Ancient One grows stronger as the barrier between worlds weaken.",
   };
 }
 
