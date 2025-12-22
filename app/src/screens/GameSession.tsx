@@ -57,7 +57,6 @@ import { generateEncounter } from '../api';
 import { NARRATOR_VOICES, type ActionType, type EncounterType, type GenerateEncounterResponse } from '../types';
 import { playVoiceSample } from '../utils/voiceSamples';
 import { MythosPhase } from './MythosPhase';
-import { MythosPhase } from './MythosPhase';
 
 // Action definitions with icons and descriptions
 const ACTIONS: { type: ActionType; label: string; icon: typeof Footprints; description: string }[] = [
@@ -794,28 +793,51 @@ export function GameSession() {
                     }
                     // Research encounters - direct select with Ancient One name
                     if (cat.category === 'research') {
+                      // Determine space type from location
+                      const locationInfo = getLocationContext(activePlayer?.location || '');
+                      const spaceType = locationInfo.locationType === 'city' ? 'City' 
+                        : locationInfo.locationType === 'sea' ? 'Sea' 
+                        : 'Wilderness';
+                      
                       setSelectedEncounter({
                         title: `${state.ancientOne?.title || 'Ancient One'} Research Encounter`,
                         content: 'Research encounter for the current threat.',
                         type: 'research',
-                        subType: state.ancientOne?.title,
+                        subType: spaceType, // Use space type, not Ancient One name
                       });
                       setShowEncounterPicker(false);
                       setSelectedEncounterCategory(null);
                       setEncounterSearch('');
                       return;
                     }
-                    // Other World encounters - direct select
+                    // Other World encounters - randomly select an other world
                     if (cat.category === 'otherWorld') {
-                      setSelectedEncounter({
-                        title: 'Other World Encounter',
-                        content: 'An encounter from beyond the veil of reality.',
-                        type: 'other_world',
-                      });
-                      setShowEncounterPicker(false);
-                      setSelectedEncounterCategory(null);
-                      setEncounterSearch('');
-                      return;
+                      // Get all available other world locations
+                      const otherWorldLocations = cat.cards || [];
+                      
+                      if (otherWorldLocations.length > 0) {
+                        // Randomly select one other world
+                        const randomIndex = Math.floor(Math.random() * otherWorldLocations.length);
+                        const selectedOtherWorld = otherWorldLocations[randomIndex];
+                        
+                        setSelectedEncounter({
+                          title: `Other World Encounter - ${selectedOtherWorld.title}`,
+                          content: `An encounter from ${selectedOtherWorld.title}, a realm beyond the veil of reality.`,
+                          type: 'other_world',
+                          subType: selectedOtherWorld.title, // Use the other world name (e.g., "The Underworld", "The Abyss")
+                        });
+                        setShowEncounterPicker(false);
+                        setSelectedEncounterCategory(null);
+                        setSelectedOtherWorldSubCategory(null);
+                        setEncounterSearch('');
+                        return;
+                      } else {
+                        // Fallback: just set category if no locations available
+                        setSelectedEncounterCategory('otherWorld');
+                        setSelectedOtherWorldSubCategory(null);
+                        setEncounterSearch('');
+                        return;
+                      }
                     }
                     // Expedition encounters - direct select with player location
                     if (cat.category === 'expedition') {
@@ -1212,6 +1234,24 @@ export function GameSession() {
                             </div>
                           )}
 
+                          {/* Narrative Nodes - Continue Button */}
+                          {currentNode.type === 'narrative' && currentNode.nextNodeId && (
+                            <div className="mt-4">
+                              <button
+                                onClick={() => {
+                                  if (currentNode.nextNodeId) {
+                                    setEncounterHistory(prev => [...prev, currentNodeId]);
+                                    setCurrentNodeId(currentNode.nextNodeId);
+                                  }
+                                }}
+                                className="w-full py-4 bg-eldritch hover:bg-eldritch-light text-parchment-light font-display text-lg tracking-wide rounded-lg flex items-center justify-center gap-3 transition-colors shadow-lg shadow-eldritch/30"
+                              >
+                                <ChevronRight className="w-5 h-5" />
+                                Continue
+                              </button>
+                            </div>
+                          )}
+
                           {/* Skill Tests */}
                           {currentNode.type === 'test' && currentNode.testInfo && (
                             <div className="bg-obsidian/30 rounded p-4 border border-obsidian text-center mt-2">
@@ -1259,8 +1299,18 @@ export function GameSession() {
                              <div className="mt-4 p-4 bg-eldritch/10 rounded border border-eldritch/20 animate-in slide-in-from-bottom-2">
                                 <p className="font-display text-base font-semibold text-parchment-light mb-3 flex items-center gap-2">
                                   <Sparkles className="w-4 h-4 text-gold" />
-                                  Consequences
+                                  Gameplay Consequences
                                 </p>
+                                
+                                {/* Effect Description */}
+                                {currentNode.outcome.effectDescription && (
+                                  <div className="mb-3 p-3 bg-obsidian/50 rounded border border-obsidian/50">
+                                    <p className="font-display text-sm font-semibold text-parchment-light">
+                                      {currentNode.outcome.effectDescription}
+                                    </p>
+                                  </div>
+                                )}
+                                
                                 <div className="space-y-2 text-sm">
                                    {currentNode.outcome.effects.health ? (
                                      <div className={`flex items-center gap-2 font-medium ${currentNode.outcome.effects.health > 0 ? 'text-green-400' : 'text-red-400'}`}>
@@ -1298,13 +1348,20 @@ export function GameSession() {
                                        Gain: {currentNode.outcome.effects.assets.join(', ')}
                                      </div>
                                    )}
+                                   {currentNode.outcome.effects.assetsLost && currentNode.outcome.effects.assetsLost.length > 0 && (
+                                     <div className="flex items-center gap-2 font-medium text-red-300">
+                                       <Package className="w-4 h-4" />
+                                       Lose: {currentNode.outcome.effects.assetsLost.join(', ')}
+                                     </div>
+                                   )}
                                 </div>
                                 {(!currentNode.outcome.effects.health && 
                                   !currentNode.outcome.effects.sanity && 
                                   !currentNode.outcome.effects.clues && 
                                   !currentNode.outcome.effects.doom &&
                                   (!currentNode.outcome.effects.conditions || currentNode.outcome.effects.conditions.length === 0) &&
-                                  (!currentNode.outcome.effects.assets || currentNode.outcome.effects.assets.length === 0)) && (
+                                  (!currentNode.outcome.effects.assets || currentNode.outcome.effects.assets.length === 0) &&
+                                  (!currentNode.outcome.effects.assetsLost || currentNode.outcome.effects.assetsLost.length === 0)) && (
                                   <p className="text-sm text-parchment-dark italic">No mechanical effects.</p>
                                 )}
                              </div>

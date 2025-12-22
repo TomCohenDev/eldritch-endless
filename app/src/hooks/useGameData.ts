@@ -929,6 +929,7 @@ export function useGameData() {
     encounters,
     allEncounters,
     allData: data,
+    ancientOneDetailed,
     helpers: {
       getImageName,
       getImageUrl,

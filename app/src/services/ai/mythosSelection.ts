@@ -106,6 +106,95 @@ function parseReckoning(fullText: string): string | undefined {
 }
 
 /**
+ * Parse mythos card icons based on color and effect text
+ * Returns array of icon names found in the card
+ */
+function parseMythosIcons(color: 'Green' | 'Yellow' | 'Blue' | undefined, effectText: string, rawWikitext: string): string[] {
+  const icons: string[] = [];
+  
+  if (!color) return icons;
+  
+  // Green cards: Always have Advance Omen, Monster Surge, Spawn Clues
+  if (color === 'Green') {
+    icons.push('Advance Omen', 'Monster Surge', 'Spawn Clues');
+  }
+  
+  // Yellow cards: Always have Advance Omen, Reckoning, Spawn Gates
+  if (color === 'Yellow') {
+    icons.push('Advance Omen', 'Reckoning', 'Spawn Gates');
+  }
+  
+  // Blue cards: Always have Spawn Clues, and often Spawn Rumor
+  if (color === 'Blue') {
+    icons.push('Spawn Clues');
+    // Check if it's a Rumor card
+    if (effectText.toLowerCase().includes('rumor') || rawWikitext.toLowerCase().includes('rumor')) {
+      icons.push('Spawn Rumor');
+    }
+  }
+  
+  // Check for Eldritch Tokens in effect
+  if (effectText.toLowerCase().includes('eldritch token') || rawWikitext.toLowerCase().includes('eldritch token')) {
+    icons.push('Place Eldritch Tokens');
+  }
+  
+  return icons;
+}
+
+/**
+ * Parse test skill from rawWikitext
+ * Looks for patterns like {{Influence}}, {{Observation}}, etc.
+ */
+function parseTestSkill(rawWikitext: string, effectText: string): string | undefined {
+  const validSkills = ['Lore', 'Influence', 'Observation', 'Strength', 'Will'];
+  
+  // First try to find skill in rawWikitext near "test" keyword
+  // Pattern: test {{Skill}} or tests {{Skill}}
+  const rawTestPatterns = [
+    /test(?:s)?\s+\{\{([A-Z][a-z]+)\}\}/i,
+    /test(?:s)?\s+([A-Z][a-z]+)/i,
+  ];
+  
+  for (const pattern of rawTestPatterns) {
+    const matches = [...rawWikitext.matchAll(new RegExp(pattern, 'gi'))];
+    for (const match of matches) {
+      const skill = match[1];
+      if (validSkills.includes(skill)) {
+        return skill;
+      }
+    }
+  }
+  
+  // Also check for standalone skill references near "test"
+  const testContextPattern = /test(?:s)?[^.]*\{\{([A-Z][a-z]+)\}\}/i;
+  const contextMatch = rawWikitext.match(testContextPattern);
+  if (contextMatch) {
+    const skill = contextMatch[1];
+    if (validSkills.includes(skill)) {
+      return skill;
+    }
+  }
+  
+  // Check effect text for test patterns
+  const effectTestPatterns = [
+    /test(?:s)?\s+([A-Z][a-z]+)/i,
+    /test(?:s)?\s+([A-Z][a-z]+)-?(\d+)?/i,
+  ];
+  
+  for (const pattern of effectTestPatterns) {
+    const match = effectText.match(pattern);
+    if (match) {
+      const skill = match[1];
+      if (validSkills.includes(skill)) {
+        return skill;
+      }
+    }
+  }
+  
+  return undefined;
+}
+
+/**
  * Load and parse mythos cards from JSON
  */
 async function loadMythosCards(): Promise<MythosCard[]> {
@@ -122,15 +211,24 @@ async function loadMythosCards(): Promise<MythosCard[]> {
     const data: MythosCardData = await response.json();
     
     // Parse each card
-    mythosCardsCache = data.mythosCards.map(card => ({
-      ...card,
-      color: parseMythosColor(card.fullText),
-      difficulty: parseMythosDifficulty(card.fullText),
-      trait: parseMythosTrait(card.fullText),
-      flavor: parseFlavor(card.fullText),
-      effect: parseEffect(card.fullText),
-      reckoning: parseReckoning(card.fullText),
-    })).filter(card => card.color !== undefined) as MythosCard[]; // Filter out cards without color
+    mythosCardsCache = data.mythosCards.map(card => {
+      const color = parseMythosColor(card.fullText);
+      const effect = parseEffect(card.fullText);
+      const testSkill = parseTestSkill(card.rawWikitext || '', effect || '');
+      const icons = parseMythosIcons(color, effect || '', card.rawWikitext || '');
+      
+      return {
+        ...card,
+        color,
+        difficulty: parseMythosDifficulty(card.fullText),
+        trait: parseMythosTrait(card.fullText),
+        flavor: parseFlavor(card.fullText),
+        effect: effect,
+        reckoning: parseReckoning(card.fullText),
+        testSkill: testSkill, // Add parsed test skill
+        icons: icons, // Add parsed icons
+      };
+    }).filter(card => card.color !== undefined) as MythosCard[]; // Filter out cards without color
     
     console.log(`[Mythos Selection] Loaded ${mythosCardsCache.length} mythos cards`);
     return mythosCardsCache;
@@ -158,15 +256,80 @@ export interface MythosStageConfig {
   blue: number;
 }
 
-export function getMythosStageConfig(ancientOneName: string, stage: number): MythosStageConfig {
-  // Default configuration for Core Game Ancient Ones
-  // In a full implementation, this would vary by Ancient One
+export interface MythosDeckComposition {
+  stage1: { green: number; yellow: number; blue: number };
+  stage2: { green: number; yellow: number; blue: number };
+  stage3: { green: number; yellow: number; blue: number };
+}
+
+/**
+ * Get the full mythos deck composition for an Ancient One
+ * Based on the Ancient One's sheet configuration from ancient_ones_detailed.json
+ */
+export function getMythosDeckComposition(
+  ancientOneName: string,
+  detailedData?: {
+    mythosDeck?: {
+      stage1?: { green?: string | number; yellow?: string | number; blue?: string | number };
+      stage2?: { green?: string | number; yellow?: string | number; blue?: string | number };
+      stage3?: { green?: string | number; yellow?: string | number; blue?: string | number };
+    };
+  }
+): MythosDeckComposition {
+  // If detailed data is provided, use it
+  if (detailedData?.mythosDeck) {
+    const parseValue = (val: string | number | undefined): number => {
+      if (val === undefined) return 0;
+      if (typeof val === 'number') return val;
+      return parseInt(val, 10) || 0;
+    };
+    
+    return {
+      stage1: {
+        green: parseValue(detailedData.mythosDeck.stage1?.green),
+        yellow: parseValue(detailedData.mythosDeck.stage1?.yellow),
+        blue: parseValue(detailedData.mythosDeck.stage1?.blue),
+      },
+      stage2: {
+        green: parseValue(detailedData.mythosDeck.stage2?.green),
+        yellow: parseValue(detailedData.mythosDeck.stage2?.yellow),
+        blue: parseValue(detailedData.mythosDeck.stage2?.blue),
+      },
+      stage3: {
+        green: parseValue(detailedData.mythosDeck.stage3?.green),
+        yellow: parseValue(detailedData.mythosDeck.stage3?.yellow),
+        blue: parseValue(detailedData.mythosDeck.stage3?.blue),
+      },
+    };
+  }
+  
+  // Fallback to default Core Game configuration
+  // Stage 1: 4 Green, 4 Yellow, 2 Blue
+  // Stage 2: 4 Green, 4 Yellow, 2 Blue
+  // Stage 3: 4 Green, 4 Yellow, 2 Blue
   return {
-    stage,
-    green: 4,
-    yellow: 4,
-    blue: 2,
+    stage1: { green: 4, yellow: 4, blue: 2 },
+    stage2: { green: 4, yellow: 4, blue: 2 },
+    stage3: { green: 4, yellow: 4, blue: 2 },
   };
+}
+
+export function getMythosStageConfig(
+  ancientOneName: string, 
+  stage: number,
+  detailedData?: {
+    mythosDeck?: {
+      stage1?: { green?: string | number; yellow?: string | number; blue?: string | number };
+      stage2?: { green?: string | number; yellow?: string | number; blue?: string | number };
+      stage3?: { green?: string | number; yellow?: string | number; blue?: string | number };
+    };
+  }
+): MythosStageConfig {
+  const composition = getMythosDeckComposition(ancientOneName, detailedData);
+  
+  if (stage === 1) return { stage: 1, ...composition.stage1 };
+  if (stage === 2) return { stage: 2, ...composition.stage2 };
+  return { stage: 3, ...composition.stage3 };
 }
 
 /**
@@ -175,14 +338,30 @@ export function getMythosStageConfig(ancientOneName: string, stage: number): Myt
  * @param stage - Current mythos deck stage (1, 2, or 3)
  * @param color - Required color (Green, Yellow, or Blue)
  * @param usedCardIds - Array of pageIds that have already been used
+ * @param stageDraws - Current stage draws tracking (to check if color is available in stage)
+ * @param stageComposition - The composition of the current stage (max cards per color)
  * @returns Selected mythos card or null if none available
  */
 export async function selectMythosCard(
   stage: number,
   color: MythosColor,
-  usedCardIds: number[] = []
+  usedCardIds: number[] = [],
+  stageDraws?: { green: number; yellow: number; blue: number },
+  stageComposition?: { green: number; yellow: number; blue: number }
 ): Promise<MythosCard | null> {
   const cards = await loadMythosCards();
+  
+  // Check if this color is still available in the current stage
+  if (stageDraws && stageComposition) {
+    const colorKey = color.toLowerCase() as 'green' | 'yellow' | 'blue';
+    const drawn = stageDraws[colorKey];
+    const max = stageComposition[colorKey];
+    
+    if (drawn >= max) {
+      console.warn(`[Mythos Selection] No more ${color} cards available in Stage ${stage} (${drawn}/${max} drawn)`);
+      return null;
+    }
+  }
   
   // Filter by color and exclude used cards
   const availableCards = cards.filter(card => 

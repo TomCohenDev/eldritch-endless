@@ -350,7 +350,19 @@ export interface GameState {
   // Mythos deck tracking
   mythosDeck?: {
     stage: 1 | 2 | 3; // Current stage (1 = top, 3 = bottom)
-    usedCardIds: string[]; // Cards that have been drawn (by pageId)
+    usedCardIds: (string | number)[]; // Cards that have been drawn (by pageId) - global tracking
+    // Stage-specific tracking: how many cards of each color drawn from each stage
+    stageDraws: {
+      stage1: { green: number; yellow: number; blue: number };
+      stage2: { green: number; yellow: number; blue: number };
+      stage3: { green: number; yellow: number; blue: number };
+    };
+    // Track individual cards drawn per stage with their colors
+    stageCards: {
+      stage1: Array<{ pageId: number; title: string; color: 'Green' | 'Yellow' | 'Blue' }>;
+      stage2: Array<{ pageId: number; title: string; color: 'Green' | 'Yellow' | 'Blue' }>;
+      stage3: Array<{ pageId: number; title: string; color: 'Green' | 'Yellow' | 'Blue' }>;
+    };
     lastDrawnCard?: {
       pageId: number;
       title: string;
@@ -397,6 +409,16 @@ export function createInitialGameState(): GameState {
     mythosDeck: {
       stage: 1,
       usedCardIds: [],
+      stageDraws: {
+        stage1: { green: 0, yellow: 0, blue: 0 },
+        stage2: { green: 0, yellow: 0, blue: 0 },
+        stage3: { green: 0, yellow: 0, blue: 0 },
+      },
+      stageCards: {
+        stage1: [],
+        stage2: [],
+        stage3: [],
+      },
     },
   };
 }
@@ -538,7 +560,9 @@ export interface EncounterNode {
       doom?: number;
       conditions?: string[];
       assets?: string[];
+      assetsLost?: string[];
     };
+    effectDescription?: string; // Clear description of gameplay consequences
   };
   
   // Navigation
@@ -576,6 +600,15 @@ export interface MythosCard {
   templates: string[];
   fullText: string;
   rawWikitext: string;
+  // Parsed properties
+  color?: 'Green' | 'Yellow' | 'Blue';
+  difficulty?: 'Easy' | 'Normal' | 'Hard';
+  trait?: 'Event' | 'Ongoing' | 'Ongoing - Rumor';
+  flavor?: string;
+  effect?: string;
+  reckoning?: string;
+  testSkill?: string; // Skill tested (Lore, Influence, Observation, Strength, Will)
+  icons?: string[]; // Mythos card icons (Advance Omen, Reckoning, Spawn Gates, etc.)
   // Parsed fields
   color?: MythosColor;
   difficulty?: MythosDifficulty;
@@ -618,6 +651,30 @@ export interface GenerateMythosRequest {
     stage: number;
     summary: string;
   }>;
+  
+  // Investigators and their current state
+  investigators?: Array<{
+    name: string;
+    profession?: string;
+    location: string;
+    health: number;
+    sanity: number;
+    clues: number;
+    conditions: string[];
+    assets: string[];
+  }>;
+  
+  // Recent action and encounter timeline
+  recentTimeline?: Array<{
+    type: 'action' | 'encounter' | 'mythos' | 'story';
+    playerName?: string;
+    investigatorName?: string;
+    description: string;
+    location?: string;
+    outcome?: string;
+    timestamp: number;
+    round: number;
+  }>;
 }
 
 // Response from mythos generation API
@@ -631,6 +688,8 @@ export interface GenerateMythosResponse {
     difficulty: MythosDifficulty;
     effect: string;
     reckoning?: string;
+    testSkill?: string; // Skill tested (if applicable)
+    icons?: string[]; // Mythos card icons
     // AI-generated story (changed)
     flavor: string;
     narrative: string; // Expanded narrative description

@@ -83,7 +83,17 @@ ${cardsSection}
   - "gain an Artifact" → \`["Artifact"]\`
   - "gain a Talent" → \`["Talent"]\`
   - "gain an Ally" → \`["Ally"]\`
+- **LOST ASSETS**: If the narrative mentions losing possessions, items, or assets, use \`assetsLost: ["Item Asset"]\` or \`assetsLost: ["Asset"]\` in effects.
 - **You are changing the STORY and ADDING CHOICES, not the GAME MECHANICS.**
+
+**CRITICAL: Effect Descriptions**
+- **ALWAYS** include an \`effectDescription\` field for outcome nodes that clearly states the gameplay consequences.
+- The \`effectDescription\` should be a concise, player-friendly summary (e.g., "You gain 1 Clue", "You lose 1 Item Asset", "You gain a Dark Pact Condition").
+- If the narrative text mentions losing possessions/assets, the \`effectDescription\` MUST reflect this with \`assetsLost\` in effects.
+- Examples:
+  - Narrative: "The creature vanishes with your most valuable possessions" → \`effects: { assetsLost: ["Item Asset"] }\`, \`effectDescription: "You lose 1 Item Asset"\`
+  - Narrative: "You find a strange artifact" → \`effects: { assetsGained: ["Artifact"] }\`, \`effectDescription: "You gain 1 Artifact"\`
+  - Narrative: "The ritual costs you dearly" → \`effects: { healthChange: -2, sanityChange: -1 }\`, \`effectDescription: "You lose 2 Health and 1 Sanity"\`
 
 ---
 
@@ -102,6 +112,8 @@ ${cardsSection}
 **Active Themes:** ${plotContext.activeThemes.join(", ")}
 
 **Current Act:** ${plotContext.currentAct}
+
+**Major Plot Points:** ${plotContext.majorPlotPoints.length > 0 ? plotContext.majorPlotPoints.join("; ") : "None yet"}
 
 ---
 
@@ -251,8 +263,10 @@ ${recentEncountersText}
         "healthChange": 0,
         "doomChange": 0,
         "assetsGained": [],
+        "assetsLost": [],
         "conditionsGained": []
-      }
+      },
+      "effectDescription": "Clear, concise description of the gameplay consequences (e.g., 'You gain 1 Clue', 'You lose 1 Item Asset', 'You gain a Dark Pact Condition')"
     },
     {
       "id": "node_fail",
@@ -264,8 +278,10 @@ ${recentEncountersText}
         "healthChange": 0,
         "doomChange": 0,
         "assetsGained": [],
+        "assetsLost": [],
         "conditionsGained": []
-      }
+      },
+      "effectDescription": "Clear, concise description of the gameplay consequences (e.g., 'You lose 2 Health', 'You discard 1 Item Asset', 'You gain a Detained Condition')"
     }
   ],
   "tensionChange": 0,
