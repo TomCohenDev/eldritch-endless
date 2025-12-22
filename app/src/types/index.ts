@@ -346,6 +346,18 @@ export interface GameState {
 
   // Story context for AI (generated at game start, evolves during play)
   plotContext: PlotContext | null;
+
+  // Mythos deck tracking
+  mythosDeck?: {
+    stage: 1 | 2 | 3; // Current stage (1 = top, 3 = bottom)
+    usedCardIds: string[]; // Cards that have been drawn (by pageId)
+    lastDrawnCard?: {
+      pageId: number;
+      title: string;
+      color: 'Green' | 'Yellow' | 'Blue';
+      stage: number;
+    };
+  };
 }
 
 // Simple fallback UUID generator
@@ -382,6 +394,10 @@ export function createInitialGameState(): GameState {
     narrativeLog: [],
     currentEncounter: null,
     plotContext: null,
+    mythosDeck: {
+      stage: 1,
+      usedCardIds: [],
+    },
   };
 }
 
@@ -537,6 +553,87 @@ export interface GenerateEncounterResponse {
     title: string;
     startingNodeId: string;
     nodes: Record<string, EncounterNode>;
+  };
+  
+  // Optional narrative adjustments
+  tensionChange?: number;
+  newPlotPoints?: string[];
+}
+
+// Mythos card types
+export type MythosColor = 'Green' | 'Yellow' | 'Blue';
+export type MythosDifficulty = 'Easy' | 'Normal' | 'Hard';
+export type MythosTrait = 'Event' | 'Ongoing' | 'Ongoing - Rumor';
+
+export interface MythosCard {
+  title: string;
+  pageId: number;
+  categories: string[];
+  infobox: Record<string, string>;
+  cardData: Record<string, string>;
+  sections: Record<string, string>;
+  links: string[];
+  templates: string[];
+  fullText: string;
+  rawWikitext: string;
+  // Parsed fields
+  color?: MythosColor;
+  difficulty?: MythosDifficulty;
+  trait?: MythosTrait;
+  flavor?: string;
+  effect?: string;
+  reckoning?: string;
+}
+
+// Request to generate mythos card story
+export interface GenerateMythosRequest {
+  sessionId: string;
+  card: MythosCard;
+  stage: number;
+  
+  // Game context
+  gameContext: {
+    round: number;
+    doom: number;
+    maxDoom: number;
+    ancientOneName: string;
+    currentTension: number;
+  };
+  
+  // Plot context for narrative continuity
+  plotContext: {
+    premise: string;
+    currentAct: string;
+    activeThemes: string[];
+    majorPlotPoints: string[];
+    ancientOneMotivation: string;
+    cultistAgenda: string;
+    cosmicThreat: string;
+  };
+  
+  // Recent mythos cards for context
+  recentMythosCards?: Array<{
+    title: string;
+    color: MythosColor;
+    stage: number;
+    summary: string;
+  }>;
+}
+
+// Response from mythos generation API
+export interface GenerateMythosResponse {
+  card: {
+    title: string;
+    color: MythosColor;
+    stage: number;
+    // Original mechanics (unchanged)
+    trait: MythosTrait;
+    difficulty: MythosDifficulty;
+    effect: string;
+    reckoning?: string;
+    // AI-generated story (changed)
+    flavor: string;
+    narrative: string; // Expanded narrative description
   };
   
   // Optional narrative adjustments
