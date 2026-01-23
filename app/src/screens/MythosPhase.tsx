@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useGame } from '../context/GameContext';
 import { useGameData } from '../hooks/useGameData';
 import { selectMythosCard, getAvailableCardCounts, getMythosStageConfig, getMythosDeckComposition, type MythosColor } from '../services/ai/mythosSelection';
-import { generateMythosStreaming } from '../api';
+import { generateMythos } from '../api';
 import type { GenerateMythosRequest, MythosCard } from '../types';
 import { 
   Scroll, 
@@ -29,7 +29,6 @@ export function MythosPhase() {
   const { helpers, ancientOneDetailed } = useGameData();
   
   const [isGenerating, setIsGenerating] = useState(false);
-  const [streamingStory, setStreamingStory] = useState('');
   const [currentCard, setCurrentCard] = useState<{
     card: MythosCard;
     generated: any;
@@ -311,14 +310,8 @@ export function MythosPhase() {
       // Get recent descriptions for anti-repetition
       const recentDescriptions = getRecentMythosDescriptions();
 
-      // Generate with streaming
-      const response = await generateMythosStreaming(
-        request,
-        recentDescriptions,
-        (partialStory) => {
-          setStreamingStory(partialStory);
-        }
-      );
+      // Generate mythos story
+      const response = await generateMythos(request, recentDescriptions);
 
       // Record description for future anti-repetition
       recordMythosDescription(
@@ -331,9 +324,6 @@ export function MythosPhase() {
         card: selectedCard,
         generated: response,
       });
-
-      // Clear streaming text
-      setStreamingStory('');
 
       // Update tension if needed
       if (response.tensionChange) {
@@ -661,25 +651,6 @@ export function MythosPhase() {
             );
           })()}
         </section>
-        
-        {/* Streaming Story Display */}
-        {isGenerating && streamingStory && (
-          <section className="bg-shadow/50 rounded-lg p-4 border border-eldritch animate-fade-in">
-            <div className="flex items-center gap-3 mb-4">
-              <Loader2 className="w-5 h-5 animate-spin text-eldritch-light" />
-              <p className="font-accent text-xs text-eldritch-light uppercase tracking-wide">
-                The Mythos Unfolds...
-              </p>
-            </div>
-
-            <div className="bg-abyss/50 rounded p-4 border border-obsidian/50">
-              <p className="font-body text-parchment leading-relaxed">
-                {streamingStory}
-                <span className="animate-pulse ml-1">▊</span>
-              </p>
-            </div>
-          </section>
-        )}
 
         {/* Current Mythos Card */}
         {!isGenerating && currentCard ? (

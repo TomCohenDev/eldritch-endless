@@ -17,10 +17,6 @@ import { generateEncounterWithAI } from "../services/ai/encounterGeneration";
 import { generateNarrationWithAI } from "../services/ai/narration";
 import { generateMythosStory } from "../services/ai/mythosGeneration";
 
-// Import internal streaming functions
-import { generateEncounterWithStreamingGemini } from "../services/ai/encounterGeneration";
-import { generateMythosWithStreamingGemini } from "../services/ai/mythosGeneration";
-
 // Simple fallback UUID generator if crypto.randomUUID is missing
 function generateUUID() {
   if (typeof crypto !== "undefined" && crypto.randomUUID) {
@@ -55,20 +51,19 @@ export async function generateEncounter(
   request: GenerateEncounterRequest,
   recentDescriptions?: string[]
 ): Promise<GenerateEncounterResponse> {
-  // Use local AI service instead of n8n webhook
-  return await generateEncounterWithAI(request, recentDescriptions);
-}
+  console.log('📡 [API] generateEncounter called');
+  console.log('[API] Encounter type:', request.encounterType);
+  console.log('[API] Recent descriptions:', recentDescriptions?.length || 0);
+  console.log('[API] Delegating to generateEncounterWithAI...');
 
-/**
- * Generate encounter with streaming support
- * Streams the narrative text as it's generated for better UX
- */
-export async function generateEncounterStreaming(
-  request: GenerateEncounterRequest,
-  recentDescriptions?: string[],
-  onStreamUpdate?: (partialText: string) => void
-): Promise<GenerateEncounterResponse> {
-  return await generateEncounterWithStreamingGemini(request, recentDescriptions, onStreamUpdate);
+  try {
+    const result = await generateEncounterWithAI(request, recentDescriptions);
+    console.log('[API] ✅ generateEncounterWithAI returned successfully');
+    return result;
+  } catch (error) {
+    console.error('[API] ❌ generateEncounterWithAI threw error:', error);
+    throw error;
+  }
 }
 
 /**
@@ -145,20 +140,20 @@ export async function generateMythos(
   request: GenerateMythosRequest,
   recentDescriptions?: string[]
 ): Promise<GenerateMythosResponse> {
-  // Use local AI service
-  return await generateMythosStory(request, recentDescriptions);
-}
+  console.log('📡 [API] generateMythos called');
+  console.log('[API] Card title:', request.card.title);
+  console.log('[API] Stage:', request.stage);
+  console.log('[API] Recent descriptions:', recentDescriptions?.length || 0);
+  console.log('[API] Delegating to generateMythosStory...');
 
-/**
- * Generate mythos with streaming support
- * Streams the story text as it's generated for better UX
- */
-export async function generateMythosStreaming(
-  request: GenerateMythosRequest,
-  recentDescriptions?: string[],
-  onStreamUpdate?: (partialStory: string) => void
-): Promise<GenerateMythosResponse> {
-  return await generateMythosWithStreamingGemini(request, recentDescriptions, onStreamUpdate);
+  try {
+    const result = await generateMythosStory(request, recentDescriptions);
+    console.log('[API] ✅ generateMythosStory returned successfully');
+    return result;
+  } catch (error) {
+    console.error('[API] ❌ generateMythosStory threw error:', error);
+    throw error;
+  }
 }
 
 /**

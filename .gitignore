@@ -1,5 +1,9 @@
 # Environment variables
 .env
+.env.development
+.env.production
+.env.test
+.env.staging
 .env.local
 .env.*.local
 .env.development.local
