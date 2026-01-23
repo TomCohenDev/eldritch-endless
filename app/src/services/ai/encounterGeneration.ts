@@ -1,4 +1,5 @@
 import { anthropic, ENCOUNTER_GENERATION_MODEL } from "./client";
+import { genAI, GEMINI_ENCOUNTER_MODEL, ENCOUNTER_TEMPERATURE } from "./geminiClient";
 import { generateEncounterPrompt } from "./prompts/encounter";
 import { selectEncounterCards } from "./encounterSelection";
 import type { GenerateEncounterRequest, GenerateEncounterResponse, EncounterNode } from "../../types";
@@ -70,167 +71,117 @@ const ENCOUNTER_JSON_SCHEMA = {
   required: ["encounter", "nodes"]
 };
 
-export async function generateEncounterWithAI(request: GenerateEncounterRequest): Promise<GenerateEncounterResponse> {
-  console.log('[AI Encounter Generation] Starting...');
-  console.log('[AI Encounter Generation] Request:', {
+async function generateEncounterWithGemini(request: GenerateEncounterRequest, recentDescriptions?: string[]): Promise<GenerateEncounterResponse> {
+  console.log('[AI Encounter Generation - Gemini] Starting...');
+  console.log('[AI Encounter Generation - Gemini] Request:', {
     sessionId: request.sessionId,
     encounterType: request.encounterType,
     subType: request.subType,
     investigator: request.investigator.investigatorName,
     location: request.investigator.location,
   });
-  
-  // Select encounter cards from JSON files
-  console.log('[AI Encounter Generation] Selecting encounter cards...');
-  
-  // For research encounters, determine space type from location
+
+  // Select encounter cards from JSON files (same logic as Claude version)
+  console.log('[AI Encounter Generation - Gemini] Selecting encounter cards...');
+
   let spaceType: 'City' | 'Wilderness' | 'Sea' | undefined = request.subType as 'City' | 'Wilderness' | 'Sea' | undefined;
   if (request.encounterType === 'research') {
-    // Import getLocationContext to determine space type
     const { getLocationContext } = await import('../../data/encounterContextLoader');
     const locationInfo = getLocationContext(request.investigator.location);
-    spaceType = locationInfo.locationType === 'city' ? 'City' 
-      : locationInfo.locationType === 'sea' ? 'Sea' 
+    spaceType = locationInfo.locationType === 'city' ? 'City'
+      : locationInfo.locationType === 'sea' ? 'Sea'
       : 'Wilderness';
-    console.log('[AI Encounter Generation] Research encounter - determined space type:', spaceType, 'from location:', request.investigator.location);
+    console.log('[AI Encounter Generation - Gemini] Research encounter - determined space type:', spaceType);
   }
-  
-  // For other world encounters, use subType as the other world name
-  // The investigator's location provides narrative context but doesn't determine which other world
+
   const otherWorldName = request.encounterType === 'other_world' ? request.subType : undefined;
-  
+
   const { cards, metadata } = await selectEncounterCards({
     encounterType: request.encounterType,
-    location: request.investigator.location, // Used for narrative context
-    spaceType: request.encounterType === 'other_world' ? undefined : spaceType, // Not used for other world encounters
-    otherWorld: otherWorldName, // The specific other world name (e.g., "The Underworld", "The Abyss")
+    location: request.investigator.location,
+    spaceType: request.encounterType === 'other_world' ? undefined : spaceType,
+    otherWorld: otherWorldName,
     ancientOne: request.gameContext?.ancientOneName,
   });
-  
-  console.log('[AI Encounter Generation] Selected cards:', {
+
+  console.log('[AI Encounter Generation - Gemini] Selected cards:', {
     count: cards.length,
     metadata: metadata,
   });
-  
+
   if (cards.length === 0 && metadata.rules_only) {
-    console.log('[AI Encounter Generation] Rules-only encounter type (combat/defeated), no generation needed');
     throw new Error('Combat and defeated encounters are not yet implemented');
   }
-  
+
   if (cards.length === 0) {
-    console.error('[AI Encounter Generation] No cards found for:', {
-      encounterType: request.encounterType,
-      location: request.investigator.location,
-      spaceType: request.subType,
-    });
     throw new Error('No encounter cards found for the given context');
   }
-  
-  const prompt = generateEncounterPrompt(request, cards, metadata);
-  
-  console.log('[AI Encounter Generation] Generated Prompt:');
-  console.log(`[AI Encounter Generation] Prompt length: ${prompt.length} characters`);
-  console.log('[AI Encounter Generation] Prompt preview (first 1000 chars):', prompt.substring(0, 1000));
-  console.log('[AI Encounter Generation] Prompt preview (last 1000 chars):', prompt.substring(prompt.length - 1000));
-  
-  // Log full prompt in chunks to avoid console truncation
-  const chunkSize = 5000;
-  for (let i = 0; i < prompt.length; i += chunkSize) {
-    const chunk = prompt.substring(i, i + chunkSize);
-    console.log(`[AI Encounter Generation] Prompt chunk ${Math.floor(i / chunkSize) + 1}:`, chunk);
-  }
-  
-  // Also verify key data is present
-  console.log('[AI Encounter Generation] Data verification:', {
-    hasPremise: !!request.plotContext?.premise,
-    premiseLength: request.plotContext?.premise?.length || 0,
-    hasAncientOneMotivation: !!request.plotContext?.ancientOneMotivation,
-    motivationLength: request.plotContext?.ancientOneMotivation?.length || 0,
-    hasCultistAgenda: !!request.plotContext?.cultistAgenda,
-    hasCosmicThreat: !!request.plotContext?.cosmicThreat,
-    hasActiveThemes: !!request.plotContext?.activeThemes,
-    activeThemesCount: request.plotContext?.activeThemes?.length || 0,
-    hasInvestigatorThread: !!request.plotContext?.investigatorThread,
-    hasLocationSignificance: !!request.plotContext?.locationSignificance,
-  });
+
+  const prompt = generateEncounterPrompt(request, cards, metadata, recentDescriptions);
+
+  console.log('[AI Encounter Generation - Gemini] Generated Prompt:');
+  console.log(`[AI Encounter Generation - Gemini] Prompt length: ${prompt.length} characters`);
 
   try {
-    console.log(`[AI Encounter Generation] Calling Anthropic API with model: ${ENCOUNTER_GENERATION_MODEL}`);
-    console.log('[AI Encounter Generation] API Config:', {
-      model: ENCOUNTER_GENERATION_MODEL,
-      max_tokens: 4096,
-      temperature: 0.7,
-    });
-    
-    const startTime = Date.now();
-    const msg = await anthropic.messages.create({
-      model: ENCOUNTER_GENERATION_MODEL,
-      max_tokens: 4096,
-      temperature: 0.7,
-      system: `You are a JSON-only API. You must strictly respond with a valid JSON object matching the schema below. Do not include markdown formatting like \`\`\`json.
-      
-Schema:
-${JSON.stringify(ENCOUNTER_JSON_SCHEMA, null, 2)}`,
-      messages: [
-        {
-          role: "user",
-          content: prompt,
-        },
-      ],
-    });
-    
-    const duration = Date.now() - startTime;
-    console.log(`[AI Encounter Generation] API call completed in ${duration}ms`);
-    console.log('[AI Encounter Generation] API Response:', {
-      id: msg.id,
-      model: msg.model,
-      role: msg.role,
-      stop_reason: msg.stop_reason,
-      usage: msg.usage,
+    console.log(`[AI Encounter Generation - Gemini] Calling Gemini API with model: ${GEMINI_ENCOUNTER_MODEL}`);
+    console.log('[AI Encounter Generation - Gemini] API Config:', {
+      model: GEMINI_ENCOUNTER_MODEL,
+      temperature: ENCOUNTER_TEMPERATURE,
     });
 
-    const content = msg.content[0].type === "text" ? msg.content[0].text : "";
-    if (!content) {
-      console.error('[AI Encounter Generation] Empty response from API');
+    const startTime = Date.now();
+
+    // Initialize Gemini model with JSON schema
+    const model = genAI.getGenerativeModel({
+      model: GEMINI_ENCOUNTER_MODEL,
+      generationConfig: {
+        temperature: ENCOUNTER_TEMPERATURE,
+        responseMimeType: "application/json",
+        responseSchema: ENCOUNTER_JSON_SCHEMA
+      },
+      systemInstruction: "You are a JSON-only API for Eldritch Horror encounter generation. Respond ONLY with valid JSON matching the schema."
+    });
+
+    // Generate content
+    const result = await model.generateContent({
+      contents: [{ role: "user", parts: [{ text: prompt }] }]
+    });
+
+    const duration = Date.now() - startTime;
+    console.log(`[AI Encounter Generation - Gemini] API call completed in ${duration}ms`);
+
+    const responseText = result.response.text();
+    if (!responseText) {
+      console.error('[AI Encounter Generation - Gemini] Empty response from API');
       throw new Error("Empty response from AI");
     }
 
-    console.log('[AI Encounter Generation] Raw AI Response:');
-    console.log('--- RESPONSE START ---');
-    console.log(content);
-    console.log('--- RESPONSE END ---');
-    console.log(`[AI Encounter Generation] Response length: ${content.length} characters`);
+    console.log('[AI Encounter Generation - Gemini] Response length:', responseText.length, 'characters');
 
-    const rawData = parseAndValidateResponse(content);
-    console.log('[AI Encounter Generation] Parsed encounter data:', {
+    const rawData = parseAndValidateResponse(responseText);
+    console.log('[AI Encounter Generation - Gemini] Parsed encounter data:', {
       title: rawData.encounter.title,
       startingNodeId: rawData.encounter.startingNodeId,
       nodesCount: rawData.nodes.length,
       tensionChange: rawData.tensionChange,
       newPlotPoints: rawData.newPlotPoints?.length || 0,
     });
-    
+
     // Transform raw nodes array to Record<string, EncounterNode> for frontend compatibility
     const nodesRecord: Record<string, EncounterNode> = {};
     rawData.nodes.forEach((node: any) => {
       const transformedNode: EncounterNode = {
         id: node.id,
         type: node.type,
-        content: node.text, // Map text to content
-        // Map test info
+        content: node.text,
         testInfo: node.test ? {
             skill: node.test.skill,
             difficulty: node.test.difficulty,
             modifiers: node.test.modifiers
         } : undefined,
-        // Map choices
         choices: node.choices,
-        // Map outcome
         outcome: node.effects ? {
-            success: true, // This is a bit ambiguous for general nodes, but usually outcomes are distinct. 
-                          // However, the frontend type EncounterNode expects 'outcome' with 'success' boolean.
-                          // 'outcome' nodes in the prompt schema are strictly effect nodes.
-                          // We might need to map pass/fail nodes specifically.
+            success: true,
             effects: {
                 health: node.effects.healthChange,
                 sanity: node.effects.sanityChange,
@@ -242,24 +193,19 @@ ${JSON.stringify(ENCOUNTER_JSON_SCHEMA, null, 2)}`,
             },
             effectDescription: node.effectDescription || undefined
         } : undefined,
-        // Navigation
         nextNodeId: node.nextNodeId,
         passNodeId: node.test?.passNodeId,
         failNodeId: node.test?.failNodeId,
       };
-      
-      // Fix outcome success flag - if it's a pass node (usually implied by ID or flow), success=true
-      // But purely effect nodes don't inherently have success/fail unless linked from a test.
-      // We'll leave it as true for now as it's just a container for effects.
+
       if (node.type === 'outcome' && transformedNode.outcome) {
           transformedNode.outcome.success = !node.id.toLowerCase().includes('fail');
       }
 
       nodesRecord[node.id] = transformedNode;
     });
-    
-    console.log('[AI Encounter Generation] Transformed nodes:', Object.keys(nodesRecord));
-    console.log('[AI Encounter Generation] ✅ Success');
+
+    console.log('[AI Encounter Generation - Gemini] ✅ Success');
 
     return {
       encounter: {
@@ -272,14 +218,169 @@ ${JSON.stringify(ENCOUNTER_JSON_SCHEMA, null, 2)}`,
     };
 
   } catch (error) {
-    console.error('[AI Encounter Generation] ❌ Error:', error);
-    console.error('[AI Encounter Generation] Error details:', {
+    console.error('[AI Encounter Generation - Gemini] ❌ Error:', error);
+    console.error('[AI Encounter Generation - Gemini] Error details:', {
       name: error instanceof Error ? error.name : 'Unknown',
       message: error instanceof Error ? error.message : String(error),
       stack: error instanceof Error ? error.stack : undefined,
     });
     throw error;
   }
+}
+
+/**
+ * Generate encounter with streaming support (Gemini)
+ * Streams the narrative text as it's generated
+ */
+export async function generateEncounterWithStreamingGemini(
+  request: GenerateEncounterRequest,
+  recentDescriptions?: string[],
+  onStreamUpdate?: (partialText: string) => void
+): Promise<GenerateEncounterResponse> {
+  console.log('[AI Encounter Generation - Gemini Streaming] Starting...');
+
+  // Card selection and prompt generation (same as non-streaming)
+  let spaceType: 'City' | 'Wilderness' | 'Sea' | undefined = request.subType as 'City' | 'Wilderness' | 'Sea' | undefined;
+  if (request.encounterType === 'research') {
+    const { getLocationContext } = await import('../../data/encounterContextLoader');
+    const locationInfo = getLocationContext(request.investigator.location);
+    spaceType = locationInfo.locationType === 'city' ? 'City'
+      : locationInfo.locationType === 'sea' ? 'Sea'
+      : 'Wilderness';
+  }
+
+  const otherWorldName = request.encounterType === 'other_world' ? request.subType : undefined;
+
+  const { cards, metadata } = await selectEncounterCards({
+    encounterType: request.encounterType,
+    location: request.investigator.location,
+    spaceType: request.encounterType === 'other_world' ? undefined : spaceType,
+    otherWorld: otherWorldName,
+    ancientOne: request.gameContext?.ancientOneName,
+  });
+
+  if (cards.length === 0) {
+    throw new Error('No encounter cards found for the given context');
+  }
+
+  const prompt = generateEncounterPrompt(request, cards, metadata, recentDescriptions);
+
+  console.log('[AI Encounter Generation - Gemini Streaming] Prompt length:', prompt.length, 'characters');
+
+  try {
+    const startTime = Date.now();
+
+    // Initialize Gemini model with JSON schema
+    const model = genAI.getGenerativeModel({
+      model: GEMINI_ENCOUNTER_MODEL,
+      generationConfig: {
+        temperature: ENCOUNTER_TEMPERATURE,
+        responseMimeType: "application/json",
+        responseSchema: ENCOUNTER_JSON_SCHEMA
+      },
+      systemInstruction: "You are a JSON-only API for Eldritch Horror encounter generation. Respond ONLY with valid JSON matching the schema."
+    });
+
+    // Stream generation
+    const result = await model.generateContentStream({
+      contents: [{ role: "user", parts: [{ text: prompt }] }]
+    });
+
+    let accumulatedText = '';
+    let lastValidJson: any = null;
+
+    for await (const chunk of result.stream) {
+      const chunkText = chunk.text();
+      accumulatedText += chunkText;
+
+      // Try to parse partial JSON for streaming updates
+      try {
+        const partialJson = JSON.parse(accumulatedText);
+
+        // Stream narrative text if available
+        if (partialJson.encounter?.narrative) {
+          onStreamUpdate?.(partialJson.encounter.narrative);
+        }
+
+        // Also try to stream first node text if available
+        if (partialJson.nodes?.[0]?.text) {
+          const fullText = `${partialJson.encounter?.narrative || ''}\n\n${partialJson.nodes[0].text}`;
+          onStreamUpdate?.(fullText);
+        }
+
+        lastValidJson = partialJson;
+      } catch (e) {
+        // Partial JSON not yet valid, try to extract narrative preview
+        const narrativeMatch = accumulatedText.match(/"narrative":\s*"([^"]+)"/);
+        if (narrativeMatch) {
+          onStreamUpdate?.(narrativeMatch[1].replace(/\\n/g, '\n'));
+        }
+      }
+    }
+
+    const duration = Date.now() - startTime;
+    console.log(`[AI Encounter Generation - Gemini Streaming] Completed in ${duration}ms`);
+
+    // Final parse with complete JSON
+    const rawData = lastValidJson || JSON.parse(accumulatedText);
+
+    // Transform nodes (same as non-streaming)
+    const nodesRecord: Record<string, EncounterNode> = {};
+    rawData.nodes.forEach((node: any) => {
+      const transformedNode: EncounterNode = {
+        id: node.id,
+        type: node.type,
+        content: node.text,
+        testInfo: node.test ? {
+            skill: node.test.skill,
+            difficulty: node.test.difficulty,
+            modifiers: node.test.modifiers
+        } : undefined,
+        choices: node.choices,
+        outcome: node.effects ? {
+            success: true,
+            effects: {
+                health: node.effects.healthChange,
+                sanity: node.effects.sanityChange,
+                clues: node.effects.cluesGained,
+                doom: node.effects.doomChange,
+                assets: node.effects.assetsGained,
+                assetsLost: node.effects.assetsLost || [],
+                conditions: node.effects.conditionsGained
+            },
+            effectDescription: node.effectDescription || undefined
+        } : undefined,
+        nextNodeId: node.nextNodeId,
+        passNodeId: node.test?.passNodeId,
+        failNodeId: node.test?.failNodeId,
+      };
+
+      if (node.type === 'outcome' && transformedNode.outcome) {
+          transformedNode.outcome.success = !node.id.toLowerCase().includes('fail');
+      }
+
+      nodesRecord[node.id] = transformedNode;
+    });
+
+    return {
+      encounter: {
+        title: rawData.encounter.title,
+        startingNodeId: rawData.encounter.startingNodeId,
+        nodes: nodesRecord
+      },
+      tensionChange: rawData.tensionChange,
+      newPlotPoints: rawData.newPlotPoints
+    };
+
+  } catch (error) {
+    console.error('[AI Encounter Generation - Gemini Streaming] ❌ Error:', error);
+    throw error;
+  }
+}
+
+export async function generateEncounterWithAI(request: GenerateEncounterRequest, recentDescriptions?: string[]): Promise<GenerateEncounterResponse> {
+  // Use Gemini for encounter generation (non-streaming by default)
+  return await generateEncounterWithGemini(request, recentDescriptions);
 }
 
 function parseAndValidateResponse(jsonStr: string): any {

@@ -17,6 +17,10 @@ import { generateEncounterWithAI } from "../services/ai/encounterGeneration";
 import { generateNarrationWithAI } from "../services/ai/narration";
 import { generateMythosStory } from "../services/ai/mythosGeneration";
 
+// Import internal streaming functions
+import { generateEncounterWithStreamingGemini } from "../services/ai/encounterGeneration";
+import { generateMythosWithStreamingGemini } from "../services/ai/mythosGeneration";
+
 // Simple fallback UUID generator if crypto.randomUUID is missing
 function generateUUID() {
   if (typeof crypto !== "undefined" && crypto.randomUUID) {
@@ -48,10 +52,23 @@ export async function generatePlot(
  * Throws an error if the API call fails - no fallbacks allowed
  */
 export async function generateEncounter(
-  request: GenerateEncounterRequest
+  request: GenerateEncounterRequest,
+  recentDescriptions?: string[]
 ): Promise<GenerateEncounterResponse> {
   // Use local AI service instead of n8n webhook
-  return await generateEncounterWithAI(request);
+  return await generateEncounterWithAI(request, recentDescriptions);
+}
+
+/**
+ * Generate encounter with streaming support
+ * Streams the narrative text as it's generated for better UX
+ */
+export async function generateEncounterStreaming(
+  request: GenerateEncounterRequest,
+  recentDescriptions?: string[],
+  onStreamUpdate?: (partialText: string) => void
+): Promise<GenerateEncounterResponse> {
+  return await generateEncounterWithStreamingGemini(request, recentDescriptions, onStreamUpdate);
 }
 
 /**
@@ -125,10 +142,23 @@ export async function advanceStory(context: {
  * The AI rewrites the flavor text while keeping all mechanics the same
  */
 export async function generateMythos(
-  request: GenerateMythosRequest
+  request: GenerateMythosRequest,
+  recentDescriptions?: string[]
 ): Promise<GenerateMythosResponse> {
   // Use local AI service
-  return await generateMythosStory(request);
+  return await generateMythosStory(request, recentDescriptions);
+}
+
+/**
+ * Generate mythos with streaming support
+ * Streams the story text as it's generated for better UX
+ */
+export async function generateMythosStreaming(
+  request: GenerateMythosRequest,
+  recentDescriptions?: string[],
+  onStreamUpdate?: (partialStory: string) => void
+): Promise<GenerateMythosResponse> {
+  return await generateMythosWithStreamingGemini(request, recentDescriptions, onStreamUpdate);
 }
 
 /**

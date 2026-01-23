@@ -7,7 +7,7 @@
 
 import type { GenerateMythosRequest } from '../../../types';
 
-export function generateMythosPrompt(request: GenerateMythosRequest): string {
+export function generateMythosPrompt(request: GenerateMythosRequest, recentDescriptions?: string[]): string {
   const { card, stage, gameContext, plotContext, recentMythosCards, investigators, recentTimeline } = request;
   
   const recentMythosContext = recentMythosCards && recentMythosCards.length > 0
@@ -72,6 +72,27 @@ ${card.icons && card.icons.length > 0 ? `Icons: ${card.icons.join(', ')}` : ''}
 
 Raw Card Text (for reference):
 ${card.rawWikitext || card.fullText}
+
+---
+
+ANTI-REPETITION REQUIREMENTS:
+
+**CRITICAL: Avoid Repetitive Patterns**
+
+Recent mythos cards have used these descriptions. You MUST avoid repeating these phrases, structures, and patterns:
+
+${recentDescriptions && recentDescriptions.length > 0 ? recentDescriptions.join('\n\n') : 'No recent mythos cards yet - you have full creative freedom.'}
+
+**Specific Instructions:**
+1. DO NOT reuse the same opening patterns
+2. DO NOT repeat the same atmospheric descriptions (e.g., if recent cards said "darkness spreads", vary it)
+3. VARY your vocabulary - use fresh, evocative words
+4. CHANGE your sentence structures and rhythms
+5. AVOID falling into predictable cosmic horror clichés
+6. ENSURE each card feels distinct and memorable
+7. CREATE unique horror imagery specific to THIS card's mechanics
+
+---
 
 YOUR TASK:
 Rewrite the Flavor text to:

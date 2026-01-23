@@ -15,10 +15,10 @@ export const anthropic = new Anthropic({
 /**
  * PLOT_GENERATION_MODEL
  * Used for: Initial game plot generation, creating narrative context
- * Requirements: High creativity, deep understanding, rich storytelling
- * Model: Claude Opus 4.5 - Most capable for complex narrative generation
+ * Requirements: High creativity, good storytelling, focused output
+ * Model: Claude Sonnet 4.5 - Faster and more focused for concise narrative generation
  */
-export const PLOT_GENERATION_MODEL = "claude-opus-4-5";
+export const PLOT_GENERATION_MODEL = "claude-sonnet-4-5-20250929";
 
 /**
  * ENCOUNTER_GENERATION_MODEL

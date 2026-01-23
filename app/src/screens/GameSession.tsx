@@ -53,7 +53,7 @@ import {
 } from 'lucide-react';
 import { useGame } from '../context/GameContext';
 import { useGameData } from '../hooks/useGameData';
-import { generateEncounter } from '../api';
+import { generateEncounterStreaming } from '../api';
 import { NARRATOR_VOICES, type ActionType, type EncounterType, type GenerateEncounterResponse } from '../types';
 import { playVoiceSample } from '../utils/voiceSamples';
 import { MythosPhase } from './MythosPhase';
@@ -70,11 +70,11 @@ const ACTIONS: { type: ActionType; label: string; icon: typeof Footprints; descr
 ];
 
 export function GameSession() {
-  const { 
-    state, 
-    advancePhase, 
+  const {
+    state,
+    advancePhase,
     goBackPhase,
-    setActivePlayer, 
+    setActivePlayer,
     performAction,
     setPlayerLocation,
     undoLastAction,
@@ -83,7 +83,9 @@ export function GameSession() {
     addNarrativeEvent,
     updatePlotTension,
     addPlotPoint,
-    setNarratorVoice
+    setNarratorVoice,
+    getRecentEncounterDescriptions,
+    recordEncounterDescription,
   } = useGame();
   
   // Track encounter history for back navigation
@@ -112,6 +114,7 @@ export function GameSession() {
   const [encounterResult, setEncounterResult] = useState<GenerateEncounterResponse | null>(null);
   const [currentNodeId, setCurrentNodeId] = useState<string | null>(null);
   const [isGeneratingEncounter, setIsGeneratingEncounter] = useState(false);
+  const [streamingEncounterText, setStreamingEncounterText] = useState('');
   
   // Narrative event viewer
   const [viewingEvent, setViewingEvent] = useState<typeof state.narrativeEvents[0] | null>(null);
@@ -1117,11 +1120,30 @@ export function GameSession() {
                       
                       if (!encounterResult && isGeneratingEncounter) {
                         return (
-                          <div className="flex flex-col items-center justify-center h-full space-y-4">
-                            <Loader2 className="w-8 h-8 animate-spin text-eldritch-light" />
-                            <p className="font-accent text-sm text-parchment-dark animate-pulse text-center">
-                              Consulting the archives...
-                            </p>
+                          <div className="flex flex-col h-full space-y-4">
+                            <div className="flex items-center gap-3">
+                              <Loader2 className="w-5 h-5 animate-spin text-eldritch-light" />
+                              <p className="font-accent text-xs text-eldritch-light uppercase tracking-wide">
+                                Weaving the Darkness...
+                              </p>
+                            </div>
+
+                            {streamingEncounterText && (
+                              <div className="flex-1 bg-abyss/30 rounded p-4 border border-obsidian/50">
+                                <p className="font-body text-parchment leading-relaxed">
+                                  {streamingEncounterText}
+                                  <span className="animate-pulse ml-1">▊</span>
+                                </p>
+                              </div>
+                            )}
+
+                            {!streamingEncounterText && (
+                              <div className="flex items-center justify-center flex-1">
+                                <p className="font-accent text-sm text-parchment-dark animate-pulse text-center">
+                                  Consulting the archives...
+                                </p>
+                              </div>
+                            )}
                           </div>
                         );
                       }
@@ -1381,7 +1403,8 @@ export function GameSession() {
                   if (!activePlayer || !selectedEncounter) return;
                   
                   setIsGeneratingEncounter(true);
-                  
+                  setStreamingEncounterText('');
+
                   // Build the encounter request with full context
                   const encounterRequest = buildEncounterRequest({
                     type: selectedEncounter.type,
@@ -1393,20 +1416,37 @@ export function GameSession() {
                       originalText: selectedEncounter.content,
                     },
                   });
-                  
+
                   if (encounterRequest) {
                     try {
-                      // Call the n8n encounter generation workflow
-                      const response = await generateEncounter(encounterRequest);
+                      // Get recent descriptions for anti-repetition
+                      const recentDescriptions = getRecentEncounterDescriptions();
+
+                      // Call encounter generation with streaming
+                      const response = await generateEncounterStreaming(
+                        encounterRequest,
+                        recentDescriptions,
+                        (partialText) => {
+                          setStreamingEncounterText(partialText);
+                        }
+                      );
+
+                      // Record description for future anti-repetition
+                      const startingNode = response.encounter.nodes[response.encounter.startingNodeId];
+                      if (startingNode) {
+                        recordEncounterDescription(response.encounter.title, startingNode.content);
+                      }
+
                       setEncounterResult(response);
                       setCurrentNodeId(response.encounter.startingNodeId);
                       setEncounterHistory([]); // Reset history for new encounter
-                      
+                      setStreamingEncounterText(''); // Clear streaming text
+
                       // Update tension if the encounter suggests it
                       if (response.tensionChange) {
                         updatePlotTension((state.plotContext?.currentTension || 3) + response.tensionChange);
                       }
-                      
+
                       // Add any new plot points
                       if (response.newPlotPoints) {
                         response.newPlotPoints.forEach(point => addPlotPoint(point));
@@ -1416,7 +1456,7 @@ export function GameSession() {
                       // Fallback handled by API
                     }
                   }
-                  
+
                   setIsGeneratingEncounter(false);
                   setIsCardFlipped(true);
                 }}

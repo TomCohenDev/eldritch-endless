@@ -6,6 +6,7 @@
  */
 
 import { anthropic, ENCOUNTER_GENERATION_MODEL } from './client';
+import { genAI, GEMINI_MYTHOS_MODEL, MYTHOS_TEMPERATURE } from './geminiClient';
 import { generateMythosPrompt } from './prompts/mythos';
 import type { GenerateMythosRequest, GenerateMythosResponse } from '../../types';
 
@@ -23,88 +24,57 @@ const MYTHOS_JSON_SCHEMA = {
   required: ["flavor", "narrative"]
 };
 
-export async function generateMythosStory(
-  request: GenerateMythosRequest
+async function generateMythosWithGemini(
+  request: GenerateMythosRequest,
+  recentDescriptions?: string[]
 ): Promise<GenerateMythosResponse> {
-  console.log('[Mythos Generation] Starting...');
-  console.log('[Mythos Generation] Full Request Object:');
-  console.log(JSON.stringify(request, null, 2));
-  
-  console.log('[Mythos Generation] Request Summary:', {
+  console.log('[Mythos Generation - Gemini] Starting...');
+  console.log('[Mythos Generation - Gemini] Request Summary:', {
     sessionId: request.sessionId,
     cardTitle: request.card.title,
     color: request.card.color,
     stage: request.stage,
-    cardPageId: request.card.pageId,
-    cardEffect: request.card.effect,
-    cardTestSkill: request.card.testSkill,
-    cardIcons: request.card.icons,
   });
 
-  const prompt = generateMythosPrompt(request);
+  const prompt = generateMythosPrompt(request, recentDescriptions);
 
-  console.log('[Mythos Generation] Generated Prompt:');
-  console.log(`[Mythos Generation] Prompt length: ${prompt.length} characters`);
-  console.log('[Mythos Generation] Full Prompt Text:');
-  console.log('--- PROMPT START ---');
-  console.log(prompt);
-  console.log('--- PROMPT END ---');
+  console.log('[Mythos Generation - Gemini] Generated Prompt:');
+  console.log(`[Mythos Generation - Gemini] Prompt length: ${prompt.length} characters`);
 
   try {
-    console.log(`[Mythos Generation] Calling Anthropic API with model: ${ENCOUNTER_GENERATION_MODEL}`);
-    
-    const apiRequest = {
-      model: ENCOUNTER_GENERATION_MODEL,
-      max_tokens: 2048,
-      temperature: 0.8, // Slightly higher for more creative storytelling
-      system: `You are a JSON-only API. You must strictly respond with a valid JSON object matching the schema below. Do not include markdown formatting like \`\`\`json.
-      
-Schema:
-${JSON.stringify(MYTHOS_JSON_SCHEMA, null, 2)}`,
-      messages: [
-        {
-          role: "user",
-          content: prompt,
-        },
-      ],
-    };
-    
-    console.log('[Mythos Generation] Full API Request:');
-    console.log(JSON.stringify({
-      model: apiRequest.model,
-      max_tokens: apiRequest.max_tokens,
-      temperature: apiRequest.temperature,
-      system: apiRequest.system,
-      messages: apiRequest.messages.map(m => ({
-        role: m.role,
-        contentLength: m.content.length,
-        contentPreview: m.content.substring(0, 200) + '...',
-      })),
-    }, null, 2));
-    
-    const startTime = Date.now();
-    const msg = await anthropic.messages.create(apiRequest);
-    
-    const duration = Date.now() - startTime;
-    console.log(`[Mythos Generation] API call completed in ${duration}ms`);
+    console.log(`[Mythos Generation - Gemini] Calling Gemini API with model: ${GEMINI_MYTHOS_MODEL}`);
 
-    const content = msg.content[0].type === "text" ? msg.content[0].text : "";
-    if (!content) {
-      console.error('[Mythos Generation] Empty response from API');
+    const startTime = Date.now();
+
+    // Initialize Gemini model with JSON schema
+    const model = genAI.getGenerativeModel({
+      model: GEMINI_MYTHOS_MODEL,
+      generationConfig: {
+        temperature: MYTHOS_TEMPERATURE,
+        responseMimeType: "application/json",
+        responseSchema: MYTHOS_JSON_SCHEMA
+      },
+      systemInstruction: "You are a JSON-only API for Eldritch Horror mythos card generation. Respond ONLY with valid JSON."
+    });
+
+    // Generate content
+    const result = await model.generateContent({
+      contents: [{ role: "user", parts: [{ text: prompt }] }]
+    });
+
+    const duration = Date.now() - startTime;
+    console.log(`[Mythos Generation - Gemini] API call completed in ${duration}ms`);
+
+    const responseText = result.response.text();
+    if (!responseText) {
+      console.error('[Mythos Generation - Gemini] Empty response from API');
       throw new Error("Empty response from AI");
     }
 
-    console.log('[Mythos Generation] Raw AI Response:');
-    console.log('--- RESPONSE START ---');
-    console.log(content);
-    console.log('--- RESPONSE END ---');
-    
-    // Also log the full response text for easier debugging
-    console.log('[Mythos Generation] Full Response Text:');
-    console.log(JSON.stringify(content, null, 2));
+    console.log('[Mythos Generation - Gemini] Response length:', responseText.length, 'characters');
 
-    const rawData = parseAndValidateResponse(content);
-    console.log('[Mythos Generation] Parsed mythos data:', {
+    const rawData = parseAndValidateResponse(responseText);
+    console.log('[Mythos Generation - Gemini] Parsed mythos data:', {
       flavorLength: rawData.flavor?.length || 0,
       narrativeLength: rawData.narrative?.length || 0,
       tensionChange: rawData.tensionChange,
@@ -122,17 +92,113 @@ ${JSON.stringify(MYTHOS_JSON_SCHEMA, null, 2)}`,
         reckoning: request.card.reckoning,
         flavor: rawData.flavor,
         narrative: rawData.narrative,
-        testSkill: request.card.testSkill, // Pass through test skill
-        icons: request.card.icons, // Pass through icons
+        testSkill: request.card.testSkill,
+        icons: request.card.icons,
       },
       tensionChange: rawData.tensionChange,
       newPlotPoints: rawData.newPlotPoints,
     };
 
   } catch (error) {
-    console.error('[Mythos Generation] ❌ Error:', error);
+    console.error('[Mythos Generation - Gemini] ❌ Error:', error);
     throw error;
   }
+}
+
+/**
+ * Generate mythos with streaming support (Gemini)
+ * Streams the story text as it's generated
+ */
+export async function generateMythosWithStreamingGemini(
+  request: GenerateMythosRequest,
+  recentDescriptions?: string[],
+  onStreamUpdate?: (partialStory: string) => void
+): Promise<GenerateMythosResponse> {
+  console.log('[Mythos Generation - Gemini Streaming] Starting...');
+
+  const prompt = generateMythosPrompt(request, recentDescriptions);
+
+  console.log('[Mythos Generation - Gemini Streaming] Prompt length:', prompt.length, 'characters');
+
+  try {
+    const startTime = Date.now();
+
+    // Initialize Gemini model with JSON schema
+    const model = genAI.getGenerativeModel({
+      model: GEMINI_MYTHOS_MODEL,
+      generationConfig: {
+        temperature: MYTHOS_TEMPERATURE,
+        responseMimeType: "application/json",
+        responseSchema: MYTHOS_JSON_SCHEMA
+      },
+      systemInstruction: "You are a JSON-only API for Eldritch Horror mythos card generation. Respond ONLY with valid JSON."
+    });
+
+    // Stream generation
+    const result = await model.generateContentStream({
+      contents: [{ role: "user", parts: [{ text: prompt }] }]
+    });
+
+    let accumulatedText = '';
+    let lastValidJson: any = null;
+
+    for await (const chunk of result.stream) {
+      const chunkText = chunk.text();
+      accumulatedText += chunkText;
+
+      // Try to parse and extract story for streaming
+      try {
+        const partialJson = JSON.parse(accumulatedText);
+
+        if (partialJson.flavor) {
+          onStreamUpdate?.(partialJson.flavor);
+        }
+
+        lastValidJson = partialJson;
+      } catch (e) {
+        // Try to extract flavor text from partial JSON
+        const flavorMatch = accumulatedText.match(/"flavor":\s*"([^"]+)"/);
+        if (flavorMatch) {
+          onStreamUpdate?.(flavorMatch[1].replace(/\\n/g, '\n'));
+        }
+      }
+    }
+
+    const duration = Date.now() - startTime;
+    console.log(`[Mythos Generation - Gemini Streaming] Completed in ${duration}ms`);
+
+    const rawData = lastValidJson || JSON.parse(accumulatedText);
+
+    return {
+      card: {
+        title: request.card.title,
+        color: request.card.color!,
+        stage: request.stage,
+        trait: request.card.trait || 'Event',
+        difficulty: request.card.difficulty || 'Normal',
+        effect: request.card.effect || '',
+        reckoning: request.card.reckoning,
+        flavor: rawData.flavor,
+        narrative: rawData.narrative,
+        testSkill: request.card.testSkill,
+        icons: request.card.icons,
+      },
+      tensionChange: rawData.tensionChange,
+      newPlotPoints: rawData.newPlotPoints,
+    };
+
+  } catch (error) {
+    console.error('[Mythos Generation - Gemini Streaming] ❌ Error:', error);
+    throw error;
+  }
+}
+
+export async function generateMythosStory(
+  request: GenerateMythosRequest,
+  recentDescriptions?: string[]
+): Promise<GenerateMythosResponse> {
+  // Use Gemini for mythos generation (non-streaming by default)
+  return await generateMythosWithGemini(request, recentDescriptions);
 }
 
 function parseAndValidateResponse(jsonStr: string): any {

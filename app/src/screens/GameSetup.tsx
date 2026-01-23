@@ -291,7 +291,8 @@ export function GameSetup() {
       // Build investigator threads for narration
       const investigatorThreads = state.plotContext.investigatorThreads?.map(thread => ({
         playerId: thread.playerId,
-        personalStakes: thread.personalStakes || '',
+        // Use new narrative field if available, otherwise fall back to old fields
+        personalStakes: thread.narrative || thread.personalStakes || '',
         connectionToThreat: thread.connectionToThreat || '',
       })) || [];
       
@@ -915,22 +916,34 @@ export function GameSetup() {
                       )}
                     </div>
                     
-                    {thread.personalStakes && (
-                      <div className="mb-3">
-                        <p className="font-display text-sm font-bold text-gold-light uppercase tracking-wide mb-2">Personal Stakes</p>
-                        <p className="font-body text-sm font-medium text-parchment leading-relaxed">
-                          {thread.personalStakes}
-                        </p>
-                      </div>
-                    )}
-                    
-                    {thread.connectionToThreat && (
+                    {/* Display narrative (new format) or fall back to old format */}
+                    {thread.narrative ? (
                       <div>
-                        <p className="font-display text-sm font-bold text-sickly-light uppercase tracking-wide mb-2">Connection to the Threat</p>
                         <p className="font-body text-sm font-medium text-parchment leading-relaxed">
-                          {thread.connectionToThreat}
+                          {thread.narrative}
                         </p>
                       </div>
+                    ) : (
+                      <>
+                        {/* Backward compatibility with old format */}
+                        {thread.personalStakes && (
+                          <div className="mb-3">
+                            <p className="font-display text-sm font-bold text-gold-light uppercase tracking-wide mb-2">Personal Stakes</p>
+                            <p className="font-body text-sm font-medium text-parchment leading-relaxed">
+                              {thread.personalStakes}
+                            </p>
+                          </div>
+                        )}
+
+                        {thread.connectionToThreat && (
+                          <div>
+                            <p className="font-display text-sm font-bold text-sickly-light uppercase tracking-wide mb-2">Connection to the Threat</p>
+                            <p className="font-body text-sm font-medium text-parchment leading-relaxed">
+                              {thread.connectionToThreat}
+                            </p>
+                          </div>
+                        )}
+                      </>
                     )}
                   </div>
                 );
