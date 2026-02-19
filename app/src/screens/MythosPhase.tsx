@@ -155,7 +155,6 @@ export function MythosPhase() {
     }
     
     setIsGenerating(true);
-    setStreamingStory('');
     setCurrentCard(null);
 
     try {

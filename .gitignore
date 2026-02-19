@@ -16,8 +16,6 @@ app/.env.development
 app/.env.production
 app/.env.test
 app/.env.staging
-app/.env.local
-app/.env.*.local
 app/.env.development.local
 app/.env.test.local
 app/.env.production.local
