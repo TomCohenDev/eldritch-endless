@@ -5,4 +5,13 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  server: {
+    proxy: {
+      '/ollama-api': {
+        target: 'http://localhost:11434',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/ollama-api/, '')
+      }
+    }
+  }
 })

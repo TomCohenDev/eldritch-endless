@@ -1,3 +1,9 @@
+/**
+ * @deprecated This module is deprecated. Use ollamaClient.ts instead.
+ * Encounter and mythos generation now use local Gemma 3 via Ollama.
+ * This file is kept for backwards compatibility but may be removed in the future.
+ */
+
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const GOOGLE_API_KEY = import.meta.env.VITE_GOOGLE_API_KEY || "";

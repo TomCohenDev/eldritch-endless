@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(npm install:*)",
+      "Bash(npx tsc:*)",
+      "Bash(powershell.exe -Command \"Get-ChildItem -Path ''C:\\\\Program Files'',''C:\\\\Program Files \\(x86\\)'',''$env:LOCALAPPDATA'',''$env:USERPROFILE\\\\AppData\\\\Local\\\\Programs'' -Filter ''ollama.exe'' -Recurse -ErrorAction SilentlyContinue 2>$null | Select-Object -First 1 -ExpandProperty FullName\")",
+      "Bash(powershell.exe -Command \"Get-Command ollama -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source; if \\(-not $?\\) { Get-ChildItem ''C:\\\\Users\\\\tomco\\\\AppData\\\\Local\\\\Programs'' -Filter ''ollama*'' -Recurse -ErrorAction SilentlyContinue | Select-Object -ExpandProperty FullName }\")",
+      "Bash(\"/c/Users/tomco/AppData/Local/Programs/Ollama/ollama.exe\" pull gemma3:1b)",
+      "Bash(\"/c/Users/tomco/AppData/Local/Programs/Ollama/ollama.exe\" list)",
+      "Bash(npm run dev:*)",
+      "Bash(\"/c/Users/tomco/AppData/Local/Programs/Ollama/ollama.exe\" pull gemma3:27b)",
+      "Bash(\"/c/Users/tomco/AppData/Local/Programs/Ollama/ollama.exe\" pull gemma3:4b)"
+    ]
+  }
+}

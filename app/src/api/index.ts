@@ -44,26 +44,12 @@ export async function generatePlot(
 
 /**
  * Generate a narrative encounter based on game context
- * This will call the AI agent to create story-appropriate encounters
- * Throws an error if the API call fails - no fallbacks allowed
  */
 export async function generateEncounter(
   request: GenerateEncounterRequest,
   recentDescriptions?: string[]
 ): Promise<GenerateEncounterResponse> {
-  console.log('📡 [API] generateEncounter called');
-  console.log('[API] Encounter type:', request.encounterType);
-  console.log('[API] Recent descriptions:', recentDescriptions?.length || 0);
-  console.log('[API] Delegating to generateEncounterWithAI...');
-
-  try {
-    const result = await generateEncounterWithAI(request, recentDescriptions);
-    console.log('[API] ✅ generateEncounterWithAI returned successfully');
-    return result;
-  } catch (error) {
-    console.error('[API] ❌ generateEncounterWithAI threw error:', error);
-    throw error;
-  }
+  return generateEncounterWithAI(request, recentDescriptions);
 }
 
 /**

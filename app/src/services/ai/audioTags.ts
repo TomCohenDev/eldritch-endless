@@ -1,4 +1,4 @@
-import { genAI, AUDIO_TAG_MODEL } from "./geminiClient";
+import { ollama, OLLAMA_AUDIO_TAG_MODEL } from "./ollamaClient";
 
 interface AudioItem {
   type: 'premise' | 'investigator';
@@ -35,24 +35,22 @@ Only modify the "text" field. Keep all other fields unchanged.
 Return ONLY valid JSON array - no markdown, no explanation.`;
 
 /**
- * Add audio tags to narration text using Google Gemini
+ * Add audio tags to narration text using Ollama (local Gemma 3)
  * This enhances text with ElevenLabs audio direction tags for theatrical narration
  */
 export async function addAudioTags(items: AudioItem[]): Promise<AudioItem[]> {
   console.log('[Audio Tags] Starting audio tag generation...');
   console.log('[Audio Tags] Processing', items.length, 'items');
-  
+
   try {
-    console.log(`[Audio Tags] Using model: ${AUDIO_TAG_MODEL}`);
+    console.log(`[Audio Tags] Using model: ${OLLAMA_AUDIO_TAG_MODEL}`);
     console.log('[Audio Tags] Input items:', items.map(i => ({
       type: i.type,
       id: i.id,
       textLength: i.text.length,
       textPreview: i.text.substring(0, 50) + '...'
     })));
-    
-    const model = genAI.getGenerativeModel({ model: AUDIO_TAG_MODEL });
-    
+
     const fullPrompt = `${AUDIO_TAG_PROMPT}
 
 Add appropriate audio tags to these narration items for an Eldritch Horror game:
@@ -61,20 +59,32 @@ ${JSON.stringify(items, null, 2)}
 
 Return the enhanced JSON with audio tags added to the text fields. Return ONLY the JSON array.`;
 
-    console.log('[Audio Tags] Prompt prepared, calling Gemini API...');
+    console.log('[Audio Tags] Prompt prepared, calling Ollama API...');
     const startTime = Date.now();
-    
-    const result = await model.generateContent(fullPrompt);
-    const response = await result.response;
-    const text = response.text();
-    
+
+    const response = await ollama.chat({
+      model: OLLAMA_AUDIO_TAG_MODEL,
+      messages: [
+        {
+          role: 'user',
+          content: fullPrompt
+        }
+      ],
+      format: 'json',
+      options: {
+        temperature: 0.7, // Lower temperature for more consistent tagging
+      }
+    });
+
+    const text = response.message.content;
+
     const duration = Date.now() - startTime;
     console.log(`[Audio Tags] API call completed in ${duration}ms`);
     console.log('[Audio Tags] Raw response:');
     console.log('--- RESPONSE START ---');
     console.log(text);
     console.log('--- RESPONSE END ---');
-    
+
     // Clean up the response (remove markdown code blocks if present)
     let cleanedText = text.trim();
     if (cleanedText.startsWith('```json')) {
@@ -82,11 +92,14 @@ Return the enhanced JSON with audio tags added to the text fields. Return ONLY t
     } else if (cleanedText.startsWith('```')) {
       cleanedText = cleanedText.replace(/```\s*/g, '').replace(/```\s*$/g, '').trim();
     }
-    
+
     console.log('[Audio Tags] Parsing JSON response...');
-    const enhancedItems = JSON.parse(cleanedText) as AudioItem[];
-    
-    console.log('[Audio Tags] ✅ Successfully enhanced', enhancedItems.length, 'items');
+
+    // Ollama with format: 'json' might return an object with items array
+    const parsed = JSON.parse(cleanedText);
+    const enhancedItems = (Array.isArray(parsed) ? parsed : parsed.items || parsed.data || [parsed]) as AudioItem[];
+
+    console.log('[Audio Tags] Successfully enhanced', enhancedItems.length, 'items');
     console.log('[Audio Tags] Enhanced items:', enhancedItems.map(i => ({
       type: i.type,
       id: i.id,
@@ -95,19 +108,17 @@ Return the enhanced JSON with audio tags added to the text fields. Return ONLY t
       tagsAdded: (i.text.match(/\[[\w\s]+\]/g) || []).length,
       preview: i.text.substring(0, 100) + '...'
     })));
-    
+
     return enhancedItems;
   } catch (error) {
-    console.error('[Audio Tags] ❌ Failed to add audio tags:', error);
+    console.error('[Audio Tags] Failed to add audio tags:', error);
     console.error('[Audio Tags] Error details:', {
       name: error instanceof Error ? error.name : 'Unknown',
       message: error instanceof Error ? error.message : String(error),
     });
-    
+
     // Fallback: return items unchanged if tagging fails
-    console.warn('[Audio Tags] ⚠️ Returning items without audio tags');
+    console.warn('[Audio Tags] Returning items without audio tags');
     return items;
   }
 }
-
-
