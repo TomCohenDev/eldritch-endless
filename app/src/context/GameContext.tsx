@@ -17,11 +17,12 @@ import type {
 } from '../types';
 import { useGameData } from '../hooks/useGameData';
 import { generatePlot } from '../api';
-import { 
-  buildEncounterContext, 
-  buildRoundTimeline, 
-  createInvestigatorSnapshot 
+import {
+  buildEncounterContext,
+  buildRoundTimeline,
+  createInvestigatorSnapshot
 } from '../utils/encounterContext';
+import { extractKeyPhrases } from '../utils/textAnalysis';
 
 const STORAGE_KEY = 'eldritch-endless-state';
 
@@ -80,6 +81,12 @@ interface GameContextValue {
   // Mythos deck management
   drawMythosCard: (cardPageId: number, cardTitle: string, color: 'Green' | 'Yellow' | 'Blue') => void;
   updateMythosStage: (stage: 1 | 2 | 3) => void;
+
+  // Anti-repetition tracking
+  recordEncounterDescription: (title: string, narrative: string) => void;
+  recordMythosDescription: (title: string, flavor: string, narrative: string) => void;
+  getRecentEncounterDescriptions: () => string[];
+  getRecentMythosDescriptions: () => string[];
 }
 
 const GameContext = createContext<GameContextValue | null>(null);
@@ -782,6 +789,83 @@ export function GameProvider({ children }: { children: ReactNode }) {
     });
   }, []);
 
+  /**
+   * Record an encounter description for anti-repetition tracking
+   */
+  const recordEncounterDescription = useCallback((title: string, narrative: string) => {
+    setState(prev => {
+      const recentCardDescriptions = prev.recentCardDescriptions || { encounters: [], mythos: [] };
+      const keyPhrases = extractKeyPhrases(narrative);
+
+      const newEncounter = {
+        title,
+        narrative,
+        keyPhrases,
+        timestamp: Date.now(),
+      };
+
+      // Keep only last 10 encounters
+      const encounters = [newEncounter, ...recentCardDescriptions.encounters].slice(0, 10);
+
+      return {
+        ...prev,
+        recentCardDescriptions: {
+          ...recentCardDescriptions,
+          encounters,
+        },
+      };
+    });
+  }, []);
+
+  /**
+   * Record a mythos description for anti-repetition tracking
+   */
+  const recordMythosDescription = useCallback((title: string, flavor: string, narrative: string) => {
+    setState(prev => {
+      const recentCardDescriptions = prev.recentCardDescriptions || { encounters: [], mythos: [] };
+      const keyPhrases = extractKeyPhrases(`${flavor} ${narrative}`);
+
+      const newMythos = {
+        title,
+        flavor,
+        narrative,
+        keyPhrases,
+        timestamp: Date.now(),
+      };
+
+      // Keep only last 10 mythos cards
+      const mythos = [newMythos, ...recentCardDescriptions.mythos].slice(0, 10);
+
+      return {
+        ...prev,
+        recentCardDescriptions: {
+          ...recentCardDescriptions,
+          mythos,
+        },
+      };
+    });
+  }, []);
+
+  /**
+   * Get recent encounter descriptions for anti-repetition prompts
+   */
+  const getRecentEncounterDescriptions = useCallback(() => {
+    const recent = state.recentCardDescriptions?.encounters || [];
+    return recent.slice(0, 5).map(e =>
+      `"${e.title}": ${e.narrative.substring(0, 200)}${e.narrative.length > 200 ? '...' : ''}`
+    );
+  }, [state.recentCardDescriptions]);
+
+  /**
+   * Get recent mythos descriptions for anti-repetition prompts
+   */
+  const getRecentMythosDescriptions = useCallback(() => {
+    const recent = state.recentCardDescriptions?.mythos || [];
+    return recent.slice(0, 5).map(m =>
+      `"${m.title}": ${m.flavor} | ${m.narrative}`
+    );
+  }, [state.recentCardDescriptions]);
+
   const value: GameContextValue = {
     state,
     hasSavedGame,
@@ -817,6 +901,11 @@ export function GameProvider({ children }: { children: ReactNode }) {
     // Mythos deck management
     drawMythosCard,
     updateMythosStage,
+    // Anti-repetition tracking
+    recordEncounterDescription,
+    recordMythosDescription,
+    getRecentEncounterDescriptions,
+    getRecentMythosDescriptions,
   };
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;

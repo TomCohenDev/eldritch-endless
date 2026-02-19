@@ -48,10 +48,22 @@ export async function generatePlot(
  * Throws an error if the API call fails - no fallbacks allowed
  */
 export async function generateEncounter(
-  request: GenerateEncounterRequest
+  request: GenerateEncounterRequest,
+  recentDescriptions?: string[]
 ): Promise<GenerateEncounterResponse> {
-  // Use local AI service instead of n8n webhook
-  return await generateEncounterWithAI(request);
+  console.log('📡 [API] generateEncounter called');
+  console.log('[API] Encounter type:', request.encounterType);
+  console.log('[API] Recent descriptions:', recentDescriptions?.length || 0);
+  console.log('[API] Delegating to generateEncounterWithAI...');
+
+  try {
+    const result = await generateEncounterWithAI(request, recentDescriptions);
+    console.log('[API] ✅ generateEncounterWithAI returned successfully');
+    return result;
+  } catch (error) {
+    console.error('[API] ❌ generateEncounterWithAI threw error:', error);
+    throw error;
+  }
 }
 
 /**
@@ -125,10 +137,23 @@ export async function advanceStory(context: {
  * The AI rewrites the flavor text while keeping all mechanics the same
  */
 export async function generateMythos(
-  request: GenerateMythosRequest
+  request: GenerateMythosRequest,
+  recentDescriptions?: string[]
 ): Promise<GenerateMythosResponse> {
-  // Use local AI service
-  return await generateMythosStory(request);
+  console.log('📡 [API] generateMythos called');
+  console.log('[API] Card title:', request.card.title);
+  console.log('[API] Stage:', request.stage);
+  console.log('[API] Recent descriptions:', recentDescriptions?.length || 0);
+  console.log('[API] Delegating to generateMythosStory...');
+
+  try {
+    const result = await generateMythosStory(request, recentDescriptions);
+    console.log('[API] ✅ generateMythosStory returned successfully');
+    return result;
+  } catch (error) {
+    console.error('[API] ❌ generateMythosStory threw error:', error);
+    throw error;
+  }
 }
 
 /**

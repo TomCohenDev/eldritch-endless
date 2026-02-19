@@ -1,5 +1,9 @@
 # Environment variables
 .env
+.env.development
+.env.production
+.env.test
+.env.staging
 .env.local
 .env.*.local
 .env.development.local
@@ -8,3 +12,10 @@
 app/.env
 app/.env.local
 app/.env.*.local
+app/.env.development
+app/.env.production
+app/.env.test
+app/.env.staging
+app/.env.development.local
+app/.env.test.local
+app/.env.production.local

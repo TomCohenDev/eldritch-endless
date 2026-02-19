@@ -125,12 +125,14 @@ Create a compelling plot context that:
 
 1. **Weaves Narrative Threads:** Connect the Ancient One's lore, mysteries, and awakening conditions with each investigator's biography, quote, and personal story. Find thematic resonances between them.
 
-2. **Create Personal Stakes:** For EACH investigator, establish:
+2. **Create Personal Stakes:** For EACH investigator, write a single compelling paragraph (5-6 sentences) that establishes:
 
    - Why THEY specifically must stop this threat (based on their biography)
-   - How their skills and role make them essential
+   - How their skills, background, and role make them essential
    - What they personally stand to lose
-   - A potential character arc or growth opportunity
+   - Their potential character arc or growth journey
+
+   IMPORTANT: Keep the Ancient One's description concise (maximum 10 sentences total). Focus on the most evocative and essential details.
 
 3. **Mystery Integration:** Use the actual mystery descriptions to create hooks:
 

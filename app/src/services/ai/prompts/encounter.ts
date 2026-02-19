@@ -15,7 +15,8 @@ interface EncounterCard {
 export const generateEncounterPrompt = (
   data: GenerateEncounterRequest,
   selectedCards: EncounterCard[],
-  metadata: any
+  metadata: any,
+  recentDescriptions?: string[]
 ): string => {
   const { 
     investigator, 
@@ -128,9 +129,7 @@ ${cardsSection}
 - Sanity: ${investigator.sanity}/${investigator.maxSanity}
 - Clues: ${investigator.clues}
 
-**Personal Stakes:** ${plotContext.investigatorThread?.personalStakes || "Unknown"}
-
-**Connection to Threat:** ${plotContext.investigatorThread?.connectionToThreat || "Unknown"}
+**Personal Thread:** ${plotContext.investigatorThread?.narrative || plotContext.investigatorThread?.personalStakes || "An investigator caught in the cosmic horror unfolding before them."}
 
 ---
 
@@ -147,6 +146,25 @@ ${recentEventsText}
 ${recentEncountersText}
 
 **Current Tension Level:** ${gameContext.currentTension}/10
+
+---
+
+## ANTI-REPETITION REQUIREMENTS
+
+**CRITICAL: Avoid Repetitive Patterns**
+
+Recent encounters have used these descriptions. You MUST avoid repeating these phrases, structures, and patterns:
+
+${recentDescriptions && recentDescriptions.length > 0 ? recentDescriptions.join('\n\n') : 'No recent encounters yet - you have full creative freedom.'}
+
+**Specific Instructions to Avoid Repetition:**
+1. DO NOT use the same opening phrases (e.g., if recent encounters started with "The shadows...", start differently)
+2. DO NOT repeat the same descriptive patterns (e.g., if recent cards used "X closes in around you", vary the structure)
+3. DO NOT reuse the same adjectives in sequence (e.g., if recent cards used "ancient, forgotten, eldritch", use different descriptors)
+4. DO NOT repeat the same verb patterns (e.g., if recent cards said "you notice/see/hear", vary your sensory descriptions)
+5. VARY your sentence structures - use different lengths, rhythms, and grammatical patterns
+6. INTRODUCE fresh vocabulary - don't fall back on the same "cosmic horror" phrases repeatedly
+7. CREATE unique atmospheric details specific to THIS location and situation
 
 ---
 

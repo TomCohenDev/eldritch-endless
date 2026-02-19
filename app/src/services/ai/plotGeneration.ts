@@ -29,7 +29,7 @@ const PLOT_JSON_SCHEMA = {
     },
     investigatorThreads: {
       type: "array",
-      description: "Personal narrative thread for each investigator",
+      description: "Personal narrative thread for each investigator - single paragraph format",
       items: {
         type: "object",
         properties: {
@@ -37,20 +37,12 @@ const PLOT_JSON_SCHEMA = {
             type: "string",
             description: "Player identifier like 'player-0', 'player-1', etc. (match input order)"
           },
-          personalStakes: {
+          narrative: {
             type: "string",
-            description: "Why THIS investigator specifically must stop the threat"
-          },
-          connectionToThreat: {
-            type: "string",
-            description: "How their backstory connects to the Ancient One or current events"
-          },
-          potentialArc: {
-            type: "string",
-            description: "Their possible character growth journey through this ordeal"
+            description: "Single paragraph (5-6 sentences) describing: why THIS investigator must stop the threat, how their backstory connects, and their potential character arc"
           }
         },
-        required: ["playerId", "personalStakes", "connectionToThreat", "potentialArc"]
+        required: ["playerId", "narrative"]
       }
     },
     mysteryHooks: {
@@ -171,12 +163,36 @@ ${JSON.stringify(PLOT_JSON_SCHEMA, null, 2)}`,
 
     const plotData = parseAndValidateResponse(content);
     
-    // Ensure investigator IDs match expected format if AI messed up
+    // Ensure investigator IDs match expected format and handle backward compatibility
     if (plotData.investigatorThreads) {
-      plotData.investigatorThreads = plotData.investigatorThreads.map((thread, index) => ({
-        ...thread,
-        playerId: thread.playerId || `player-${index}` // Fallback if AI omits ID or gets it wrong
-      }));
+      plotData.investigatorThreads = plotData.investigatorThreads.map((thread, index) => {
+        // Handle old format (personalStakes, connectionToThreat, potentialArc) vs new format (narrative)
+        const hasOldFormat = thread.personalStakes || thread.connectionToThreat || thread.potentialArc;
+        const hasNewFormat = thread.narrative;
+
+        let narrative = '';
+        if (hasNewFormat) {
+          narrative = thread.narrative;
+        } else if (hasOldFormat) {
+          // Convert old format to new format for backward compatibility
+          narrative = [
+            thread.personalStakes || '',
+            thread.connectionToThreat || '',
+            thread.potentialArc || ''
+          ].filter(s => s.trim()).join(' ').trim() || 'An investigator caught in the cosmic horror unfolding before them.';
+        } else {
+          narrative = 'An investigator caught in the cosmic horror unfolding before them.';
+        }
+
+        return {
+          playerId: thread.playerId || `player-${index}`,
+          narrative,
+          // Keep legacy fields for backward compatibility
+          personalStakes: thread.personalStakes,
+          connectionToThreat: thread.connectionToThreat,
+          potentialArc: thread.potentialArc,
+        };
+      });
     }
 
     console.log('[AI Plot Generation] Parsed Plot Context:', {

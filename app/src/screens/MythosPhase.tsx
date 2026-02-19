@@ -13,15 +13,17 @@ import {
 } from 'lucide-react';
 
 export function MythosPhase() {
-  const { 
-    state, 
-    advancePhase, 
+  const {
+    state,
+    advancePhase,
     goBackPhase,
     addNarrativeEvent,
     updatePlotTension,
     addPlotPoint,
     drawMythosCard,
     updateMythosStage,
+    getRecentMythosDescriptions,
+    recordMythosDescription,
   } = useGame();
   
   const { helpers, ancientOneDetailed } = useGameData();
@@ -153,7 +155,8 @@ export function MythosPhase() {
     }
     
     setIsGenerating(true);
-    
+    setCurrentCard(null);
+
     try {
       // Get fresh state values after potential stage advancement
       const freshDeck = state.mythosDeck || { 
@@ -303,23 +306,34 @@ export function MythosPhase() {
         recentTimeline: recentTimeline.length > 0 ? recentTimeline : undefined,
       };
       
-      const response = await generateMythos(request);
-      
+      // Get recent descriptions for anti-repetition
+      const recentDescriptions = getRecentMythosDescriptions();
+
+      // Generate mythos story
+      const response = await generateMythos(request, recentDescriptions);
+
+      // Record description for future anti-repetition
+      recordMythosDescription(
+        response.card.title,
+        response.card.flavor,
+        response.card.narrative
+      );
+
       setCurrentCard({
         card: selectedCard,
         generated: response,
       });
-      
+
       // Update tension if needed
       if (response.tensionChange) {
         updatePlotTension((state.plotContext?.currentTension || 3) + response.tensionChange);
       }
-      
+
       // Add plot points if any
       if (response.newPlotPoints) {
         response.newPlotPoints.forEach(point => addPlotPoint(point));
       }
-      
+
       // Mark card as used
       drawMythosCard(selectedCard.pageId, selectedCard.title, color);
       
@@ -636,9 +650,9 @@ export function MythosPhase() {
             );
           })()}
         </section>
-        
+
         {/* Current Mythos Card */}
-        {currentCard ? (
+        {!isGenerating && currentCard ? (
           <section className="bg-shadow/50 rounded-lg p-4 border border-cosmic-light/30">
             <div className="flex items-center gap-2 mb-3">
               <AlertCircle className="w-4 h-4 text-cosmic-light" />
@@ -718,7 +732,7 @@ export function MythosPhase() {
               </div>
             </div>
           </section>
-        ) : (
+        ) : !isGenerating ? (
           <section className="bg-shadow/50 rounded-lg p-4 border border-eldritch-dark">
             <div className="text-center py-8">
               <Scroll className="w-12 h-12 text-eldritch-light mx-auto mb-4 opacity-50" />
@@ -727,7 +741,7 @@ export function MythosPhase() {
               </p>
             </div>
           </section>
-        )}
+        ) : null}
       </div>
 
       {/* Bottom Action Bar */}

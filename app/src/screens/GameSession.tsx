@@ -70,11 +70,11 @@ const ACTIONS: { type: ActionType; label: string; icon: typeof Footprints; descr
 ];
 
 export function GameSession() {
-  const { 
-    state, 
-    advancePhase, 
+  const {
+    state,
+    advancePhase,
     goBackPhase,
-    setActivePlayer, 
+    setActivePlayer,
     performAction,
     setPlayerLocation,
     undoLastAction,
@@ -83,7 +83,9 @@ export function GameSession() {
     addNarrativeEvent,
     updatePlotTension,
     addPlotPoint,
-    setNarratorVoice
+    setNarratorVoice,
+    getRecentEncounterDescriptions,
+    recordEncounterDescription,
   } = useGame();
   
   // Track encounter history for back navigation
@@ -112,7 +114,7 @@ export function GameSession() {
   const [encounterResult, setEncounterResult] = useState<GenerateEncounterResponse | null>(null);
   const [currentNodeId, setCurrentNodeId] = useState<string | null>(null);
   const [isGeneratingEncounter, setIsGeneratingEncounter] = useState(false);
-  
+
   // Narrative event viewer
   const [viewingEvent, setViewingEvent] = useState<typeof state.narrativeEvents[0] | null>(null);
 
@@ -1114,17 +1116,6 @@ export function GameSession() {
                   <div className="flex-1 overflow-y-auto space-y-4">{(() => {
                       // Find current node
                       const currentNode = currentNodeId && encounterResult?.encounter.nodes[currentNodeId];
-                      
-                      if (!encounterResult && isGeneratingEncounter) {
-                        return (
-                          <div className="flex flex-col items-center justify-center h-full space-y-4">
-                            <Loader2 className="w-8 h-8 animate-spin text-eldritch-light" />
-                            <p className="font-accent text-sm text-parchment-dark animate-pulse text-center">
-                              Consulting the archives...
-                            </p>
-                          </div>
-                        );
-                      }
 
                       if (!currentNode) {
                         return (
@@ -1378,10 +1369,17 @@ export function GameSession() {
             {!isCardFlipped ? (
               <button
                 onClick={async () => {
-                  if (!activePlayer || !selectedEncounter) return;
-                  
+                  console.log('🎯 [GameSession] Resolve Encounter button clicked');
+
+                  if (!activePlayer || !selectedEncounter) {
+                    console.warn('⚠️ [GameSession] Missing activePlayer or selectedEncounter');
+                    return;
+                  }
+
+                  console.log('[GameSession] Setting generation state...');
                   setIsGeneratingEncounter(true);
-                  
+
+                  console.log('[GameSession] Building encounter request...');
                   // Build the encounter request with full context
                   const encounterRequest = buildEncounterRequest({
                     type: selectedEncounter.type,
@@ -1393,32 +1391,66 @@ export function GameSession() {
                       originalText: selectedEncounter.content,
                     },
                   });
-                  
+
+                  console.log('[GameSession] Encounter request:', encounterRequest);
+
                   if (encounterRequest) {
                     try {
-                      // Call the n8n encounter generation workflow
-                      const response = await generateEncounter(encounterRequest);
+                      console.log('[GameSession] Getting recent descriptions...');
+                      // Get recent descriptions for anti-repetition
+                      const recentDescriptions = getRecentEncounterDescriptions();
+                      console.log('[GameSession] Recent descriptions count:', recentDescriptions?.length || 0);
+
+                      console.log('[GameSession] Calling generateEncounter...');
+                      // Call encounter generation
+                      const response = await generateEncounter(encounterRequest, recentDescriptions);
+                      console.log('[GameSession] ✅ Generation complete, response received');
+
+                      console.log('[GameSession] Recording description...');
+                      // Record description for future anti-repetition
+                      const startingNode = response.encounter.nodes[response.encounter.startingNodeId];
+                      if (startingNode) {
+                        recordEncounterDescription(response.encounter.title, startingNode.content);
+                      }
+
+                      console.log('[GameSession] Setting encounter result state...');
                       setEncounterResult(response);
                       setCurrentNodeId(response.encounter.startingNodeId);
                       setEncounterHistory([]); // Reset history for new encounter
-                      
+
+                      console.log('[GameSession] Updating game state (tension, plot points)...');
                       // Update tension if the encounter suggests it
                       if (response.tensionChange) {
                         updatePlotTension((state.plotContext?.currentTension || 3) + response.tensionChange);
                       }
-                      
+
                       // Add any new plot points
                       if (response.newPlotPoints) {
                         response.newPlotPoints.forEach(point => addPlotPoint(point));
                       }
+
+                      console.log('[GameSession] ✅ Encounter setup complete!');
                     } catch (error) {
-                      console.error('Failed to generate encounter:', error);
-                      // Fallback handled by API
+                      console.log('='.repeat(80));
+                      console.error('❌ [GameSession] ENCOUNTER GENERATION FAILED');
+                      console.log('='.repeat(80));
+                      console.error('[GameSession] Error:', error);
+                      console.error('[GameSession] Error type:', error instanceof Error ? error.name : typeof error);
+                      console.error('[GameSession] Error message:', error instanceof Error ? error.message : String(error));
+                      if (error instanceof Error && error.stack) {
+                        console.error('[GameSession] Stack trace:', error.stack);
+                      }
+                      console.log('='.repeat(80));
                     }
+                  } else {
+                    console.error('❌ [GameSession] Failed to build encounter request');
                   }
-                  
+
+                  console.log('[GameSession] Setting generation state to false...');
                   setIsGeneratingEncounter(false);
+                  console.log('[GameSession] Flipping card...');
                   setIsCardFlipped(true);
+                  console.log('✅ [GameSession] Encounter resolution complete');
                 }}
                 disabled={isGeneratingEncounter}
                 className="w-full max-w-xs py-4 bg-eldritch hover:bg-eldritch-light disabled:bg-eldritch/50 text-parchment-light font-display text-lg tracking-wide rounded-lg flex items-center justify-center gap-3 transition-colors shadow-lg shadow-eldritch/30"
