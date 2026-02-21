@@ -33,18 +33,41 @@ class DataLoader {
 
   /// Load all Mythos Cards from bundled JSON
   Future<List<MythosCard>> loadMythosCards() async {
-    if (_cachedMythosCards != null) return _cachedMythosCards!;
+    // If cached and not empty, return cache
+    if (_cachedMythosCards != null && _cachedMythosCards!.isNotEmpty) {
+      print('[DataLoader] Returning ${_cachedMythosCards!.length} cached mythos cards');
+      return _cachedMythosCards!;
+    }
 
+    print('[DataLoader] Loading mythos cards from JSON...');
     final jsonString = await rootBundle.loadString('assets/json/mythos_cards.json');
     final dynamic jsonData = jsonDecode(jsonString);
+    print('[DataLoader] JSON type: ${jsonData.runtimeType}');
 
     // Handle different JSON structures
     if (jsonData is List) {
+      print('[DataLoader] JSON is List with ${jsonData.length} items');
       _cachedMythosCards = jsonData.map((json) => MythosCard.fromJson(json as Map<String, dynamic>)).toList();
     } else if (jsonData is Map<String, dynamic>) {
-      final List<dynamic> cards = jsonData['cards'] ?? jsonData['data'] ?? [];
-      _cachedMythosCards = cards.map((json) => MythosCard.fromJson(json as Map<String, dynamic>)).toList();
+      print('[DataLoader] JSON is Map with keys: ${jsonData.keys.toList()}');
+      // Try different possible keys
+      final List<dynamic> cards = jsonData['mythosCards'] ??
+                                   jsonData['cards'] ??
+                                   jsonData['data'] ??
+                                   [];
+      print('[DataLoader] Found ${cards.length} cards under mythosCards/cards/data key');
+      _cachedMythosCards = cards.map((json) {
+        final card = MythosCard.fromJson(json as Map<String, dynamic>);
+        return card;
+      }).toList();
+
+      // Debug: show color distribution
+      final greenCount = _cachedMythosCards!.where((c) => c.color.toLowerCase() == 'green').length;
+      final yellowCount = _cachedMythosCards!.where((c) => c.color.toLowerCase() == 'yellow').length;
+      final blueCount = _cachedMythosCards!.where((c) => c.color.toLowerCase() == 'blue').length;
+      print('[DataLoader] Loaded ${_cachedMythosCards!.length} mythos cards (green=$greenCount, yellow=$yellowCount, blue=$blueCount)');
     } else {
+      print('[DataLoader] Unknown JSON structure');
       _cachedMythosCards = [];
     }
 

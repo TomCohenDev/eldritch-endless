@@ -217,6 +217,57 @@ class EndingGeneration {
   }
 }
 
+/// Tracks remaining mythos card colors per stage
+class StageMythosTracker {
+  final int green;
+  final int yellow;
+  final int blue;
+
+  const StageMythosTracker({
+    required this.green,
+    required this.yellow,
+    required this.blue,
+  });
+
+  factory StageMythosTracker.fromStageComposition(StageComposition comp) {
+    return StageMythosTracker(
+      green: comp.green,
+      yellow: comp.yellow,
+      blue: comp.blue,
+    );
+  }
+
+  factory StageMythosTracker.fromJson(Map<String, dynamic> json) {
+    return StageMythosTracker(
+      green: json['green'] ?? 0,
+      yellow: json['yellow'] ?? 0,
+      blue: json['blue'] ?? 0,
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+    'green': green,
+    'yellow': yellow,
+    'blue': blue,
+  };
+
+  int get total => green + yellow + blue;
+  bool get isEmpty => total == 0;
+
+  StageMythosTracker decrementColor(String color) {
+    switch (color.toLowerCase()) {
+      case 'green':
+        return StageMythosTracker(green: green - 1, yellow: yellow, blue: blue);
+      case 'yellow':
+        return StageMythosTracker(green: green, yellow: yellow - 1, blue: blue);
+      case 'blue':
+        return StageMythosTracker(green: green, yellow: yellow, blue: blue - 1);
+      default:
+        return this;
+    }
+  }
+}
+
 class GameState {
   final String id;
   final String name;
@@ -228,11 +279,13 @@ class GameState {
   final NarratorVoice narratorVoice;
   final StoryGeneration? storyGeneration;
   final int currentStage;
-  final List<MythosCard> mythosDeck;
+  final List<MythosCard> mythosDeck; // Legacy - kept for compatibility
   final List<MythosCard> mythosDiscard;
   final int doomTrack;
   final List<TimelineEvent> globalTimeline;
   final Set<String> usedEncounterIds;
+  final Set<String> usedMythosIds;
+  final Map<int, StageMythosTracker> stageTrackers;
 
   GameState({
     String? id,
@@ -250,6 +303,8 @@ class GameState {
     int? doomTrack,
     List<TimelineEvent>? globalTimeline,
     Set<String>? usedEncounterIds,
+    Set<String>? usedMythosIds,
+    Map<int, StageMythosTracker>? stageTrackers,
   })  : id = id ?? const Uuid().v4(),
         createdAt = createdAt ?? DateTime.now(),
         lastPlayedAt = lastPlayedAt ?? DateTime.now(),
@@ -258,15 +313,38 @@ class GameState {
         mythosDiscard = mythosDiscard ?? [],
         doomTrack = doomTrack ?? ancientOne.startingDoom,
         globalTimeline = globalTimeline ?? [],
-        usedEncounterIds = usedEncounterIds ?? {};
+        usedEncounterIds = usedEncounterIds ?? {},
+        usedMythosIds = usedMythosIds ?? {},
+        stageTrackers = stageTrackers ?? _initializeStageTrackers(ancientOne);
+
+  static Map<int, StageMythosTracker> _initializeStageTrackers(AncientOne ancientOne) {
+    return {
+      1: StageMythosTracker.fromStageComposition(ancientOne.mythosDeck.stage1),
+      2: StageMythosTracker.fromStageComposition(ancientOne.mythosDeck.stage2),
+      3: StageMythosTracker.fromStageComposition(ancientOne.mythosDeck.stage3),
+    };
+  }
 
   factory GameState.fromJson(Map<String, dynamic> json) {
+    final ancientOne = AncientOne.fromJson(json['ancientOne']);
+
+    // Parse stage trackers or initialize from ancient one
+    Map<int, StageMythosTracker>? parsedTrackers;
+    if (json['stageTrackers'] != null) {
+      final trackersJson = json['stageTrackers'] as Map<String, dynamic>;
+      parsedTrackers = {
+        1: StageMythosTracker.fromJson(trackersJson['1'] ?? {}),
+        2: StageMythosTracker.fromJson(trackersJson['2'] ?? {}),
+        3: StageMythosTracker.fromJson(trackersJson['3'] ?? {}),
+      };
+    }
+
     return GameState(
       id: json['id'],
       name: json['name'] ?? 'Untitled Game',
       createdAt: DateTime.tryParse(json['createdAt'] ?? '') ?? DateTime.now(),
       lastPlayedAt: DateTime.tryParse(json['lastPlayedAt'] ?? '') ?? DateTime.now(),
-      ancientOne: AncientOne.fromJson(json['ancientOne']),
+      ancientOne: ancientOne,
       players: (json['players'] as List<dynamic>)
           .map((e) => Player.fromJson(e))
           .toList(),
@@ -295,6 +373,11 @@ class GameState {
               ?.map((e) => e.toString())
               .toSet() ??
           {},
+      usedMythosIds: (json['usedMythosIds'] as List<dynamic>?)
+              ?.map((e) => e.toString())
+              .toSet() ??
+          {},
+      stageTrackers: parsedTrackers,
     );
   }
 
@@ -315,6 +398,12 @@ class GameState {
       'doomTrack': doomTrack,
       'globalTimeline': globalTimeline.map((e) => e.toJson()).toList(),
       'usedEncounterIds': usedEncounterIds.toList(),
+      'usedMythosIds': usedMythosIds.toList(),
+      'stageTrackers': {
+        '1': stageTrackers[1]?.toJson(),
+        '2': stageTrackers[2]?.toJson(),
+        '3': stageTrackers[3]?.toJson(),
+      },
     };
   }
 
@@ -334,6 +423,8 @@ class GameState {
     int? doomTrack,
     List<TimelineEvent>? globalTimeline,
     Set<String>? usedEncounterIds,
+    Set<String>? usedMythosIds,
+    Map<int, StageMythosTracker>? stageTrackers,
   }) {
     return GameState(
       id: id ?? this.id,
@@ -351,6 +442,8 @@ class GameState {
       doomTrack: doomTrack ?? this.doomTrack,
       globalTimeline: globalTimeline ?? this.globalTimeline,
       usedEncounterIds: usedEncounterIds ?? this.usedEncounterIds,
+      usedMythosIds: usedMythosIds ?? this.usedMythosIds,
+      stageTrackers: stageTrackers ?? this.stageTrackers,
     );
   }
 
@@ -379,7 +472,86 @@ class GameState {
     );
   }
 
-  /// Draw a mythos card
+  /// Get the current stage tracker
+  StageMythosTracker? get currentStageTracker => stageTrackers[currentStage];
+
+  /// Check if current stage has cards remaining
+  bool get hasCardsInCurrentStage => currentStageTracker?.isEmpty == false;
+
+  /// Get total remaining cards across all stages
+  int get totalRemainingMythosCards {
+    int total = 0;
+    for (final tracker in stageTrackers.values) {
+      total += tracker.total;
+    }
+    return total;
+  }
+
+  /// Pick a random color from the current stage based on remaining weights
+  /// Returns null if no cards remaining in current stage
+  String? pickRandomMythosColor() {
+    final tracker = currentStageTracker;
+    if (tracker == null || tracker.isEmpty) return null;
+
+    final total = tracker.total;
+    final random = DateTime.now().microsecondsSinceEpoch % total;
+
+    int cumulative = 0;
+    if (tracker.green > 0) {
+      cumulative += tracker.green;
+      if (random < cumulative) return 'green';
+    }
+    if (tracker.yellow > 0) {
+      cumulative += tracker.yellow;
+      if (random < cumulative) return 'yellow';
+    }
+    if (tracker.blue > 0) {
+      return 'blue';
+    }
+
+    return null;
+  }
+
+  /// Record that a mythos card was drawn
+  /// Updates the stage tracker and used mythos IDs
+  /// Advances stage if current stage is empty
+  GameState recordMythosDrawn(MythosCard card) {
+    final cardColor = card.color.toLowerCase();
+    final cardId = card.pageId.toString();
+
+    // Update the tracker for current stage
+    final currentTracker = stageTrackers[currentStage];
+    if (currentTracker == null) {
+      return this;
+    }
+
+    final newTracker = currentTracker.decrementColor(cardColor);
+    final newTrackers = Map<int, StageMythosTracker>.from(stageTrackers);
+    newTrackers[currentStage] = newTracker;
+
+    // Check if we need to advance stage
+    int newStage = currentStage;
+    if (newTracker.isEmpty && currentStage < 3) {
+      newStage = currentStage + 1;
+    }
+
+    // Add to used mythos IDs
+    final newUsedMythosIds = Set<String>.from(usedMythosIds)..add(cardId);
+
+    // Add to discard pile
+    final newDiscard = [...mythosDiscard, card];
+
+    return copyWith(
+      stageTrackers: newTrackers,
+      usedMythosIds: newUsedMythosIds,
+      mythosDiscard: newDiscard,
+      currentStage: newStage,
+      lastPlayedAt: DateTime.now(),
+    );
+  }
+
+  /// Legacy method - draws from pre-built deck (deprecated)
+  @Deprecated('Use pickRandomMythosColor and recordMythosDrawn instead')
   (GameState, MythosCard?) drawMythosCard() {
     if (mythosDeck.isEmpty) {
       return (this, null);

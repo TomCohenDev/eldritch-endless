@@ -63,35 +63,7 @@
       "fullText": "|Traits = Event\n|Color = Green\n|Difficulty = Easy\n|Flavor = You had told everyone the parchment was indecipherable, but you were lying. You know the ritual necessary to summon and bind the dark power. You could strike a bargain with it. The situation is desperate, but you know that a solution is within its power. But what will it ask of you in return?\n|Effect = The Lead Investigator may gain a Dark Pact Condition to immediately solve 1 Rumor Mythos card in play.\n|Reckoning = N/A\n}}",
       "rawWikitext": "{{Template:Mythos\n|Name = A Proposition\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Green\n|Difficulty = Easy\n|Flavor = You had told everyone the parchment was indecipherable, but you were lying. You know the ritual necessary to summon and bind the dark power. You could strike a bargain with it. The situation is desperate, but you know that a solution is within its power. But what will it ask of you in return?\n|Effect = The [[Lead Investigator]] may gain a [[Dark Pact]] Condition to immediately solve 1 [[Rumor]] Mythos card in play.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
     },
-    {
-      "title": "All For Nothing",
-      "pageId": 1334,
-      "categories": [
-        "Core Game",
-        "Mythos"
-      ],
-      "infobox": {
-        "name": "All For Nothing",
-        "expansion": "{{Core Game"
-      },
-      "cardData": {
-        "expansion": "{{Core Game"
-      },
-      "sections": {},
-      "links": [
-        "Mystery",
-        "investigators"
-      ],
-      "templates": [
-        "Template:Mythos",
-        "Core Game",
-        "Icon",
-        "NoInvestigators",
-        "Icon"
-      ],
-      "fullText": "|Traits = Event\n|Color = Yellow\n|Difficulty = Hard\n|Flavor = You wrap the towel around some ice and apply it to your injuries, hoping to reduce the swelling. You make a mental list of all the sacrifices that you've had to make and those that you've asked of others. All that terrible loss and you can't for the life of you think of any good that's been accomplished.\n|Effect = Shuffle a solved Mystery back into the deck unless investigators as a group spend  equal to half .\nIf there were no solved Mysteries, advance  by 1 instead.\n|Reckoning = N/A\n}}",
-      "rawWikitext": "{{Template:Mythos\n|Name = All For Nothing\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Yellow\n|Difficulty = Hard\n|Flavor = You wrap the towel around some ice and apply it to your injuries, hoping to reduce the swelling. You make a mental list of all the sacrifices that you've had to make and those that you've asked of others. All that terrible loss and you can't for the life of you think of any good that's been accomplished.\n|Effect = Shuffle a solved [[Mystery]] back into the deck unless [[investigators]] as a group spend {{Icon|clues}} equal to half {{NoInvestigators}}.\nIf there were no solved Mysteries, advance {{Icon|doom}} by 1 instead.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
-    },
+
     {
       "title": "Ancient Guardians",
       "pageId": 2180,

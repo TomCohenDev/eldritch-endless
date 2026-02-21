@@ -5,11 +5,9 @@ import '../models/ancient_one.dart';
 import '../models/investigator.dart';
 import '../models/player.dart';
 import '../models/game_state.dart';
-import '../models/mythos_card.dart';
 import '../models/timeline_event.dart';
 import '../theme/eldritch_theme.dart';
 import '../services/storage_service.dart';
-import '../services/data_loader.dart';
 import '../services/elevenlabs_service.dart';
 import 'game_screen.dart';
 
@@ -34,7 +32,6 @@ class StoryReveal extends StatefulWidget {
 class _StoryRevealState extends State<StoryReveal> {
   final ScrollController _scrollController = ScrollController();
   final StorageService _storageService = StorageService();
-  final DataLoader _dataLoader = DataLoader();
   bool _isCreatingGame = false;
 
   // Narration state
@@ -241,34 +238,8 @@ class _StoryRevealState extends State<StoryReveal> {
     });
 
     try {
-      // Load mythos cards and build the deck
-      final allMythosCards = await _dataLoader.loadMythosCards();
-
-      // Build stage decks based on Ancient One's mythos deck composition
-      final stage1 = MythosCard.getCardsForStage(
-        allMythosCards,
-        1,
-        widget.selectedAncientOne.mythosDeck.stage1.green,
-        widget.selectedAncientOne.mythosDeck.stage1.yellow,
-        widget.selectedAncientOne.mythosDeck.stage1.blue,
-      );
-      final stage2 = MythosCard.getCardsForStage(
-        allMythosCards,
-        2,
-        widget.selectedAncientOne.mythosDeck.stage2.green,
-        widget.selectedAncientOne.mythosDeck.stage2.yellow,
-        widget.selectedAncientOne.mythosDeck.stage2.blue,
-      );
-      final stage3 = MythosCard.getCardsForStage(
-        allMythosCards,
-        3,
-        widget.selectedAncientOne.mythosDeck.stage3.green,
-        widget.selectedAncientOne.mythosDeck.stage3.yellow,
-        widget.selectedAncientOne.mythosDeck.stage3.blue,
-      );
-
-      // Combine decks (stage 3 at bottom, stage 1 on top)
-      final mythosDeck = [...stage1, ...stage2, ...stage3];
+      // Mythos deck is now dynamic - cards are drawn randomly based on stage composition
+      // The stageTrackers will be initialized automatically from ancientOne.mythosDeck
 
       // Create players from investigators
       final players = widget.selectedInvestigators
@@ -305,13 +276,13 @@ class _StoryRevealState extends State<StoryReveal> {
       }
 
       // Create game state with story event and placement events in global timeline
+      // stageTrackers will be auto-initialized from ancientOne.mythosDeck
       final gameState = GameState(
         name: 'vs ${widget.selectedAncientOne.name}',
         ancientOne: widget.selectedAncientOne,
         players: players,
         narratorVoice: widget.selectedVoice,
         storyGeneration: widget.storyGeneration,
-        mythosDeck: mythosDeck,
         globalTimeline: [
           storyEvent,
           ...placementEvents
@@ -448,9 +419,9 @@ class _StoryRevealState extends State<StoryReveal> {
                         'THE AWAKENING',
                         style: TextStyle(
                           color: EldritchColors.occultPurple,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 4,
+                          fontSize: 22,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 3,
                         ),
                       ),
                       const SizedBox(height: 16),
@@ -458,9 +429,8 @@ class _StoryRevealState extends State<StoryReveal> {
                         widget.storyGeneration.ancientOneHook,
                         style: const TextStyle(
                           color: EldritchColors.deepInk,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
-                          height: 1.65,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                       const SizedBox(height: 32),
@@ -470,9 +440,9 @@ class _StoryRevealState extends State<StoryReveal> {
                         'THE INVESTIGATORS',
                         style: TextStyle(
                           color: EldritchColors.occultPurple,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 4,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 3,
                         ),
                       ),
                       const SizedBox(height: 16),
@@ -805,9 +775,8 @@ class _InvestigatorStoryCard extends StatelessWidget {
                   story,
                   style: const TextStyle(
                     color: EldritchColors.nearBlackInk,
-                    fontSize: 17,
-                    fontWeight: FontWeight.w600,
-                    height: 1.55,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ],

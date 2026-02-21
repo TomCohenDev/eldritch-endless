@@ -21,7 +21,7 @@ class PlotPrompt {
       "name": "$cleanName",
       "story": "[Clean text for display - NO audio tags]",
       "storyNarration": "[Text WITH audio tags for voice acting - see examples below]"
-      "involvement": "half a paragraph about how $cleanName became involved"
+      "involvement": "half a paragraph about how $cleanName became involved (~150 words)"
     }''';
     }).join(',\n');
 

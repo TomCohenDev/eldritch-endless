@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../models/game_state.dart';
 import '../models/timeline_event.dart';
 import '../models/encounter.dart';
-import '../models/mythos_card.dart';
 import '../services/storage_service.dart';
 import '../services/grok_service.dart';
 import '../theme/eldritch_theme.dart';
@@ -13,6 +12,8 @@ import '../widgets/action_panel.dart';
 import '../widgets/encounter_panel.dart';
 import '../widgets/mythos_button.dart';
 import '../widgets/encounter_card_dialog.dart';
+import '../widgets/mythos_card_dialog.dart';
+import '../widgets/mythos_deck_dialog.dart';
 import '../widgets/ending_dialog.dart';
 
 class GameScreen extends StatefulWidget {
@@ -148,150 +149,17 @@ class _GameScreenState extends State<GameScreen> {
     }
   }
 
-  Future<void> _drawMythos() async {
-    setState(() {
-      _isProcessing = true;
-    });
+  Future<void> _openMythosCard() async {
+    final result = await MythosCardDialog.show(
+      context: context,
+      gameState: _gameState,
+    );
 
-    try {
-      final (newState, card) = _gameState.drawMythosCard();
-
-      if (card == null) {
-        throw Exception('No more mythos cards!');
-      }
-
-      String generatedText = card.flavorText;
-
-      // Try to generate with Grok if available
-      if (_grokService.isInitialized) {
-        try {
-          generatedText = await _grokService.generateMythosText(
-            card: card,
-            gameState: _gameState,
-          );
-        } catch (e) {
-          print('Grok generation failed, using original text: $e');
-        }
-      }
-
-      // Create global timeline event
-      final event = TimelineEvent.mythos(
-        title: 'MYTHOS: ${card.title}',
-        description: '$generatedText\n\n${card.effectText}',
-        playerId: 'global',
-        mythosData: card.toJson(),
-      );
-
+    if (result != null) {
       setState(() {
-        _gameState = newState.addGlobalEvent(event);
-        _isProcessing = false;
+        _gameState = result.updatedGameState.addGlobalEvent(result.event);
       });
       _saveGame();
-
-      // Show mythos dialog
-      if (mounted) {
-        _showMythosDialog(card, generatedText);
-      }
-    } catch (e) {
-      setState(() {
-        _isProcessing = false;
-      });
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Error: $e'),
-            backgroundColor: EldritchColors.bloodSeal,
-          ),
-        );
-      }
-    }
-  }
-
-  void _showMythosDialog(MythosCard card, String generatedText) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: EldritchColors.deepSea,
-        title: Row(
-          children: [
-            Icon(
-              Icons.warning_amber,
-              color: _getMythosColor(card.color),
-            ),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Text(
-                card.title,
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(color: Colors.white),
-              ),
-            ),
-          ],
-        ),
-        content: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              // Flavor text
-              Text(
-                generatedText,
-                style: context.eldritchType.loreBody.copyWith(
-                  color: Colors.white70,
-                  fontStyle: FontStyle.italic,
-                ),
-              ),
-              const SizedBox(height: 16),
-              const Divider(color: Colors.white24),
-              const SizedBox(height: 16),
-              // Effect text
-              const Text(
-                'EFFECT',
-                style: TextStyle(color: Colors.white54, fontSize: 12, letterSpacing: 2),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                card.effectText,
-                style: context.eldritchType.loreBody.copyWith(color: Colors.white),
-              ),
-              if (card.reckoningEffect.isNotEmpty) ...[
-                const SizedBox(height: 16),
-                const Text(
-                  'RECKONING',
-                  style: TextStyle(
-                    color: Colors.red,
-                    fontSize: 12,
-                    letterSpacing: 2,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  card.reckoningEffect,
-                  style: context.eldritchType.loreQuote.copyWith(color: Colors.white70),
-                ),
-              ],
-            ],
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Close'),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Color _getMythosColor(String color) {
-    switch (color.toLowerCase()) {
-      case 'green':
-        return Colors.green;
-      case 'yellow':
-        return Colors.orange;
-      case 'blue':
-        return Colors.blue;
-      default:
-        return Colors.grey;
     }
   }
 
@@ -376,17 +244,23 @@ class _GameScreenState extends State<GameScreen> {
         ),
         backgroundColor: EldritchColors.deepSea,
         actions: [
-          // Stage indicator
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-            margin: const EdgeInsets.symmetric(vertical: 8),
-            decoration: BoxDecoration(
-              color: EldritchColors.ritual.withValues(alpha: 0.3),
-              borderRadius: BorderRadius.circular(12),
+          // Stage indicator (tap to show mythos deck)
+          GestureDetector(
+            onTap: () => MythosDeckDialog.show(
+              context: context,
+              gameState: _gameState,
             ),
-            child: Text(
-              'Stage ${_gameState.currentStage}',
-              style: context.eldritchType.statusBadge.copyWith(color: EldritchColors.ritual),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+              margin: const EdgeInsets.symmetric(vertical: 8),
+              decoration: BoxDecoration(
+                color: EldritchColors.ritual.withValues(alpha: 0.3),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Text(
+                'Stage ${_gameState.currentStage}',
+                style: context.eldritchType.statusBadge.copyWith(color: EldritchColors.ritual),
+              ),
             ),
           ),
           const SizedBox(width: 8),
@@ -461,8 +335,8 @@ class _GameScreenState extends State<GameScreen> {
 
               // Bottom: Mythos button
               MythosButton(
-                onPressed: _drawMythos,
-                isProcessing: _isProcessing,
+                onPressed: _openMythosCard,
+                isProcessing: false,
                 cardsRemaining: _gameState.mythosDeck.length,
               ),
             ],

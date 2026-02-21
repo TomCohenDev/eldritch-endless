@@ -24,7 +24,7 @@ class MythosButton extends StatelessWidget {
           width: double.infinity,
           height: 56,
           child: ElevatedButton(
-            onPressed: isProcessing || cardsRemaining == 0 ? null : onPressed,
+            onPressed: onPressed,
             style: ElevatedButton.styleFrom(
               backgroundColor: EldritchColors.ritual,
               foregroundColor: EldritchColors.highlightPaper,
@@ -34,7 +34,8 @@ class MythosButton extends StatelessWidget {
                   color: EldritchColors.ritualSoft.withValues(alpha: 0.9),
                 ),
               ),
-              disabledBackgroundColor: EldritchColors.ritual.withValues(alpha: 0.5),
+              disabledBackgroundColor:
+                  EldritchColors.ritual.withValues(alpha: 0.5),
               disabledForegroundColor: EldritchColors.fadedText,
               elevation: 2,
             ),
@@ -47,7 +48,8 @@ class MythosButton extends StatelessWidget {
                         height: 20,
                         child: CircularProgressIndicator(
                           strokeWidth: 2,
-                          valueColor: AlwaysStoppedAnimation<Color>(EldritchColors.highlightPaper),
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                              EldritchColors.highlightPaper),
                         ),
                       ),
                       SizedBox(width: 12),
@@ -57,29 +59,12 @@ class MythosButton extends StatelessWidget {
                 : Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(Icons.warning_amber, size: 24),
-                      const SizedBox(width: 12),
                       Text(
                         'MYTHOS',
                         style: context.eldritchType.sectionHeader.copyWith(
                           fontSize: 18,
                           letterSpacing: 4,
                           color: EldritchColors.highlightPaper,
-                        ),
-                      ),
-                      const SizedBox(width: 12),
-                      Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                        decoration: BoxDecoration(
-                          color: EldritchColors.highlightPaper.withValues(alpha: 0.2),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Text(
-                          cardsRemaining.toString(),
-                          style: const TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                          ),
                         ),
                       ),
                     ],
