@@ -42,15 +42,23 @@ class EncounterCardDialog extends StatefulWidget {
   State<EncounterCardDialog> createState() => _EncounterCardDialogState();
 }
 
+enum EncounterOutcome {
+  passed,
+  failed,
+  finished, // For encounters without pass/fail conditions
+}
+
 class EncounterResult {
   final Encounter encounter;
   final String generatedText;
   final TimelineEvent event;
+  final EncounterOutcome outcome;
 
   const EncounterResult({
     required this.encounter,
     required this.generatedText,
     required this.event,
+    required this.outcome,
   });
 }
 
@@ -218,7 +226,7 @@ class _EncounterCardDialogState extends State<EncounterCardDialog>
     });
   }
 
-  void _acceptEncounter() {
+  void _completeEncounter(EncounterOutcome outcome) {
     if (_selectedEncounter == null || _generatedText.isEmpty) return;
 
     final activePlayer = widget.gameState.activePlayer;
@@ -226,18 +234,29 @@ class _EncounterCardDialogState extends State<EncounterCardDialog>
 
     final encounterLabel =
         widget.subType.trim().isEmpty ? 'General' : widget.subType;
+
+    final outcomeLabel = switch (outcome) {
+      EncounterOutcome.passed => ' - PASSED',
+      EncounterOutcome.failed => ' - FAILED',
+      EncounterOutcome.finished => '',
+    };
+
+    final encounterData = _selectedEncounter!.toJson();
+    encounterData['outcome'] = outcome.name;
+
     final event = TimelineEvent.encounter(
       title:
-          '${widget.encounterType.name.toUpperCase()} Encounter: $encounterLabel',
+          '${widget.encounterType.name.toUpperCase()} Encounter: $encounterLabel$outcomeLabel',
       description: _generatedText,
       playerId: activePlayer.id,
-      encounterData: _selectedEncounter!.toJson(),
+      encounterData: encounterData,
     );
 
     Navigator.of(context).pop(EncounterResult(
       encounter: _selectedEncounter!,
       generatedText: _generatedText,
       event: event,
+      outcome: outcome,
     ));
   }
 
@@ -456,9 +475,9 @@ class _EncounterCardDialogState extends State<EncounterCardDialog>
                               iconSize: 22,
                               style: const TextStyle(
                                 color: EldritchColors.deepInk,
-                                fontSize: 13,
+                                fontSize: 18,
                                 fontWeight: FontWeight.w500,
-                                height: 1.5,
+                                // height: 1.5,
                                 fontFamily: 'Crimson Text',
                               ),
                             ),
@@ -540,24 +559,71 @@ class _EncounterCardDialogState extends State<EncounterCardDialog>
                   bottom: 8,
                   left: 10,
                   right: 10,
-                  child: ElevatedButton.icon(
-                    onPressed: (!_isGenerating && !_hasError)
-                        ? _acceptEncounter
-                        : null,
-                    icon: const Icon(Icons.check, size: 16),
-                    label: const Text('ACCEPT'),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor:
-                          EldritchColors.ritual.withValues(alpha: 0.9),
-                      foregroundColor: Colors.white,
-                      disabledBackgroundColor:
-                          Colors.grey.withValues(alpha: 0.5),
-                      disabledForegroundColor: Colors.white54,
-                      padding: const EdgeInsets.symmetric(vertical: 8),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: (!_isGenerating && !_hasError)
+                              ? () => _completeEncounter(EncounterOutcome.passed)
+                              : null,
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor:
+                                Colors.green.shade700.withValues(alpha: 0.9),
+                            foregroundColor: Colors.white,
+                            disabledBackgroundColor:
+                                Colors.grey.withValues(alpha: 0.5),
+                            disabledForegroundColor: Colors.white54,
+                            padding: const EdgeInsets.symmetric(vertical: 8),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                          child: const Text('PASS', style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold)),
+                        ),
                       ),
-                    ),
+                      const SizedBox(width: 6),
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: (!_isGenerating && !_hasError)
+                              ? () => _completeEncounter(EncounterOutcome.failed)
+                              : null,
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor:
+                                EldritchColors.bloodSeal.withValues(alpha: 0.9),
+                            foregroundColor: Colors.white,
+                            disabledBackgroundColor:
+                                Colors.grey.withValues(alpha: 0.5),
+                            disabledForegroundColor: Colors.white54,
+                            padding: const EdgeInsets.symmetric(vertical: 8),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                          child: const Text('FAIL', style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold)),
+                        ),
+                      ),
+                      const SizedBox(width: 6),
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: (!_isGenerating && !_hasError)
+                              ? () => _completeEncounter(EncounterOutcome.finished)
+                              : null,
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor:
+                                EldritchColors.ritual.withValues(alpha: 0.9),
+                            foregroundColor: Colors.white,
+                            disabledBackgroundColor:
+                                Colors.grey.withValues(alpha: 0.5),
+                            disabledForegroundColor: Colors.white54,
+                            padding: const EdgeInsets.symmetric(vertical: 8),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                          child: const Text('FINISH', style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold)),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],

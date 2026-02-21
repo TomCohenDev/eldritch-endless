@@ -73,9 +73,9 @@ Use these tags to create CINEMATIC, PROFESSIONAL voice acting:
 - [heartbeat] - tension
 
 ## INSTRUCTIONS
-1. Write exactly 3 PARAGRAPHS as one continuous story piece — the epic conclusion of this campaign.
-2. Reference the investigators BY NAME — describe what happens to each of them in the ending.
-3. Reference specific events from the timeline to ground the ending in this campaign's history.
+1. Write an ending: 3 paragraphs only. Keep it punchy — no long-winded prose. Aim for roughly 250 words total.
+2. Reference the investigators BY NAME — one brief line per investigator is enough.
+3. Reference 3–4 key events from the timeline to ground the ending; do not list many.
 4. For ${isVictory ? 'victory' : 'defeat'}: ${isVictory ? 'convey relief but lasting trauma, the cost of cosmic knowledge, bittersweet triumph' : 'convey despair, the futility against cosmic forces, the horror of the ancient one awakening fully'}.
 5. The "ending" field is for DISPLAY (no audio tags, clean text).
 6. The "endingNarration" field is for VOICE ACTING (with professional audio tags throughout).
@@ -85,8 +85,8 @@ Use these tags to create CINEMATIC, PROFESSIONAL voice acting:
 Respond with ONLY valid JSON. No markdown, no explanation.
 
 {
-  "ending": "3 paragraphs of the ending story. Clean text for display — NO audio tags. Mention each investigator by name. Reference events from the timeline. Make it epic and final.",
-  "endingNarration": "Same content but WITH professional audio tags throughout for dramatic voice acting. Use [slowly], [whispers], [gravely], [trembling], [ominous], [sad], pauses (...), and EMPHASIS. Make it CINEMATIC and emotionally powerful."
+  "ending": "3 paragraphs. Clean text for display — NO audio tags. Mention each investigator briefly by name. Reference 3–4 key timeline events. Keep it concise and impactful.",
+  "endingNarration": "Same SHORT content but WITH professional audio tags for voice acting. Use [slowly], [whispers], [gravely], [trembling], [ominous], [sad], pauses (...), and EMPHASIS. CINEMATIC but brief."
 }
 
 CRITICAL REQUIREMENTS:
@@ -96,10 +96,10 @@ CRITICAL REQUIREMENTS:
 - "ending" = clean display text (NO audio tags)
 - "endingNarration" = dramatic voice acting text (WITH audio tags throughout)
 - MUST mention each investigator: $investigatorNames
-- MUST reference specific timeline events
-- Exactly 3 paragraphs, flowing as one story piece
+- MUST reference  3–4 key timeline events (not many)
+- SHORT: 3 paragraphs only (250 words). 
 - Tone: ${isVictory ? 'bittersweet triumph, relief mixed with cosmic dread, hard-won victory' : 'devastating tragedy, cosmic horror, inevitable doom, gratuitous darkness'}
-- Narration should sound like a professional audiobook narrator delivering the FINALE''';
+- Narration should sound like a professional audiobook narrator delivering a brief, punchy FINALE''';
   }
 
   static String _buildStoryContext(GameState gameState) {
@@ -116,8 +116,8 @@ CRITICAL REQUIREMENTS:
       buffer.writeln('- None available.');
     } else {
       for (final investigatorStory in story.investigatorStories) {
-        buffer.writeln(
-            '- ${investigatorStory.name}: ${investigatorStory.story}');
+        buffer
+            .writeln('- ${investigatorStory.name}: ${investigatorStory.story}');
       }
     }
     buffer.writeln();

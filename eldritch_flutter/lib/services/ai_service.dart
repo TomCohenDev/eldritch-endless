@@ -85,17 +85,23 @@ class AIService {
       // Parse the JSON response from Claude
       final storyGeneration = _parseStoryResponse(content);
       print('[AI] Story generation parsed successfully');
-      print('[AI] - Ancient One Hook (display): ${storyGeneration.ancientOneHook.length} chars');
-      print('[AI] - Ancient One Hook (narration): ${storyGeneration.ancientOneHookNarration.length} chars');
-      print('[AI] - Investigator Stories: ${storyGeneration.investigatorStories.length} stories');
+      print(
+          '[AI] - Ancient One Hook (display): ${storyGeneration.ancientOneHook.length} chars');
+      print(
+          '[AI] - Ancient One Hook (narration): ${storyGeneration.ancientOneHookNarration.length} chars');
+      print(
+          '[AI] - Investigator Stories: ${storyGeneration.investigatorStories.length} stories');
       for (var story in storyGeneration.investigatorStories) {
         print('[AI]   - ${story.name}:');
         print('[AI]       Display: ${story.story.length} chars');
         print('[AI]       Narration: ${story.storyNarration.length} chars');
       }
-      print('[AI] - Stage 1: ${storyGeneration.stagePlans.stage1.length} chars');
-      print('[AI] - Stage 2: ${storyGeneration.stagePlans.stage2.length} chars');
-      print('[AI] - Stage 3: ${storyGeneration.stagePlans.stage3.length} chars');
+      print(
+          '[AI] - Stage 1: ${storyGeneration.stagePlans.stage1.length} chars');
+      print(
+          '[AI] - Stage 2: ${storyGeneration.stagePlans.stage2.length} chars');
+      print(
+          '[AI] - Stage 3: ${storyGeneration.stagePlans.stage3.length} chars');
       print('[AI]');
       print('[AI] ---- FULL NARRATION SCRIPT ----');
       print(storyGeneration.fullNarrationScript);
@@ -117,7 +123,8 @@ class AIService {
 
     // Look for JSON block in markdown code fences
     print('[AI] Looking for ```json code block...');
-    final jsonMatch = RegExp(r'```json\s*([\s\S]*?)\s*```').firstMatch(response);
+    final jsonMatch =
+        RegExp(r'```json\s*([\s\S]*?)\s*```').firstMatch(response);
     if (jsonMatch != null) {
       jsonStr = jsonMatch.group(1)!;
       print('[AI] Found JSON in code fence, extracted ${jsonStr.length} chars');
@@ -219,7 +226,8 @@ class AIService {
       );
 
       stopwatch.stop();
-      print('[AI] Ending response received in ${stopwatch.elapsedMilliseconds}ms');
+      print(
+          '[AI] Ending response received in ${stopwatch.elapsedMilliseconds}ms');
 
       if (response.statusCode != 200) {
         throw Exception('Failed to generate ending: ${response.body}');
