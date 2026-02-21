@@ -58,7 +58,7 @@ A leather-bound tome lies open on the central reading table, its pages turning s
         <div className="p-6">
           {/* Narrative text */}
           <div className="prose prose-invert max-w-none mb-8">
-            <p className="font-body text-parchment leading-relaxed whitespace-pre-line">
+            <p className="text-lore whitespace-pre-line">
               {mockEncounter.content}
             </p>
           </div>
@@ -79,9 +79,9 @@ A leather-bound tome lies open on the central reading table, its pages turning s
                   </div>
                 </div>
                 
-                <p className="font-body text-parchment-dark text-sm">
-                  The words burn themselves into your mind, revealing fragments of 
-                  a greater truth. You gain 1 Clue and 1 Spell, but lose 1 Sanity 
+                <p className="text-lore-sm">
+                  The words burn themselves into your mind, revealing fragments of
+                  a greater truth. You gain 1 Clue and 1 Spell, but lose 1 Sanity
                   as forbidden knowledge takes its toll.
                 </p>
               </div>

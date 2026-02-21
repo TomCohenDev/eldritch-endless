@@ -10,7 +10,18 @@
       "Bash(\"/c/Users/tomco/AppData/Local/Programs/Ollama/ollama.exe\" list)",
       "Bash(npm run dev:*)",
       "Bash(\"/c/Users/tomco/AppData/Local/Programs/Ollama/ollama.exe\" pull gemma3:27b)",
-      "Bash(\"/c/Users/tomco/AppData/Local/Programs/Ollama/ollama.exe\" pull gemma3:4b)"
+      "Bash(\"/c/Users/tomco/AppData/Local/Programs/Ollama/ollama.exe\" pull gemma3:4b)",
+      "Bash(wc:*)",
+      "Bash(ls:*)",
+      "Bash(du -sh \"C:\\\\Users\\\\tomco\\\\github\\\\eldritch-endless\\\\app\\\\src\\\\assets\\\\voices\"/*)",
+      "Bash(du:*)",
+      "Bash(flutter create:*)",
+      "Bash(flutter pub get:*)",
+      "Bash(flutter analyze:*)",
+      "WebFetch(domain:pub.dev)",
+      "Bash(flutter build:*)",
+      "Bash(dir:*)",
+      "WebFetch(domain:elevenlabs.io)"
     ]
   }
 }

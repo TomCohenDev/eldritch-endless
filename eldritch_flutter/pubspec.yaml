@@ -1,0 +1,84 @@
+name: eldritch_flutter
+description: Eldritch Endless - A narrative horror board game companion app
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State management
+  provider: ^6.1.1
+
+  # Local storage
+  path_provider: ^2.1.1
+  flutter_secure_storage: ^10.0.0
+
+  # Audio playback
+  just_audio: ^0.9.36
+
+  # HTTP for API calls
+  http: ^1.1.2
+
+  # UUID generation
+  uuid: ^4.2.1
+
+  # On-device AI (Gemma)
+  flutter_gemma: ^0.12.4
+
+  # UI utilities
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  image_path: "assets/images/app_icon.png"
+  android: true
+  ios: true
+  # Android: black background, same image as foreground, no inset so icon fills the space
+  adaptive_icon_background: "#000000"
+  adaptive_icon_foreground: "assets/images/app_icon.png"
+  adaptive_icon_foreground_inset: 0
+  # iOS: remove transparency and use black background so no white shows
+  remove_alpha_ios: true
+  background_color_ios: "#000000"
+
+flutter:
+  uses-material-design: true
+
+  fonts:
+    - family: Cinzel
+      fonts:
+        - asset: fonts/Cinzel/static/Cinzel-Regular.ttf
+        - asset: fonts/Cinzel/static/Cinzel-Bold.ttf
+          weight: 700
+    - family: Crimson Text
+      fonts:
+        - asset: fonts/Crimson_Text/CrimsonText-Regular.ttf
+        - asset: fonts/Crimson_Text/CrimsonText-Italic.ttf
+          style: italic
+        - asset: fonts/Crimson_Text/CrimsonText-Bold.ttf
+          weight: 700
+    - family: Special Elite
+      fonts:
+        - asset: fonts/Special_Elite/SpecialElite-Regular.ttf
+
+  assets:
+    - assets/json/
+    - assets/json/encounters/
+    - assets/images/
+    - assets/images/encounter-cards/
+    - assets/stats/
+    - assets/ancient_ones_images/
+    - assets/investigator_images/
+    - assets/audio/voices/
+    - assets/audio/narration/

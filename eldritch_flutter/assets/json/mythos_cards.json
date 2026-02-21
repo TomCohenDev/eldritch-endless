@@ -1,0 +1,1933 @@
+{
+  "metadata": {
+    "source": "eldritch_horror_data.json",
+    "extractedAt": "2025-12-22T15:43:15.356795",
+    "totalMythosCards": 59,
+    "description": "Complete mythos card data including all properties, categories, tags, and text",
+    "filteredAt": "2025-12-22T15:48:38.236502",
+    "filterDescription": "Filtered to only Core Game and Forsaken Lore expansions"
+  },
+  "mythosCards": [
+    {
+      "title": "A Dark Power",
+      "pageId": 1976,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "A Dark Power",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "Monster",
+        "investigator",
+        "space"
+      ],
+      "templates": [
+        "Mythos",
+        "Core Game",
+        "Health"
+      ],
+      "fullText": "|Traits = Event\n|Color = Yellow\n|Difficulty = Medium\n|Flavor = Lightning cracks across the sky. You have a sinking dread that all the good you've accomplished is about to be undone.\n|Effect = Each Monster recovers all .\nThen each investigator immediately encounters each Monster on his space in the order of his choice.\n|Reckoning = N/A}}",
+      "rawWikitext": "{{Mythos\n|Name = A Dark Power\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Yellow\n|Difficulty = Medium\n|Flavor = Lightning cracks across the sky. You have a sinking dread that all the good you've accomplished is about to be undone.\n|Effect = Each [[Monster]] recovers all {{Health}}.\nThen each [[investigator]] immediately encounters each Monster on his [[space]] in the order of his choice.\n|Reckoning = N/A}}\n[[Category:Core Game]]\n[[Category:Mythos]]"
+    },
+    {
+      "title": "A Proposition",
+      "pageId": 1366,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "A Proposition",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "Lead Investigator",
+        "Dark Pact",
+        "Rumor"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game"
+      ],
+      "fullText": "|Traits = Event\n|Color = Green\n|Difficulty = Easy\n|Flavor = You had told everyone the parchment was indecipherable, but you were lying. You know the ritual necessary to summon and bind the dark power. You could strike a bargain with it. The situation is desperate, but you know that a solution is within its power. But what will it ask of you in return?\n|Effect = The Lead Investigator may gain a Dark Pact Condition to immediately solve 1 Rumor Mythos card in play.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = A Proposition\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Green\n|Difficulty = Easy\n|Flavor = You had told everyone the parchment was indecipherable, but you were lying. You know the ritual necessary to summon and bind the dark power. You could strike a bargain with it. The situation is desperate, but you know that a solution is within its power. But what will it ask of you in return?\n|Effect = The [[Lead Investigator]] may gain a [[Dark Pact]] Condition to immediately solve 1 [[Rumor]] Mythos card in play.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "All For Nothing",
+      "pageId": 1334,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "All For Nothing",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "Mystery",
+        "investigators"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Icon",
+        "NoInvestigators",
+        "Icon"
+      ],
+      "fullText": "|Traits = Event\n|Color = Yellow\n|Difficulty = Hard\n|Flavor = You wrap the towel around some ice and apply it to your injuries, hoping to reduce the swelling. You make a mental list of all the sacrifices that you've had to make and those that you've asked of others. All that terrible loss and you can't for the life of you think of any good that's been accomplished.\n|Effect = Shuffle a solved Mystery back into the deck unless investigators as a group spend  equal to half .\nIf there were no solved Mysteries, advance  by 1 instead.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = All For Nothing\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Yellow\n|Difficulty = Hard\n|Flavor = You wrap the towel around some ice and apply it to your injuries, hoping to reduce the swelling. You make a mental list of all the sacrifices that you've had to make and those that you've asked of others. All that terrible loss and you can't for the life of you think of any good that's been accomplished.\n|Effect = Shuffle a solved [[Mystery]] back into the deck unless [[investigators]] as a group spend {{Icon|clues}} equal to half {{NoInvestigators}}.\nIf there were no solved Mysteries, advance {{Icon|doom}} by 1 instead.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Ancient Guardians",
+      "pageId": 2180,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Ancient Guardians",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "Monsters",
+        "Active Expedition"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game"
+      ],
+      "fullText": "|Traits = Event\n|Color = Yellow\n|Difficulty = Normal\n|Flavor = An article on the back page of the newspaper catches your attention. An unexplained attack on a remote outpost left no survivors. You've read about two other similar attacks happening in the same region. You can see that the forgotten corners of the globe are growing more dangerous.\n|Effect = Spawn 2 Monsters on the Active Expedition space.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Ancient Guardians\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Yellow\n|Difficulty = Normal\n|Flavor = An article on the back page of the newspaper catches your attention. An unexplained attack on a remote outpost left no survivors. You've read about two other similar attacks happening in the same region. You can see that the forgotten corners of the globe are growing more dangerous.\n|Effect = Spawn 2 [[Monsters]] on the [[Active Expedition]] space.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Arrests Made in Murder Case!",
+      "pageId": 2181,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Arrests Made in Murder Case!",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "investigator",
+        "Weapon",
+        "Detained"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Icon",
+        "Influence"
+      ],
+      "fullText": "|Traits = Event\n|Color = Yellow\n|Difficulty = Normal\n|Flavor = You open the door of your hotel to find several stone-faced policemen. There's been a lot of unexplained deaths and nothing attracts suspicion like being a stranger.\n|Effect = Each investigator on a  space with a Weapon possession test . If he fails, he discards 1 Weapon possession and gains a Detained Condition.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Arrests Made in Murder Case!\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Yellow\n|Difficulty = Normal\n|Flavor = You open the door of your hotel to find several stone-faced policemen. There's been a lot of unexplained deaths and nothing attracts suspicion like being a stranger.\n|Effect = Each [[investigator]] on a {{Icon|city}} space with a [[Weapon]] possession test {{Influence}}. If he fails, he discards 1 Weapon possession and gains a [[Detained]] Condition.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Blood Flows",
+      "pageId": 1506,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Blood Rites",
+        "expansion": "{{Core Game",
+        "bgg": "thread/2111971/article/30922344",
+        "designer": "Dane Beltrami"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {
+        "Rulings, clarifications, and reminders": "Based on Blood Rites's ruling, the Lead Investigator must choose 1 non-Epic Monster. If there aren't any non-Epic Monster left, he doesn't have to resolve Blood Flows' effect.",
+        "References": "\n\nCategory:Mythos\nCategory:Core Game"
+      },
+      "links": [
+        "Lead Investigator",
+        "Monster",
+        "Blood Rites"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Health",
+        "Ref"
+      ],
+      "fullText": "|Traits = Event\n|Color = Green\n|Difficulty = Medium\n|Flavor = \"Strong gris-gris,\" the old man told you. You've been wearing the pouch around your neck ever since New Orleans. \"You want it to spill blood fuh you,\" he drawled, \"you has to spill your blood fuh the gris-gris.\"\n|Effect = The Lead Investigator discards 1 Monster of his choice and loses  equal to its toughness.\n|Reckoning = N/A\n}}\n\n[Rulings, clarifications, and reminders ]\n\nBased on Blood Rites's ruling, the Lead Investigator must choose 1 non-Epic Monster. If there aren't any non-Epic Monster left, he doesn't have to resolve Blood Flows' effect.\n\n[References ]",
+      "rawWikitext": "{{Template:Mythos\n|Name = Blood Flows\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Green\n|Difficulty = Medium\n|Flavor = \"Strong gris-gris,\" the old man told you. You've been wearing the pouch around your neck ever since New Orleans. \"You want it to spill blood fuh you,\" he drawled, \"you has to spill your blood fuh the gris-gris.\"\n|Effect = The [[Lead Investigator]] discards 1 [[Monster]] of his choice and loses {{Health}} equal to its toughness.\n|Reckoning = N/A\n}}\n\n== Rulings, clarifications, and reminders ==\nBased on [[Blood Rites]]'s ruling, the Lead Investigator must choose 1 non-Epic Monster. If there aren't any non-Epic Monster left, he doesn't have to resolve Blood Flows' effect.{{Ref|bgg=thread/2111971/article/30922344|name=Blood Rites|designer=Dane Beltrami}}\n\n== References ==\n<references />\n\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Burden of Greed",
+      "pageId": 2182,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Burden of Greed",
+        "expansion": "{{Core Game",
+        "value": "1"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "investigator",
+        "Item",
+        "possessions"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Health"
+      ],
+      "fullText": "|Traits = Event\n|Color = Yellow\n|Difficulty = Normal\n|Flavor = You can't sleep and can't stop shaking. Compulsively, you open up your suitcase and count everything, gripping everything you own so tightly your hands bleed.\n|Effect = Each investigator may discard any number of Item possessions, then he loses  for each Item possession he has.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Burden of Greed\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Yellow\n|Difficulty = Normal\n|Flavor = You can't sleep and can't stop shaking. Compulsively, you open up your suitcase and count everything, gripping everything you own so tightly your hands bleed.\n|Effect = Each [[investigator]] may discard any number of [[Item]] [[possessions]], then he loses {{Health|value=1}} for each Item possession he has.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Buying Information",
+      "pageId": 1370,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Buying Information",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "Lead Investigator"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Flavor",
+        "Influence",
+        "Icon"
+      ],
+      "fullText": "|Traits = Event\n|Color = Green\n|Difficulty = Easy\n|Flavor = \"When you get there, stop at this address.\" The nervous little man hands you a business card for a restaurant. \"Ask for the catch of the day and then tuck a sawbuck into your napkin. These guys can get you the answers you need.\"\n\n|Effect = The Lead Investigator tests  and gains a number of  equal to his test result.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Buying Information\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Green\n|Difficulty = Easy\n|Flavor = \"When you get there, stop at this address.\" The nervous little man hands you a business card for a restaurant. \"Ask for the catch of the day and then tuck a sawbuck into your napkin. These guys can get you the answers you need.\"\n{{Flavor|When you get the bill for your meal, it includes directions to a payphone. It's already ringing by the time you find it. You answer and explain your situation to the gruff voice on the other end of the line.}}\n|Effect = The [[Lead Investigator]] tests {{Influence}} and gains a number of {{Icon|clues}} equal to his test result.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Calling the Elder Things",
+      "pageId": 1502,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Calling the Elder Things",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "Monster",
+        "space",
+        "Cultist"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game"
+      ],
+      "fullText": "|Traits = Event\n|Color = Green\n|Difficulty = Medium\n|Flavor = According to the police report, several individuals entered the warehouse in the middle of the night. They performed some sort of ritual which culminated in their death. What you know that the police don't is that, afterward, something inhuman left that warehouse.\n|Effect = Spawn 1 Monster on each space that contains a Cultist Monster.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Calling the Elder Things\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Green\n|Difficulty = Medium\n|Flavor = According to the police report, several individuals entered the warehouse in the middle of the night. They performed some sort of ritual which culminated in their death. What you know that the police don't is that, afterward, something inhuman left that warehouse.\n|Effect = Spawn 1 [[Monster]] on each [[space]] that contains a [[Cultist]] Monster.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Desperate Times",
+      "pageId": 1337,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Desperate Times",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "Lead Investigator",
+        "Dark Pact"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Icon"
+      ],
+      "fullText": "|Traits = Event\n|Color = Yellow\n|Difficulty = Hard\n|Flavor = You hear it again and again on the news. Every day the world takes another step toward utter annihilation. You ask yourself, how much would you sacrifice to prevent that disaster? Even if you could only grant humanity one more day of existence, could you honestly say that the price was too high?\n|Effect =  advances by 2 unless the Lead Investigator gains a Dark Pact Condition.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Desperate Times\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Yellow\n|Difficulty = Hard\n|Flavor = You hear it again and again on the news. Every day the world takes another step toward utter annihilation. You ask yourself, how much would you sacrifice to prevent that disaster? Even if you could only grant humanity one more day of existence, could you honestly say that the price was too high?\n|Effect = {{Icon|doom}} advances by 2 unless the [[Lead Investigator]] gains a [[Dark Pact]] Condition.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Dimensional Instability",
+      "pageId": 1507,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Dimensional Instability",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "Gate"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Icon"
+      ],
+      "fullText": "|Traits = Event\n|Color = Green\n|Difficulty = Medium\n|Flavor = You cannot believe that this gibbering lunatic was once the smiling, lucid lawyer you spoke to this morning. \"Collapsed,\" his trembling hands indicated empty air. \"The worlds collided, and the door collapsed!\" He abruptly pulls himself off the floor and looks out the small window of his cell. \"But so too will they pull. They will rip and tear, and a new door will open elsewhere.\"\n|Effect = Discard each Gate that corresponds to the current Omen and advance  by 1 for each Gate discarded.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Dimensional Instability\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Green\n|Difficulty = Medium\n|Flavor = You cannot believe that this gibbering lunatic was once the smiling, lucid lawyer you spoke to this morning. \"Collapsed,\" his trembling hands indicated empty air. \"The worlds collided, and the door collapsed!\" He abruptly pulls himself off the floor and looks out the small window of his cell. \"But so too will they pull. They will rip and tear, and a new door will open elsewhere.\"\n|Effect = Discard each [[Gate]] that corresponds to the current Omen and advance {{Icon|doom}} by 1 for each Gate discarded.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Dimensions Collide",
+      "pageId": 1299,
+      "categories": [
+        "Core Game",
+        "Mythos",
+        "Rumor"
+      ],
+      "infobox": {
+        "name": "Dimensions Collide",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "Rumor",
+        "Space 11",
+        "encounter",
+        "investigator",
+        "space 11",
+        "Gate"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Rumor",
+        "Place ET",
+        "Observation",
+        "Icon",
+        "NoInvestigators",
+        "Icon",
+        "Icon"
+      ],
+      "fullText": "|Traits = Ongoing - Rumor\n|Color = Blue\n|Difficulty = Hard\n|Icons =  \n|Flavor = Everywhere that these portals have been reported, earthquakes shake the streets into rubble, and sinkholes swallow buildings whole.\n|Effect = As an encounter, an investigator on space 11 may attempt to infiltrate a hidden sect of Tcho-Tchos that is destabilizing the fabric of reality by invoking Chaugnar Faugn (). If he passes, he puts an end to their rituals; he may spend  equal to half  to solve this Rumor.\nWhen there are no  on this card, investigators lose the game.\n|Reckoning = Discard  from this card equal to half the number of Gates on the game board.\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Dimensions Collide\n|Expansion = {{Core Game}}\n|Traits = Ongoing - [[Rumor]]\n|Color = Blue\n|Difficulty = Hard\n|Icons = {{Rumor|[[Space 11]]}} {{Place ET|8}}\n|Flavor = Everywhere that these portals have been reported, earthquakes shake the streets into rubble, and sinkholes swallow buildings whole.\n|Effect = As an [[encounter]], an [[investigator]] on [[space 11]] may attempt to infiltrate a hidden sect of Tcho-Tchos that is destabilizing the fabric of reality by invoking Chaugnar Faugn ({{Observation}}). If he passes, he puts an end to their rituals; he may spend {{Icon|clues}} equal to half {{NoInvestigators}} to solve this Rumor.\nWhen there are no {{Icon|eldritch tokens}} on this card, '''investigators lose the game.'''\n|Reckoning = Discard {{Icon|eldritch tokens}} from this card equal to half the number of [[Gate]]s on the game board.\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]\n[[Category:Rumor]]"
+    },
+    {
+      "title": "Drawn to Our World",
+      "pageId": 1487,
+      "categories": [
+        "Forsaken Lore",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Drawn to Our World",
+        "expansion": "{{FL imagelink"
+      },
+      "cardData": {
+        "expansion": "{{FL imagelink"
+      },
+      "sections": {},
+      "links": [
+        "Rumor",
+        "Space 10",
+        "encounter",
+        "investigator",
+        "space 10",
+        "Monster surge",
+        "investigator",
+        "Gate",
+        "Monster surge"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "FL imagelink",
+        "Rumor",
+        "Observation",
+        "Icon",
+        "NoInvestigators"
+      ],
+      "fullText": "|Traits = Ongoing - Rumor\n|Color = Blue\n|Difficulty = Medium\n|Icons = \n|Flavor = A Lebou sorcerer in Dakar confirms your suspicions. \"These rab, they are very bad. They come from the sea and the air.\"\n|Effect = As an encounter, an investigator on space 10 may attempt to keep himself hidden from the monstrous forces invading this area (-1). If he passes, he may spend  equal to half  to solve this Rumor. If he fails, he resolves a Monster surge on his space.\n|Reckoning = Each investigator on a space containing a Gate resolves a Monster surge on his space.\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Drawn to Our World\n|Expansion = {{FL imagelink}}\n|Traits = Ongoing - [[Rumor]]\n|Color = Blue\n|Difficulty = Medium\n|Icons = {{Rumor|[[Space 10]]}}\n|Flavor = A Lebou sorcerer in Dakar confirms your suspicions. \"These rab, they are very bad. They come from the sea and the air.\"\n|Effect = As an [[encounter]], an [[investigator]] on [[space 10]] may attempt to keep himself hidden from the monstrous forces invading this area ({{Observation}}-1). If he passes, he may spend {{Icon|clues}} equal to half {{NoInvestigators}} to solve this Rumor. If he fails, he resolves a [[Monster surge]] on his space.\n|Reckoning = Each [[investigator]] on a space containing a [[Gate]] resolves a [[Monster surge]] on his space.\n}}\n[[Category:Mythos]]\n[[Category:Forsaken Lore]]"
+    },
+    {
+      "title": "Driven to Bankruptcy",
+      "pageId": 1508,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Driven to Bankruptcy",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "reserve",
+        "Asset",
+        "reserve"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game"
+      ],
+      "fullText": "|Traits = Ongoing\n|Color = Green\n|Difficulty = Medium\n|Flavor = Walking down the street, you are surrounded by locked doors and boarded up windows. You see only a few people striding down the sidewalk, and almost all of them avoid eye contact. Those that do look you in the eye glare at you suspiciously.\n|Effect = When this card enters play, discard all cards from the reserve.\nCards cannot be placed in the reserve.\n|Reckoning = Discard this card and place the top 4 cards of the Asset deck in the reserve.\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Driven to Bankruptcy\n|Expansion = {{Core Game}}\n|Traits = Ongoing\n|Color = Green\n|Difficulty = Medium\n|Flavor = Walking down the street, you are surrounded by locked doors and boarded up windows. You see only a few people striding down the sidewalk, and almost all of them avoid eye contact. Those that do look you in the eye glare at you suspiciously.\n|Effect = When this card enters play, discard all cards from the [[reserve]].\n'''Cards cannot be placed in the reserve.'''\n|Reckoning = Discard this card and place the top 4 cards of the [[Asset]] deck in the [[reserve]].\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Driven to Madness",
+      "pageId": 1562,
+      "categories": [
+        "Forsaken Lore",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Driven to Madness",
+        "expansion": "{{FL imagelink",
+        "value": "1"
+      },
+      "cardData": {
+        "expansion": "{{FL imagelink"
+      },
+      "sections": {},
+      "links": [
+        "investigator",
+        "Ally",
+        "Madness"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "FL imagelink",
+        "Sanity"
+      ],
+      "fullText": "|Traits = Event\n|Color = Yellow\n|Difficulty = Medium\n|Flavor = There was a time when you took comfort in the company of others, but no longer. You have sacrificed so much for them. Are the desperate masses even worth saving? Can the human race ever hope to earn its redemption?\n|Effect = Each investigator may discard any number of Ally Assets, then he loses  for each Ally Asset he has. Each investigator that lost Sanity from this effect also gains a Madness Condition.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Driven to Madness\n|Expansion = {{FL imagelink}}\n|Traits = Event\n|Color = Yellow\n|Difficulty = Medium\n|Flavor = There was a time when you took comfort in the company of others, but no longer. You have sacrificed so much for them. Are the desperate masses even worth saving? Can the human race ever hope to earn its redemption?\n|Effect = Each [[investigator]] may discard any number of [[Ally]] Assets, then he loses {{Sanity|value=1}} for each Ally Asset he has. Each investigator that lost Sanity from this effect also gains a [[Madness]] Condition.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Forsaken Lore]]"
+    },
+    {
+      "title": "Everyone Has a Price",
+      "pageId": 1451,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Everyone Has a Price",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "investigator",
+        "Debt",
+        "Condition"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game"
+      ],
+      "fullText": "|Traits = Event\n|Color = Yellow\n|Difficulty = Easy\n|Flavor = He writes the price on a piece of paper and slides it across the table. It's more than you can afford, but you don't have any other options, and this greedy lout knows it.\n|Effect = Each investigator may gain a Debt Condition to discard 1 Condition.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Everyone Has a Price\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Yellow\n|Difficulty = Easy\n|Flavor = He writes the price on a piece of paper and slides it across the table. It's more than you can afford, but you don't have any other options, and this greedy lout knows it.\n|Effect = Each [[investigator]] may gain a [[Debt]] Condition to discard 1 [[Condition]].\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Evil Never Sleeps",
+      "pageId": 1315,
+      "categories": [
+        "Forsaken Lore",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Evil Never Sleeps",
+        "expansion": "{{FL imagelink"
+      },
+      "cardData": {
+        "expansion": "{{FL imagelink"
+      },
+      "sections": {},
+      "links": [
+        "Mythos"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "FL imagelink"
+      ],
+      "fullText": "|Traits = Event\n|Color = Green\n|Difficulty = Hard\n|Flavor = The forces of evil never sleep and never stop working toward their ultimate goal. You feel time has grown shorter. The ancient beings that lurk on the edge of human consciousness are growing at an alarming rate.\n|Effect = Draw and resolve another Mythos card.\n\nIf this is the last card of the Mythos deck, investigators lose the game.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Evil Never Sleeps\n|Expansion = {{FL imagelink}}\n|Traits = Event\n|Color = Green\n|Difficulty = Hard\n|Flavor = The forces of evil never sleep and never stop working toward their ultimate goal. You feel time has grown shorter. The ancient beings that lurk on the edge of human consciousness are growing at an alarming rate.\n|Effect = Draw and resolve another [[Mythos]] card.\n\nIf this is the last card of the Mythos deck, '''investigators lose the game.'''\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Forsaken Lore]]"
+    },
+    {
+      "title": "Eyes Everywhere",
+      "pageId": 1335,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Eyes Everywhere",
+        "expansion": "{{Core Game",
+        "value": "2"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "investigator",
+        "Monster",
+        "ambushes"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Health",
+        "Sanity"
+      ],
+      "fullText": "|Traits = Event\n|Color = Yellow\n|Difficulty = Hard\n|Flavor = Now that you know what to look for, you see them all around you: the man pretending to be asleep on the bench, the woman watching you in the reflection of a tobacconist's shop, the trio who have been following you since you left the station. They've been tracking your every move.\n|Effect = Each investigator rolls 1 die and resolves the matching effect:\n1-2: He is assaulted and loses  and .\n3-5: A Monster ambushes him.\n6: No effect.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Eyes Everywhere\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Yellow\n|Difficulty = Hard\n|Flavor = Now that you know what to look for, you see them all around you: the man pretending to be asleep on the bench, the woman watching you in the reflection of a tobacconist's shop, the trio who have been following you since you left the station. They've been tracking your every move.\n|Effect = Each [[investigator]] rolls 1 die and resolves the matching effect:\n'''1-2:''' He is assaulted and loses {{Health|value=2}} and {{Sanity|value=2}}.<br>\n'''3-5:''' A [[Monster]] [[ambushes]] him.<br>\n'''6:''' No effect.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Faded From Society",
+      "pageId": 1486,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Faded From Society",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "Rumor",
+        "Space 16",
+        "encounter",
+        "investigator",
+        "space 16",
+        "Asset",
+        "reserve"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Rumor",
+        "Place ET",
+        "Observation",
+        "Icon",
+        "NoInvestigators",
+        "Icon"
+      ],
+      "fullText": "|Traits = Ongoing - Rumor\n|Color = Blue\n|Difficulty = Medium\n|Icons =  \n|Flavor = Some dark magic has taken hold in you. Friends have started ignoring you as if you weren't even in the room. It's getting worse, and you fear that soon you'll be invisible to every other person on Earth!\n|Effect = As an encounter, an investigator on space 16 may attempt to research similar occurrences from the past (). If he passes, he learns about a Russian folktale where children go missing; he may spend  equal to half  to solve this Rumor.\n|Reckoning = Search the Asset deck, discard pile, and reserve for all Assets with value equal to or greater than the number of  on this card and return them to the game box. Then discard 1 Eldritch token from this card. If there are no Eldritch tokens on this card, solve this Rumor.\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Faded From Society\n|Expansion = {{Core Game}}\n|Traits = Ongoing - [[Rumor]]\n|Color = Blue\n|Difficulty = Medium\n|Icons = {{Rumor|[[Space 16]]}} {{Place ET|4}}\n|Flavor = Some dark magic has taken hold in you. Friends have started ignoring you as if you weren't even in the room. It's getting worse, and you fear that soon you'll be invisible to every other person on Earth!\n|Effect = As an [[encounter]], an [[investigator]] on [[space 16]] may attempt to research similar occurrences from the past ({{Observation}}). If he passes, he learns about a Russian folktale where children go missing; he may spend {{Icon|clues}} equal to half {{NoInvestigators}} to solve this Rumor.\n|Reckoning = Search the [[Asset]] deck, discard pile, and [[reserve]] for all Assets with value equal to or greater than the number of {{Icon|eldritch tokens}} on this card and return them to the game box. Then discard 1 Eldritch token from this card. If there are no Eldritch tokens on this card, solve this Rumor.\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Fractured Reality",
+      "pageId": 1356,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Fractured Reality",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {
+        "Notes": "The second \"solve this Rumor\" phrase has been added via errata."
+      },
+      "links": [
+        "Rumor",
+        "Space 2",
+        "encounter",
+        "investigator",
+        "space 2",
+        "Other World Encounter",
+        "Gate"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Rumor",
+        "Place ET",
+        "Icon",
+        "Icon",
+        "Icon"
+      ],
+      "fullText": "|Traits = Ongoing - Rumor\n|Color = Blue\n|Difficulty = Easy\n|Icons =  \n|Flavor = The strange phenomenon is an echo of the catastrophic destruction of Mu. The repercussions of the serpent people's overreaching ambition still take their toll.\n|Effect = As an encounter, an investigator on space 2 may use an ancient portal created by a long-dead wizard of Mu; he resolves an Other World Encounter. If the effect allows him to \"close this Gate,\" solve this Rumor instead.\n\nWhen there are no  on this card, advance  by 1 for each Gate on the game board, and then solve this Rumor.\n|Reckoning = Discard  from this card.\n}}\n\n[Notes]\n\nThe second \"solve this Rumor\" phrase has been added via errata.",
+      "rawWikitext": "{{Template:Mythos\n|Name = Fractured Reality\n|Expansion = {{Core Game}}\n|Traits = Ongoing - [[Rumor]]\n|Color = Blue\n|Difficulty = Easy\n|Icons = {{Rumor|[[Space 2]]}} {{Place ET|4}}\n|Flavor = The strange phenomenon is an echo of the catastrophic destruction of Mu. The repercussions of the serpent people's overreaching ambition still take their toll.\n|Effect = As an [[encounter]], an [[investigator]] on [[space 2]] may use an ancient portal created by a long-dead wizard of Mu; he resolves an [[Other World Encounter]]. If the effect allows him to \"close this Gate,\" solve this Rumor instead.\n\nWhen there are no {{Icon|eldritch tokens}} on this card, advance {{Icon|doom}} by 1 for each [[Gate]] on the game board, and then solve this Rumor.\n|Reckoning = Discard {{Icon|et|1}} from this card.\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]\n==Notes==\nThe second \"solve this Rumor\" phrase has been added via errata."
+    },
+    {
+      "title": "From Bad to Worse",
+      "pageId": 2183,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "From Bad to Worse",
+        "expansion": "{{Core Game",
+        "value": "1"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "investigator",
+        "Injury",
+        "Madness",
+        "Deal"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Health",
+        "Sanity‎",
+        "Icon"
+      ],
+      "fullText": "|Traits = Event\n|Color = Yellow\n|Difficulty = Normal\n|Flavor = Piece by piece, you are falling apart. It's getting harder to successfully negotiate simple human interactions. Your wounds won't stop bleeding, and your hands won't stop shaking.\n|Effect = Each investigator loses  for each Injury Condition he has, loses  for each Madness Condition he has, and discards  for each Deal Condition he has.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = From Bad to Worse\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Yellow\n|Difficulty = Normal\n|Flavor = Piece by piece, you are falling apart. It's getting harder to successfully negotiate simple human interactions. Your wounds won't stop bleeding, and your hands won't stop shaking.\n|Effect = Each [[investigator]] loses {{Health|value=1}} for each [[Injury]] Condition he has, loses {{Sanity‎|value=1}} for each [[Madness]] Condition he has, and discards {{Icon|clue|1}} for each [[Deal]] Condition he has.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "From Beyond",
+      "pageId": 1324,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Resolving twice",
+        "expansion": "{{Core Game",
+        "bgg": "thread/1296704/article/17916007"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {
+        "Rulings, clarifications, and reminders": "* When resolving the  effects twice, first resolve all  effects, then resolve all  effects again.",
+        "References": "\n\nCategory:Mythos\nCategory:Core Game"
+      },
+      "links": [
+        "Omen",
+        "Monster Surge",
+        "Clues",
+        "Mythos",
+        "investigators"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Reckoning",
+        "Icon",
+        "NoInvestigators",
+        "Reckoning",
+        "icon",
+        "Icon",
+        "Icon",
+        "Icon",
+        "Ref"
+      ],
+      "fullText": "|Traits = Event\n|Color = Green\n|Difficulty = Hard\n|Icons = Advance Omen, Monster Surge, Spawn Clues\n|Flavor = The shop owner's body was found in the storeroom among those curios and antiques deemed \"too esoteric\" for public display. While the police ascribed his death to natural causes, you see it for something more sinister. The insidious powers from outside of reality are growing more aggressive, impatient for the meal they plan to make of this world.\n|Effect = Resolve the  effect on each Mythos card in play twice unless investigators, as a group, spend  equal to half .\nIf there are no Mythos cards in play with a  effect, advance  by 1.\n|Reckoning = N/A\n}}\n\n[Rulings, clarifications, and reminders ]\n\n* When resolving the  effects twice, first resolve all  effects, then resolve all  effects again.\n\n[References ]",
+      "rawWikitext": "{{Template:Mythos\n|Name = From Beyond\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Green\n|Difficulty = Hard\n|Icons = Advance [[Omen]], [[Monster Surge]], Spawn [[Clues]]\n|Flavor = The shop owner's body was found in the storeroom among those curios and antiques deemed \"too esoteric\" for public display. While the police ascribed his death to natural causes, you see it for something more sinister. The insidious powers from outside of reality are growing more aggressive, impatient for the meal they plan to make of this world.\n|Effect = Resolve the {{Reckoning}} effect on each [[Mythos]] card in play twice unless [[investigators]], as a group, spend {{Icon|clues}} equal to half {{NoInvestigators}}.\nIf there are no Mythos cards in play with a {{Reckoning}} effect, advance {{icon|doom}} by 1.\n|Reckoning = N/A\n}}\n\n== Rulings, clarifications, and reminders ==\n* When resolving the {{Icon|Reckoning}} effects twice, first resolve all {{Icon|Reckoning}} effects, then resolve all {{Icon|Reckoning}} effects again.{{Ref|bgg=thread/1296704/article/17916007|name=Resolving twice}}\n\n== References ==\n<references />\n\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Gate",
+      "pageId": 952,
+      "categories": [
+        "Core Game",
+        "Mythos Phase"
+      ],
+      "infobox": {
+        "bgg": "thread/1724129/article/25153704",
+        "name": "Revealed Gates",
+        "faq": "10"
+      },
+      "cardData": {},
+      "sections": {
+        "Spawning Gates": "left|56px|link= When an effect spawns a Gate, draw one Gate token from the top of the Gate stack and place it faceup on the space indicated on the Gate token. When a Gate is spawned, a Monster is spawned on the same space. Gates are most commonly opened when spawned by a Mythos card when the appropriate symbol appears on the top part of the card, always occurring on the cards with yellow backgrounds. They may also be opened through certain Rumor Mythos cards, through a failed Encounter, or some condition effects.\n\nWhen there are no Gates remaining in the Gate stack, place all discarded Gates facedown in the Gate stack and randomize them. If a Gate cannot be spawn because the Gate stack and discard pile are empty, advance  by 1 instead.",
+        "Closing Gates": "thumb|right|120px|Back of an Other World Encounter\nDuring the Encounter Phase, an investigator on a space containing a Gate may encounter it by drawing and resolving an Other World Encounter. Many Other World Encounters result in allowing the player to \"close\" the Gate. If this happens, the Gate token is removed from the board and put into a discard pile.\n\nSome effects, such as a Mystic Ruins Encounter, may allow an investigator to \"discard\" a gate from the game board. This follows the same process but is not considered \"closing\" the gate.",
+        "Revealing Gates": "When an effect reveals a Gate, change one Gate token from the top of the Gate stack to a faceup position. Revealed Gates remain where they are in the Gate stack unless the effect that causes the Gates to be revealed states otherwise.\n\nIf an effect would cause a number of Gates to be revealed that exceeds the number of Gates in the Gate stack, the active investigator randomizes the Gates in the discard pile and places them at the bottom of the Gate stack before resolving that effect.\n\nAfter a Gate in the Gate stack has been revealed, it remains revealed until it is removed from the Gate stack or the Gate stack is randomized.\n\nRevealing a Gate that has previously been revealed has no additional effect. This won't stop other effects from manipulating those Gates; for instance, Randolph Carter will be able to put the top Gate on the bottom of the Gate stack if desired, even if the top Gate has already been revealed by some other effects.",
+        "List of Gates": "You can find below the list of all Gates with the corresponding Omen symbol and the Game Set in which you can find them.",
+        "Main Board Gates": "{| class=\"article-table sortable mw-collapsible mw-collapsed\"\n|-\n! scope=\"col\" font-weight=\"bold\" |Location\n! scope=\"col\" font-weight=\"bold\" |Omen\n! scope=\"col\" font-weight=\"bold\" |Set\n|-\n|San Francisco\n|\n|\n|-\n|R'lyeh (Space 3)\n|\n|\n|-\n|Arkham\n|\n|\n|-\n|Atlantis (Space 8)\n|\n|\n|-\n|The Amazon\n|\n|\n|-\n|Buenos Aires\n|\n|\n|-\n|London\n|\n|\n|-\n|Rome\n|\n|\n|-\n|The Pyramids\n|\n|\n|-\n|The Heart of Africa\n|\n|\n|-\n|Antarctica\n|\n|\n|-\n|Hyperborea (Space 13)\n|\n|\n|-\n|Istanbul\n|\n|\n|-\n|Tunguska\n|\n|\n|-\n|The Himalayas\n|\n|\n|-\n|Shanghai\n|\n|\n|-\n|Tokyo\n|\n|\n|-\n|Sydney\n|\n|\n|}",
+        "Sideboards Gates": "{| class=\"article-table sortable mw-collapsible mw-collapsed\"\n|-\n! scope=\"col\" font-weight=\"bold\" |Location\n! scope=\"col\" font-weight=\"bold\" |Omen\n! scope=\"col\" font-weight=\"bold\" |Set\n|-\n|City of the Elder Things\n|\n|\n|-\n|Plateau of Leng\n|\n|\n|-\n|Miskatonic Outpost\n|\n|\n|-\n|The Sahara Desert\n|\n|\n|-\n|The Nile River\n|\n|\n|-\n|Cairo\n|\n|\n|-\n|Ulthar\n|\n|\n|-\n|Dylath-Leen\n|\n|\n|-\n|Celephaïs\n|\n|\n|}",
+        "References": "\n\nCategory:Core Game\nCategory:Mythos Phase"
+      },
+      "links": [
+        "Monsters",
+        "Ancient Ones",
+        "Rome",
+        "Expedition Encounters",
+        "The Pyramids",
+        "Omen",
+        "Monster",
+        "Mythos",
+        "Rumor",
+        "Encounter",
+        "Other World Encounter",
+        "Mystic Ruins Encounter",
+        "investigator",
+        "Randolph Carter",
+        "San Francisco",
+        "Space 3",
+        "Arkham",
+        "Space 8",
+        "The Amazon",
+        "Buenos Aires",
+        "London",
+        "Rome",
+        "The Pyramids",
+        "The Heart of Africa",
+        "Antarctica",
+        "Space 13",
+        "Istanbul",
+        "Tunguska",
+        "The Himalayas",
+        "Shanghai",
+        "Tokyo",
+        "Sydney",
+        "City of the Elder Things",
+        "Plateau of Leng",
+        "Miskatonic Outpost",
+        "The Sahara Desert",
+        "The Nile River",
+        "Cairo",
+        "Ulthar",
+        "Dylath-Leen",
+        "Celephaïs"
+      ],
+      "templates": [
+        "see also",
+        "icon",
+        "icon",
+        "icon",
+        "icon",
+        "Ref",
+        "icon",
+        "main",
+        "Ref",
+        "Ref",
+        "icon",
+        "Core Game",
+        "icon",
+        "MoN imagelink",
+        "icon",
+        "Core Game",
+        "icon",
+        "MoN imagelink",
+        "icon",
+        "MoM imagelink",
+        "icon",
+        "Core Game",
+        "icon",
+        "Core Game",
+        "icon",
+        "Core Game",
+        "icon",
+        "MoM imagelink",
+        "icon",
+        "UtP imagelink",
+        "icon",
+        "UtP imagelink",
+        "icon",
+        "MoN imagelink",
+        "icon",
+        "Core Game",
+        "icon",
+        "MoM imagelink",
+        "icon",
+        "UtP imagelink",
+        "icon",
+        "Core Game",
+        "icon",
+        "Core Game",
+        "icon",
+        "Core Game",
+        "icon",
+        "MoM imagelink",
+        "icon",
+        "MoM imagelink",
+        "icon",
+        "MoM imagelink",
+        "icon",
+        "UtP imagelink",
+        "icon",
+        "UtP imagelink",
+        "icon",
+        "UtP imagelink",
+        "icon",
+        "TD imagelink",
+        "icon",
+        "TD imagelink",
+        "icon",
+        "TD imagelink"
+      ],
+      "fullText": "Gate tokens represent tears in the fabric of reality. These gateways can lead to other worlds, dimensions, or even points in time. These dangerous anomalies allow deadly powers into our world, such as Monsters and eventually even the Ancient Ones. Gates are mostly specific to locations that have unique pictures by their name. This includes major cities like Rome, or, with expansions, places where an Expedition Encounter can take place like The Pyramids or Atlantis (space 8). , , and  have side boards with spaces where Gates may spawn. \n\nAll Gates have one of three symbols on them that correspond to the Omen. When the omen rotates to that symbol,  advances by 1 for each Gate that bears the symbol. Gates do NOT advance Doom when spawned, even if the Omen corresponds with that Gate.\n\n__TOC__\n\nThe Gate stack is created by randomizing all the Gate tokens, including those for a Side Board if playing with them, then placing them facedown. Gates are kept facedown in the Gate stack until they are spawned, unless an ability allows an investigator to look at them.\n\nIt's rare, but possible, to have multiple Gates on the same space. In this case, during the Encounter Phase, an investigator on that space may choose one of the Gates to encounter.\n\n[Spawning Gates]\n\n When an effect spawns a Gate, draw one Gate token from the top of the Gate stack and place it faceup on the space indicated on the Gate token. When a Gate is spawned, a Monster is spawned on the same space. Gates are most commonly opened when spawned by a Mythos card when the appropriate symbol appears on the top part of the card, always occurring on the cards with yellow backgrounds. They may also be opened through certain Rumor Mythos cards, through a failed Encounter, or some condition effects.\n\nWhen there are no Gates remaining in the Gate stack, place all discarded Gates facedown in the Gate stack and randomize them. If a Gate cannot be spawn because the Gate stack and discard pile are empty, advance  by 1 instead.\n\n[Closing Gates]\n\nDuring the Encounter Phase, an investigator on a space containing a Gate may encounter it by drawing and resolving an Other World Encounter. Many Other World Encounters result in allowing the player to \"close\" the Gate. If this happens, the Gate token is removed from the board and put into a discard pile.\n\nSome effects, such as a Mystic Ruins Encounter, may allow an investigator to \"discard\" a gate from the game board. This follows the same process but is not considered \"closing\" the gate.\n\n[Revealing Gates]\n\nWhen an effect reveals a Gate, change one Gate token from the top of the Gate stack to a faceup position. Revealed Gates remain where they are in the Gate stack unless the effect that causes the Gates to be revealed states otherwise.\n\nIf an effect would cause a number of Gates to be revealed that exceeds the number of Gates in the Gate stack, the active investigator randomizes the Gates in the discard pile and places them at the bottom of the Gate stack before resolving that effect.\n\nAfter a Gate in the Gate stack has been revealed, it remains revealed until it is removed from the Gate stack or the Gate stack is randomized.\n\nRevealing a Gate that has previously been revealed has no additional effect. This won't stop other effects from manipulating those Gates; for instance, Randolph Carter will be able to put the top Gate on the bottom of the Gate stack if desired, even if the top Gate has already been revealed by some other effects.\n\n[List of Gates]\n\nYou can find below the list of all Gates with the corresponding Omen symbol and the Game Set in which you can find them.\n\n[Main Board Gates]\n\n{| class=\"article-table sortable mw-collapsible mw-collapsed\"\n|-\n! scope=\"col\" font-weight=\"bold\" |Location\n! scope=\"col\" font-weight=\"bold\" |Omen\n! scope=\"col\" font-weight=\"bold\" |Set\n|-\n|San Francisco\n|\n|\n|-\n|R'lyeh (Space 3)\n|\n|\n|-\n|Arkham\n|\n|\n|-\n|Atlantis (Space 8)\n|\n|\n|-\n|The Amazon\n|\n|\n|-\n|Buenos Aires\n|\n|\n|-\n|London\n|\n|\n|-\n|Rome\n|\n|\n|-\n|The Pyramids\n|\n|\n|-\n|The Heart of Africa\n|\n|\n|-\n|Antarctica\n|\n|\n|-\n|Hyperborea (Space 13)\n|\n|\n|-\n|Istanbul\n|\n|\n|-\n|Tunguska\n|\n|\n|-\n|The Himalayas\n|\n|\n|-\n|Shanghai\n|\n|\n|-\n|Tokyo\n|\n|\n|-\n|Sydney\n|\n|\n|}\n\n[Sideboards Gates]\n\n{| class=\"article-table sortable mw-collapsible mw-collapsed\"\n|-\n! scope=\"col\" font-weight=\"bold\" |Location\n! scope=\"col\" font-weight=\"bold\" |Omen\n! scope=\"col\" font-weight=\"bold\" |Set\n|-\n|City of the Elder Things\n|\n|\n|-\n|Plateau of Leng\n|\n|\n|-\n|Miskatonic Outpost\n|\n|\n|-\n|The Sahara Desert\n|\n|\n|-\n|The Nile River\n|\n|\n|-\n|Cairo\n|\n|\n|-\n|Ulthar\n|\n|\n|-\n|Dylath-Leen\n|\n|\n|-\n|Celephaïs\n|\n|\n|}\n\n[References ]",
+      "rawWikitext": "{{see also|Omen}}\n[[File:Gate Token.png|left|150px|link=]] Gate tokens represent tears in the fabric of reality. These gateways can lead to other worlds, dimensions, or even points in time. These dangerous anomalies allow deadly powers into our world, such as [[Monsters]] and eventually even the [[Ancient Ones]]. Gates are mostly specific to locations that have unique pictures by their name. This includes major cities like [[Rome]], or, with expansions, places where an [[Expedition Encounters|Expedition Encounter]] can take place like [[The Pyramids]] or Atlantis (space 8). {{icon|mom}}, {{icon|utp}}, and {{icon|td}} have side boards with spaces where Gates may spawn. \n\nAll Gates have one of three symbols on them that correspond to the [[Omen]]. When the omen rotates to that symbol, {{icon|doom}} advances by 1 for each Gate that bears the symbol. Gates do NOT advance Doom when spawned, even if the Omen corresponds with that Gate.\n\n__TOC__\n\nThe Gate stack is created by randomizing all the Gate tokens, including those for a Side Board if playing with them, then placing them facedown. Gates are kept facedown in the Gate stack until they are spawned, unless an ability allows an investigator to look at them.\n\nIt's rare, but possible, to have multiple Gates on the same space. In this case, during the Encounter Phase, an investigator on that space may choose one of the Gates to encounter.{{Ref|bgg=thread/1703514/article/25946201|name=Multiple Gates on the same space}}\n\n===Spawning Gates===\n[[File:Spawn Gates.png|left|56px|link=]] When an effect spawns a Gate, draw one Gate token from the top of the Gate stack and place it faceup on the space indicated on the Gate token. When a Gate is spawned, a [[Monster]] is spawned on the same space. Gates are most commonly opened when spawned by a [[Mythos]] card when the appropriate symbol appears on the top part of the card, always occurring on the cards with yellow backgrounds. They may also be opened through certain [[Rumor]] Mythos cards, through a failed [[Encounter]], or some condition effects.\n\nWhen there are no Gates remaining in the Gate stack, place all discarded Gates facedown in the Gate stack and randomize them. If a Gate cannot be spawn because the Gate stack and discard pile are empty, advance {{icon|doom}} by 1 instead.\n\n===Closing Gates===\n[[File:Other World Encounter.png|thumb|right|120px|Back of an Other World Encounter]]{{main|Other World Encounters}}\nDuring the Encounter Phase, an investigator on a space containing a Gate may encounter it by drawing and resolving an [[Other World Encounter]]. Many Other World Encounters result in allowing the player to \"close\" the Gate. If this happens, the Gate token is removed from the board and put into a discard pile.\n\nSome effects, such as a [[Mystic Ruins Encounter]], may allow an investigator to \"discard\" a gate from the game board. This follows the same process but is not considered \"closing\" the gate.{{Ref|faq=10|name=faq10}}\n\n===Revealing Gates===\nWhen an effect reveals a Gate, change one Gate token from the top of the Gate stack to a faceup position. Revealed Gates remain where they are in the Gate stack unless the effect that causes the Gates to be revealed states otherwise.\n\nIf an effect would cause a number of Gates to be revealed that exceeds the number of Gates in the Gate stack, the active [[investigator]] randomizes the Gates in the discard pile and places them at the bottom of the Gate stack before resolving that effect.\n\nAfter a Gate in the Gate stack has been revealed, it remains revealed until it is removed from the Gate stack or the Gate stack is randomized.<ref name=faq10 />\n\nRevealing a Gate that has previously been revealed has no additional effect. This won't stop other effects from manipulating those Gates; for instance, [[Randolph Carter]] will be able to put the top Gate on the bottom of the Gate stack if desired, even if the top Gate has already been revealed by some other effects.{{Ref|bgg=thread/1724129/article/25153704|name=Revealed Gates}}\n\n==List of Gates==\nYou can find below the list of all Gates with the corresponding Omen symbol and the Game Set in which you can find them.\n===Main Board Gates===\n{| class=\"article-table sortable mw-collapsible mw-collapsed\"\n|-\n! scope=\"col\" font-weight=\"bold\" |Location\n! scope=\"col\" font-weight=\"bold\" |Omen\n! scope=\"col\" font-weight=\"bold\" |Set\n|-\n|[[San Francisco]]\n|{{icon|green}}\n|{{Core Game}}\n|-\n|R'lyeh ([[Space 3]])\n|{{icon|blue}}\n|{{MoN imagelink}}\n|-\n|[[Arkham]]\n|{{icon|red}}\n|{{Core Game}}\n|-\n|Atlantis ([[Space 8]])\n|{{icon|red}}\n|{{MoN imagelink}}\n|-\n|[[The Amazon]]\n|{{icon|red}}\n|{{MoM imagelink}}\n|-\n|[[Buenos Aires]]\n|{{icon|blue}}\n|{{Core Game}}\n|-\n|[[London]]\n|{{icon|blue}}\n|{{Core Game}}\n|-\n|[[Rome]]\n|{{icon|red}}\n|{{Core Game}}\n|-\n|[[The Pyramids]]\n|{{icon|blue}}\n|{{MoM imagelink}}\n|-\n|[[The Heart of Africa]]\n|{{icon|red}}\n|{{UtP imagelink}}\n|-\n|[[Antarctica]]\n|{{icon|blue}}\n|{{UtP imagelink}}\n|-\n|Hyperborea ([[Space 13]])\n|{{icon|red}}\n|{{MoN imagelink}}\n|-\n|[[Istanbul]]\n|{{icon|green}}\n|{{Core Game}}\n|-\n|[[Tunguska]]\n|{{icon|green}}\n|{{MoM imagelink}}\n|-\n|[[The Himalayas]]\n|{{icon|red}}\n|{{UtP imagelink}}\n|-\n|[[Shanghai]]\n|{{icon|red}}\n|{{Core Game}}\n|-\n|[[Tokyo]]\n|{{icon|blue}}\n|{{Core Game}}\n|-\n|[[Sydney]]\n|{{icon|red}}\n|{{Core Game}}\n|}\n\n===Sideboards Gates===\n{| class=\"article-table sortable mw-collapsible mw-collapsed\"\n|-\n! scope=\"col\" font-weight=\"bold\" |Location\n! scope=\"col\" font-weight=\"bold\" |Omen\n! scope=\"col\" font-weight=\"bold\" |Set\n|-\n|[[City of the Elder Things]]\n|{{icon|blue}}\n|{{MoM imagelink}}\n|-\n|[[Plateau of Leng]]\n|{{icon|red}}\n|{{MoM imagelink}}\n|-\n|[[Miskatonic Outpost]]\n|{{icon|red}}\n|{{MoM imagelink}}\n|-\n|[[The Sahara Desert]]\n|{{icon|red}}\n|{{UtP imagelink}}\n|-\n|[[The Nile River]]\n|{{icon|blue}}\n|{{UtP imagelink}}\n|-\n|[[Cairo]]\n|{{icon|green}}\n|{{UtP imagelink}}\n|-\n|[[Ulthar]]\n|{{icon|red}}\n|{{TD imagelink}}\n|-\n|[[Dylath-Leen]]\n|{{icon|blue}}\n|{{TD imagelink}}\n|-\n|[[Celephaïs]]\n|{{icon|red}}\n|{{TD imagelink}}\n|}\n\n== References ==\n<references />\n\n[[Category:Core Game]]\n[[Category:Mythos Phase]]"
+    },
+    {
+      "title": "Growing Madness",
+      "pageId": 1357,
+      "categories": [
+        "Core Game",
+        "Mythos",
+        "Rumor"
+      ],
+      "infobox": {
+        "name": "Growing Madness",
+        "expansion": "{{Core Game",
+        "value": "3"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "Rumor",
+        "Space 8",
+        "encounter",
+        "investigator",
+        "space 8",
+        "Lead Investigator",
+        "Madness"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Rumor",
+        "Place ET",
+        "Observation",
+        "Icon",
+        "NoInvestigators",
+        "Icon",
+        "Sanity",
+        "Icon"
+      ],
+      "fullText": "|Traits = Ongoing - Rumor\n|Color = Blue\n|Difficulty = Easy\n|Icons =  \n|Flavor = You dream of a life as an insane wizard thousands of years ago in Atlantis. You also dream of that same wizard still alive today on an uncharted island.\n|Effect = As an encounter, an investigator on space 8 may attempt to find the uncharted isle (). If he passes, he may spend  equal to half  to solve this Rumor.\nWhen there are no  on this card, each investigator loses , then solve this Rumor.\n|Reckoning = The Lead Investigator gains a Madness Condition, then discards  from this card for each Madness Condition he has.\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Growing Madness\n|Expansion = {{Core Game}}\n|Traits = Ongoing - [[Rumor]]\n|Color = Blue\n|Difficulty = Easy\n|Icons = {{Rumor|[[Space 8]]}} {{Place ET|4}}\n|Flavor = You dream of a life as an insane wizard thousands of years ago in Atlantis. You also dream of that same wizard still alive today on an uncharted island.\n|Effect = As an [[encounter]], an [[investigator]] on [[space 8]] may attempt to find the uncharted isle ({{Observation}}). If he passes, he may spend {{Icon|clues}} equal to half {{NoInvestigators}} to solve this Rumor.\nWhen there are no {{Icon|eldritch tokens}} on this card, each investigator loses {{Sanity|value=3}}, then solve this Rumor.\n|Reckoning = The [[Lead Investigator]] gains a [[Madness]] Condition, then discards {{Icon|et|1}} from this card for each Madness Condition he has.\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]\n[[Category:Rumor]]"
+    },
+    {
+      "title": "Haunting Nightmares",
+      "pageId": 2184,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Haunting Nightmares",
+        "expansion": "{{Core Game",
+        "value": "2"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "investigator",
+        "Madness"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Sanity‎",
+        "Icon"
+      ],
+      "fullText": "|Traits = Event\n|Color = Yellow\n|Difficulty = Normal\n|Flavor = You wake up in mid-scream, and your heart is racing. What little you can remember of your nightmare was so visceral and horrific that you dread falling back asleep.\n|Effect = Each investigator loses  and gains a Madness Condition unless he spends .\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Haunting Nightmares\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Yellow\n|Difficulty = Normal\n|Flavor = You wake up in mid-scream, and your heart is racing. What little you can remember of your nightmare was so visceral and horrific that you dread falling back asleep.\n|Effect = Each [[investigator]] loses {{Sanity‎|value=2}} and gains a [[Madness]] Condition unless he spends {{Icon|clue|1}}.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Heart of Corruption",
+      "pageId": 1369,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Heart of Corruption",
+        "expansion": "{{Core Game",
+        "value": "2"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "Lead Investigator",
+        "Artifact"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Health",
+        "Sanity"
+      ],
+      "fullText": "|Traits = Event\n|Color = Green\n|Difficulty = Easy\n|Flavor = You compared the picture in the magazine to the drawing on the old, tattered map. It was definitely a match, but what could be so valuable that it required so much secrecy, and why was that particular point on the map marked with blood?\n|Effect = The Lead Investigator gains 1 Artifact, then rolls 1 die. On a 1 or 2, he loses  and .\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Heart of Corruption\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Green\n|Difficulty = Easy\n|Flavor = You compared the picture in the magazine to the drawing on the old, tattered map. It was definitely a match, but what could be so valuable that it required so much secrecy, and why was that particular point on the map marked with blood?\n|Effect = The [[Lead Investigator]] gains 1 [[Artifact]], then rolls 1 die. On a 1 or 2, he loses {{Health|value=2}} and {{Sanity|value=2}}.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Heat Wave Singes the Globe",
+      "pageId": 2185,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Heat Wave Singes the Globe",
+        "expansion": "{{Core Game",
+        "value": "3"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "investigator",
+        "Delayed"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Health"
+      ],
+      "fullText": "|Traits = Event\n|Color = Yellow\n|Difficulty = Normal\n|Flavor = Sweating and exhausted, you stop to rest in what little shade you can find. You've already heard stories of this heat wave claiming the lives of sick or elderly individuals. You fear that if you keep going at this pace, you might fall victim to it as well.\n|Effect = Each investigator loses  unless he becomes Delayed.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Heat Wave Singes the Globe\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Yellow\n|Difficulty = Normal\n|Flavor = Sweating and exhausted, you stop to rest in what little shade you can find. You've already heard stories of this heat wave claiming the lives of sick or elderly individuals. You fear that if you keep going at this pace, you might fall victim to it as well.\n|Effect = Each [[investigator]] loses {{Health|value=3}} unless he becomes [[Delayed]].\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Legitimate Banking",
+      "pageId": 1505,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Legitimate Banking",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "Lead Investigator",
+        "Debt"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Reckoning"
+      ],
+      "fullText": "|Traits = Event\n|Color = Green\n|Difficulty = Medium\n|Flavor = The man in the suit slides the contract across the desk. \"We've spoken to the police and the customs agents, and all of the necessary payments have been made. If you'll just sign this, indicating that you understand your obligations, you can be on your way.\" His assistant places a pen in your hand.\n|Effect = The Lead Investigator gains a Debt Condition.\nIf the Lead Investigator already had a Debt Condition, he resolves the  effect on that card, treating all die rolls as l's.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Legitimate Banking\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Green\n|Difficulty = Medium\n|Flavor = The man in the suit slides the contract across the desk. \"We've spoken to the police and the customs agents, and all of the necessary payments have been made. If you'll just sign this, indicating that you understand your obligations, you can be on your way.\" His assistant places a pen in your hand.\n|Effect = The [[Lead Investigator]] gains a [[Debt]] Condition.\nIf the Lead Investigator already had a Debt Condition, he resolves the {{Reckoning}} effect on that card, treating all die rolls as l's.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Lost Knowledge",
+      "pageId": 1358,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Lost Knowledge",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {
+        "Notes": "The second half of the card's effect has been modified via errata to include the phrase \"solve this Rumor\"."
+      },
+      "links": [
+        "Rumor",
+        "Tick Tock Men",
+        "Space 21"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Place ET",
+        "Icon",
+        "Icon",
+        "Icon"
+      ],
+      "fullText": "|Traits = Ongoing - Rumor\n|Color = Blue\n|Difficulty = Easy\n|Icons = \n|Flavor = Your contact in the capital is hesitant to speak about those called \"The Watches.\" He says they work for a number of different governments, but answer to some other authority.\n|Effect = When this card enters play, spawn the Tick Tock Men Epic Monster on Space 21. When it is defeated, solve this Rumor.\nWhen there are no  on this card, each investigator discards all , and then discard all Clues on the game board and solve this Rumor.\n|Reckoning = Discard  from this card.\n}}\n\n[Notes]\n\nThe second half of the card's effect has been modified via errata to include the phrase \"solve this Rumor\".",
+      "rawWikitext": "{{Template:Mythos\n|Name = Lost Knowledge\n|Expansion = {{Core Game}}\n|Traits = Ongoing - [[Rumor]]\n|Color = Blue\n|Difficulty = Easy\n|Icons = {{Place ET|3}}\n|Flavor = Your contact in the capital is hesitant to speak about those called \"The Watches.\" He says they work for a number of different governments, but answer to some other authority.\n|Effect = When this card enters play, spawn the [[Tick Tock Men]] Epic Monster on [[Space 21]]. When it is defeated, solve this Rumor.\nWhen there are no {{Icon|eldritch tokens}} on this card, each investigator discards all {{Icon|clues}}, and then discard all Clues on the game board and solve this Rumor.\n|Reckoning = Discard {{Icon|et|1}} from this card.\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]\n\n==Notes==\nThe second half of the card's effect has been modified via errata to include the phrase \"solve this Rumor\"."
+    },
+    {
+      "title": "Mysterious Lights",
+      "pageId": 1290,
+      "categories": [
+        "Core Game",
+        "Mythos",
+        "Rumor"
+      ],
+      "infobox": {
+        "name": "Mysterious Lights",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "Rumor",
+        "Space 13",
+        "Gates",
+        "encounter",
+        "investigator",
+        "space 13"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Rumor",
+        "Observation",
+        "Icon",
+        "NoInvestigators"
+      ],
+      "fullText": "|Traits = Ongoing - Rumor\n|Color = Blue\n|Difficulty = Hard\n|Icons = \n|Flavor = You've never seen the Aurora Borealis flashing with such intensity. Even south of the arctic circle, the air feels alive with alien energies that cannot be dispelled.\n|Effect = Gates cannot be closed.\nAs an encounter, an investigator on space 13 may fly a plane over the arctic ice to scout for the source of these unusually intense northern lights (). If he passes, he catches sight of an unoccupied mi-go outpost and attempts to turn off their bizarre devices; he may spend  equal to half  to solve this Rumor.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Mysterious Lights\n|Expansion = {{Core Game}}\n|Traits = Ongoing - [[Rumor]]\n|Color = Blue\n|Difficulty = Hard\n|Icons = {{Rumor|[[Space 13]]}}\n|Flavor = You've never seen the Aurora Borealis flashing with such intensity. Even south of the arctic circle, the air feels alive with alien energies that cannot be dispelled.\n|Effect = [[Gates]] cannot be closed.\nAs an [[encounter]], an [[investigator]] on [[space 13]] may fly a plane over the arctic ice to scout for the source of these unusually intense northern lights ({{Observation}}). If he passes, he catches sight of an unoccupied mi-go outpost and attempts to turn off their bizarre devices; he may spend {{Icon|clues}} equal to half {{NoInvestigators}} to solve this Rumor.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Rumor]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "No Peace For the Fallen",
+      "pageId": 1504,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "No Peace For the Fallen",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "possessions",
+        "defeated",
+        "Lead Investigator",
+        "Cursed"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game"
+      ],
+      "fullText": "|Traits = Event\n|Color = Green\n|Difficulty = Medium\n|Flavor = You can feel the decay clinging to you. This sickening putrefaction is everywhere, and you fear the toll it's taking on your friends lying in hospital beds.\n|Effect = Discard all possessions on defeated investigators' sheets and return all defeated investigator tokens and sheets to the game box.\nThen the Lead Investigator gains a Cursed Condition.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = No Peace For the Fallen\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Green\n|Difficulty = Medium\n|Flavor = You can feel the decay clinging to you. This sickening putrefaction is everywhere, and you fear the toll it's taking on your friends lying in hospital beds.\n|Effect = Discard all [[possessions]] on [[defeated]] investigators' sheets and return all defeated investigator tokens and sheets to the game box.\nThen the [[Lead Investigator]] gains a [[Cursed]] Condition.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Omen",
+      "pageId": 913,
+      "categories": [
+        "Core Game",
+        "Mythos Phase"
+      ],
+      "infobox": {
+        "faq": "10",
+        "name": "Omen",
+        "bgg": "thread/1425794/article/20177566"
+      },
+      "cardData": {},
+      "sections": {
+        "Moving the Omen": "Moving the Omen is simply moving the Omen token. Moving the Omen will not result in  advancing due to matching Gates. The \"without advancing Doom\" is there as a secondary reminder.",
+        "Other effects": "In addition to advancing the Doom, the Omen may have other qualities, such as when ,  or  is the Ancient One, or if the Fall of Man Prelude is used.",
+        "References": "\n\nCategory:Mythos Phase\nCategory:Core Game"
+      },
+      "links": [
+        "Eldritch Horror",
+        "file:Advance Omen.png",
+        "Mythos",
+        "Condition",
+        "Gates",
+        "Ancient One",
+        "Fall of Man"
+      ],
+      "templates": [
+        "see also",
+        "icon",
+        "Icon",
+        "Ref",
+        "Icon",
+        "Ref",
+        "ao",
+        "ao",
+        "ao"
+      ],
+      "fullText": "The Omen is a game mechanic that is used in all games of Eldritch Horror, represented by a circle in the top right corner of the map, with four circles inside. The top circle contains a green comet, the bottom circle contains a red eclipse, and the left and right circles contain a constellation of blue stars.\n\nEvery game begins with the Omen marker on the  space, and it will rotate based on game and card effects. \n\n===sub|32px|link= Advancing the Omen\n[To advance the Omen is to move the marker however many spaces are necessary in a clockwise manner. The Omen advances anytime the above symbol is displayed on a Mythos card, if the Mythos calls for it in its text, or whenever a Condition calls for it.\n\nEvery time the Omen advances, any open Gates must be checked. If the symbol on those gates is the same as the new Omen space,  advances by one space for each gate. If, for any reason, the Omen rotates counterclockwise, the same effect applies.\n\nIf an effect would cause the Omen to advance to a space while it is already on that space, it will advance four times in total and return to that space.\n\n]\n Moving the Omen \n[Moving the Omen is simply moving the Omen token. Moving the Omen will not result in  advancing due to matching Gates. The \"without advancing Doom\" is there as a secondary reminder.\n\n]\nOther effects\n[In addition to advancing the Doom, the Omen may have other qualities, such as when ,  or  is the Ancient One, or if the Fall of Man Prelude is used.\n\n]\n References ===",
+      "rawWikitext": "{{see also|Gate|Doom}}\n[[File:Green Omen.png|thumb|180px|Green space]]\n[[File:Blue Omen.png|thumb|150px|Blue space]]\n[[File:Red Omen.png|thumb|100px|Red space]]\nThe '''Omen '''is a game mechanic that is used in all games of [[Eldritch Horror]], represented by a circle in the top right corner of the map, with four circles inside. The top circle contains a green comet, the bottom circle contains a red eclipse, and the left and right circles contain a constellation of blue stars.\n\nEvery game begins with the Omen marker on the {{icon|green}} space, and it will rotate based on game and card effects. \n\n===[[file:Advance Omen.png|sub|32px|link=]] Advancing the Omen===\nTo ''advance'' the Omen is to move the marker however many spaces are necessary in a clockwise manner. The Omen advances anytime the above symbol is displayed on a [[Mythos]] card, if the Mythos calls for it in its text, or whenever a [[Condition]] calls for it.\n\nEvery time the Omen advances, any open [[Gates]] must be checked. If the symbol on those gates is the same as the new Omen space, {{Icon|doom}} advances by one space for each gate. If, for any reason, the Omen rotates counterclockwise, the same effect applies.\n\nIf an effect would cause the Omen to advance to a space while it is already on that space, it will advance four times in total and return to that space.{{Ref|faq=10|name=faq10}}\n\n=== Moving the Omen ===\nMoving the Omen is simply moving the Omen token. Moving the Omen will not result in {{Icon|doom}} advancing due to matching Gates. The \"without advancing Doom\" is there as a secondary reminder.{{Ref|bgg=thread/1425794/article/20177566|name=Omen}}\n\n===Other effects===\nIn addition to advancing the Doom, the Omen may have other qualities, such as when {{ao|azathoth}}, {{ao|syzygy}} or {{ao|antediluvium}} is the [[Ancient One]], or if the [[Fall of Man]] Prelude is used.\n\n=== References ===\n<references />\n\n[[Category:Mythos Phase]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Omen of Good Fortune",
+      "pageId": 1454,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Omen of Good Fortune",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "Lead Investigator",
+        "Omen",
+        "Doom"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game"
+      ],
+      "fullText": "|Traits = Event\n|Color = Yellow\n|Difficulty = Easy\n|Flavor = You drop a penny into the peculiar mechanical device. The automaton waves its hand and turns over a card bearing the words, \"Good luck is with you!\"\n|Effect = The Lead Investigator may move the Omen to a space of his choice on the Omen track without advancing Doom.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Omen of Good Fortune\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Yellow\n|Difficulty = Easy\n|Flavor = You drop a penny into the peculiar mechanical device. The automaton waves its hand and turns over a card bearing the words, \"Good luck is with you!\"\n|Effect = The [[Lead Investigator]] may move the [[Omen]] to a space of his choice on the Omen track without advancing [[Doom]].\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Patrolling the Border",
+      "pageId": 337,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Patrolling the Border",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "Lead Investigator",
+        "investigator",
+        "Delayed",
+        "investigator",
+        "Delayed",
+        "Detained"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Icon",
+        "Observation"
+      ],
+      "fullText": "|Traits = Ongoing\n|Color = Green\n|Difficulty = Medium\n|Flavor = The soldiers refuse to explain why you must pass through this checkpoint, and simply asking makes you more suspicious in their eyes.\n|Effect = When this card enters play, the Lead Investigator chooses 1 investigator to become Delayed.\n|Reckoning = Each investigator on a  space tests . If he fails, he becomes Delayed and gains a Detained Condition.\nThen discard this card.\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Patrolling the Border\n|Expansion = {{Core Game}}\n|Traits = Ongoing\n|Color = Green\n|Difficulty = Medium\n|Flavor = The soldiers refuse to explain why you must pass through this checkpoint, and simply asking makes you more suspicious in their eyes.\n|Effect = When this card enters play, the [[Lead Investigator]] chooses 1 [[investigator]] to become [[Delayed]].\n|Reckoning = Each [[investigator]] on a {{Icon|city}} space tests {{Observation}}. If he fails, he becomes [[Delayed]] and gains a [[Detained]] Condition.\nThen discard this card.\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Perplexing Stars",
+      "pageId": 1338,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Perplexing Stars",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "Omen",
+        "Gate"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Icon"
+      ],
+      "fullText": "|Traits = Event\n|Color = Yellow\n|Difficulty = Hard\n|Flavor = Before your very eyes the stars shift in the night sky. Constellations break apart and reform, shattering your previous predictions of the omens.\n|Effect = Move the Omen counterclockwise by 1. Then advance  by 1 for each Gate on the game board that corresponds to the current Omen.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Perplexing Stars\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Yellow\n|Difficulty = Hard\n|Flavor = Before your very eyes the stars shift in the night sky. Constellations break apart and reform, shattering your previous predictions of the omens.\n|Effect = Move the [[Omen]] counterclockwise by 1. Then advance {{Icon|doom}} by 1 for each [[Gate]] on the game board that corresponds to the current Omen.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Rally the People",
+      "pageId": 1452,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Rally the People",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "Lead Investigator",
+        "Ally"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game"
+      ],
+      "fullText": "|Traits = Event\n|Color = Yellow\n|Difficulty = Easy\n|Flavor = After the noise and violence is over, one of the shopkeepers peers out from his shuttered windows. Amazed to see you alive, he opens the window and calls out, \"Is it over? Are we safe?\" You wave to let him know that everything is fine.\n|Effect = The Lead Investigator gains 1 random Ally Asset from the deck.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Rally the People\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Yellow\n|Difficulty = Easy\n|Flavor = After the noise and violence is over, one of the shopkeepers peers out from his shuttered windows. Amazed to see you alive, he opens the window and calls out, \"Is it over? Are we safe?\" You wave to let him know that everything is fine.\n|Effect = The [[Lead Investigator]] gains 1 random [[Ally]] Asset from the deck.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Return of the Ancient Ones",
+      "pageId": 1485,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Return of the Ancient Ones",
+        "expansion": "{{Core Game",
+        "ffg": "topic/105749-return-of-the-ancient-ones-and-monster-spawn-effect/page/1/#comment-1081671"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {
+        "Rulings, clarifications, and reminders": "If the Monster spawned by Return of the Ancient Ones' Reckoning effect has the Spawn effect \"an investigator immediately encounter it\" (for example, Ghast), the Combat Encounter will have to be resolved and the Monster may potentially be defeated and discarded before the number of Monsters on the space is checked by Return of the Ancient Ones.",
+        "References": "\n\nCategory:Mythos\nCategory:Core Game"
+      },
+      "links": [
+        "Rumor",
+        "Space 19",
+        "investigator",
+        "space 19",
+        "Monster",
+        "Monster",
+        "space 19",
+        "Ghast",
+        "Combat Encounter"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Rumor",
+        "Icon",
+        "NoInvestigators",
+        "Icon",
+        "Ref"
+      ],
+      "fullText": "|Traits = Ongoing - Rumor\n|Color = Blue\n|Difficulty = Medium\n|Icons = \n|Flavor = After a sudden burst of flying debris, you are confronted by a terrifying figure. It is a stark reminder that dark forces in this world are working tirelessly to annihilate you.\n|Effect = When an investigator on space 19 defeats a Monster, he may spend  to place that Monster on this card.\nWhen the total toughness of Monsters on this card is equal to or greater than , solve this Rumor.\n|Reckoning = Spawn 1 Monster on space 19. Then, if there are 4 or more Monsters on space 19, advance  to 0 and solve this Rumor.}}\n\n[Rulings, clarifications, and reminders ]\n\nIf the Monster spawned by Return of the Ancient Ones' Reckoning effect has the Spawn effect \"an investigator immediately encounter it\" (for example, Ghast), the Combat Encounter will have to be resolved and the Monster may potentially be defeated and discarded before the number of Monsters on the space is checked by Return of the Ancient Ones.\n\n[References ]",
+      "rawWikitext": "{{Template:Mythos\n|Name = Return of the Ancient Ones\n|Expansion = {{Core Game}}\n|Traits = Ongoing - [[Rumor]]\n|Color = Blue\n|Difficulty = Medium\n|Icons = {{Rumor|[[Space 19]]}}\n|Flavor = After a sudden burst of flying debris, you are confronted by a terrifying figure. It is a stark reminder that dark forces in this world are working tirelessly to annihilate you.\n|Effect = When an [[investigator]] on [[space 19]] defeats a [[Monster]], he may spend {{Icon|clue|1}} to place that Monster on this card.\nWhen the total toughness of Monsters on this card is equal to or greater than {{NoInvestigators}}, solve this Rumor.\n|Reckoning = Spawn 1 [[Monster]] on [[space 19]]. Then, if there are 4 or more Monsters on space 19, advance {{Icon|doom}} to 0 and solve this Rumor.}}\n\n== Rulings, clarifications, and reminders ==\nIf the Monster spawned by Return of the Ancient Ones' Reckoning effect has the Spawn effect \"an investigator immediately encounter it\" (for example, [[Ghast]]), the [[Combat Encounter]] will have to be resolved and the Monster may potentially be defeated and discarded before the number of Monsters on the space is checked by Return of the Ancient Ones.{{Ref|ffg=topic/105749-return-of-the-ancient-ones-and-monster-spawn-effect/page/1/#comment-1081671|name=Return of the Ancient Ones}}\n\n== References ==\n<references />\n\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Rising Terror",
+      "pageId": 1321,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Resolving twice",
+        "expansion": "{{Core Game",
+        "bgg": "thread/1296704/article/17916007"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {
+        "Rulings, clarifications, and reminders": "* When resolving every  effect twice, first resolve all  effects, then resolve all  effects again. For example, if there is a Zombie on the game board, the Zombie will first turn into a Zombie Horde, then that Horde will potentially advance .",
+        "References": "\n\nCategory:Mythos\nCategory:Core Game"
+      },
+      "links": [
+        "Monster",
+        "Zombie",
+        "Zombie Horde"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Reckoning",
+        "Reckoning",
+        "Icon",
+        "Icon",
+        "Icon",
+        "Icon",
+        "Icon",
+        "Ref"
+      ],
+      "fullText": "|Traits = Event\n|Color = Green\n|Difficulty = Hard\n|Flavor = The full moon seems to stir the blood of every beast. Even listless, old hounds seem possessed by the spirit of some feral ancestor, vicious and cruel.\n|Effect = Resolve the  effect on each Monster on the game board twice.\nIf there are no Monsters on the game board with a  effect, advance  by 1.\n|Reckoning = N/A\n}}\n\n[Rulings, clarifications, and reminders ]\n\n* When resolving every  effect twice, first resolve all  effects, then resolve all  effects again. For example, if there is a Zombie on the game board, the Zombie will first turn into a Zombie Horde, then that Horde will potentially advance .\n\n[References ]",
+      "rawWikitext": "{{Template:Mythos\n|Name = Rising Terror\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Green\n|Difficulty = Hard\n|Flavor = The full moon seems to stir the blood of every beast. Even listless, old hounds seem possessed by the spirit of some feral ancestor, vicious and cruel.\n|Effect = Resolve the {{Reckoning}} effect on each [[Monster]] on the game board twice.\nIf there are no Monsters on the game board with a {{Reckoning}} effect, advance {{Icon|doom}} by 1.\n|Reckoning = N/A\n}}\n\n== Rulings, clarifications, and reminders ==\n* When resolving every {{Icon|Reckoning}} effect twice, first resolve all {{Icon|Reckoning}} effects, then resolve all {{Icon|Reckoning}} effects again. For example, if there is a [[Zombie]] on the game board, the Zombie will first turn into a [[Zombie Horde]], then that Horde will potentially advance {{Icon|doom}}.{{Ref|bgg=thread/1296704/article/17916007|name=Resolving twice}}\n\n=== References ===\n<references />\n\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Secrets of the Past",
+      "pageId": 1359,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Secrets of the Past",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "Rumor",
+        "Investigators",
+        "Expedition Encounters",
+        "encounter",
+        "Active Expedition",
+        "Expedition Encounter",
+        "Active Expedition"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Observation",
+        "Icon",
+        "NoInvestigators"
+      ],
+      "fullText": "|Traits = Ongoing - Rumor\n|Color = Blue\n|Difficulty = Easy\n|Flavor = At the market you learn that another group of men have been asking about the same lost temple. You hope you get there first.\n|Effect = Investigators cannot resolve Expedition Encounters.\nAs an encounter, an investigator on the Active Expedition space may attempt to uncover secrets lost to time and history (). If he passes, he may spend  equal to half  to solve this Rumor.\n|Reckoning = Search the Expedition Encounter deck for each card corresponding to the Active Expedition and return those cards to the game box. Then, if the Expedition Encounter deck is empty, investigators lose the game.\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Secrets of the Past\n|Expansion = {{Core Game}}\n|Traits = Ongoing - [[Rumor]]\n|Color = Blue\n|Difficulty = Easy\n|Flavor = At the market you learn that another group of men have been asking about the same lost temple. You hope you get there first.\n|Effect = [[Investigators]] cannot resolve [[Expedition Encounters]].\nAs an [[encounter]], an investigator on the [[Active Expedition]] space may attempt to uncover secrets lost to time and history ({{Observation}}). If he passes, he may spend {{Icon|clues}} equal to half {{NoInvestigators}} to solve this Rumor.\n|Reckoning = Search the [[Expedition Encounter]] deck for each card corresponding to the [[Active Expedition]] and return those cards to the game box. Then, if the Expedition Encounter deck is empty, '''investigators lose the game'''.\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Silver Twilight Aid",
+      "pageId": 1455,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Silver Twilight Aid",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "Asset",
+        "Spell"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Icon"
+      ],
+      "fullText": "|Traits = Event\n|Color = Yellow\n|Difficulty = Easy\n|Flavor = One inside the lodge, your host invites you to follow him upstairs. Several members stare in astonishment. Outsiders are rarely granted such access. At the top of the stairs you are ushered into a library, filled with rare and exotic tomes. \"Now,\" he says, \"how can we help you?\"\n|Effect = Each investigator may do one of the following:\n*Gain \n*Gain 1 Asset\n*Gain 1 Spell\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Silver Twilight Aid\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Yellow\n|Difficulty = Easy\n|Flavor = One inside the lodge, your host invites you to follow him upstairs. Several members stare in astonishment. Outsiders are rarely granted such access. At the top of the stairs you are ushered into a library, filled with rare and exotic tomes. \"Now,\" he says, \"how can we help you?\"\n|Effect = Each investigator may do one of the following:\n*Gain {{Icon|clue|1}}\n*Gain 1 [[Asset]]\n*Gain 1 [[Spell]]\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Spreading Sickness",
+      "pageId": 2179,
+      "categories": [
+        "Core Game",
+        "Mythos",
+        "Rumor"
+      ],
+      "infobox": {
+        "name": "Spreading Sickness",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "Rumor",
+        "Space 17",
+        "encounter",
+        "investigator",
+        "space 17",
+        "investigator"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Rumor",
+        "Icon",
+        "NoInvestigators",
+        "Health",
+        "Health"
+      ],
+      "fullText": "|Traits = Ongoing - Rumor\n|Color = Blue\n|Difficulty = Hard\n|Icons = \n|Flavor = When people see your jaundiced skin or hear your loud coughing fits, they avoid you like a leper. Without exception, the disease next brings fever and swollen red sores. Death follows in a few weeks.\n|Effect = As an encounter, an investigator on space 17 may consult the Bombay doctors. The more patients they treat, the closer they get to finding a cure. He may spend  equal to  to solve this Rumor. He may spend 1 fewer Clue for each  token on this card.\n|Reckoning = Place a  token on this card, then each investigator loses 1 Health for each Health token on this card.\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Spreading Sickness\n|Expansion = {{Core Game}}\n|Traits = Ongoing - [[Rumor]]\n|Color = Blue\n|Difficulty = Hard\n|Icons = {{Rumor|[[Space 17]]}}\n|Flavor = When people see your jaundiced skin or hear your loud coughing fits, they avoid you like a leper. Without exception, the disease next brings fever and swollen red sores. Death follows in a few weeks.\n|Effect = As an [[encounter]], an [[investigator]] on [[space 17]] may consult the Bombay doctors. The more patients they treat, the closer they get to finding a cure. He may spend {{Icon|clues}} equal to {{NoInvestigators}} to solve this Rumor. He may spend 1 fewer Clue for each {{Health}} token on this card.\n|Reckoning = Place a {{Health}} token on this card, then each [[investigator]] loses 1 Health for each Health token on this card.\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]\n[[Category:Rumor]]"
+    },
+    {
+      "title": "Stars Aligned",
+      "pageId": 1482,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Stars Aligned",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "Rumor",
+        "Space 7",
+        "encounter",
+        "space 7",
+        "Omen"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Rumor",
+        "Observation",
+        "Icon",
+        "NoInvestigators"
+      ],
+      "fullText": "|Traits = Ongoing - Rumor\n|Color = Blue\n|Difficulty = Medium\n|Icons = \n|Flavor = A dozen unpleasant-looking strangers have settled into Panama with a large collection of astronomical reference books. There is something unique about this place and time that allows them to rip apart the fabric of reality.\n|Effect = As an encounter, an investigator on space 7 may attempt to find these strangers based on his observations of the stars (). If he passes, he convinces la policía to remove these strangers; he may spend  equal to half  to solve this Rumor.\n|Reckoning = Advance the Omen by 1.\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Stars Aligned\n|Expansion = {{Core Game}}\n|Traits = Ongoing - [[Rumor]]\n|Color = Blue\n|Difficulty = Medium\n|Icons = {{Rumor|[[Space 7]]}}\n|Flavor = A dozen unpleasant-looking strangers have settled into Panama with a large collection of astronomical reference books. There is something unique about this place and time that allows them to rip apart the fabric of reality.\n|Effect = As an [[encounter]], an investigator on [[space 7]] may attempt to find these strangers based on his observations of the stars ({{Observation}}). If he passes, he convinces la policía to remove these strangers; he may spend {{Icon|clues}} equal to half {{NoInvestigators}} to solve this Rumor.\n|Reckoning = Advance the [[Omen]] by 1.\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Strange Sightings",
+      "pageId": 1325,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Strange Sightings",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "Investigators",
+        "Rest"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game"
+      ],
+      "fullText": "|Traits = Ongoing\n|Color = Green\n|Difficulty = Hard\n|Flavor = Pulling the curtain back slightly, you see that same suspicious man watching your hotel. You're going to have to sneak out the back exit and try to lose him again.\n|Effect = Investigators cannot perform Rest actions.\n|Reckoning = Discard this card.\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Strange Sightings\n|Expansion = {{Core Game}}\n|Traits = Ongoing\n|Color = Green\n|Difficulty = Hard\n|Flavor = Pulling the curtain back slightly, you see that same suspicious man watching your hotel. You're going to have to sneak out the back exit and try to lose him again.\n|Effect = [[Investigators]] cannot perform [[Rest]] actions.\n|Reckoning = Discard this card.\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Support of the Church",
+      "pageId": 1368,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Support of the Church",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "Lead Investigator",
+        "Blessed"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game"
+      ],
+      "fullText": "|Traits = Event\n|Color = Green\n|Difficulty = Easy\n|Flavor = You hang your head in exhaustion and frustration. You jump suddenly when a hand rests on your shoulder. To your relief, you turn to find the local priest. \"Have faith, my child,\" he tells you. \"Your good works have not gone unseen. Your brave acts are making a difference.\"\n|Effect = The Lead Investigator gains a Blessed Condition.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Support of the Church\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Green\n|Difficulty = Easy\n|Flavor = You hang your head in exhaustion and frustration. You jump suddenly when a hand rests on your shoulder. To your relief, you turn to find the local priest. \"Have faith, my child,\" he tells you. \"Your good works have not gone unseen. Your brave acts are making a difference.\"\n|Effect = The [[Lead Investigator]] gains a [[Blessed]] Condition.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Tainted Rations",
+      "pageId": 1509,
+      "categories": [
+        "Forsaken Lore",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Tainted Rations",
+        "expansion": "{{FL imagelink",
+        "value": "3"
+      },
+      "cardData": {
+        "expansion": "{{FL imagelink"
+      },
+      "sections": {},
+      "links": [
+        "investigator",
+        "Poisoned"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "FL imagelink",
+        "Health"
+      ],
+      "fullText": "|Traits = Event\n|Color = Green\n|Difficulty = Medium\n|Flavor = You have been surrounded by corruption for so long that it has permeated everything you touch. Somehow, all of your food supplies have grown rancid overnight.\n|Effect = Each investigator loses  unless he gains a Poisoned Condition.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Tainted Rations\n|Expansion = {{FL imagelink}}\n|Traits = Event\n|Color = Green\n|Difficulty = Medium\n|Flavor = You have been surrounded by corruption for so long that it has permeated everything you touch. Somehow, all of your food supplies have grown rancid overnight.\n|Effect = Each [[investigator]] loses {{Health|value=3}} unless he gains a [[Poisoned]] Condition.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Forsaken Lore]]"
+    },
+    {
+      "title": "That Which Consumes",
+      "pageId": 1367,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "That Which Consumes",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "Investigators",
+        "Gate"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Icon"
+      ],
+      "fullText": "|Traits = Event\n|Color = Green\n|Difficulty = Easy\n|Flavor = In one night, the whole monstrous undertaking has disappeared. Every occult sigil has been sanded from the wall and painted over. Every name on your list has moved to a new city without notice. You would like to believe that you managed to drive them out, but you fear that it signifies something worse. The dark goal they'd been pursuing is now accomplished.\n|Effect = Investigators, as a group, choose 1 Gate on the game board and discard it. If the discarded Gate does not correspond to the current Omen, advance  by 1.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = That Which Consumes\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Green\n|Difficulty = Easy\n|Flavor = In one night, the whole monstrous undertaking has disappeared. Every occult sigil has been sanded from the wall and painted over. Every name on your list has moved to a new city without notice. You would like to believe that you managed to drive them out, but you fear that it signifies something worse. The dark goal they'd been pursuing is now accomplished.\n|Effect = [[Investigators]], as a group, choose 1 [[Gate]] on the game board and discard it. If the discarded Gate does not correspond to the current Omen, advance {{Icon|doom}} by 1.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "The Bermuda Triangle",
+      "pageId": 2186,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "The Bermuda Triangle",
+        "expansion": "{{Core Game",
+        "bgg": "thread/1498444/article/21411266"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {
+        "Notes": "=== Rulings, clarifications, and reminders ===\n\n* If an investigator cannot move (e.g. if he has a Detained Condition), any other effect unrelated to moving is still resolved as normal. For example, investigators who have a Detained Condition and who roll a 1 or 2 for The Bermuda Triangle will not be moved but will still become Delayed.",
+        "References": "\nCategory:Mythos\nCategory:Core Game"
+      },
+      "links": [
+        "investigator",
+        "space 8",
+        "Delayed",
+        "Detained",
+        "Condition"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Ref"
+      ],
+      "fullText": "|Traits = Event\n|Color = Yellow\n|Difficulty = Normal\n|Flavor = These sudden thunderstorms have grown more common. Twice a day, rain that smells like seawater floods the streets, and cold winds that cut like glass threaten to pull doors off their hinges.\n|Effect = Each investigator rolls 1 die. On a 1 or 2, he moves to space 8 and become Delayed.\n|Reckoning = N/A\n}}\n\n[Notes ]\n\n[Rulings, clarifications, and reminders ]\n\n* If an investigator cannot move (e.g. if he has a Detained Condition), any other effect unrelated to moving is still resolved as normal. For example, investigators who have a Detained Condition and who roll a 1 or 2 for The Bermuda Triangle will not be moved but will still become Delayed.\n\n[References ]",
+      "rawWikitext": "{{Template:Mythos\n|Name = The Bermuda Triangle\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Yellow\n|Difficulty = Normal\n|Flavor = These sudden thunderstorms have grown more common. Twice a day, rain that smells like seawater floods the streets, and cold winds that cut like glass threaten to pull doors off their hinges.\n|Effect = Each [[investigator]] rolls 1 die. On a 1 or 2, he moves to [[space 8]] and become [[Delayed]].\n|Reckoning = N/A\n}}\n\n== Notes ==\n\n=== Rulings, clarifications, and reminders ===\n\n* If an investigator cannot move (e.g. if he has a [[Detained]] [[Condition]]), any other effect unrelated to moving is still resolved as normal. For example, investigators who have a Detained Condition and who roll a 1 or 2 for The Bermuda Triangle will not be moved but will still become Delayed.{{Ref|bgg=thread/1498444/article/21411266|name=The Bermuda Triangle}}\n\n=== References ===\n<references />\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "The Storm",
+      "pageId": 1336,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "The Storm",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "investigator",
+        "Rumor"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Icon"
+      ],
+      "fullText": "|Traits = Event\n|Color = Yellow\n|Difficulty = Hard\n|Flavor = The wind suddenly picks up, causing a shiver despite the clear, blue sky. Looking to the horizon, you see steely-gray clouds approaching.\n|Effect = Each investigator discards  equal to the number of Rumor Mythos cards in play.\n\nIf there are no Rumor Mythos cards in play, draw and resolve 1 Rumor Mythos card from the game box.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = The Storm\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Yellow\n|Difficulty = Hard\n|Flavor = The wind suddenly picks up, causing a shiver despite the clear, blue sky. Looking to the horizon, you see steely-gray clouds approaching.\n|Effect = Each [[investigator]] discards {{Icon|clues}} equal to the number of [[Rumor]] Mythos cards in play.\n\nIf there are no Rumor Mythos cards in play, draw and resolve 1 Rumor Mythos card from the game box.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "The White Ship",
+      "pageId": 1293,
+      "categories": [
+        "Forsaken Lore",
+        "Mythos",
+        "Rumor"
+      ],
+      "infobox": {
+        "name": "The White Ship",
+        "expansion": "{{FL imagelink"
+      },
+      "cardData": {
+        "expansion": "{{FL imagelink"
+      },
+      "sections": {},
+      "links": [
+        "Rumor",
+        "Space 18",
+        "encounter",
+        "investigator",
+        "space 18",
+        "Gate"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "FL imagelink",
+        "Rumor",
+        "Place ET",
+        "Observation",
+        "Icon",
+        "NoInvestigators",
+        "Icon",
+        "Icon"
+      ],
+      "fullText": "|Traits = Ongoing - Rumor\n|Color = Blue\n|Difficulty = Hard\n|Icons =  \n|Flavor = A sleeping soul has set sail in the White Ship, traveling across the world and to the lands of dreams. The ship must return soon, or the walls between realities will fall apart.\n|Effect = As an encounter, an investigator on space 18 may attempt to find the White Ship before it departs for the Dreamlands (). If he passes, he may spend  equal to half  to solve this Rumor.\n\nWhen there are no  on this card, spawn each Gate in the Gate stack and discard pile, then solve this Rumor.\n|Reckoning = Discard  from this card.\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = The White Ship\n|Expansion = {{FL imagelink}}\n|Traits = Ongoing - [[Rumor]]\n|Color = Blue\n|Difficulty = Hard\n|Icons = {{Rumor|[[Space 18]]}} {{Place ET|3}}\n|Flavor = A sleeping soul has set sail in the White Ship, traveling across the world and to the lands of dreams. The ship must return soon, or the walls between realities will fall apart.\n|Effect = As an [[encounter]], an [[investigator]] on [[space 18]] may attempt to find the White Ship before it departs for the Dreamlands ({{Observation}}). If he passes, he may spend {{Icon|clues}} equal to half {{NoInvestigators}} to solve this Rumor.\n\nWhen there are no {{Icon|eldritch tokens}} on this card, spawn each [[Gate]] in the Gate stack and discard pile, then solve this Rumor.\n|Reckoning = Discard {{Icon|et|1}} from this card.\n}}\n[[Category:Forsaken Lore]]\n[[Category:Rumor]]\n[[Category:Mythos]]"
+    },
+    {
+      "title": "The Wind-Walker",
+      "pageId": 1479,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "The Wind-Walker",
+        "expansion": "{{Core Game",
+        "value": "6"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "Rumor",
+        "Wind-Walker",
+        "space 4",
+        "investigator",
+        "Delayed"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Place ET",
+        "Icon",
+        "Health",
+        "Icon"
+      ],
+      "fullText": "|Traits = Ongoing - Rumor\n|Color = Blue\n|Difficulty = Medium\n|Icons = \n|Flavor = The weather grows worse. Snow and ice cover cities that have never seen such weather before in their history.\n|Effect = When this card enters play, spawn the Wind-Walker Epic Monster on space 4. When it is defeated, solve this Rumor.\nWhen there are no  on this card, each investigator becomes Delayed and loses , then solve this Rumor.\n|Reckoning = Discard  from this card.\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = The Wind-Walker\n|Expansion = {{Core Game}}\n|Traits = Ongoing - [[Rumor]]\n|Color = Blue\n|Difficulty = Medium\n|Icons = {{Place ET|4}}\n|Flavor = The weather grows worse. Snow and ice cover cities that have never seen such weather before in their history.\n|Effect = When this card enters play, spawn the [[Wind-Walker]] Epic Monster on [[space 4]]. When it is defeated, solve this Rumor.\nWhen there are no {{Icon|eldritch tokens}} on this card, each [[investigator]] becomes [[Delayed]] and loses {{Health|value=6}}, then solve this Rumor.\n|Reckoning = Discard {{Icon|et|1}} from this card.\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "The World Fights Back",
+      "pageId": 1453,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "The World Fights Back",
+        "expansion": "{{Core Game",
+        "value": "2"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "investigator",
+        "Monster"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Health",
+        "Sanity"
+      ],
+      "fullText": "|Traits = Event\n|Color = Yellow\n|Difficulty = Easy\n|Flavor = Across the globe, headlines announce terrors that threaten to engulf humanity. Individuals everywhere take action against these horrors and assist those who have already been fighting the ancient one.\n|Effect = Each investigator may do one of the following:\n*Recover \n*Recover \n*Discard 1 Monster from his space\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = The World Fights Back\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Yellow\n|Difficulty = Easy\n|Flavor = Across the globe, headlines announce terrors that threaten to engulf humanity. Individuals everywhere take action against these horrors and assist those who have already been fighting the ancient one.\n|Effect = Each [[investigator]] may do one of the following:\n*Recover {{Health|value=2}}\n*Recover {{Sanity|value=2}}\n*Discard 1 [[Monster]] from his space\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "The World Shakes",
+      "pageId": 2187,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "The World Shakes",
+        "expansion": "{{Core Game",
+        "value": "2"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "investigator",
+        "Active Expedition",
+        "Delayed",
+        "Expedition Encounter"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Health"
+      ],
+      "fullText": "|Traits = Event\n|Color = Yellow\n|Difficulty = Normal\n|Flavor = The scope of the tremor was so vast that newspapers in every country reported on the damage done and the tragic destruction of ancient wonders.\n|Effect = Each investigator on the Active Expedition space or an adjacent space loses  and becomes Delayed. Then search the Expedition Encounter deck for each card corresponding to the Active Expedition and return it to the game box. Then shuffle the Expedition Encounter deck.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = The World Shakes\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Yellow\n|Difficulty = Normal\n|Flavor = The scope of the tremor was so vast that newspapers in every country reported on the damage done and the tragic destruction of ancient wonders.\n|Effect = Each [[investigator]] on the [[Active Expedition]] space or an adjacent space loses {{Health|value=2}} and becomes [[Delayed]]. Then search the [[Expedition Encounter]] deck for each card corresponding to the Active Expedition and return it to the game box. Then shuffle the Expedition Encounter deck.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Tide of Despair",
+      "pageId": 1975,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Tide of Despair",
+        "expansion": "{{Core Game",
+        "value": "2"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "investigator",
+        "Blessed"
+      ],
+      "templates": [
+        "Mythos",
+        "Core Game",
+        "Health",
+        "Sanity"
+      ],
+      "fullText": "|Traits = Event\n|Color = Yellow\n|Difficulty = Medium\n|Flavor = A cold, bitter wind howls through the trees and people everywhere cling to their fires and blankets. The chill has settled into your bones, and there's no warmth to be found.\n|Effect = Each investigator loses  and  unless he discards a Blessed Condition.\n|Reckoning = N/A}}",
+      "rawWikitext": "{{Mythos\n|Name = Tide of Despair\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Yellow\n|Difficulty = Medium\n|Flavor = A cold, bitter wind howls through the trees and people everywhere cling to their fires and blankets. The chill has settled into your bones, and there's no warmth to be found.\n|Effect = Each [[investigator]] loses {{Health|value=2}} and {{Sanity|value=2}} unless he discards a [[Blessed]] Condition.\n|Reckoning = N/A}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Tied to a Dark Purpose",
+      "pageId": 1320,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Tied to a Dark Purpose",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "Conditions"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Reckoning"
+      ],
+      "fullText": "|Traits = Event\n|Color = Green\n|Difficulty = Hard\n|Flavor = Keep running. Never look back. You've known for a long time now that the consequences of your actions are always one step behind you. But now, it's all catching up to you.\n|Effect = Resolve the  effect on all Conditions treating all die rolls as 1's.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Tied to a Dark Purpose\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Green\n|Difficulty = Hard\n|Flavor = Keep running. Never look back. You've known for a long time now that the consequences of your actions are always one step behind you. But now, it's all catching up to you.\n|Effect = Resolve the {{Reckoning}} effect on all [[Conditions]] treating all die rolls as 1's.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Torn Asunder",
+      "pageId": 1328,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Torn Asunder",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "investigator",
+        "Gates",
+        "Omen"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Health"
+      ],
+      "fullText": "|Traits = Event\n|Color = Green\n|Difficulty = Hard\n|Flavor = Strange forces stretch you in all directions. The portals between worlds are pulling reality apart, and you feel these unearthly energies coming from all corners of the globe.\n|Effect = Each investigator loses  equal to the number of Gates on the game board that corresponds to the current Omen.\nIf there are no Gates that correspond to the current Omen, advance the Omen by 1.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Torn Asunder\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Green\n|Difficulty = Hard\n|Flavor = Strange forces stretch you in all directions. The portals between worlds are pulling reality apart, and you feel these unearthly energies coming from all corners of the globe.\n|Effect = Each [[investigator]] loses {{Health}} equal to the number of [[Gates]] on the game board that corresponds to the current [[Omen]].\nIf there are no Gates that correspond to the current Omen, advance the Omen by 1.\n|Reckoning = N/A\n}}\n[[Category:Core Game]]\n[[Category:Mythos]]"
+    },
+    {
+      "title": "Treacherous Magic",
+      "pageId": 2188,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Treacherous Magic",
+        "expansion": "{{Core Game",
+        "value": "1"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "investigator",
+        "Spells",
+        "Madness"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Sanity‎"
+      ],
+      "fullText": "|Traits = Event\n|Color = Yellow\n|Difficulty = Normal\n|Flavor = Sitting down for a simple meal in a restaurant, it strikes you how alien the people around you seem. After everything you've seen and all the arcane secrets you have learned, can you truly think of yourself as one of them? The maître d' asks you to please stop carving into the table with the knife.\n|Effect = Each investigator may discard any number of Spells, then he loses  for each Spell he has. Each investigator that lost Sanity from this effect also gains a Madness Condition.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Treacherous Magic\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Yellow\n|Difficulty = Normal\n|Flavor = Sitting down for a simple meal in a restaurant, it strikes you how alien the people around you seem. After everything you've seen and all the arcane secrets you have learned, can you truly think of yourself as one of them? The maître d' asks you to please stop carving into the table with the knife.\n|Effect = Each [[investigator]] may discard any number of [[Spells]], then he loses {{Sanity‎|value=1}} for each Spell he has. Each investigator that lost Sanity from this effect also gains a [[Madness]] Condition.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Unexpected Betrayal",
+      "pageId": 1503,
+      "categories": [
+        "Core Game",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Unexpected Betrayal",
+        "expansion": "{{Core Game",
+        "value": "3"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "investigator",
+        "Ally"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Health"
+      ],
+      "fullText": "|Traits = Event\n|Color = Green\n|Difficulty = Medium\n|Flavor = After weeks of encountering ancient and monstrous creatures, you were unprepared for something so cold and personal as being betrayed by an associate. Lies can be every bit as destructive as any wizard's curse.\n|Effect = Each investigator with at least 1 Ally Asset loses  and discards 1 Ally Asset.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Unexpected Betrayal\n|Expansion = {{Core Game}}\n|Traits = Event\n|Color = Green\n|Difficulty = Medium\n|Flavor = After weeks of encountering ancient and monstrous creatures, you were unprepared for something so cold and personal as being betrayed by an associate. Lies can be every bit as destructive as any wizard's curse.\n|Effect = Each [[investigator]] with at least 1 [[Ally]] Asset loses {{Health|value=3}} and discards 1 Ally Asset.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    },
+    {
+      "title": "Wanderlust",
+      "pageId": 1339,
+      "categories": [
+        "Forsaken Lore",
+        "Mythos"
+      ],
+      "infobox": {
+        "name": "Wanderlust",
+        "expansion": "{{FL imagelink"
+      },
+      "cardData": {
+        "expansion": "{{FL imagelink"
+      },
+      "sections": {},
+      "links": [
+        "investigator",
+        "Gate",
+        "Lost in Time and Space"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "FL imagelink",
+        "Will"
+      ],
+      "fullText": "|Traits = Event\n|Color = Yellow\n|Difficulty = Hard\n|Flavor = Ever since you arrived here, you've felt the call of that other world. An entire land of wonders awaits you just past that threshold, and you find yourself unable to resist the temptation any longer.\n|Effect = Each investigator on a space containing a Gate tests -2. If he fails, he gains a Lost in Time and Space Condition.\n|Reckoning = N/A\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Wanderlust\n|Expansion = {{FL imagelink}}\n|Traits = Event\n|Color = Yellow\n|Difficulty = Hard\n|Flavor = Ever since you arrived here, you've felt the call of that other world. An entire land of wonders awaits you just past that threshold, and you find yourself unable to resist the temptation any longer.\n|Effect = Each [[investigator]] on a space containing a [[Gate]] tests {{Will}}-2. If he fails, he gains a [[Lost in Time and Space]] Condition.\n|Reckoning = N/A\n}}\n[[Category:Mythos]]\n[[Category:Forsaken Lore]]"
+    },
+    {
+      "title": "Web Between Worlds (Mythos)",
+      "pageId": 1303,
+      "categories": [
+        "Core Game",
+        "Mythos",
+        "Rumor"
+      ],
+      "infobox": {
+        "name": "Web Between Worlds",
+        "expansion": "{{Core Game"
+      },
+      "cardData": {
+        "expansion": "{{Core Game"
+      },
+      "sections": {},
+      "links": [
+        "Rumor",
+        "Spinner of Webs",
+        "space 9",
+        "investigators"
+      ],
+      "templates": [
+        "Template:Mythos",
+        "Core Game",
+        "Place ET",
+        "Icon",
+        "Icon",
+        "Icon",
+        "NoInvestigators"
+      ],
+      "fullText": "|Traits = Ongoing - Rumor\n|Color = Blue\n|Difficulty = Hard\n|Icons = \n|Flavor = A sect of Atlach-Nacha worshipers have called forth the nightmarish spider.\n|Effect = When this card enters play, spawn the Spinner of Webs Epic Monster on space 9. When it is defeated, solve this Rumor.\nWhen there are no  on this card, investigators lose the game.\n|Reckoning = Discard  from this card unless investigators, as a group, spend  equal to half .\n}}",
+      "rawWikitext": "{{Template:Mythos\n|Name = Web Between Worlds\n|Expansion = {{Core Game}}\n|Traits = Ongoing - [[Rumor]]\n|Color = Blue\n|Difficulty = Hard\n|Icons = {{Place ET|3}}\n|Flavor = A sect of Atlach-Nacha worshipers have called forth the nightmarish spider.\n|Effect = When this card enters play, spawn the [[Spinner of Webs]] Epic Monster on [[space 9]]. When it is defeated, solve this Rumor.\nWhen there are no {{Icon|eldritch tokens}} on this card, '''investigators lose the game.'''\n|Reckoning = Discard {{Icon|et|1}} from this card unless [[investigators]], as a group, spend {{Icon|clues}} equal to half {{NoInvestigators}}.\n}}\n[[Category:Rumor]]\n[[Category:Mythos]]\n[[Category:Core Game]]"
+    }
+  ]
+}

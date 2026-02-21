@@ -7,31 +7,31 @@
   --color-abyss: #12121a;
   --color-shadow: #1a1a24;
   --color-obsidian: #252530;
-  
+
   --color-eldritch: #4a1a6b;
   --color-eldritch-dark: #2d1041;
   --color-eldritch-light: #6b2d8a;
-  
+
   --color-cosmic: #1a3a4a;
   --color-cosmic-light: #2a5a6a;
-  
+
   --color-sickly: #3a4a2a;
   --color-sickly-light: #5a6a3a;
-  
+
   --color-parchment: #d4c4a8;
   --color-parchment-dark: #a89878;
   --color-parchment-light: #e8dcc8;
-  
+
   --color-blood: #6b1a1a;
   --color-blood-light: #8a2a2a;
-  
+
   --color-gold: #8a7a3a;
   --color-gold-light: #b8a848;
-  
+
   /* Font Families */
-  --font-display: 'Cinzel', serif;
-  --font-body: 'Lora', serif;
-  --font-accent: 'Cormorant SC', serif;
+  --font-display: 'Cinzel', serif;       /* Headers, Menu Categories */
+  --font-body: 'Crimson Text', serif;    /* Body Text, Item Descriptions */
+  --font-lore: 'Special Elite', cursive; /* Found Lore, Notes, Handwritten */
 }
 
 /* Base Styles */
@@ -50,36 +50,182 @@ body {
 
 #root {
   min-height: 100vh;
-  /* Use dynamic viewport height if supported */
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
 }
 
-/* Typography */
+/* ======================
+   TYPOGRAPHY CLASSES
+   ====================== */
+
+/* Headings - Cinzel */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 600;
   line-height: 1.2;
   color: var(--color-parchment-light);
+  letter-spacing: 0.02em;
 }
 
-/* Font utilities */
+/* Font Family Utilities */
 .font-display { font-family: var(--font-display); }
 .font-body { font-family: var(--font-body); }
-.font-accent { 
-  font-family: var(--font-accent);
+.font-lore { font-family: var(--font-lore); }
+.font-accent {
+  font-family: var(--font-display);
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
 
-/* Helper classes for manual styling if Tailwind classes fail */
+/* Typography Presets - Reusable combinations */
+
+/* Headers/Titles - Cinzel with tracking */
+.text-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-parchment-light);
+}
+
+.text-title-sm {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-parchment-light);
+}
+
+/* Menu/Category Labels - Cinzel uppercase */
+.text-menu {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-parchment);
+}
+
+/* Body/Description Text - Crimson Text */
+.text-body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--color-parchment);
+}
+
+.text-body-sm {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--color-parchment-dark);
+}
+
+/* Lore/Notes - Special Elite (handwritten feel) */
+.text-lore {
+  font-family: var(--font-lore);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-parchment);
+  letter-spacing: 0.02em;
+}
+
+.text-lore-sm {
+  font-family: var(--font-lore);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--color-parchment-dark);
+}
+
+/* Flavor text - italic Crimson */
+.text-flavor {
+  font-family: var(--font-body);
+  font-style: italic;
+  color: var(--color-parchment-dark);
+}
+
+/* ======================
+   THEME UTILITY CLASSES
+   ====================== */
+
+/* Text Colors */
+.text-parchment { color: var(--color-parchment); }
 .text-parchment-light { color: var(--color-parchment-light); }
 .text-parchment-dark { color: var(--color-parchment-dark); }
+.text-eldritch { color: var(--color-eldritch); }
 .text-eldritch-light { color: var(--color-eldritch-light); }
+.text-blood { color: var(--color-blood); }
+.text-blood-light { color: var(--color-blood-light); }
+.text-gold { color: var(--color-gold); }
+.text-gold-light { color: var(--color-gold-light); }
+.text-sickly { color: var(--color-sickly-light); }
 
-.bg-eldritch { background-color: var(--color-eldritch); }
+/* Background Colors */
 .bg-void { background-color: var(--color-void); }
+.bg-abyss { background-color: var(--color-abyss); }
+.bg-shadow { background-color: var(--color-shadow); }
+.bg-obsidian { background-color: var(--color-obsidian); }
+.bg-eldritch { background-color: var(--color-eldritch); }
+.bg-eldritch-dark { background-color: var(--color-eldritch-dark); }
+.bg-blood { background-color: var(--color-blood); }
+
+/* Border Colors */
+.border-obsidian { border-color: var(--color-obsidian); }
+.border-eldritch { border-color: var(--color-eldritch); }
+.border-eldritch-dark { border-color: var(--color-eldritch-dark); }
+
+/* ======================
+   COMPONENT PATTERNS
+   ====================== */
+
+/* Card with eldritch border glow */
+.card-eldritch {
+  background-color: var(--color-shadow);
+  border: 1px solid var(--color-eldritch-dark);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 20px rgba(74, 26, 107, 0.15);
+}
+
+/* Button base - eldritch style */
+.btn-eldritch {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  background-color: var(--color-eldritch);
+  color: var(--color-parchment-light);
+  border: 1px solid var(--color-eldritch-light);
+  transition: all 0.2s ease;
+}
+
+.btn-eldritch:hover {
+  background-color: var(--color-eldritch-light);
+  box-shadow: 0 0 15px rgba(107, 45, 138, 0.4);
+}
+
+/* Lore note card - aged paper feel */
+.card-lore {
+  font-family: var(--font-lore);
+  background: linear-gradient(135deg, var(--color-shadow) 0%, var(--color-abyss) 100%);
+  border: 1px solid var(--color-obsidian);
+  border-radius: 0.25rem;
+  padding: 1rem;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Eerie text glow effect */
+.text-glow-eldritch {
+  text-shadow: 0 0 10px rgba(107, 45, 138, 0.5);
+}
+
+.text-glow-blood {
+  text-shadow: 0 0 10px rgba(138, 42, 42, 0.5);
+}
+
+.text-glow-gold {
+  text-shadow: 0 0 10px rgba(184, 168, 72, 0.4);
+}
 
 /* Force full height on mobile */
 .min-h-dvh {

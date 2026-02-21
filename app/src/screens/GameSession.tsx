@@ -549,7 +549,7 @@ export function GameSession() {
                     <p className="font-display text-sm text-parchment-light mb-1">
                       {event.title}
                     </p>
-                    <p className="font-body text-xs text-parchment-dark line-clamp-3">
+                    <p className="text-lore-sm line-clamp-3">
                       {event.content}
                     </p>
                   </button>
@@ -1185,7 +1185,7 @@ export function GameSession() {
                           {/* Current node content */}
                           <div className="animate-in fade-in duration-500">
                             {/* Main text */}
-                            <p className="font-body text-base font-semibold text-parchment leading-relaxed whitespace-pre-line">
+                            <p className="text-lore whitespace-pre-line">
                             {currentNode.content}
                           </p>
                           </div>
@@ -1617,7 +1617,7 @@ export function GameSession() {
               {viewingEvent.encounterHistory.nodes.map((node, idx) => (
                 <div key={idx} className="space-y-2">
                   {/* Node text */}
-                  <p className="font-body text-sm text-parchment leading-relaxed">
+                  <p className="text-lore-sm">
                     {node.text}
                   </p>
                   
