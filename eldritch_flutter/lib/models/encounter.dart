@@ -18,6 +18,12 @@ class Encounter {
   final List<SkillTest> skillTests;
   final String imageAsset;
 
+  // Complex encounter sections (expedition, other world, special, etc.)
+  final bool isComplex;
+  final String initialText;
+  final String passEffect;
+  final String failEffect;
+
   Encounter({
     required this.id,
     required this.type,
@@ -27,6 +33,10 @@ class Encounter {
     this.generatedText = '',
     required this.skillTests,
     required this.imageAsset,
+    this.isComplex = false,
+    this.initialText = '',
+    this.passEffect = '',
+    this.failEffect = '',
   });
 
   factory Encounter.fromJson(Map<String, dynamic> json) {
@@ -105,6 +115,10 @@ class Encounter {
       'generatedText': generatedText,
       'skillTests': skillTests.map((e) => e.toJson()).toList(),
       'imageAsset': imageAsset,
+      'isComplex': isComplex,
+      'initialText': initialText,
+      'passEffect': passEffect,
+      'failEffect': failEffect,
     };
   }
 
@@ -117,6 +131,10 @@ class Encounter {
     String? generatedText,
     List<SkillTest>? skillTests,
     String? imageAsset,
+    bool? isComplex,
+    String? initialText,
+    String? passEffect,
+    String? failEffect,
   }) {
     return Encounter(
       id: id ?? this.id,
@@ -127,6 +145,10 @@ class Encounter {
       generatedText: generatedText ?? this.generatedText,
       skillTests: skillTests ?? this.skillTests,
       imageAsset: imageAsset ?? this.imageAsset,
+      isComplex: isComplex ?? this.isComplex,
+      initialText: initialText ?? this.initialText,
+      passEffect: passEffect ?? this.passEffect,
+      failEffect: failEffect ?? this.failEffect,
     );
   }
 }

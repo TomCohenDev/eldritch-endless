@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gemma/flutter_gemma.dart';
 import 'screens/home_screen.dart';
 import 'theme/eldritch_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  // Initialize FlutterGemma plugin
-  await FlutterGemma.initialize();
 
   // Lock to portrait mode for mobile
   SystemChrome.setPreferredOrientations([

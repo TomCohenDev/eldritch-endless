@@ -193,6 +193,30 @@ class StagePlans {
   }
 }
 
+class EndingGeneration {
+  final String ending;
+  final String endingNarration;
+
+  EndingGeneration({
+    required this.ending,
+    String? endingNarration,
+  }) : endingNarration = endingNarration ?? ending;
+
+  factory EndingGeneration.fromJson(Map<String, dynamic> json) {
+    return EndingGeneration(
+      ending: json['ending'] ?? '',
+      endingNarration: json['endingNarration'] ?? json['ending'] ?? '',
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'ending': ending,
+      'endingNarration': endingNarration,
+    };
+  }
+}
+
 class GameState {
   final String id;
   final String name;
@@ -208,6 +232,7 @@ class GameState {
   final List<MythosCard> mythosDiscard;
   final int doomTrack;
   final List<TimelineEvent> globalTimeline;
+  final Set<String> usedEncounterIds;
 
   GameState({
     String? id,
@@ -224,6 +249,7 @@ class GameState {
     List<MythosCard>? mythosDiscard,
     int? doomTrack,
     List<TimelineEvent>? globalTimeline,
+    Set<String>? usedEncounterIds,
   })  : id = id ?? const Uuid().v4(),
         createdAt = createdAt ?? DateTime.now(),
         lastPlayedAt = lastPlayedAt ?? DateTime.now(),
@@ -231,7 +257,8 @@ class GameState {
         mythosDeck = mythosDeck ?? [],
         mythosDiscard = mythosDiscard ?? [],
         doomTrack = doomTrack ?? ancientOne.startingDoom,
-        globalTimeline = globalTimeline ?? [];
+        globalTimeline = globalTimeline ?? [],
+        usedEncounterIds = usedEncounterIds ?? {};
 
   factory GameState.fromJson(Map<String, dynamic> json) {
     return GameState(
@@ -264,6 +291,10 @@ class GameState {
               ?.map((e) => TimelineEvent.fromJson(e))
               .toList() ??
           [],
+      usedEncounterIds: (json['usedEncounterIds'] as List<dynamic>?)
+              ?.map((e) => e.toString())
+              .toSet() ??
+          {},
     );
   }
 
@@ -283,6 +314,7 @@ class GameState {
       'mythosDiscard': mythosDiscard.map((e) => e.toJson()).toList(),
       'doomTrack': doomTrack,
       'globalTimeline': globalTimeline.map((e) => e.toJson()).toList(),
+      'usedEncounterIds': usedEncounterIds.toList(),
     };
   }
 
@@ -301,6 +333,7 @@ class GameState {
     List<MythosCard>? mythosDiscard,
     int? doomTrack,
     List<TimelineEvent>? globalTimeline,
+    Set<String>? usedEncounterIds,
   }) {
     return GameState(
       id: id ?? this.id,
@@ -317,6 +350,15 @@ class GameState {
       mythosDiscard: mythosDiscard ?? this.mythosDiscard,
       doomTrack: doomTrack ?? this.doomTrack,
       globalTimeline: globalTimeline ?? this.globalTimeline,
+      usedEncounterIds: usedEncounterIds ?? this.usedEncounterIds,
+    );
+  }
+
+  /// Mark an encounter as used
+  GameState markEncounterUsed(String encounterId) {
+    return copyWith(
+      usedEncounterIds: {...usedEncounterIds, encounterId},
+      lastPlayedAt: DateTime.now(),
     );
   }
 

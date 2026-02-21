@@ -1,16 +1,64 @@
 import 'package:flutter/material.dart';
 import '../models/encounter.dart';
+import '../models/player.dart';
 import '../theme/eldritch_theme.dart';
 
 class EncounterPanel extends StatelessWidget {
   final Function(EncounterType, String) onEncounterSelected;
   final bool isProcessing;
+  final Player? activePlayer;
 
   const EncounterPanel({
     super.key,
     required this.onEncounterSelected,
     required this.isProcessing,
+    this.activePlayer,
   });
+
+  // City locations for Location encounters
+  static const _cityLocations = [
+    'Arkham',
+    'Buenos Aires',
+    'Istanbul',
+    'London',
+    'Rome',
+    'San Francisco',
+    'Shanghai',
+    'Sydney',
+    'Tokyo',
+  ];
+
+  // Expedition/wilderness locations and their mapping to expedition types
+  static const _expeditionLocations = {
+    'Amazon': 'The Amazon',
+    'The Amazon': 'The Amazon',
+    'Antarctica': 'Antarctica',
+    'Heart of Africa': 'Heart of Africa',
+    'The Heart of Africa': 'Heart of Africa',
+    'Africa': 'Heart of Africa',
+    'Himalayas': 'The Himalayas',
+    'The Himalayas': 'The Himalayas',
+    'Pyramids': 'The Pyramids',
+    'The Pyramids': 'The Pyramids',
+    'Tunguska': 'Tunguska',
+  };
+
+  /// Check if location is a city
+  bool _isCity(String location) {
+    return _cityLocations.any(
+      (city) => location.toLowerCase().contains(city.toLowerCase()),
+    );
+  }
+
+  /// Get expedition type from location, or null if not at expedition
+  String? _getExpeditionType(String location) {
+    for (final entry in _expeditionLocations.entries) {
+      if (location.toLowerCase().contains(entry.key.toLowerCase())) {
+        return entry.value;
+      }
+    }
+    return null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +71,11 @@ class EncounterPanel extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(8),
             child: Text(
-              'ENCOUNTER',
+              'ENCOUNTERS',
               style: context.eldritchType.menuLabel.copyWith(
                 color: EldritchColors.occultPurple,
-                fontSize: 10,
+                fontSize: 6,
+                fontWeight: FontWeight.w700,
                 letterSpacing: 1,
               ),
             ),
@@ -50,7 +99,7 @@ class EncounterPanel extends StatelessWidget {
                   label: 'Location',
                   color: Colors.orange,
                   isProcessing: isProcessing,
-                  onTap: () => _showLocationDialog(context),
+                  onTap: () => _handleLocationEncounter(context),
                 ),
                 _EncounterButton(
                   icon: Icons.search,
@@ -65,7 +114,7 @@ class EncounterPanel extends StatelessWidget {
                   label: 'Expedition',
                   color: Colors.teal,
                   isProcessing: isProcessing,
-                  onTap: () => _showExpeditionDialog(context),
+                  onTap: () => _handleExpeditionEncounter(context),
                 ),
                 _EncounterButton(
                   icon: Icons.blur_on,
@@ -83,24 +132,37 @@ class EncounterPanel extends StatelessWidget {
     );
   }
 
-  void _showSubTypeDialog(
-      BuildContext context, EncounterType type, String subType) {
-    onEncounterSelected(type, subType);
+  /// Handle Location encounter - auto-select if player is in a city
+  void _handleLocationEncounter(BuildContext context) {
+    final location = activePlayer?.currentLocation;
+    if (location != null && _isCity(location)) {
+      // Find the matching city name
+      final matchedCity = _cityLocations.firstWhere(
+        (city) => location.toLowerCase().contains(city.toLowerCase()),
+        orElse: () => location,
+      );
+      onEncounterSelected(EncounterType.location, matchedCity);
+    } else {
+      // Show dialog to select location
+      _showLocationDialog(context);
+    }
+  }
+
+  /// Handle Expedition encounter - auto-select if player is at expedition location
+  void _handleExpeditionEncounter(BuildContext context) {
+    final location = activePlayer?.currentLocation;
+    if (location != null) {
+      final expeditionType = _getExpeditionType(location);
+      if (expeditionType != null) {
+        onEncounterSelected(EncounterType.expedition, expeditionType);
+        return;
+      }
+    }
+    // Show dialog to select expedition
+    _showExpeditionDialog(context);
   }
 
   void _showLocationDialog(BuildContext context) {
-    final locations = [
-      'Arkham',
-      'Buenos Aires',
-      'Istanbul',
-      'London',
-      'Rome',
-      'San Francisco',
-      'Shanghai',
-      'Sydney',
-      'Tokyo',
-    ];
-
     showModalBottomSheet(
       context: context,
       backgroundColor: EldritchColors.deepSea,
@@ -111,22 +173,30 @@ class EncounterPanel extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Select Location',
-                style: TextStyle(
+              Text(
+                activePlayer != null
+                    ? 'Player at: ${activePlayer!.currentLocation}\nSelect Location:'
+                    : 'Select Location',
+                style: const TextStyle(
                   color: EldritchColors.parchmentLight,
                   fontWeight: FontWeight.bold,
-                  fontSize: 18,
+                  fontSize: 16,
                 ),
               ),
               const SizedBox(height: 16),
               Wrap(
                 spacing: 8,
                 runSpacing: 8,
-                children: locations.map((location) {
+                children: _cityLocations.map((location) {
+                  final isCurrentLocation = activePlayer?.currentLocation
+                          .toLowerCase()
+                          .contains(location.toLowerCase()) ??
+                      false;
                   return ActionChip(
                     label: Text(location),
-                    backgroundColor: EldritchColors.storm,
+                    backgroundColor: isCurrentLocation
+                        ? Colors.orange
+                        : EldritchColors.storm,
                     labelStyle:
                         const TextStyle(color: EldritchColors.parchmentLight),
                     onPressed: () {
@@ -145,13 +215,17 @@ class EncounterPanel extends StatelessWidget {
 
   void _showExpeditionDialog(BuildContext context) {
     final expeditions = [
-      'Africa',
-      'Americas',
-      'Asia-Australia',
-      'Europe',
+      'The Amazon',
       'Antarctica',
+      'Heart of Africa',
+      'The Himalayas',
       'The Pyramids',
+      'Tunguska',
     ];
+
+    final currentExpedition = activePlayer != null
+        ? _getExpeditionType(activePlayer!.currentLocation)
+        : null;
 
     showModalBottomSheet(
       context: context,
@@ -163,12 +237,14 @@ class EncounterPanel extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Select Expedition',
-                style: TextStyle(
+              Text(
+                activePlayer != null
+                    ? 'Player at: ${activePlayer!.currentLocation}\nSelect Expedition:'
+                    : 'Select Expedition',
+                style: const TextStyle(
                   color: EldritchColors.parchmentLight,
                   fontWeight: FontWeight.bold,
-                  fontSize: 18,
+                  fontSize: 16,
                 ),
               ),
               const SizedBox(height: 16),
@@ -176,9 +252,12 @@ class EncounterPanel extends StatelessWidget {
                 spacing: 8,
                 runSpacing: 8,
                 children: expeditions.map((expedition) {
+                  final isCurrentExpedition = currentExpedition == expedition;
                   return ActionChip(
                     label: Text(expedition),
-                    backgroundColor: EldritchColors.storm,
+                    backgroundColor: isCurrentExpedition
+                        ? Colors.teal
+                        : EldritchColors.storm,
                     labelStyle:
                         const TextStyle(color: EldritchColors.parchmentLight),
                     onPressed: () {

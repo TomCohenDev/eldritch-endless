@@ -19,3 +19,7 @@ app/.env.staging
 app/.env.development.local
 app/.env.test.local
 app/.env.production.local
+
+# Windows reserved name (cannot be added to git)
+/nul
+eldritch_flutter/nul

@@ -8,6 +8,7 @@ class StorageService {
   static const _secureStorage = FlutterSecureStorage();
   static const _anthropicKeyKey = 'anthropic_api_key';
   static const _elevenLabsKeyKey = 'elevenlabs_api_key';
+  static const _grokKeyKey = 'grok_api_key';
   static const _gamesDir = 'games';
 
   // API Keys (encrypted storage)
@@ -28,9 +29,18 @@ class StorageService {
     return await _secureStorage.read(key: _elevenLabsKeyKey);
   }
 
+  Future<void> saveGrokApiKey(String key) async {
+    await _secureStorage.write(key: _grokKeyKey, value: key);
+  }
+
+  Future<String?> getGrokApiKey() async {
+    return await _secureStorage.read(key: _grokKeyKey);
+  }
+
   Future<void> clearApiKeys() async {
     await _secureStorage.delete(key: _anthropicKeyKey);
     await _secureStorage.delete(key: _elevenLabsKeyKey);
+    await _secureStorage.delete(key: _grokKeyKey);
   }
 
   // Game State Storage (file-based)

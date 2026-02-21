@@ -76,6 +76,39 @@ class DataLoader {
     return _loadEncounterFile('assets/json/encounters/special-encounters.json', EncounterType.special);
   }
 
+  /// Load research encounters (different JSON structure)
+  Future<List<Encounter>> loadResearchEncounters() async {
+    try {
+      final jsonString =
+          await rootBundle.loadString('assets/json/research-encounters.json');
+      final jsonData = jsonDecode(jsonString) as Map<String, dynamic>;
+      final encounters = <Encounter>[];
+
+      final ancientOnes =
+          jsonData['ancient_ones'] as Map<String, dynamic>? ?? {};
+      for (final aoEntry in ancientOnes.entries) {
+        final aoName = aoEntry.key;
+        final aoData = aoEntry.value as Map<String, dynamic>;
+        final aoEncounters =
+            aoData['encounters'] as Map<String, dynamic>? ?? {};
+
+        for (final locEntry in aoEncounters.entries) {
+          final locEncounters = locEntry.value as List<dynamic>? ?? [];
+          for (final table in locEncounters) {
+            final enc = _parseEncounterFromTable(
+                table, EncounterType.research, aoName);
+            encounters.add(enc);
+          }
+        }
+      }
+
+      return encounters;
+    } catch (e) {
+      print('Error loading research encounters: $e');
+      return [];
+    }
+  }
+
   /// Load all encounters
   Future<Map<String, List<Encounter>>> loadAllEncounters() async {
     if (_cachedEncounters != null) return _cachedEncounters!;
@@ -85,6 +118,7 @@ class DataLoader {
     final expedition = await loadExpeditionEncounters();
     final otherWorld = await loadOtherWorldEncounters();
     final special = await loadSpecialEncounters();
+    final research = await loadResearchEncounters();
 
     _cachedEncounters = {
       'general': general,
@@ -92,6 +126,7 @@ class DataLoader {
       'expedition': expedition,
       'otherWorld': otherWorld,
       'special': special,
+      'research': research,
     };
 
     return _cachedEncounters!;
@@ -133,12 +168,85 @@ class DataLoader {
     }
   }
 
+  static const _skillNames = {
+    'influence', 'lore', 'observation', 'strength', 'will',
+  };
+
+  /// Inject skill names from the images array into empty parentheses in the text.
+  /// Some encounters have `()` or `( -1)` where the skill icon was an HTML image.
+  String _injectSkillNames(String text, List<dynamic>? images) {
+    if (images == null || images.isEmpty) return text;
+
+    final skillAlts = images
+        .map((img) => (img is Map ? img['alt']?.toString() : null))
+        .where((alt) => alt != null && _skillNames.contains(alt.toLowerCase()))
+        .cast<String>()
+        .toList();
+
+    if (skillAlts.isEmpty) return text;
+
+    var result = text;
+    var skillIndex = 0;
+    final emptyParenRegex = RegExp(r'\(\s*(-\s*\d+)?\s*\)');
+
+    result = result.replaceAllMapped(emptyParenRegex, (match) {
+      final alreadyHasSkill = RegExp(
+        r'\b(Influence|Lore|Observation|Strength|Will)\b',
+      ).hasMatch(match.group(0) ?? '');
+      if (alreadyHasSkill || skillIndex >= skillAlts.length) {
+        return match.group(0)!;
+      }
+      final skill = skillAlts[skillIndex++];
+      final modifier = match.group(1);
+      return modifier != null ? '($skill $modifier)' : '($skill)';
+    });
+
+    return result;
+  }
+
+  static const _complexEncounterTypes = {
+    EncounterType.expedition,
+    EncounterType.otherWorld,
+    EncounterType.special,
+  };
+
+  String _extractText(dynamic field, {List<dynamic>? images}) {
+    final textRaw = field is Map ? (field['text'] ?? '') : (field?.toString() ?? '');
+    final fieldImages = field is Map ? field['images'] as List<dynamic>? : null;
+    return _injectSkillNames(textRaw, fieldImages ?? images);
+  }
+
   Encounter _parseEncounterFromTable(dynamic table, EncounterType type, String subType) {
     final id = table['ID #']?.toString() ?? '';
     final setData = table['Set'];
     final set = setData is Map ? (setData['text'] ?? '') : (setData?.toString() ?? '');
+
+    final hasComplexFields = table['Initial Text'] != null;
+    final isComplex = hasComplexFields || _complexEncounterTypes.contains(type);
+
+    if (isComplex && hasComplexFields) {
+      final initialText = _extractText(table['Initial Text']);
+      final passEffect = _extractText(table['Pass Effect']);
+      final failEffect = _extractText(table['Fail Effect']);
+      final rawText = '$initialText\n\n[PASS]\n$passEffect\n\n[FAIL]\n$failEffect';
+
+      return Encounter(
+        id: id,
+        type: type,
+        subType: subType,
+        set: set,
+        rawText: rawText,
+        skillTests: [],
+        imageAsset: _getImageAsset(type, subType),
+        isComplex: true,
+        initialText: initialText,
+        passEffect: passEffect,
+        failEffect: failEffect,
+      );
+    }
+
     final encounterData = table['Encounter'];
-    final rawText = encounterData is Map ? (encounterData['text'] ?? '') : (encounterData?.toString() ?? '');
+    final rawText = _extractText(encounterData);
 
     return Encounter(
       id: id,
@@ -207,10 +315,16 @@ class DataLoader {
     if (normalizedSubType == null ||
         normalizedSubType.isEmpty ||
         normalizedSubType == 'general' ||
-        normalizedSubType == 'general encounter') {
+        normalizedSubType == 'general encounter' ||
+        normalizedSubType == 'other world' ||
+        normalizedSubType == 'research') {
       return [...typeEncounters];
     }
-    return typeEncounters.where((e) => e.subType == subType).toList();
+
+    final filtered =
+        typeEncounters.where((e) => e.subType == subType).toList();
+    if (filtered.isEmpty) return [...typeEncounters];
+    return filtered;
   }
 
   /// Clear cached data (useful for testing or memory management)

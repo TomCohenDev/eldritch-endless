@@ -6,12 +6,16 @@ class SkillIconText extends StatelessWidget {
   final int? maxLines;
   final TextOverflow overflow;
 
+  /// Size of inline skill/test icons (e.g. Lore, Will). Default 16.
+  final double iconSize;
+
   const SkillIconText({
     super.key,
     required this.text,
     this.style,
     this.maxLines,
     this.overflow = TextOverflow.clip,
+    this.iconSize = 24,
   });
 
   static const Map<String, String> _skillIconAssets = {
@@ -40,7 +44,6 @@ class SkillIconText extends StatelessWidget {
     final spans = <InlineSpan>[];
     final regex = RegExp(
       r'\b(Influence|Lore|Observation|Strength|Will|Health|Sanity)\b',
-      caseSensitive: false,
     );
 
     int cursor = 0;
@@ -49,22 +52,27 @@ class SkillIconText extends StatelessWidget {
         spans.add(TextSpan(text: text.substring(cursor, match.start)));
       }
 
-      final skill = (match.group(0) ?? '').toLowerCase();
+      final matchedWord = match.group(0) ?? '';
+      final skill = matchedWord.toLowerCase();
       final asset = _skillIconAssets[skill];
 
       if (asset == null) {
-        spans.add(TextSpan(text: match.group(0)));
+        spans.add(TextSpan(text: matchedWord));
       } else {
         spans.add(
           WidgetSpan(
             alignment: PlaceholderAlignment.middle,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 2),
+              padding: const EdgeInsets.symmetric(horizontal: 1),
               child: Image.asset(
                 asset,
-                width: 16,
-                height: 16,
+                width: iconSize,
+                height: iconSize,
                 fit: BoxFit.contain,
+                errorBuilder: (_, __, ___) => Text(
+                  matchedWord,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
               ),
             ),
           ),

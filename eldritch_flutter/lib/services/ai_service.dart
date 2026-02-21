@@ -4,6 +4,7 @@ import '../models/game_state.dart';
 import '../models/ancient_one.dart';
 import '../models/investigator.dart';
 import '../prompts/plot_prompt.dart';
+import '../prompts/ending_prompt.dart';
 
 class AIService {
   final String? apiKey;
@@ -169,6 +170,98 @@ class AIService {
           stage2: 'Growing darkness',
           stage3: 'Final confrontation',
         ),
+      );
+    }
+  }
+
+  /// Generate the ending story for the game
+  Future<EndingGeneration> generateEnding({
+    required GameState gameState,
+    required bool isVictory,
+    required String playerNotes,
+  }) async {
+    print('====== AI SERVICE: ENDING GENERATION START ======');
+    print('[AI] Outcome: ${isVictory ? "VICTORY" : "DEFEAT"}');
+    print('[AI] Player notes: $playerNotes');
+
+    if (apiKey == null || apiKey!.isEmpty) {
+      throw Exception('Anthropic API key is required for ending generation');
+    }
+
+    final prompt = EndingPrompt.buildPrompt(
+      gameState: gameState,
+      isVictory: isVictory,
+      playerNotes: playerNotes,
+    );
+
+    print('[AI] Prompt length: ${prompt.length} characters');
+
+    final stopwatch = Stopwatch()..start();
+
+    try {
+      final response = await http.post(
+        Uri.parse('https://api.anthropic.com/v1/messages'),
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': apiKey!,
+          'anthropic-version': '2023-06-01',
+        },
+        body: jsonEncode({
+          'model': 'claude-sonnet-4-20250514',
+          'max_tokens': 4096,
+          'messages': [
+            {
+              'role': 'user',
+              'content': prompt,
+            }
+          ],
+        }),
+      );
+
+      stopwatch.stop();
+      print('[AI] Ending response received in ${stopwatch.elapsedMilliseconds}ms');
+
+      if (response.statusCode != 200) {
+        throw Exception('Failed to generate ending: ${response.body}');
+      }
+
+      final responseData = jsonDecode(response.body);
+      final content = responseData['content'][0]['text'] as String;
+
+      final endingGeneration = _parseEndingResponse(content);
+      print('[AI] Ending generation parsed successfully');
+      print('====== AI SERVICE: ENDING GENERATION COMPLETE ======');
+
+      return endingGeneration;
+    } catch (e, stackTrace) {
+      print('[AI] ERROR during ending generation: $e');
+      print('[AI] Stack trace: $stackTrace');
+      rethrow;
+    }
+  }
+
+  EndingGeneration _parseEndingResponse(String response) {
+    String jsonStr = response;
+
+    final jsonMatch =
+        RegExp(r'```json\s*([\s\S]*?)\s*```').firstMatch(response);
+    if (jsonMatch != null) {
+      jsonStr = jsonMatch.group(1)!;
+    } else {
+      final objectMatch = RegExp(r'\{[\s\S]*\}').firstMatch(response);
+      if (objectMatch != null) {
+        jsonStr = objectMatch.group(0)!;
+      }
+    }
+
+    try {
+      final json = jsonDecode(jsonStr) as Map<String, dynamic>;
+      return EndingGeneration.fromJson(json);
+    } catch (e) {
+      print('[AI] ERROR: Ending JSON parsing failed: $e');
+      return EndingGeneration(
+        ending: response,
+        endingNarration: response,
       );
     }
   }

@@ -212,18 +212,28 @@ class TimelineEvent {
     );
   }
 
+  static const _numberedSpaceTypes = {
+    'Space 1': 'city', 'Space 2': 'sea', 'Space 3': 'sea',
+    'Space 4': 'wilderness', 'Space 5': 'city', 'Space 6': 'city',
+    'Space 7': 'city', 'Space 8': 'sea', 'Space 9': 'wilderness',
+    'Space 10': 'wilderness', 'Space 11': 'sea', 'Space 12': 'sea',
+    'Space 13': 'sea', 'Space 14': 'city', 'Space 15': 'city',
+    'Space 16': 'city', 'Space 17': 'city', 'Space 18': 'sea',
+    'Space 19': 'wilderness', 'Space 20': 'city', 'Space 21': 'wilderness',
+  };
+
   /// Determine the location type (city, wilderness, sea) from location name
   static String _getLocationType(String location) {
-    // Common city locations
+    final numbered = _numberedSpaceTypes[location];
+    if (numbered != null) return numbered;
+
     const cities = [
       'Arkham', 'Buenos Aires', 'Istanbul', 'London', 'Rome',
       'San Francisco', 'Shanghai', 'Sydney', 'Tokyo',
     ];
-    // Wilderness locations
     const wilderness = [
       'Amazon', 'Antarctica', 'Himalayas', 'Pyramids', 'Tunguska',
     ];
-    // Sea spaces
     const sea = [
       'Sea', 'Ocean', 'Atlantic', 'Pacific', 'Indian',
     ];
@@ -238,7 +248,7 @@ class TimelineEvent {
     for (final s in sea) {
       if (loc.contains(s.toLowerCase())) return 'sea';
     }
-    return 'city'; // Default to city
+    return 'city';
   }
 
   static String _getActionTitle(ActionType type) {

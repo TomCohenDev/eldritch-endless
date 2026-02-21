@@ -28,9 +28,6 @@ dependencies:
   # UUID generation
   uuid: ^4.2.1
 
-  # On-device AI (Gemma)
-  flutter_gemma: ^0.12.4
-
   # UI utilities
   cupertino_icons: ^1.0.6
 

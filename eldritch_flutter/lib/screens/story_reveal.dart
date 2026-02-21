@@ -82,9 +82,11 @@ class _StoryRevealState extends State<StoryReveal> {
   void _logStoryData() {
     print('[StoryReveal] ====== STORY REVEAL SCREEN LOADED ======');
     print('[StoryReveal] Ancient One: ${widget.selectedAncientOne.name}');
-    print('[StoryReveal] Investigators: ${widget.selectedInvestigators.length}');
+    print(
+        '[StoryReveal] Investigators: ${widget.selectedInvestigators.length}');
     print('[StoryReveal] Voice: ${widget.selectedVoice.name}');
-    print('[StoryReveal] Voice ElevenLabs ID: ${widget.selectedVoice.elevenLabsId}');
+    print(
+        '[StoryReveal] Voice ElevenLabs ID: ${widget.selectedVoice.elevenLabsId}');
     print('[StoryReveal]');
     print('[StoryReveal] --- STORY GENERATION DATA ---');
     print('[StoryReveal] Ancient One Hook (display):');
@@ -93,11 +95,14 @@ class _StoryRevealState extends State<StoryReveal> {
     print('[StoryReveal] Ancient One Hook (narration with tags):');
     print('[StoryReveal] "${widget.storyGeneration.ancientOneHookNarration}"');
     print('[StoryReveal]');
-    print('[StoryReveal] Investigator Stories (${widget.storyGeneration.investigatorStories.length}):');
+    print(
+        '[StoryReveal] Investigator Stories (${widget.storyGeneration.investigatorStories.length}):');
     if (widget.storyGeneration.investigatorStories.isEmpty) {
       print('[StoryReveal] WARNING: No investigator stories!');
     }
-    for (int i = 0; i < widget.storyGeneration.investigatorStories.length; i++) {
+    for (int i = 0;
+        i < widget.storyGeneration.investigatorStories.length;
+        i++) {
       final story = widget.storyGeneration.investigatorStories[i];
       print('[StoryReveal]   [$i] ${story.name}:');
       print('[StoryReveal]       Display: "${story.story}"');
@@ -116,7 +121,8 @@ class _StoryRevealState extends State<StoryReveal> {
     final apiKey = await _storageService.getElevenLabsApiKey();
     if (apiKey == null || apiKey.isEmpty) {
       setState(() {
-        _narrationError = 'ElevenLabs API key not configured. Add it in Settings.';
+        _narrationError =
+            'ElevenLabs API key not configured. Add it in Settings.';
       });
       print('[StoryReveal] ERROR: No ElevenLabs API key');
       return;
@@ -136,7 +142,8 @@ class _StoryRevealState extends State<StoryReveal> {
 
       print('[StoryReveal] Generating audio for narration...');
       print('[StoryReveal] Using voice: ${widget.selectedVoice.elevenLabsId}');
-      print('[StoryReveal] Narration text length: ${narrationText.length} chars');
+      print(
+          '[StoryReveal] Narration text length: ${narrationText.length} chars');
 
       // Generate audio
       final audioPath = await _elevenLabsService!.generateSpeech(
@@ -293,7 +300,8 @@ class _StoryRevealState extends State<StoryReveal> {
           playerId: player.id,
         );
         placementEvents.add(placementEvent);
-        print('[StoryReveal] Created placement event: ${player.displayName} at ${player.currentLocation}');
+        print(
+            '[StoryReveal] Created placement event: ${player.displayName} at ${player.currentLocation}');
       }
 
       // Create game state with story event and placement events in global timeline
@@ -304,7 +312,10 @@ class _StoryRevealState extends State<StoryReveal> {
         narratorVoice: widget.selectedVoice,
         storyGeneration: widget.storyGeneration,
         mythosDeck: mythosDeck,
-        globalTimeline: [storyEvent, ...placementEvents], // Story event followed by placements
+        globalTimeline: [
+          storyEvent,
+          ...placementEvents
+        ], // Story event followed by placements
       );
 
       // Save the game
@@ -356,7 +367,9 @@ class _StoryRevealState extends State<StoryReveal> {
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       color: EldritchColors.parchmentLight,
-                      shadows: [Shadow(color: EldritchColors.deepInk, blurRadius: 4)],
+                      shadows: [
+                        Shadow(color: EldritchColors.deepInk, blurRadius: 4)
+                      ],
                     ),
                   ),
                   background: Stack(
@@ -406,130 +419,132 @@ class _StoryRevealState extends State<StoryReveal> {
                 ),
               ),
 
-          // Content
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.all(24),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Narration controls
-                  if (_hasElevenLabsKey) ...[
-                    _NarrationControls(
-                      isGenerating: _isGeneratingAudio,
-                      isPlaying: _isPlaying,
-                      hasAudio: _hasAudio,
-                      error: _narrationError,
-                      position: _playPosition,
-                      duration: _playDuration,
-                      onPlay: _generateAndPlayNarration,
-                      onToggle: _togglePlayback,
-                      onStop: _stopNarration,
-                      voiceName: widget.selectedVoice.name,
-                    ),
-                    const SizedBox(height: 24),
-                  ],
+              // Content
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.all(24),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Narration controls
+                      if (_hasElevenLabsKey) ...[
+                        _NarrationControls(
+                          isGenerating: _isGeneratingAudio,
+                          isPlaying: _isPlaying,
+                          hasAudio: _hasAudio,
+                          error: _narrationError,
+                          position: _playPosition,
+                          duration: _playDuration,
+                          onPlay: _generateAndPlayNarration,
+                          onToggle: _togglePlayback,
+                          onStop: _stopNarration,
+                          voiceName: widget.selectedVoice.name,
+                        ),
+                        const SizedBox(height: 24),
+                      ],
 
-                  // Ancient One hook
-                  const Text(
-                    'THE AWAKENING',
-                    style: TextStyle(
-                      color: EldritchColors.occultPurple,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 4,
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  Text(
-                    widget.storyGeneration.ancientOneHook,
-                    style: const TextStyle(
-                      color: EldritchColors.deepInk,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
-                      height: 1.65,
-                    ),
-                  ),
-                  const SizedBox(height: 32),
-
-                  // Investigator stories
-                  const Text(
-                    'THE INVESTIGATORS',
-                    style: TextStyle(
-                      color: EldritchColors.occultPurple,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 4,
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  // Show investigator stories or fallback if empty
-                  if (widget.storyGeneration.investigatorStories.isEmpty)
-                    ...widget.selectedInvestigators.map((inv) {
-                      return _InvestigatorStoryCard(
-                        name: inv.name.replaceAll('"', ''),
-                        story:
-                            'A mysterious connection draws ${inv.name.replaceAll('"', '')} into this cosmic conflict...',
-                        imagePath: _getInvestigatorImagePath(inv.name),
-                      );
-                    })
-                  else
-                    ...widget.storyGeneration.investigatorStories.map((story) {
-                      return _InvestigatorStoryCard(
-                        name: story.name,
-                        story: story.story,
-                        imagePath: _getInvestigatorImagePath(story.name),
-                      );
-                    }),
-                  const SizedBox(height: 24),
-
-                  // Begin button
-                  SizedBox(
-                    width: double.infinity,
-                    height: 56,
-                    child: ElevatedButton(
-                      onPressed: _isCreatingGame ? null : _startGame,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: EldritchColors.occultPurple,
-                        foregroundColor: EldritchColors.highlightPaper,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
+                      // Ancient One hook
+                      const Text(
+                        'THE AWAKENING',
+                        style: TextStyle(
+                          color: EldritchColors.occultPurple,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 4,
                         ),
                       ),
-                      child: _isCreatingGame
-                          ? const Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  width: 20,
-                                  height: 20,
-                                  child: CircularProgressIndicator(
-                                    strokeWidth: 2,
-                                    valueColor:
-                                        AlwaysStoppedAnimation<Color>(EldritchColors.highlightPaper),
+                      const SizedBox(height: 16),
+                      Text(
+                        widget.storyGeneration.ancientOneHook,
+                        style: const TextStyle(
+                          color: EldritchColors.deepInk,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                          height: 1.65,
+                        ),
+                      ),
+                      const SizedBox(height: 32),
+
+                      // Investigator stories
+                      const Text(
+                        'THE INVESTIGATORS',
+                        style: TextStyle(
+                          color: EldritchColors.occultPurple,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 4,
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      // Show investigator stories or fallback if empty
+                      if (widget.storyGeneration.investigatorStories.isEmpty)
+                        ...widget.selectedInvestigators.map((inv) {
+                          return _InvestigatorStoryCard(
+                            name: inv.name.replaceAll('"', ''),
+                            story:
+                                'A mysterious connection draws ${inv.name.replaceAll('"', '')} into this cosmic conflict...',
+                            imagePath: _getInvestigatorImagePath(inv.name),
+                          );
+                        })
+                      else
+                        ...widget.storyGeneration.investigatorStories
+                            .map((story) {
+                          return _InvestigatorStoryCard(
+                            name: story.name,
+                            story: story.story,
+                            imagePath: _getInvestigatorImagePath(story.name),
+                          );
+                        }),
+                      const SizedBox(height: 24),
+
+                      // Begin button
+                      SizedBox(
+                        width: double.infinity,
+                        height: 56,
+                        child: ElevatedButton(
+                          onPressed: _isCreatingGame ? null : _startGame,
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: EldritchColors.occultPurple,
+                            foregroundColor: EldritchColors.highlightPaper,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                          child: _isCreatingGame
+                              ? const Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    SizedBox(
+                                      width: 20,
+                                      height: 20,
+                                      child: CircularProgressIndicator(
+                                        strokeWidth: 2,
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                                EldritchColors.highlightPaper),
+                                      ),
+                                    ),
+                                    SizedBox(width: 12),
+                                    Text('PREPARING...'),
+                                  ],
+                                )
+                              : const Text(
+                                  'BEGIN INVESTIGATION',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 2,
                                   ),
                                 ),
-                                SizedBox(width: 12),
-                                Text('PREPARING...'),
-                              ],
-                            )
-                          : const Text(
-                              'BEGIN INVESTIGATION',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 2,
-                              ),
-                            ),
-                    ),
+                        ),
+                      ),
+                      const SizedBox(height: 32),
+                    ],
                   ),
-                  const SizedBox(height: 32),
-                ],
+                ),
               ),
-            ),
+            ],
           ),
-        ],
-      ),
         ],
       ),
     );
@@ -619,7 +634,8 @@ class _NarrationControls extends StatelessWidget {
                   height: 24,
                   child: CircularProgressIndicator(
                     strokeWidth: 2,
-                    valueColor: AlwaysStoppedAnimation<Color>(EldritchColors.occultPurple),
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                        EldritchColors.occultPurple),
                   ),
                 )
               else if (hasAudio)
@@ -628,12 +644,14 @@ class _NarrationControls extends StatelessWidget {
                   children: [
                     FilledButton.icon(
                       onPressed: onToggle,
-                      icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow, size: 20),
+                      icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow,
+                          size: 20),
                       label: Text(isPlaying ? 'Pause' : 'Play'),
                       style: FilledButton.styleFrom(
                         backgroundColor: EldritchColors.occultPurple,
                         foregroundColor: EldritchColors.highlightPaper,
-                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 12, vertical: 8),
                       ),
                     ),
                     const SizedBox(width: 8),
@@ -644,7 +662,8 @@ class _NarrationControls extends StatelessWidget {
                       style: OutlinedButton.styleFrom(
                         foregroundColor: EldritchColors.fadedText,
                         side: const BorderSide(color: EldritchColors.fadedText),
-                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 12, vertical: 8),
                       ),
                     ),
                   ],
@@ -657,7 +676,8 @@ class _NarrationControls extends StatelessWidget {
                   style: FilledButton.styleFrom(
                     backgroundColor: EldritchColors.occultPurple,
                     foregroundColor: EldritchColors.highlightPaper,
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   ),
                 ),
             ],
@@ -680,7 +700,8 @@ class _NarrationControls extends StatelessWidget {
                     child: LinearProgressIndicator(
                       value: progress,
                       backgroundColor: EldritchColors.parchmentGreyed,
-                      valueColor: const AlwaysStoppedAnimation<Color>(EldritchColors.occultPurple),
+                      valueColor: const AlwaysStoppedAnimation<Color>(
+                          EldritchColors.occultPurple),
                       borderRadius: BorderRadius.circular(2),
                     ),
                   ),

@@ -26,6 +26,7 @@ class Timeline extends StatefulWidget {
 
 class _TimelineState extends State<Timeline> {
   String? _draggingEventId;
+
   /// Index of the drop slot currently hovered during drag (0 = before first event).
   int? _dragOverInsertIndex;
 
@@ -49,13 +50,15 @@ class _TimelineState extends State<Timeline> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Icon(Icons.timeline, color: EldritchColors.occultPurple, size: 16),
+                    const Icon(Icons.timeline,
+                        color: EldritchColors.occultPurple, size: 16),
                     const SizedBox(width: 8),
                     Text(
-                      'SHARED TIMELINE',
+                      'TIMELINE',
                       style: context.eldritchType.menuLabel.copyWith(
                         color: EldritchColors.occultPurple,
                         fontSize: 12,
+                        fontWeight: FontWeight.w500,
                         letterSpacing: 2,
                       ),
                     ),
@@ -70,7 +73,8 @@ class _TimelineState extends State<Timeline> {
                         child: Text(
                           'No events yet.\nActions and encounters from all investigators\nwill appear here.',
                           textAlign: TextAlign.center,
-                          style: TextStyle(color: EldritchColors.uiNeutral, fontSize: 14),
+                          style: TextStyle(
+                              color: EldritchColors.uiNeutral, fontSize: 14),
                         ),
                       )
                     : ListView.builder(
@@ -118,18 +122,21 @@ class _TimelineState extends State<Timeline> {
                             : EldritchColors.uiNeutral.withValues(alpha: 0.6),
                         borderRadius: BorderRadius.circular(32),
                         border: Border.all(
-                          color: Colors.white.withValues(alpha: isHighlighted ? 0.9 : 0.35),
+                          color: Colors.white
+                              .withValues(alpha: isHighlighted ? 0.9 : 0.35),
                           width: isHighlighted ? 2 : 1,
                         ),
                       ),
-                      child: const Icon(Icons.close, color: Colors.white, size: 28),
+                      child: const Icon(Icons.close,
+                          color: Colors.white, size: 28),
                     );
                   },
                 ),
                 const SizedBox(width: 12),
                 // Delete button
                 DragTarget<TimelineEvent>(
-                  onWillAcceptWithDetails: (details) => _isDraggable(details.data),
+                  onWillAcceptWithDetails: (details) =>
+                      _isDraggable(details.data),
                   onAcceptWithDetails: (details) {
                     widget.onDeleteEvent(details.data);
                     setState(() {
@@ -149,11 +156,13 @@ class _TimelineState extends State<Timeline> {
                             : EldritchColors.bloodSeal.withValues(alpha: 0.78),
                         borderRadius: BorderRadius.circular(32),
                         border: Border.all(
-                          color: Colors.white.withValues(alpha: isHighlighted ? 0.9 : 0.35),
+                          color: Colors.white
+                              .withValues(alpha: isHighlighted ? 0.9 : 0.35),
                           width: isHighlighted ? 2 : 1,
                         ),
                       ),
-                      child: const Icon(Icons.delete_forever, color: Colors.white, size: 30),
+                      child: const Icon(Icons.delete_forever,
+                          color: Colors.white, size: 30),
                     );
                   },
                 ),
@@ -263,7 +272,8 @@ class _TimelineState extends State<Timeline> {
                 : EldritchColors.ritual.withValues(alpha: 0.1),
             borderRadius: BorderRadius.circular(6),
             border: Border.all(
-              color: EldritchColors.ritual.withValues(alpha: active ? 0.9 : 0.4),
+              color:
+                  EldritchColors.ritual.withValues(alpha: active ? 0.9 : 0.4),
               width: active ? 2.5 : 1,
             ),
           ),

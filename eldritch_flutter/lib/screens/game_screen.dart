@@ -5,15 +5,15 @@ import '../models/timeline_event.dart';
 import '../models/encounter.dart';
 import '../models/mythos_card.dart';
 import '../services/storage_service.dart';
-import '../services/gemma_service.dart';
-import '../services/data_loader.dart';
+import '../services/grok_service.dart';
 import '../theme/eldritch_theme.dart';
 import '../widgets/player_bar.dart';
 import '../widgets/timeline.dart';
 import '../widgets/action_panel.dart';
 import '../widgets/encounter_panel.dart';
 import '../widgets/mythos_button.dart';
-import '../widgets/skill_icon_text.dart';
+import '../widgets/encounter_card_dialog.dart';
+import '../widgets/ending_dialog.dart';
 
 class GameScreen extends StatefulWidget {
   final GameState initialGameState;
@@ -30,24 +30,23 @@ class GameScreen extends StatefulWidget {
 class _GameScreenState extends State<GameScreen> {
   late GameState _gameState;
   final StorageService _storageService = StorageService();
-  final GemmaService _gemmaService = GemmaService.instance;
-  final DataLoader _dataLoader = DataLoader();
+  final GrokService _grokService = GrokService.instance;
   bool _isProcessing = false;
 
   @override
   void initState() {
     super.initState();
     _gameState = widget.initialGameState;
-    _initializeGemma();
+    _initializeGrok();
   }
 
-  Future<void> _initializeGemma() async {
+  Future<void> _initializeGrok() async {
     try {
-      if (!_gemmaService.isInitialized) {
-        await _gemmaService.initialize();
+      if (!_grokService.isInitialized) {
+        await _grokService.initialize();
       }
     } catch (e) {
-      print('Failed to initialize Gemma: $e');
+      print('Failed to initialize Grok: $e');
       // Show warning but continue - encounters will use raw text
     }
   }
@@ -76,6 +75,28 @@ class _GameScreenState extends State<GameScreen> {
     _saveGame();
   }
 
+  void _handleTravel(String destination) {
+    final activePlayer = _gameState.activePlayer;
+    if (activePlayer == null) return;
+
+    final previousLocation = activePlayer.currentLocation;
+
+    final event = TimelineEvent.action(
+      actionType: ActionType.travel,
+      playerId: activePlayer.id,
+      description: '$previousLocation → $destination',
+    );
+
+    final updatedPlayer = activePlayer
+        .addTimelineEvent(event)
+        .copyWith(currentLocation: destination);
+
+    setState(() {
+      _gameState = _gameState.updatePlayer(updatedPlayer);
+    });
+    _saveGame();
+  }
+
   void _addCustomNote(String title, String description) {
     final activePlayer = _gameState.activePlayer;
     if (activePlayer == null) return;
@@ -94,117 +115,37 @@ class _GameScreenState extends State<GameScreen> {
     _saveGame();
   }
 
-  Future<void> _generateEncounter(EncounterType type, String subType) async {
+  Future<void> _openEncounterCard(EncounterType type, String subType) async {
     final activePlayer = _gameState.activePlayer;
-    if (activePlayer == null) return;
-
-    setState(() {
-      _isProcessing = true;
-    });
-
-    try {
-      // Get two random fitting encounter templates for AI selection.
-      final encounterTemplates = await _dataLoader.getRandomEncounters(
-        type,
-        subType: subType,
-        count: 2,
+    if (activePlayer == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please select an active player first'),
+          backgroundColor: EldritchColors.bloodSeal,
+        ),
       );
-      if (encounterTemplates.isEmpty) {
-        throw Exception('No encounter found');
-      }
-      final encounterA = encounterTemplates.first;
-      final encounterB = encounterTemplates.length > 1 ? encounterTemplates[1] : encounterTemplates.first;
-      Encounter selectedEncounter;
-      String generatedText;
+      return;
+    }
 
-      // Try to initialize local AI on demand (if model is installed but not loaded yet).
-      if (!_gemmaService.isInitialized) {
-        await _initializeGemma();
-      }
+    final result = await EncounterCardDialog.show(
+      context: context,
+      encounterType: type,
+      subType: subType,
+      gameState: _gameState,
+    );
 
-      if (!_gemmaService.isInitialized) {
-        throw Exception(
-          'Local AI is not ready. Install/load the model in Settings > Local AI Model.',
-        );
-      }
+    if (result != null) {
+      // Update player timeline with the encounter event
+      final updatedPlayer = activePlayer.addTimelineEvent(result.event);
 
-      final generatedResult = await _gemmaService.generateEncounter(
-        encounterA: encounterA,
-        encounterB: encounterB,
-        gameState: _gameState,
-        requestedType: type,
-        requestedSubType: subType,
-      );
-      generatedText = generatedResult.generatedText;
-      selectedEncounter = generatedResult.selectedTemplate == 'B' ? encounterB : encounterA;
-
-      // Create timeline event
-      final encounterLabel = subType.trim().isEmpty ? 'General' : subType;
-      final event = TimelineEvent.encounter(
-        title: '${type.name.toUpperCase()} Encounter: $encounterLabel',
-        description: generatedText,
-        playerId: activePlayer.id,
-        encounterData: selectedEncounter.toJson(),
-      );
-
-      final updatedPlayer = activePlayer.addTimelineEvent(event);
-
+      // Mark encounter as used and update state
       setState(() {
-        _gameState = _gameState.updatePlayer(updatedPlayer);
-        _isProcessing = false;
+        _gameState = _gameState
+            .updatePlayer(updatedPlayer)
+            .markEncounterUsed(result.encounter.id);
       });
       _saveGame();
-
-      // Show encounter dialog
-      if (mounted) {
-        _showEncounterDialog(generatedText, selectedEncounter);
-      }
-    } catch (e) {
-      setState(() {
-        _isProcessing = false;
-      });
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Error generating encounter: $e'),
-            backgroundColor: EldritchColors.bloodSeal,
-          ),
-        );
-      }
     }
-  }
-
-  void _showEncounterDialog(String text, Encounter encounter) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: EldritchColors.deepSea,
-        title: Row(
-          children: [
-            const Icon(Icons.auto_stories, color: EldritchColors.occultPurple),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Text(
-                '${encounter.type.name} Encounter',
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(color: Colors.white),
-              ),
-            ),
-          ],
-        ),
-        content: SingleChildScrollView(
-          child: SkillIconText(
-            text: text,
-            style: context.eldritchType.loreBody.copyWith(color: Colors.white70),
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Close'),
-          ),
-        ],
-      ),
-    );
   }
 
   Future<void> _drawMythos() async {
@@ -221,15 +162,15 @@ class _GameScreenState extends State<GameScreen> {
 
       String generatedText = card.flavorText;
 
-      // Try to generate with Gemma if available
-      if (_gemmaService.isInitialized) {
+      // Try to generate with Grok if available
+      if (_grokService.isInitialized) {
         try {
-          generatedText = await _gemmaService.generateMythosText(
+          generatedText = await _grokService.generateMythosText(
             card: card,
             gameState: _gameState,
           );
         } catch (e) {
-          print('Gemma generation failed, using original text: $e');
+          print('Grok generation failed, using original text: $e');
         }
       }
 
@@ -449,17 +390,23 @@ class _GameScreenState extends State<GameScreen> {
             ),
           ),
           const SizedBox(width: 8),
-          // Doom track
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-            margin: const EdgeInsets.symmetric(vertical: 8),
-            decoration: BoxDecoration(
-              color: Colors.red.withValues(alpha: 0.3),
-              borderRadius: BorderRadius.circular(12),
+          // Doom track (tap to generate ending)
+          GestureDetector(
+            onTap: () => EndingDialog.show(
+              context: context,
+              gameState: _gameState,
             ),
-            child: Text(
-              'Doom: ${_gameState.doomTrack}',
-              style: context.eldritchType.statusBadge.copyWith(color: Colors.red),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+              margin: const EdgeInsets.symmetric(vertical: 8),
+              decoration: BoxDecoration(
+                color: Colors.red.withValues(alpha: 0.3),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Text(
+                'Doom: ${_gameState.doomTrack}',
+                style: context.eldritchType.statusBadge.copyWith(color: Colors.red),
+              ),
             ),
           ),
           const SizedBox(width: 8),
@@ -483,8 +430,9 @@ class _GameScreenState extends State<GameScreen> {
                   children: [
                     // Left: Encounter panel
                     EncounterPanel(
-                      onEncounterSelected: _generateEncounter,
+                      onEncounterSelected: _openEncounterCard,
                       isProcessing: _isProcessing,
+                      activePlayer: _gameState.activePlayer,
                     ),
 
                     // Center: Timeline
@@ -504,6 +452,8 @@ class _GameScreenState extends State<GameScreen> {
                     ActionPanel(
                       onActionSelected: _addActionToTimeline,
                       onCustomNote: _addCustomNote,
+                      onTravel: _handleTravel,
+                      activePlayer: _gameState.activePlayer,
                     ),
                   ],
                 ),

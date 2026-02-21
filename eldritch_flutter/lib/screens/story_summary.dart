@@ -140,360 +140,386 @@ class _StorySummaryState extends State<StorySummary> {
         children: [
           const ParchmentBackground(),
           SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Ancient One section - full width image edge to edge
-            SizedBox(
-              width: double.infinity,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Ancient One Image - full width, no horizontal padding
-                  SizedBox(
-                    width: double.infinity,
-                    child: AspectRatio(
-                      aspectRatio: 16 / 9,
-                      child: Image.asset(
-                        _getAncientOneImagePath(widget.selectedAncientOne.name),
-                        fit: BoxFit.cover,
-                        errorBuilder: (context, error, stackTrace) {
-                          return Container(
-                            color: EldritchColors.leatherMid,
-                            child: Center(
-                              child: Icon(
-                                Icons.visibility,
-                                color: EldritchColors.occultPurple,
-                                size: 48,
-                              ),
-                            ),
-                          );
-                        },
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Ancient One section - full width image edge to edge
+                SizedBox(
+                  width: double.infinity,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Ancient One Image - full width, no horizontal padding
+                      SizedBox(
+                        width: double.infinity,
+                        child: AspectRatio(
+                          aspectRatio: 16 / 9,
+                          child: Image.asset(
+                            _getAncientOneImagePath(
+                                widget.selectedAncientOne.name),
+                            fit: BoxFit.cover,
+                            errorBuilder: (context, error, stackTrace) {
+                              return Container(
+                                color: EldritchColors.leatherMid,
+                                child: Center(
+                                  child: Icon(
+                                    Icons.visibility,
+                                    color: EldritchColors.occultPurple,
+                                    size: 48,
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(24, 16, 24, 0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(24, 16, 24, 0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Expanded(
-                              child: Text(
-                                widget.selectedAncientOne.name,
-                                style: const TextStyle(
-                                  color: EldritchColors.deepInk,
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: 12),
-                            _InfoChip(
-                                label: 'Difficulty',
-                                value: widget.selectedAncientOne.difficulty),
-                            const SizedBox(width: 8),
-                            _InfoChip(
-                                label: 'Doom',
-                                value: widget.selectedAncientOne.startingDoom
-                                    .toString()),
-                          ],
-                        ),
-                        const SizedBox(height: 4),
-                        Text(
-                          widget.selectedAncientOne.epithet,
-                          style: const TextStyle(
-                            color: EldritchColors.nearBlackInk,
-                            fontSize: 14,
-                            fontStyle: FontStyle.italic,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 24),
-
-            // Investigators section - no card
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'INVESTIGATORS (${widget.selectedInvestigators.length})',
-                    style: const TextStyle(
-                      color: EldritchColors.nearBlackInk,
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 2,
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  ...widget.selectedInvestigators.map((inv) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8),
-                      child: Row(
-                        children: [
-                          // Investigator Image - zoomed in (larger, BoxFit.cover centers)
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(8),
-                            child: SizedBox(
-                              width: 64,
-                              height: 64,
-                              child: Image.asset(
-                                _getInvestigatorImagePath(inv.name),
-                                fit: BoxFit.contain,
-                                alignment: Alignment.center,
-                                errorBuilder: (context, error, stackTrace) {
-                                  return Container(
-                                    color: EldritchColors.leatherMid,
-                                    child: const Icon(
-                                      Icons.person,
-                                      color: EldritchColors.occultPurple,
-                                    ),
-                                  );
-                                },
-                              ),
-                            ),
-                          ),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Text(
-                                  inv.name.replaceAll('"', ''),
-                                  style: const TextStyle(
-                                    color: EldritchColors.deepInk,
-                                    fontWeight: FontWeight.bold,
+                                Expanded(
+                                  child: Text(
+                                    widget.selectedAncientOne.name,
+                                    style: const TextStyle(
+                                      color: EldritchColors.deepInk,
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
-                                Text(
-                                  inv.profession,
-                                  style: const TextStyle(
-                                    color: EldritchColors.nearBlackInk,
-                                    fontSize: 12,
-                                  ),
-                                ),
+                                const SizedBox(width: 12),
+                                _InfoChip(
+                                    label: 'Difficulty',
+                                    value:
+                                        widget.selectedAncientOne.difficulty),
+                                const SizedBox(width: 8),
+                                _InfoChip(
+                                    label: 'Doom',
+                                    value: widget
+                                        .selectedAncientOne.startingDoom
+                                        .toString()),
                               ],
                             ),
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  _MiniStatBadge(
-                                    iconPath: 'assets/stats/Health_Icon.webp',
-                                    value: inv.health,
-                                    color: EldritchColors.bloodSeal,
-                                  ),
-                                  const SizedBox(width: 4),
-                                  _MiniStatBadge(
-                                    iconPath: 'assets/stats/Sanity_Icon.webp',
-                                    value: inv.sanity,
-                                    color: EldritchColors.inkBlue,
-                                    fallbackIcon: Icons.psychology,
-                                  ),
-                                ],
+                            const SizedBox(height: 4),
+                            Text(
+                              widget.selectedAncientOne.epithet,
+                              style: const TextStyle(
+                                color: EldritchColors.nearBlackInk,
+                                fontSize: 14,
+                                fontStyle: FontStyle.italic,
                               ),
-                              const SizedBox(height: 4),
-                              Row(
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 24),
+
+                // Investigators section - no card
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'INVESTIGATORS (${widget.selectedInvestigators.length})',
+                        style: const TextStyle(
+                          color: EldritchColors.nearBlackInk,
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 2,
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      ...widget.selectedInvestigators.map((inv) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 8),
+                          child: Row(
+                            children: [
+                              // Investigator Image - zoomed in (larger, BoxFit.cover centers)
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(8),
+                                child: SizedBox(
+                                  width: 64,
+                                  height: 64,
+                                  child: Image.asset(
+                                    _getInvestigatorImagePath(inv.name),
+                                    fit: BoxFit.contain,
+                                    alignment: Alignment.center,
+                                    errorBuilder: (context, error, stackTrace) {
+                                      return Container(
+                                        color: EldritchColors.leatherMid,
+                                        child: const Icon(
+                                          Icons.person,
+                                          color: EldritchColors.occultPurple,
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      inv.name.replaceAll('"', ''),
+                                      style: const TextStyle(
+                                        color: EldritchColors.deepInk,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      inv.profession,
+                                      style: const TextStyle(
+                                        color: EldritchColors.nearBlackInk,
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  _SummarySkillItem(iconPath: 'assets/stats/Investigator_Lore.webp', value: inv.skills.lore),
-                                  _SummarySkillItem(iconPath: 'assets/stats/Investigator_Influence.webp', value: inv.skills.influence),
-                                  _SummarySkillItem(iconPath: 'assets/stats/Investigator_Observation.webp', value: inv.skills.observation),
-                                  _SummarySkillItem(iconPath: 'assets/stats/Investigator_Strength.webp', value: inv.skills.strength),
-                                  _SummarySkillItem(iconPath: 'assets/stats/Investigator_Will.webp', value: inv.skills.will),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      _MiniStatBadge(
+                                        iconPath:
+                                            'assets/stats/Health_Icon.webp',
+                                        value: inv.health,
+                                        color: EldritchColors.bloodSeal,
+                                      ),
+                                      const SizedBox(width: 4),
+                                      _MiniStatBadge(
+                                        iconPath:
+                                            'assets/stats/Sanity_Icon.webp',
+                                        value: inv.sanity,
+                                        color: EldritchColors.inkBlue,
+                                        fallbackIcon: Icons.psychology,
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 4),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      _SummarySkillItem(
+                                          iconPath:
+                                              'assets/stats/Investigator_Lore.webp',
+                                          value: inv.skills.lore),
+                                      _SummarySkillItem(
+                                          iconPath:
+                                              'assets/stats/Investigator_Influence.webp',
+                                          value: inv.skills.influence),
+                                      _SummarySkillItem(
+                                          iconPath:
+                                              'assets/stats/Investigator_Observation.webp',
+                                          value: inv.skills.observation),
+                                      _SummarySkillItem(
+                                          iconPath:
+                                              'assets/stats/Investigator_Strength.webp',
+                                          value: inv.skills.strength),
+                                      _SummarySkillItem(
+                                          iconPath:
+                                              'assets/stats/Investigator_Will.webp',
+                                          value: inv.skills.will),
+                                    ],
+                                  ),
                                 ],
                               ),
                             ],
                           ),
-                        ],
-                      ),
-                    );
-                  }),
-                ],
-              ),
-            ),
-            const SizedBox(height: 24),
-
-            // Narrator section - no card
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
-              child: Row(
-                children: [
-                  const Icon(
-                    Icons.record_voice_over,
-                    color: EldritchColors.occultPurple,
+                        );
+                      }),
+                    ],
                   ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          'NARRATOR',
-                          style: TextStyle(
-                            color: EldritchColors.nearBlackInk,
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 2,
-                          ),
-                        ),
-                        const SizedBox(height: 4),
-                        Text(
-                          widget.selectedVoice.name,
-                          style: const TextStyle(
-                            color: EldritchColors.deepInk,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Text(
-                          widget.selectedVoice.description,
-                          style: const TextStyle(
-                            color: EldritchColors.nearBlackInk,
-                            fontSize: 12,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 24),
+                ),
+                const SizedBox(height: 24),
 
-            // API Key warning, error, and button - with horizontal padding
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  // API Key warning
-                  if (!_hasApiKey) ...[
-                    Container(
-                      padding: const EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: EldritchColors.brownShadow.withOpacity(0.25),
-                        borderRadius: BorderRadius.circular(8),
-                        border:
-                            Border.all(color: EldritchColors.brownShadow.withOpacity(0.6)),
+                // Narrator section - no card
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: Row(
+                    children: [
+                      const Icon(
+                        Icons.record_voice_over,
+                        color: EldritchColors.occultPurple,
                       ),
-                      child: Row(
-                        children: [
-                          const Icon(Icons.warning_amber, color: EldritchColors.brownShadow),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text(
-                                  'API Key Required',
-                                  style: TextStyle(
-                                    color: EldritchColors.leatherDark,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                const Text(
-                                  'Add your Anthropic API key to generate the story',
-                                  style: TextStyle(
-                                    color: EldritchColors.nearBlackInk,
-                                    fontSize: 12,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          TextButton(
-                            onPressed: _openSettings,
-                            child: const Text('Settings'),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 16),
-                  ],
-
-                  // Error message
-                  if (_error != null) ...[
-                    Container(
-                      padding: const EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: EldritchColors.bloodSeal.withOpacity(0.2),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Row(
-                        children: [
-                          const Icon(Icons.error_outline, color: EldritchColors.bloodSeal),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: Text(
-                              _error!,
-                              style: const TextStyle(color: EldritchColors.bloodSeal),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 16),
-                  ],
-
-                  // Generate button
-                  SizedBox(
-                    height: 56,
-                    child: ElevatedButton(
-                      onPressed:
-                          _isGenerating || !_hasApiKey ? null : _generateStory,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: EldritchColors.leatherDark,
-                  foregroundColor: EldritchColors.highlightPaper,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                      ),
-                      child: _isGenerating
-                          ? const Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  width: 20,
-                                  height: 20,
-                                  child: CircularProgressIndicator(
-                                    strokeWidth: 2,
-                                    valueColor: const AlwaysStoppedAnimation<Color>(
-                                        EldritchColors.highlightPaper),
-                                  ),
-                                ),
-                                SizedBox(width: 12),
-                                Text('GENERATING STORY...'),
-                              ],
-                            )
-                          : const Text(
-                              'GENERATE STORY',
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'NARRATOR',
                               style: TextStyle(
-                                fontSize: 16,
+                                color: EldritchColors.nearBlackInk,
+                                fontSize: 12,
                                 fontWeight: FontWeight.bold,
                                 letterSpacing: 2,
                               ),
                             ),
-                    ),
+                            const SizedBox(height: 4),
+                            Text(
+                              widget.selectedVoice.name,
+                              style: const TextStyle(
+                                color: EldritchColors.deepInk,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              widget.selectedVoice.description,
+                              style: const TextStyle(
+                                color: EldritchColors.nearBlackInk,
+                                fontSize: 12,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                  const SizedBox(height: 24),
-                ],
-              ),
+                ),
+                const SizedBox(height: 24),
+
+                // API Key warning, error, and button - with horizontal padding
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      // API Key warning
+                      if (!_hasApiKey) ...[
+                        Container(
+                          padding: const EdgeInsets.all(16),
+                          decoration: BoxDecoration(
+                            color: EldritchColors.brownShadow.withOpacity(0.25),
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(
+                                color: EldritchColors.brownShadow
+                                    .withOpacity(0.6)),
+                          ),
+                          child: Row(
+                            children: [
+                              const Icon(Icons.warning_amber,
+                                  color: EldritchColors.brownShadow),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Text(
+                                      'API Key Required',
+                                      style: TextStyle(
+                                        color: EldritchColors.leatherDark,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    const Text(
+                                      'Add your Anthropic API key to generate the story',
+                                      style: TextStyle(
+                                        color: EldritchColors.nearBlackInk,
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              TextButton(
+                                onPressed: _openSettings,
+                                child: const Text('Settings'),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                      ],
+
+                      // Error message
+                      if (_error != null) ...[
+                        Container(
+                          padding: const EdgeInsets.all(16),
+                          decoration: BoxDecoration(
+                            color: EldritchColors.bloodSeal.withOpacity(0.2),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Row(
+                            children: [
+                              const Icon(Icons.error_outline,
+                                  color: EldritchColors.bloodSeal),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: Text(
+                                  _error!,
+                                  style: const TextStyle(
+                                      color: EldritchColors.bloodSeal),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                      ],
+
+                      // Generate button
+                      SizedBox(
+                        height: 56,
+                        child: ElevatedButton(
+                          onPressed: _isGenerating || !_hasApiKey
+                              ? null
+                              : _generateStory,
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: EldritchColors.leatherDark,
+                            foregroundColor: EldritchColors.highlightPaper,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                          child: _isGenerating
+                              ? const Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    SizedBox(
+                                      width: 20,
+                                      height: 20,
+                                      child: CircularProgressIndicator(
+                                        strokeWidth: 2,
+                                        valueColor:
+                                            const AlwaysStoppedAnimation<Color>(
+                                                EldritchColors.highlightPaper),
+                                      ),
+                                    ),
+                                    SizedBox(width: 12),
+                                    Text('GENERATING STORY...'),
+                                  ],
+                                )
+                              : const Text(
+                                  'GENERATE STORY',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 2,
+                                  ),
+                                ),
+                        ),
+                      ),
+                      const SizedBox(height: 24),
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
+          ),
         ],
       ),
     );
@@ -570,7 +596,8 @@ class _MiniStatBadge extends StatelessWidget {
             width: 14,
             height: 14,
             fit: BoxFit.contain,
-            errorBuilder: (_, __, ___) => Icon(fallbackIcon, color: color, size: 12),
+            errorBuilder: (_, __, ___) =>
+                Icon(fallbackIcon, color: color, size: 12),
           ),
           const SizedBox(width: 2),
           Text(
