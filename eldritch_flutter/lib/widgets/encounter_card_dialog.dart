@@ -118,6 +118,17 @@ class _EncounterCardDialogState extends State<EncounterCardDialog>
     }
   }
 
+  /// Returns the asset path for the City/Wilderness/Sea icon badge,
+  /// or null if the subType doesn't map to one.
+  String? _getGeneralTypeIcon(String subType) {
+    switch (subType.toLowerCase()) {
+      case 'city encounters':      return 'assets/images/City.webp';
+      case 'wilderness encounters': return 'assets/images/Wilderness.webp';
+      case 'sea encounters':        return 'assets/images/Sea.webp';
+      default: return null;
+    }
+  }
+
   String _getLocationCardImage(String location) {
     final locationMap = {
       'Arkham': 'Americas',
@@ -339,6 +350,19 @@ class _EncounterCardDialogState extends State<EncounterCardDialog>
                       ),
                     ),
                   ),
+                // Location type badge for general encounters
+                if (widget.encounterType == EncounterType.general &&
+                    _getGeneralTypeIcon(widget.subType) != null)
+                  Positioned(
+                    top: 8,
+                    left: 8,
+                    child: Image.asset(
+                      _getGeneralTypeIcon(widget.subType)!,
+                      width: 44,
+                      height: 44,
+                      errorBuilder: (_, __, ___) => const SizedBox.shrink(),
+                    ),
+                  ),
                 Positioned(
                   top: 4,
                   right: 4,
@@ -500,11 +524,24 @@ class _EncounterCardDialogState extends State<EncounterCardDialog>
                     ),
                     child: Row(
                       children: [
-                        Icon(
-                          _getEncounterIcon(),
-                          color: EldritchColors.parchmentLight,
-                          size: 14,
-                        ),
+                        if (widget.encounterType == EncounterType.general &&
+                            _getGeneralTypeIcon(widget.subType) != null)
+                          Image.asset(
+                            _getGeneralTypeIcon(widget.subType)!,
+                            width: 16,
+                            height: 16,
+                            errorBuilder: (_, __, ___) => Icon(
+                              _getEncounterIcon(),
+                              color: EldritchColors.parchmentLight,
+                              size: 14,
+                            ),
+                          )
+                        else
+                          Icon(
+                            _getEncounterIcon(),
+                            color: EldritchColors.parchmentLight,
+                            size: 14,
+                          ),
                         const SizedBox(width: 6),
                         Expanded(
                           child: Text(

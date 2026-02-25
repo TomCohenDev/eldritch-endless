@@ -86,6 +86,7 @@ class _AncientOnePickerState extends State<AncientOnePicker> {
                 Expanded(
                   child: GridView.builder(
                     padding: const EdgeInsets.all(16),
+                    cacheExtent: 400,
                     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       childAspectRatio: 0.75,
@@ -96,10 +97,12 @@ class _AncientOnePickerState extends State<AncientOnePicker> {
                     itemBuilder: (context, index) {
                       final ancientOne = _ancientOnes[index];
                       final isSelected = _selectedAncientOne?.name == ancientOne.name;
-                      return _AncientOneCard(
-                        ancientOne: ancientOne,
-                        isSelected: isSelected,
-                        onTap: () => _selectAncientOne(ancientOne),
+                      return RepaintBoundary(
+                        child: _AncientOneCard(
+                          ancientOne: ancientOne,
+                          isSelected: isSelected,
+                          onTap: () => _selectAncientOne(ancientOne),
+                        ),
                       );
                     },
                   ),
@@ -209,6 +212,10 @@ class _AncientOneCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cardPixelWidth =
+        (MediaQuery.sizeOf(context).width / 2 * MediaQuery.devicePixelRatioOf(context))
+            .round();
+
     return GestureDetector(
       onTap: onTap,
       child: AnimatedContainer(
@@ -232,6 +239,7 @@ class _AncientOneCard extends StatelessWidget {
               Image.asset(
                 _imagePath,
                 fit: BoxFit.cover,
+                cacheWidth: cardPixelWidth,
                 errorBuilder: (context, error, stackTrace) {
                   // Fallback if image not found
                   return Container(

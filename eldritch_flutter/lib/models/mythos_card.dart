@@ -115,6 +115,7 @@ class MythosCard {
   factory MythosCard.fromJson(Map<String, dynamic> json) {
     // Parse the fullText field to extract card properties
     String fullText = json['fullText'] ?? '';
+    final rawWikitext = json['rawWikitext'] ?? '';
 
     return MythosCard(
       title: json['title'] ?? '',
@@ -127,9 +128,15 @@ class MythosCard {
       flavorText: _extractField(fullText, 'Flavor'),
       effectText: _extractField(fullText, 'Effect'),
       reckoningEffect: _extractField(fullText, 'Reckoning'),
-      rawWikitext: json['rawWikitext'] ?? '',
+      rawWikitext: rawWikitext,
     );
   }
+
+  /// Effect text from rawWikitext, preserving {{template}} markers for icon rendering.
+  String get effectTextRaw => _extractFieldFromRaw(rawWikitext, 'Effect');
+
+  /// Reckoning text from rawWikitext, preserving {{template}} markers for icon rendering.
+  String get reckoningEffectRaw => _extractFieldFromRaw(rawWikitext, 'Reckoning');
 
   static String _extractField(String fullText, String fieldName) {
     final regex = RegExp('\\|$fieldName\\s*=\\s*([^\\|]+)', caseSensitive: false);
@@ -140,6 +147,64 @@ class MythosCard {
     // Also remove any remaining }} anywhere
     value = value.replaceAll('}}', '').trim();
     return value;
+  }
+
+  /// Extracts a field from rawWikitext, keeping {{template}} markers intact.
+  /// [[Wiki links]] are resolved to their display text.
+  static String _extractFieldFromRaw(String rawWikitext, String fieldName) {
+    if (rawWikitext.isEmpty) return '';
+
+    // Find the field start (line beginning with |FieldName =)
+    final startRegex = RegExp(
+      r'^\s*\|' + RegExp.escape(fieldName) + r'\s*=\s*',
+      caseSensitive: false,
+      multiLine: true,
+    );
+    final startMatch = startRegex.firstMatch(rawWikitext);
+    if (startMatch == null) return '';
+
+    final contentStart = startMatch.end;
+    // Find the next field boundary (a line starting with | + letter, or }})
+    final nextFieldRegex = RegExp(r'\n\s*(?:\|[A-Za-z]|\}\})', multiLine: true);
+    final nextMatch = nextFieldRegex.firstMatch(rawWikitext.substring(contentStart));
+    final contentEnd = nextMatch != null
+        ? contentStart + nextMatch.start
+        : rawWikitext.length;
+
+    String content = rawWikitext.substring(contentStart, contentEnd).trim();
+
+    // Resolve [[Target|Display]] → "Display", [[Target]] → "Target"
+    content = content.replaceAllMapped(RegExp(r'\[\[([^\]]+)\]\]'), (m) {
+      final text = m.group(1)!;
+      final pipe = text.indexOf('|');
+      return pipe >= 0 ? text.substring(pipe + 1) : text;
+    });
+
+    // Strip wiki bold/italic markers
+    content = content.replaceAll("'''", '').replaceAll("''", '');
+
+    return content;
+  }
+
+  /// Extract how many eldritch tokens should be placed on this card.
+  /// Checks {{Place ET|N}} in rawWikitext first (most reliable), then
+  /// falls back to "N Eldritch Token" prose.
+  int get eldritchTokenCount {
+    // {{Place ET|N}} — the canonical placement template
+    final placeET = RegExp(r'\{\{Place ET\|(\d+)\}\}', caseSensitive: false);
+    final placeMatch = placeET.firstMatch(rawWikitext);
+    if (placeMatch != null) {
+      return int.tryParse(placeMatch.group(1) ?? '1') ?? 1;
+    }
+
+    // Fallback: prose like "place 4 Eldritch Tokens"
+    final prose = RegExp(r'(\d+)\s+[Ee]ldritch\s+[Tt]oken', caseSensitive: false);
+    final proseMatch = prose.firstMatch(effectText) ?? prose.firstMatch(rawWikitext);
+    if (proseMatch != null) {
+      return int.tryParse(proseMatch.group(1) ?? '1') ?? 1;
+    }
+
+    return 1;
   }
 
   /// Returns true if the reckoning effect has meaningful content

@@ -585,6 +585,14 @@ class GameState {
       lastPlayedAt: DateTime.now(),
     );
   }
+
+  /// Add a new player to the game
+  GameState addPlayer(Player newPlayer) {
+    return copyWith(
+      players: [...players, newPlayer],
+      lastPlayedAt: DateTime.now(),
+    );
+  }
 }
 
 /// Summary of a saved game for display in the game list

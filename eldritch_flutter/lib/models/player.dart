@@ -9,6 +9,7 @@ class Player {
   final int currentSanity;
   final String currentLocation;
   final List<TimelineEvent> timeline;
+  final bool isDead;
 
   Player({
     String? id,
@@ -17,11 +18,13 @@ class Player {
     int? currentSanity,
     String? currentLocation,
     List<TimelineEvent>? timeline,
+    bool? isDead,
   })  : id = id ?? const Uuid().v4(),
         currentHealth = currentHealth ?? investigator.health,
         currentSanity = currentSanity ?? investigator.sanity,
         currentLocation = currentLocation ?? investigator.startingLocation,
-        timeline = timeline ?? [];
+        timeline = timeline ?? [],
+        isDead = isDead ?? false;
 
   factory Player.fromJson(Map<String, dynamic> json) {
     return Player(
@@ -34,6 +37,7 @@ class Player {
               ?.map((e) => TimelineEvent.fromJson(e))
               .toList() ??
           [],
+      isDead: json['isDead'] as bool? ?? false,
     );
   }
 
@@ -45,6 +49,7 @@ class Player {
       'currentSanity': currentSanity,
       'currentLocation': currentLocation,
       'timeline': timeline.map((e) => e.toJson()).toList(),
+      'isDead': isDead,
     };
   }
 
@@ -55,6 +60,7 @@ class Player {
     int? currentSanity,
     String? currentLocation,
     List<TimelineEvent>? timeline,
+    bool? isDead,
   }) {
     return Player(
       id: id ?? this.id,
@@ -63,6 +69,7 @@ class Player {
       currentSanity: currentSanity ?? this.currentSanity,
       currentLocation: currentLocation ?? this.currentLocation,
       timeline: timeline ?? this.timeline,
+      isDead: isDead ?? this.isDead,
     );
   }
 

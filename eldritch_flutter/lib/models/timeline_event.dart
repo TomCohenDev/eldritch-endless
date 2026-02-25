@@ -18,6 +18,7 @@ enum ActionType {
   component,
   localAction,
   custom,
+  death,
 }
 
 class TimelineEvent {
@@ -269,6 +270,8 @@ class TimelineEvent {
         return 'Local Action';
       case ActionType.custom:
         return 'Custom Action';
+      case ActionType.death:
+        return 'Investigator Dies';
     }
   }
 }

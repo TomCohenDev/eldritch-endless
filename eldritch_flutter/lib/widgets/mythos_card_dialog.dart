@@ -7,6 +7,7 @@ import '../models/timeline_event.dart';
 import '../services/grok_service.dart';
 import '../services/data_loader.dart';
 import '../theme/eldritch_theme.dart';
+import 'mythos_icon_text.dart';
 
 class MythosCardDialog extends StatefulWidget {
   final GameState gameState;
@@ -301,20 +302,55 @@ class _MythosCardDialogState extends State<MythosCardDialog>
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: icons.map((icon) {
+          Widget iconWidget = Image.asset(
+            icon.assetPath,
+            width: 24,
+            height: 24,
+            errorBuilder: (_, __, ___) => Icon(
+              Icons.help_outline,
+              size: 20,
+              color: _getMythosColor(card.color),
+            ),
+          );
+
+          // Show count badge on eldritch token icon
+          if (icon == MythosIcon.eldritchToken) {
+            final count = card.eldritchTokenCount;
+            iconWidget = Stack(
+              clipBehavior: Clip.none,
+              children: [
+                iconWidget,
+                Positioned(
+                  right: -5,
+                  top: -5,
+                  child: Container(
+                    width: 14,
+                    height: 14,
+                    decoration: const BoxDecoration(
+                      color: Colors.blue,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Center(
+                      child: Text(
+                        '$count',
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 9,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            );
+          }
+
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 4),
+            padding: const EdgeInsets.symmetric(horizontal: 6),
             child: Tooltip(
               message: icon.displayName,
-              child: Image.asset(
-                icon.assetPath,
-                width: 24,
-                height: 24,
-                errorBuilder: (_, __, ___) => Icon(
-                  Icons.help_outline,
-                  size: 20,
-                  color: _getMythosColor(card.color),
-                ),
-              ),
+              child: iconWidget,
             ),
           );
         }).toList(),
@@ -725,8 +761,11 @@ class _MythosCardDialogState extends State<MythosCardDialog>
                                   ),
                                 ),
                                 const SizedBox(height: 6),
-                                Text(
-                                  card.effectText,
+                                MythosIconText(
+                                  text: card.effectTextRaw.isNotEmpty
+                                      ? card.effectTextRaw
+                                      : card.effectText,
+                                  iconSize: 20,
                                   style: const TextStyle(
                                     color: EldritchColors.deepInk,
                                     fontSize: 18,
@@ -746,8 +785,11 @@ class _MythosCardDialogState extends State<MythosCardDialog>
                                     ),
                                   ),
                                   const SizedBox(height: 6),
-                                  Text(
-                                    card.reckoningEffect,
+                                  MythosIconText(
+                                    text: card.reckoningEffectRaw.isNotEmpty
+                                        ? card.reckoningEffectRaw
+                                        : card.reckoningEffect,
+                                    iconSize: 20,
                                     style: const TextStyle(
                                       color: EldritchColors.deepInk,
                                       fontSize: 18,
